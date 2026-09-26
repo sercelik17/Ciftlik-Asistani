@@ -20,10 +20,11 @@ def get_database():
         db_user = os.getenv("DB_USER")
         db_password = os.getenv("DB_PASSWORD")
         db_host = os.getenv("DB_HOST", "localhost")
+        db_port = os.getenv("DB_PORT", "5432")
         db_name = os.getenv("DB_NAME", "Sut_Sihirbazi")
         
         # PostgreSQL bağlantı URI'si
-        db_uri = f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:5432/{db_name}"
+        db_uri = f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
         return SQLDatabase.from_uri(db_uri, sample_rows_in_table_info=0)
     except Exception as e:
         print(f"❌ Veritabanı bağlantı hatası: {e}")
@@ -33,15 +34,19 @@ db = get_database()
 
 # Bulut modeli: Niyet analizi, tool seçimi (Orkestra Şefi)
 cloud_llm = ChatOllama(
-    model=os.getenv("CLOUD_LLM", "llama3"),
-    temperature=0.2,  # Tool seçimi için tutarlılık
+    model=os.getenv("CLOUD_LLM", "llama3.2"),
+    temperature=0.1,
+    num_ctx=2048,
+    num_predict=200,
     base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 )
 
 # Yerel model: Veri özetleme ve mahremiyet (Gizlilik Kalkanı)
 local_llm = ChatOllama(
-    model=os.getenv("LOCAL_LLM", "mistral"),
+    model=os.getenv("LOCAL_LLM", "llama3.2"),
     temperature=0.1,
+    num_ctx=2048,
+    num_predict=250,
     base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 )
 
@@ -136,14 +141,96 @@ def get_top_producing_cows_tool(limit: int) -> str:
     except Exception as e: return f"Hata: {e}"
 
 @tool
-def get_cow_profile_and_stats_tool(kupe_no: str) -> str:
-    """Belirli bir ineğin genel verim ortalamasını ve son 10 sağım trendini çeker.
-    'Sarıkız'ın durumu nasıl', 'TR102'nin verimi' gibi spesifik inek profilleri sorulduğunda kullan."""
-    if not db: return "Veritabanı bağlantısı yok."
-    safe_kupe = sanitize_input(kupe_no)
-    query = f"SELECT tarih, sagim_zamani, sut_miktari FROM sagim_kayitlari WHERE kupe_no = '{safe_kupe}' ORDER BY tarih DESC LIMIT 10;"
-    try: return f"TR{safe_kupe} İnek Profil ve Son 10 Sağım Verisi: {db.run(query)}"
-    except Exception as e: return f"Hata: {e}"
+def get_cow_profile_and_stats_tool(cow_identifier: str) -> str:
+    """
+    Belirli bir ineğin küpe numarası VEYA ismi ile
+    son 10 sağım kaydını getirir.
+
+    Örnek:
+    - Serap'ın durumu nasıl?
+    - TR0001'in verimi nasıl?
+    - Serap'ın süt verimi neden düştü?
+    """
+    if not db:
+        return "Veritabanı bağlantısı yok."
+
+    safe_value = sanitize_input(cow_identifier)
+
+    query = f"""
+    SELECT
+        i.kupe_no,
+        i.isim,
+        sk.tarih,
+        sk.sagim_zamani,
+        sk.sut_miktari
+    FROM inekler i
+    JOIN sagim_kayitlari sk
+        ON i.kupe_no = sk.kupe_no
+    WHERE
+        i.kupe_no = '{safe_value}'
+        OR i.isim ILIKE '%{safe_value}%'
+    ORDER BY sk.tarih DESC, sk.id DESC
+    LIMIT 10;
+    """
+
+    try:
+        result = db.run(query)
+
+        if not result or result == "[]":
+            return f"{cow_identifier} için sağım kaydı bulunamadı."
+
+        return (
+            f"{cow_identifier} için son 10 sağım verisi: "
+            f"{result}"
+        )
+
+    except Exception as e:
+        return f"Hata: {e}"
+
+@tool
+def get_cow_latest_milk_drop_tool(cow_identifier: str) -> str:
+    """
+    İnek ismi veya küpe numarasına göre en son süt düşüş alarmını getirir.
+    'Serap'ın sütü neden düştü?', 'Serap ne kadar düşüş yaşadı?',
+    'Serap'ın süt verimindeki düşüş' gibi sorularda ÖNCELİKLE kullan.
+    """
+    if not db:
+        return "Veritabanı bağlantısı yok."
+
+    safe_value = sanitize_input(cow_identifier)
+
+    query = f"""
+    SELECT
+        i.kupe_no,
+        i.isim,
+        a.tarih,
+        a.sagim_zamani,
+        a.eski_ortalama,
+        a.son_verim,
+        a.dusus_yuzdesi
+    FROM alarmlar a
+    JOIN inekler i
+        ON a.kupe_no = i.kupe_no
+    WHERE
+        i.kupe_no = '{safe_value}'
+        OR i.isim ILIKE '%{safe_value}%'
+    ORDER BY a.tarih DESC, a.id DESC
+    LIMIT 1;
+    """
+
+    try:
+        result = db.run(query)
+
+        if not result or result == "[]":
+            return f"{cow_identifier} için süt düşüş alarmı bulunamadı."
+
+        return (
+            f"{cow_identifier} için son süt düşüş alarmı: "
+            f"{result}"
+        )
+
+    except Exception as e:
+        return f"Hata: {e}"    
 
 # =====================================================================
 # 3. DİNAMİK SQL ARACI (AD-HOC FALLBACK)
@@ -179,9 +266,15 @@ def run_dynamic_sql_tool(query_description: str) -> str:
 
 # Araç listesi ve bulut modeline bağlanması
 tools = [
-    get_unread_alarms_tool, get_cow_alarm_history_tool, get_latest_daily_summary_tool,
-    get_farm_milk_trend_tool, get_cows_daily_change_tool, get_top_producing_cows_tool,
-    get_cow_profile_and_stats_tool, run_dynamic_sql_tool
+    get_unread_alarms_tool, 
+    get_cow_alarm_history_tool, 
+    get_latest_daily_summary_tool,
+    get_farm_milk_trend_tool, 
+    get_cows_daily_change_tool, 
+    get_top_producing_cows_tool,
+    get_cow_profile_and_stats_tool, 
+    get_cow_latest_milk_drop_tool,
+    run_dynamic_sql_tool
 ]
 llm_with_tools = cloud_llm.bind_tools(tools)
 
@@ -189,11 +282,14 @@ llm_with_tools = cloud_llm.bind_tools(tools)
 # 4. LANGGRAPH AJAN VE İŞ AKIŞI (GİZLİLİK KALKANLI)
 # =====================================================================
 SYSTEM_PROMPT = """Sen Süt Sihirbazı'sın. Çiftçilere yardım eden neşeli, empati yeteneği yüksek uzman bir asistansın.
+TÜM YANITLARINI TÜRKÇE VER. İngilizce cevap üretme.
 GÖREVLERİN:
 1. Veri gerekiyorsa KESİNLİKLE önce 7 sabit araçtan uygun olanı seç.
 2. Soru birden fazla adım gerektiriyorsa (Örn: Önce sütü düşenleri bul, sonra o ineklerin küpe numarasıyla alarm geçmişini sorgula), araçları ADIM ADIM sırasıyla çağır.
 3. Soru çok sıradışıysa ve sabit araçlar yetmiyorsa 'run_dynamic_sql_tool' kullan.
 4. Selamlaşma veya genel sohbetlerde araç çağırma, doğrudan kendin samimi bir dille yanıt ver.
+5. Kullanıcı belirli bir ineğin süt düşüşünü, düşüş oranını veya olası nedenlerini soruyorsa önce get_cow_latest_milk_drop_tool aracını kullan. 
+Kullanıcı inek ismi verdiyse bunu küpe numarası sanma; araç isim veya küpe numarasını birlikte destekler.
 """
 
 def router_node(state: MessagesState):
@@ -238,18 +334,26 @@ def summarizer_node(state: MessagesState):
         elif isinstance(msg, ToolMessage):
             tool_data += f"- {msg.name}: {msg.content}\n"
     summarizer_prompt = f"""Sen Süt Sihirbazı'sın. Çiftçinin sorusunu, veritabanından çekilen aşağıdaki verileri kullanarak samimi ve net bir dille cevapla.
+
+            DİL KURALI:
+            - HER ZAMAN TÜRKÇE CEVAP VER.
+            - Kullanıcı hangi dilde sorarsa sorsun yanıt dili Türkçe olmalıdır.
+            - İngilizce başlık, açıklama veya ifade kullanma.
+            - Veritabanından gelen sayısal değerleri değiştirme veya uydurma.
             
             KRİTİK KURAL VE YORUMLAMA REHBERİ:
-            1. 'get_cow_alarm_history_tool' veya 'get_unread_alarms_tool' tarafından döndürülen her mesaj bir "RİSK ALARMI" kaydıdır. 
+            1. 'get_cow_alarm_history_tool' veya 'get_unread_alarms_tool' tarafından döndürülen her mesaj bir "RİSK ALARMI" kaydıdır.
             2. Mesajların içindeki "meme sağlığı", "mastitis", "stres" veya "süt düşüşü" uyarılarını o ineğin geçmiş risk alarmı / olası hastalık şüphesi olarak kabul et ve çiftçiye özetle.
-            3. Sadece ve sadece araçlardan GEREKLİ HİÇBİR VERİ DÖNMEDİYSE (örneğin liste tamsa boşsa) "Bu konuda bilgi çekilemedi" de. Veri varsa mutlaka tablolaşır veya listele!
-            
-            Verileri okunaklı listeler veya küçük tablolar halinde sun. Ham SQL veya teknik terimler kullanma.
-            
+            3. Sadece ve sadece araçlardan GEREKLİ HİÇBİR VERİ DÖNMEDİYSE "Bu konuda bilgi çekilemedi" de. Veri varsa mutlaka listele veya tablo halinde sun.
+
+            Verileri okunaklı listeler veya küçük tablolar halinde sun.
+            Ham SQL veya teknik terimler kullanma.
+
             Çiftçinin Sorusu: {user_question}
+
             Veritabanı Sonuçları:
             {tool_data}
-            
+
             Cevabın:"""
     
     print("🔒 [GİZLİLİK KALKANI - YEREL]: Veriler lokalde yorumlanıyor...")
@@ -272,7 +376,7 @@ def generate_general_answer(state: MessagesState):
     
     # Genel sohbet için tool tanımları İÇERMEYEN neşeli bir prompt
     prompt = ChatPromptTemplate.from_messages([
-        ("system", "Sen Süt Sihirbazı'sın. Çiftçilere yardım eden neşeli, empati yeteneği yüksek uzman bir asistansın. Çiftçinin selamını veya genel sorusunu samimi, doğal ve yardımsever bir dille cevapla."),
+        ("system", "Sen Süt Sihirbazı'sın. Çiftçilere yardım eden neşeli, empati yeteneği yüksek uzman bir asistansın. HER ZAMAN TÜRKÇE cevap ver. İngilizce cevap üretme. Çiftçinin selamını veya genel sorusunu samimi, doğal ve yardımsever bir dille cevapla."),
         ("human", "{question}")
     ])
     
@@ -316,10 +420,11 @@ workflow.add_edge("generate_general_answer", END)
 
 toolrag_app = workflow.compile()
 
-# 1. Grafik verisini PNG (bytes) formatında alın
-png_bytes = toolrag_app.get_graph().draw_mermaid_png()
+if __name__ == "__main__":
+    png_bytes = toolrag_app.get_graph().draw_mermaid_png()
 
-# 2. Resim dosyası olarak bilgisayarınıza kaydedin
-with open("toolrag_app.png", "wb") as f:
-    f.write(png_bytes)
+    with open("toolrag_app.png", "wb") as f:
+        f.write(png_bytes)
+
+    print("toolrag_app.png oluşturuldu.")
 

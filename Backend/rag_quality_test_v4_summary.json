@@ -1,0 +1,17 @@
+{
+  "completed": 3,
+  "successful": 3,
+  "errors": 0,
+  "route_accuracy": 1.0,
+  "mean_latency_sec": 40.201,
+  "median_latency_sec": 38.795,
+  "by_expected_route": {
+    "RAG": {
+      "count": 3,
+      "route_correct": 3,
+      "route_accuracy": 1.0,
+      "mean_latency_sec": 40.201,
+      "median_latency_sec": 38.795
+    }
+  }
+}

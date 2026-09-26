@@ -20,7 +20,7 @@ export default function HTML({ children }: { children: React.ReactNode }) {
         {/* iOS PWA Desteği */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Süt Sihirbazı" />
+        <meta name="apple-mobile-web-app-title" content="Çiftlik Asistanı" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
 
         {/* Meta Renkler ve SEO */}

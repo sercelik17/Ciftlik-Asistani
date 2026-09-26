@@ -13,8 +13,8 @@ interface CowStats { dates: string[]; yields: number[]; }
 
 const getApiUrl = () => {
   const hostUri = Constants.expoConfig?.hostUri;
-  if (hostUri) return `http://${hostUri.split(':')[0]}:8000`;
-  return `http://localhost:8000`;
+  if (hostUri) return `http://${hostUri.split(':')[0]}:8001`;
+  return `http://localhost:8001`;
 };
 
 const API_URL = getApiUrl();
@@ -178,7 +178,7 @@ export default function Herd() {
 
                   <TouchableOpacity style={styles.askButton} onPress={() => askAboutCow(selectedCow)}>
                     <Ionicons name="chatbubble-ellipses" size={20} color="#fff" style={{ marginRight: 8 }} />
-                    <Text style={styles.askButtonText}>Sihirbaza Bu İnek Hakkında Sor</Text>
+                    <Text style={styles.askButtonText}>Çiftlik Asistanına Bu İnek Hakkında Sor</Text>
                   </TouchableOpacity>
                 </ScrollView>
               </>

@@ -19,8 +19,8 @@ import { useAuth } from '../context/AuthContext';
 
 const getApiUrl = () => {
   const hostUri = Constants.expoConfig?.hostUri;
-  if (hostUri) return `http://${hostUri.split(':')[0]}:8000`;
-  return `http://localhost:8000`;
+  if (hostUri) return `http://${hostUri.split(':')[0]}:8001`;
+  return `http://localhost:8001`;
 };
 
 const API_URL = getApiUrl();
@@ -65,7 +65,7 @@ export default function Login() {
           ad_soyad: data.ad_soyad,
           eposta: emailTrimmed,
         });
-        // Giriş yaptıktan sonra kullanıcı chat (Sihirbaz) ekranına yönlendirilsin
+        // Giriş yaptıktan sonra kullanıcı chat (Asistan) ekranına yönlendirilsin
         router.replace('/(tabs)/chat' as any);
       } else {
         Alert.alert('Giriş Başarısız', data.detail || 'E-posta veya şifre hatalı.');
@@ -89,8 +89,8 @@ export default function Login() {
             <View style={styles.logoCircle}>
               <MaterialCommunityIcons name="magic-staff" size={48} color="#fff" />
             </View>
-            <Text style={styles.appTitle}>Süt Sihirbazı</Text>
-            <Text style={styles.appSubtitle}>Yapay Zeka Destekli Çiftlik Yönetimi</Text>
+            <Text style={styles.appTitle}>Çiftlik Asistanı</Text>
+            <Text style={styles.appSubtitle}>Yapay Zekâ Destekli Süt Sığırcılığı Karar Destek Sistemi</Text>
           </View>
 
           <View style={styles.cardContainer}>
@@ -206,9 +206,12 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   cardContainer: {
+    width: '100%',
+    maxWidth: 600,
+    alignSelf: 'center',
     backgroundColor: '#ffffff',
     borderRadius: 24,
-    padding: 24,
+    padding: 28,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.05,

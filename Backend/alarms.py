@@ -27,6 +27,7 @@ def get_db_connection():
     db_user = os.getenv("DB_USER")
     db_password = os.getenv("DB_PASSWORD")
     db_host = os.getenv("DB_HOST")
+    db_port = os.getenv("DB_PORT", "5432")
     db_name = os.getenv("DB_NAME")
     
     return psycopg2.connect(
@@ -34,7 +35,7 @@ def get_db_connection():
         user=db_user,
         password=db_password,
         host=db_host,
-        port=5432
+        port=int(db_port)
     )
 
 def send_push_notification(title: str, body: str, data: dict = None):

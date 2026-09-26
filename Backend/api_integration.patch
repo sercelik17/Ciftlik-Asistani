@@ -1,0 +1,13 @@
+--- a/Backend/api.py
++++ b/Backend/api.py
+@@
+ from tool_rag import toolrag_app
++from thesis_rag.api_router import create_thesis_router
+@@
+ async def get_current_user(token: str = Depends(oauth2_scheme)):
+@@
+         raise credentials_exception
++
++# LangChain + Hybrid RAG tez endpoint'i.
++# Auth dependency burada verildiği için mevcut JWT mekanizması korunur.
++app.include_router(create_thesis_router(get_current_user))

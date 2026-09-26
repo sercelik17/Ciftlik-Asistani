@@ -19,8 +19,8 @@ import { useAuth } from '../context/AuthContext';
 
 const getApiUrl = () => {
   const hostUri = Constants.expoConfig?.hostUri;
-  if (hostUri) return `http://${hostUri.split(':')[0]}:8000`;
-  return `http://localhost:8000`;
+  if (hostUri) return `http://${hostUri.split(':')[0]}:8001`;
+  return `http://localhost:8001`;
 };
 
 const API_URL = getApiUrl();
@@ -74,7 +74,7 @@ export default function Signup() {
           ad_soyad: adSoyadTrimmed,
           eposta: emailTrimmed,
         });
-        // Kayıt olduktan sonra kullanıcı chat (Sihirbaz) ekranına yönlendirilsin
+        // Kayıt olduktan sonra kullanıcı chat (Asistan) ekranına yönlendirilsin
         router.replace('/(tabs)/chat' as any);
       } else {
         Alert.alert('Kayıt Başarısız', data.detail || 'Kayıt oluşturulamadı.');
@@ -98,7 +98,7 @@ export default function Signup() {
             <View style={styles.logoCircle}>
               <MaterialCommunityIcons name="magic-staff" size={40} color="#fff" />
             </View>
-            <Text style={styles.appTitle}>Süt Sihirbazı</Text>
+            <Text style={styles.appTitle}>Çiftlik Asistanı</Text>
             <Text style={styles.appSubtitle}>Yeni Üyelik Oluşturun</Text>
           </View>
 

@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, File, UploadFile, HTTPException, Request, BackgroundTasks,Depends
 from contextlib import asynccontextmanager
 from fastapi.responses import StreamingResponse, FileResponse
@@ -7,8 +8,10 @@ from langchain_core.messages import HumanMessage, ToolMessage, AIMessage
 from sql_rag import rag_app
 from csv_rag import csv_rag_app
 from tool_rag import toolrag_app
+from thesis_rag.api_router import create_thesis_router
 import uvicorn
 import os
+from dotenv import load_dotenv
 import tempfile
 import json
 import asyncio
@@ -22,7 +25,7 @@ from datetime import datetime, timedelta, timezone
 import jwt
 from fastapi.security import OAuth2PasswordBearer
 
-
+load_dotenv()
 SECRET_KEY = os.environ.get("JWT_SECRET_KEY", "super-gizli-sut-sihirbazi-anahtari-12345")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 1 Günlük token süresi
@@ -54,6 +57,14 @@ async def lifespan(app: FastAPI):
         print("Zamanlanmış görev motoru durduruldu.")
 
 app = FastAPI(lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origin_regex=r"http://(localhost|127\.0\.0\.1):\d+",
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class SignupRequest(BaseModel):
     ciftlik_adi: str
@@ -149,6 +160,8 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
     except jwt.PyJWTError:
         raise credentials_exception
 
+app.include_router(create_thesis_router(get_current_user))
+
 def sse_event(data: dict) -> str:
     return f"data: {json.dumps(data, ensure_ascii=False)}\n\n"
 
@@ -162,8 +175,6 @@ def read_root():
 
 @app.post("/auth/signup", response_model=TokenResponse)
 def signup(request: SignupRequest):
-    print(f"---> GELEN ŞİFRE: '{request.sifre}'")
-    print(f"---> ŞİFRE UZUNLUĞU: {len(request.sifre)} karakter")
     from alarms import get_db_connection
     conn = None
     try:

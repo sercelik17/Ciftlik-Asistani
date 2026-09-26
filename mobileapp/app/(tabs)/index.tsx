@@ -25,8 +25,8 @@ interface CowDailyChange {
 
 const getApiUrl = () => {
   const hostUri = Constants.expoConfig?.hostUri;
-  if (hostUri) return `http://${hostUri.split(':')[0]}:8000`;
-  return `http://localhost:8000`;
+  if (hostUri) return `http://${hostUri.split(':')[0]}:8001`;
+  return `http://localhost:8001`;
 };
 
 const API_URL = getApiUrl();
@@ -151,7 +151,7 @@ export default function Dashboard() {
         <TouchableOpacity style={styles.agentBanner} onPress={() => router.push('/chat')} activeOpacity={0.9}>
           <MaterialCommunityIcons name="magic-staff" size={28} color="#fff" />
           <View style={{ flex: 1, marginLeft: 12 }}>
-            <Text style={styles.agentBannerTitle}>Süt Sihirbazı Emrindedir</Text>
+            <Text style={styles.agentBannerTitle}>Çiftlik Asistanı Yanınızda</Text>
             <Text style={styles.agentBannerSub}>Veri analizi yapmak, grafikleri çizdirmek veya alarmları sormak için tıklayın.</Text>
           </View>
           <Ionicons name="chevron-forward" size={22} color="#fff" />

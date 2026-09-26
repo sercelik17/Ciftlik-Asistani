@@ -1,0 +1,17 @@
+{
+  "completed": 10,
+  "successful": 10,
+  "errors": 0,
+  "route_accuracy": 1.0,
+  "mean_latency_sec": 4.102,
+  "median_latency_sec": 3.876,
+  "by_expected_route": {
+    "SQL": {
+      "count": 10,
+      "route_correct": 10,
+      "route_accuracy": 1.0,
+      "mean_latency_sec": 4.102,
+      "median_latency_sec": 3.876
+    }
+  }
+}

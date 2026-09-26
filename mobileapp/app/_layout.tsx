@@ -8,17 +8,24 @@ import * as Device from 'expo-device';
 import { AuthProvider, useAuth } from '../context/AuthContext';
 
 // Uygulama açıkken (foreground) bildirimlerin nasıl davranacağını belirle
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: true,
-    shouldShowBanner: true,
-    shouldShowList: true,
-  }),
-});
+if (Platform.OS !== 'web') {
+  Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowAlert: true,
+      shouldPlaySound: true,
+      shouldSetBadge: true,
+      shouldShowBanner: true,
+      shouldShowList: true,
+    }),
+  });
+}
 
 async function registerForPushNotificationsAsync() {
+ if (Platform.OS === 'web') {
+    console.log('Web ortamında push notification devre dışı.');
+    return null;
+  }
+
   if (!Device.isDevice) {
     console.log('Push bildirimleri emülatörde test edilemez. Lütfen gerçek bir cihaz kullanın.');
     return null;
@@ -140,6 +147,11 @@ function RootLayoutNav() {
     // Sadece kullanıcı giriş yapmışsa push token'ı kaydet
     if (!token) return;
 
+    if (Platform.OS === 'web') {
+  console.log('Web ortamında bildirim dinleyicileri devre dışı.');
+  return;
+    }
+
     registerForPushNotificationsAsync().then(pushToken => {
       if (!pushToken) {
         console.log('⚠️ Token alınamadı, backend kayıt atlandı.');
@@ -149,7 +161,7 @@ function RootLayoutNav() {
       // API URL'ini IP adresine göre bul
       const hostUri = Constants.expoConfig?.hostUri;
       const ip = hostUri ? hostUri.split(':')[0] : 'localhost';
-      const API_URL = `http://${ip}:8000`;
+      const API_URL = `http://${ip}:8001`;
 
       console.log("📡 Token backend'e kaydediliyor:", API_URL);
 

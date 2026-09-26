@@ -1,0 +1,8 @@
+{
+  "document_count": 1277,
+  "chunk_count": 1803,
+  "embedding_model": "bge-m3",
+  "chunk_size": 900,
+  "chunk_overlap": 150,
+  "source_dir": "C:\\Users\\Serenay\\Documents\\Tez\\Sut_Sihirbazi_Bitirme_Projesi\\Backend\\knowledge_base"
+}

@@ -1,0 +1,31 @@
+{
+  "completed": 100,
+  "successful": 99,
+  "errors": 1,
+  "route_accuracy": 0.9798,
+  "mean_latency_sec": 38.003,
+  "median_latency_sec": 39.698,
+  "by_expected_route": {
+    "RAG": {
+      "count": 50,
+      "route_correct": 49,
+      "route_accuracy": 0.98,
+      "mean_latency_sec": 55.494,
+      "median_latency_sec": 59.96
+    },
+    "SQL": {
+      "count": 29,
+      "route_correct": 28,
+      "route_accuracy": 0.9655,
+      "mean_latency_sec": 7.034,
+      "median_latency_sec": 4.495
+    },
+    "HYBRID": {
+      "count": 20,
+      "route_correct": 20,
+      "route_accuracy": 1.0,
+      "mean_latency_sec": 39.18,
+      "median_latency_sec": 39.268
+    }
+  }
+}

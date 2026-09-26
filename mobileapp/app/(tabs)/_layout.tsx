@@ -53,16 +53,16 @@ export default function TabsLayout() {
         ),
       }}
     >
-      {/* VİZYON GÜNCELLESİ: 1. SEKME ARTIK SÜT SİHİRBAZI */}
+      {/* VİZYON GÜNCELLESİ: 1. SEKME ARTIK ÇİFTLİK ASİSTANI */}
       <Tabs.Screen
         name="chat"
         options={{
-          title: 'Sihirbaz',
-          tabBarLabel: 'Sihirbaz',
+          title: 'Asistan',
+          tabBarLabel: 'Asistan',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? "chatbubble-ellipses" : "chatbubble-ellipses-outline"} size={22} color={color} />
           ),
-          headerTitle: ' Süt Sihirbazı ',
+          headerTitle: ' Çiftlik Asistanı ',
         }}
       />
 

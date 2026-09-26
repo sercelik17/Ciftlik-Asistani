@@ -39,8 +39,8 @@ interface RiskyCow extends Cow {
 
 const getApiUrl = () => {
   const hostUri = Constants.expoConfig?.hostUri;
-  if (hostUri) return `http://${hostUri.split(':')[0]}:8000`;
-  return `http://localhost:8000`;
+  if (hostUri) return `http://${hostUri.split(':')[0]}:8001`;
+  return `http://localhost:8001`;
 };
 
 const API_URL = getApiUrl();
@@ -200,7 +200,7 @@ export default function Statistics() {
       contentContainerStyle={styles.content}
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} colors={['#1B5E20']} />}
     >
-      {/* AI Sihirbazı Banner */}
+      {/* AI Asistan Banner */}
       <TouchableOpacity
         style={styles.aiBanner}
         onPress={() => router.push({
@@ -213,7 +213,7 @@ export default function Statistics() {
           <MaterialCommunityIcons name="robot-outline" size={32} color="#ffffff" />
         </View>
         <View style={styles.aiTextContainer}>
-          <Text style={styles.aiTitle}>Süt Sihirbazı'na Yorumlat</Text>
+          <Text style={styles.aiTitle}>Çiftlik Asistanına Yorumlat</Text>
           <Text style={styles.aiSub}>Sürü verimi, dalgalanmalar ve damızlık seçimi için anlık YZ analizi</Text>
         </View>
         <Ionicons name="chevron-forward" size={26} color="#ffffff" />

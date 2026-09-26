@@ -1,0 +1,802 @@
+[
+  {
+    "id": "RAG001",
+    "route": "RAG",
+    "category": "01_mastitis",
+    "question": "Mastitis süt sığırlarında süt verimini nasıl etkiler?",
+    "preferred_sources": [
+      "FAO_Mastitis_Dairy_Manual.pdf",
+      "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+    ]
+  },
+  {
+    "id": "RAG002",
+    "route": "RAG",
+    "category": "01_mastitis",
+    "question": "Mastitisin süt kalitesi üzerindeki etkileri nelerdir?",
+    "preferred_sources": [
+      "FAO_Mastitis_Dairy_Manual.pdf",
+      "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+    ]
+  },
+  {
+    "id": "RAG003",
+    "route": "RAG",
+    "category": "01_mastitis",
+    "question": "Subklinik mastitis neden fark edilmesi zor bir durumdur?",
+    "preferred_sources": [
+      "FAO_Mastitis_Dairy_Manual.pdf",
+      "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+    ]
+  },
+  {
+    "id": "RAG004",
+    "route": "RAG",
+    "category": "01_mastitis",
+    "question": "Mastitis ile somatik hücre sayısı arasında nasıl bir ilişki vardır?",
+    "preferred_sources": [
+      "FAO_Mastitis_Dairy_Manual.pdf",
+      "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+    ]
+  },
+  {
+    "id": "RAG005",
+    "route": "RAG",
+    "category": "01_mastitis",
+    "question": "Kuru dönem meme sağlığı açısından neden önemlidir?",
+    "preferred_sources": [
+      "FAO_Mastitis_Dairy_Manual.pdf",
+      "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+    ]
+  },
+  {
+    "id": "RAG006",
+    "route": "RAG",
+    "category": "01_mastitis",
+    "question": "Mastitis riskini azaltmak için sağım yönetiminde hangi uygulamalar önemlidir?",
+    "preferred_sources": [
+      "FAO_Mastitis_Dairy_Manual.pdf",
+      "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+    ]
+  },
+  {
+    "id": "RAG007",
+    "route": "RAG",
+    "category": "01_mastitis",
+    "question": "Mastitisin sürü düzeyinde üretim kaybına etkisi nasıl açıklanabilir?",
+    "preferred_sources": [
+      "FAO_Mastitis_Dairy_Manual.pdf",
+      "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+    ]
+  },
+  {
+    "id": "RAG008",
+    "route": "RAG",
+    "category": "02_sut_kalitesi",
+    "question": "Somatik hücre sayısının artması süt kalitesini nasıl etkiler?",
+    "preferred_sources": [
+      "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+      "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+    ]
+  },
+  {
+    "id": "RAG009",
+    "route": "RAG",
+    "category": "02_sut_kalitesi",
+    "question": "Somatik hücre sayısı meme sağlığının değerlendirilmesinde neden kullanılır?",
+    "preferred_sources": [
+      "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+      "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+    ]
+  },
+  {
+    "id": "RAG010",
+    "route": "RAG",
+    "category": "02_sut_kalitesi",
+    "question": "Yüksek somatik hücre sayısının süt üretimine etkisi nedir?",
+    "preferred_sources": [
+      "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+      "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+    ]
+  },
+  {
+    "id": "RAG011",
+    "route": "RAG",
+    "category": "02_sut_kalitesi",
+    "question": "Süt kalitesinin değerlendirilmesinde somatik hücre sayısının önemi nedir?",
+    "preferred_sources": [
+      "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+      "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+    ]
+  },
+  {
+    "id": "RAG012",
+    "route": "RAG",
+    "category": "02_sut_kalitesi",
+    "question": "Mastitis süt bileşimi ve süt kalitesi üzerinde nasıl değişikliklere yol açabilir?",
+    "preferred_sources": [
+      "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+      "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+    ]
+  },
+  {
+    "id": "RAG013",
+    "route": "RAG",
+    "category": "02_sut_kalitesi",
+    "question": "Sütte mikrobiyal yükün artması kalite açısından neden istenmeyen bir durumdur?",
+    "preferred_sources": [
+      "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+      "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+    ]
+  },
+  {
+    "id": "RAG014",
+    "route": "RAG",
+    "category": "02_sut_kalitesi",
+    "question": "Meme sağlığı ile kaliteli süt üretimi arasındaki ilişki nedir?",
+    "preferred_sources": [
+      "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+      "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+    ]
+  },
+  {
+    "id": "RAG015",
+    "route": "RAG",
+    "category": "03_besleme",
+    "question": "Yetersiz kuru madde tüketimi süt ineklerinde süt verimini nasıl etkileyebilir?",
+    "preferred_sources": [
+      "FAO_2012_Balanced_Feeding.pdf",
+      "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+    ]
+  },
+  {
+    "id": "RAG016",
+    "route": "RAG",
+    "category": "03_besleme",
+    "question": "Dengeli besleme süt sığırlarında verim açısından neden önemlidir?",
+    "preferred_sources": [
+      "FAO_2012_Balanced_Feeding.pdf",
+      "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+    ]
+  },
+  {
+    "id": "RAG017",
+    "route": "RAG",
+    "category": "03_besleme",
+    "question": "Süt ineklerinde kuru madde tüketimini etkileyen başlıca faktörler nelerdir?",
+    "preferred_sources": [
+      "FAO_2012_Balanced_Feeding.pdf",
+      "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+    ]
+  },
+  {
+    "id": "RAG018",
+    "route": "RAG",
+    "category": "03_besleme",
+    "question": "Yetersiz enerji alımı süt üretimini nasıl etkileyebilir?",
+    "preferred_sources": [
+      "FAO_2012_Balanced_Feeding.pdf",
+      "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+    ]
+  },
+  {
+    "id": "RAG019",
+    "route": "RAG",
+    "category": "03_besleme",
+    "question": "Rasyon dengesi süt ineklerinin üretim performansını nasıl etkiler?",
+    "preferred_sources": [
+      "FAO_2012_Balanced_Feeding.pdf",
+      "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+    ]
+  },
+  {
+    "id": "RAG020",
+    "route": "RAG",
+    "category": "03_besleme",
+    "question": "Süt ineklerinde yem tüketiminin izlenmesi neden önemlidir?",
+    "preferred_sources": [
+      "FAO_2012_Balanced_Feeding.pdf",
+      "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+    ]
+  },
+  {
+    "id": "RAG021",
+    "route": "RAG",
+    "category": "04_metabolik_hastaliklar",
+    "question": "Süt humması nedir ve süt ineklerinde hangi dönemde daha sık görülür?",
+    "preferred_sources": [
+      "Cornell_Transition_Cow_Metabolic.pdf",
+      "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+    ]
+  },
+  {
+    "id": "RAG022",
+    "route": "RAG",
+    "category": "04_metabolik_hastaliklar",
+    "question": "Hipokalsemi süt ineklerinin sağlığını nasıl etkileyebilir?",
+    "preferred_sources": [
+      "Cornell_Transition_Cow_Metabolic.pdf",
+      "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+    ]
+  },
+  {
+    "id": "RAG023",
+    "route": "RAG",
+    "category": "04_metabolik_hastaliklar",
+    "question": "Geçiş dönemi süt ineklerinde metabolik hastalıklar açısından neden risklidir?",
+    "preferred_sources": [
+      "Cornell_Transition_Cow_Metabolic.pdf",
+      "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+    ]
+  },
+  {
+    "id": "RAG024",
+    "route": "RAG",
+    "category": "04_metabolik_hastaliklar",
+    "question": "Doğum sonrası dönemde metabolik hastalık riskinin artmasının nedenleri nelerdir?",
+    "preferred_sources": [
+      "Cornell_Transition_Cow_Metabolic.pdf",
+      "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+    ]
+  },
+  {
+    "id": "RAG025",
+    "route": "RAG",
+    "category": "04_metabolik_hastaliklar",
+    "question": "Süt hummasının önlenmesinde besleme yönetimi neden önemlidir?",
+    "preferred_sources": [
+      "Cornell_Transition_Cow_Metabolic.pdf",
+      "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+    ]
+  },
+  {
+    "id": "RAG026",
+    "route": "RAG",
+    "category": "04_metabolik_hastaliklar",
+    "question": "Geçiş dönemi yönetiminin süt üretimi ve hayvan sağlığı üzerindeki önemi nedir?",
+    "preferred_sources": [
+      "Cornell_Transition_Cow_Metabolic.pdf",
+      "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+    ]
+  },
+  {
+    "id": "RAG027",
+    "route": "RAG",
+    "category": "05_buzagi_sagligi",
+    "question": "Buzağılara kolostrum verilmesi neden önemlidir?",
+    "preferred_sources": [
+      "Cornell_Feeding_Dairy_Calf.pdf",
+      "USU_2026_Colostrum_Dairy_Calves.pdf"
+    ]
+  },
+  {
+    "id": "RAG028",
+    "route": "RAG",
+    "category": "05_buzagi_sagligi",
+    "question": "Kolostrumun buzağının bağışıklığı üzerindeki rolü nedir?",
+    "preferred_sources": [
+      "Cornell_Feeding_Dairy_Calf.pdf",
+      "USU_2026_Colostrum_Dairy_Calves.pdf"
+    ]
+  },
+  {
+    "id": "RAG029",
+    "route": "RAG",
+    "category": "05_buzagi_sagligi",
+    "question": "Buzağılarda kolostrumun zamanında verilmesi neden önemlidir?",
+    "preferred_sources": [
+      "Cornell_Feeding_Dairy_Calf.pdf",
+      "USU_2026_Colostrum_Dairy_Calves.pdf"
+    ]
+  },
+  {
+    "id": "RAG030",
+    "route": "RAG",
+    "category": "05_buzagi_sagligi",
+    "question": "Buzağı beslemesinde erken dönemde dikkat edilmesi gereken temel noktalar nelerdir?",
+    "preferred_sources": [
+      "Cornell_Feeding_Dairy_Calf.pdf",
+      "USU_2026_Colostrum_Dairy_Calves.pdf"
+    ]
+  },
+  {
+    "id": "RAG031",
+    "route": "RAG",
+    "category": "05_buzagi_sagligi",
+    "question": "Yetersiz kolostrum yönetimi buzağı sağlığını nasıl etkileyebilir?",
+    "preferred_sources": [
+      "Cornell_Feeding_Dairy_Calf.pdf",
+      "USU_2026_Colostrum_Dairy_Calves.pdf"
+    ]
+  },
+  {
+    "id": "RAG032",
+    "route": "RAG",
+    "category": "05_buzagi_sagligi",
+    "question": "Buzağı büyümesinde uygun besleme yönetiminin önemi nedir?",
+    "preferred_sources": [
+      "Cornell_Feeding_Dairy_Calf.pdf",
+      "USU_2026_Colostrum_Dairy_Calves.pdf"
+    ]
+  },
+  {
+    "id": "RAG033",
+    "route": "RAG",
+    "category": "06_ureme",
+    "question": "Süt sığırlarında vücut kondisyonu üreme performansını nasıl etkileyebilir?",
+    "preferred_sources": [
+      "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+      "Wisconsin_High_Fertility_Cycle.pdf"
+    ]
+  },
+  {
+    "id": "RAG034",
+    "route": "RAG",
+    "category": "06_ureme",
+    "question": "Süt sığırlarında başarılı üreme yönetimi neden önemlidir?",
+    "preferred_sources": [
+      "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+      "Wisconsin_High_Fertility_Cycle.pdf"
+    ]
+  },
+  {
+    "id": "RAG035",
+    "route": "RAG",
+    "category": "06_ureme",
+    "question": "Doğum sonrası vücut kondisyon kaybı fertiliteyi nasıl etkileyebilir?",
+    "preferred_sources": [
+      "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+      "Wisconsin_High_Fertility_Cycle.pdf"
+    ]
+  },
+  {
+    "id": "RAG036",
+    "route": "RAG",
+    "category": "06_ureme",
+    "question": "Östrus tespiti süt sığırı işletmelerinde neden önemlidir?",
+    "preferred_sources": [
+      "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+      "Wisconsin_High_Fertility_Cycle.pdf"
+    ]
+  },
+  {
+    "id": "RAG037",
+    "route": "RAG",
+    "category": "06_ureme",
+    "question": "Senkronizasyon programları süt sığırı üreme yönetiminde hangi amaçla kullanılır?",
+    "preferred_sources": [
+      "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+      "Wisconsin_High_Fertility_Cycle.pdf"
+    ]
+  },
+  {
+    "id": "RAG038",
+    "route": "RAG",
+    "category": "06_ureme",
+    "question": "Besleme ve metabolik durum ile üreme başarısı arasında nasıl bir ilişki vardır?",
+    "preferred_sources": [
+      "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+      "Wisconsin_High_Fertility_Cycle.pdf"
+    ]
+  },
+  {
+    "id": "RAG039",
+    "route": "RAG",
+    "category": "07_hayvan_refahi",
+    "question": "Topallık süt sığırlarında hayvan refahını nasıl etkiler?",
+    "preferred_sources": [
+      "WOAH_Dairy_Cattle_Welfare.pdf",
+      "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+    ]
+  },
+  {
+    "id": "RAG040",
+    "route": "RAG",
+    "category": "07_hayvan_refahi",
+    "question": "Süt sığırlarında uygun barınma koşulları hayvan refahı açısından neden önemlidir?",
+    "preferred_sources": [
+      "WOAH_Dairy_Cattle_Welfare.pdf",
+      "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+    ]
+  },
+  {
+    "id": "RAG041",
+    "route": "RAG",
+    "category": "07_hayvan_refahi",
+    "question": "Süt sığırlarında refah değerlendirilirken hangi hayvan temelli göstergeler kullanılabilir?",
+    "preferred_sources": [
+      "WOAH_Dairy_Cattle_Welfare.pdf",
+      "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+    ]
+  },
+  {
+    "id": "RAG042",
+    "route": "RAG",
+    "category": "07_hayvan_refahi",
+    "question": "Isı stresi süt sığırlarının refahını ve performansını nasıl etkileyebilir?",
+    "preferred_sources": [
+      "WOAH_Dairy_Cattle_Welfare.pdf",
+      "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+    ]
+  },
+  {
+    "id": "RAG043",
+    "route": "RAG",
+    "category": "07_hayvan_refahi",
+    "question": "Barınak ve yönetim koşulları süt sığırı refahını nasıl etkiler?",
+    "preferred_sources": [
+      "WOAH_Dairy_Cattle_Welfare.pdf",
+      "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+    ]
+  },
+  {
+    "id": "RAG044",
+    "route": "RAG",
+    "category": "07_hayvan_refahi",
+    "question": "Hayvan refahı ile süt üretim performansı arasında nasıl bir ilişki vardır?",
+    "preferred_sources": [
+      "WOAH_Dairy_Cattle_Welfare.pdf",
+      "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+    ]
+  },
+  {
+    "id": "RAG045",
+    "route": "RAG",
+    "category": "08_sut_hijyeni",
+    "question": "Sağım hijyeni ve meme başı temizliği neden önemlidir?",
+    "preferred_sources": [
+      "Codex_Milk_Hygiene.pdf",
+      "FAO_IDF_Good_Dairy_Farming.pdf"
+    ]
+  },
+  {
+    "id": "RAG046",
+    "route": "RAG",
+    "category": "08_sut_hijyeni",
+    "question": "Süt üretiminde sağım ekipmanlarının temizliği neden önemlidir?",
+    "preferred_sources": [
+      "Codex_Milk_Hygiene.pdf",
+      "FAO_IDF_Good_Dairy_Farming.pdf"
+    ]
+  },
+  {
+    "id": "RAG047",
+    "route": "RAG",
+    "category": "08_sut_hijyeni",
+    "question": "Sütün sağım sonrasında uygun koşullarda saklanması neden önemlidir?",
+    "preferred_sources": [
+      "Codex_Milk_Hygiene.pdf",
+      "FAO_IDF_Good_Dairy_Farming.pdf"
+    ]
+  },
+  {
+    "id": "RAG048",
+    "route": "RAG",
+    "category": "08_sut_hijyeni",
+    "question": "Çiğ sütte kontaminasyon riskini azaltmak için hangi hijyen uygulamaları önemlidir?",
+    "preferred_sources": [
+      "Codex_Milk_Hygiene.pdf",
+      "FAO_IDF_Good_Dairy_Farming.pdf"
+    ]
+  },
+  {
+    "id": "RAG049",
+    "route": "RAG",
+    "category": "08_sut_hijyeni",
+    "question": "İyi süt çiftliği uygulamalarında hijyen yönetiminin temel amacı nedir?",
+    "preferred_sources": [
+      "Codex_Milk_Hygiene.pdf",
+      "FAO_IDF_Good_Dairy_Farming.pdf"
+    ]
+  },
+  {
+    "id": "RAG050",
+    "route": "RAG",
+    "category": "08_sut_hijyeni",
+    "question": "Sağım öncesi ve sonrası hijyen uygulamaları süt güvenliğine nasıl katkı sağlar?",
+    "preferred_sources": [
+      "Codex_Milk_Hygiene.pdf",
+      "FAO_IDF_Good_Dairy_Farming.pdf"
+    ]
+  },
+  {
+    "id": "SQL001",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "En fazla süt veren üç inek hangileridir?"
+  },
+  {
+    "id": "SQL002",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Toplam süt üretimi en yüksek inek hangisidir?"
+  },
+  {
+    "id": "SQL003",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Toplam süt üretimi en düşük inek hangisidir?"
+  },
+  {
+    "id": "SQL004",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Serap'ın son süt verimi kaç litredir?"
+  },
+  {
+    "id": "SQL005",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Beyza'nın son süt verimi kaç litredir?"
+  },
+  {
+    "id": "SQL006",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Boncuk'un son süt verimi kaç litredir?"
+  },
+  {
+    "id": "SQL007",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Papatya'nın son süt verimi kaç litredir?"
+  },
+  {
+    "id": "SQL008",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Lale'nin son süt verimi kaç litredir?"
+  },
+  {
+    "id": "SQL009",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Çiftliğin toplam süt üretimi kaç litredir?"
+  },
+  {
+    "id": "SQL010",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "5 Eylül 2026 tarihinde toplam süt üretimi kaç litredir?"
+  },
+  {
+    "id": "SQL011",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Serap 5 Eylül 2026 tarihinde toplam kaç litre süt vermiştir?"
+  },
+  {
+    "id": "SQL012",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Beyza 5 Eylül 2026 tarihinde toplam kaç litre süt vermiştir?"
+  },
+  {
+    "id": "SQL013",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Serap'ın ortalama süt verimi nedir?"
+  },
+  {
+    "id": "SQL014",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Beyza'nın ortalama süt verimi nedir?"
+  },
+  {
+    "id": "SQL015",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Boncuk'un ortalama süt verimi nedir?"
+  },
+  {
+    "id": "SQL016",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Serap için son süt düşüş alarmı nedir?"
+  },
+  {
+    "id": "SQL017",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Hangi inek için süt verimi düşüş alarmı bulunmaktadır?"
+  },
+  {
+    "id": "SQL018",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Serap'ın son alarmındaki düşüş yüzdesi kaçtır?"
+  },
+  {
+    "id": "SQL019",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Serap'ın son alarmında önceki ortalama kaç litredir?"
+  },
+  {
+    "id": "SQL020",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Serap'ın son alarmında son verim kaç litredir?"
+  },
+  {
+    "id": "SQL021",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Çiftlikte kaç inek bulunmaktadır?"
+  },
+  {
+    "id": "SQL022",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Holstein ırkı kaç inek vardır?"
+  },
+  {
+    "id": "SQL023",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Simental ırkı kaç inek vardır?"
+  },
+  {
+    "id": "SQL024",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "TR0001 küpe numaralı ineğin adı nedir?"
+  },
+  {
+    "id": "SQL025",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Serap'ın küpe numarası nedir?"
+  },
+  {
+    "id": "SQL026",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Boncuk hangi ırktır?"
+  },
+  {
+    "id": "SQL027",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Serap'ın 5 Eylül 2026 akşam sağımındaki süt miktarı kaç litredir?"
+  },
+  {
+    "id": "SQL028",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "30 Ağustos 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?"
+  },
+  {
+    "id": "SQL029",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "Çiftliğin adı nedir?"
+  },
+  {
+    "id": "SQL030",
+    "route": "SQL",
+    "category": "structured_db",
+    "question": "5 Eylül 2026 tarihinde en fazla süt veren inek hangisidir?"
+  },
+  {
+    "id": "HYB001",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın süt verimindeki düşüşü bilimsel kaynaklara göre değerlendir."
+  },
+  {
+    "id": "HYB002",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın son süt düşüşü mastitis ile ilişkili olabilir mi?"
+  },
+  {
+    "id": "HYB003",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın süt verimindeki düşüşünün meme sağlığı açısından olası anlamı nedir?"
+  },
+  {
+    "id": "HYB004",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın son süt düşüşünü süt kalitesi ve meme sağlığı açısından değerlendir."
+  },
+  {
+    "id": "HYB005",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın süt verimindeki düşüşünde besleme ile ilişkili olabilecek genel faktörler nelerdir?"
+  },
+  {
+    "id": "HYB006",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın son süt verimi düşüşü yetersiz yem tüketimiyle ilişkili olabilir mi?"
+  },
+  {
+    "id": "HYB007",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın süt verimindeki düşüşünü metabolik hastalıklar açısından genel olarak değerlendir."
+  },
+  {
+    "id": "HYB008",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın süt verimi düşüşü geçiş dönemi problemleriyle ilişkili olabilir mi?"
+  },
+  {
+    "id": "HYB009",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın süt verimindeki düşüşünü hayvan refahı açısından genel olarak değerlendir."
+  },
+  {
+    "id": "HYB010",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın süt verimi düşüşü ile meme ve sağım hijyeni arasında nasıl bir ilişki olabilir?"
+  },
+  {
+    "id": "HYB011",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap için oluşan süt düşüş alarmını bilimsel kaynaklarla açıkla."
+  },
+  {
+    "id": "HYB012",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın %39 civarındaki süt verimi düşüşü için kaynak temelli genel değerlendirme yap."
+  },
+  {
+    "id": "HYB013",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Çiftlikteki süt verisi düşüşlerini değerlendirirken mastitis neden dikkate alınmalıdır?"
+  },
+  {
+    "id": "HYB014",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Çiftlikteki süt verimi değişimlerini değerlendirirken besleme neden dikkate alınmalıdır?"
+  },
+  {
+    "id": "HYB015",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Çiftlikte süt üretimi azalırsa hangi bilimsel faktörler birlikte değerlendirilmelidir?"
+  },
+  {
+    "id": "HYB016",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın mevcut süt verisi ile mastitis hakkındaki bilimsel bilgileri birlikte değerlendir."
+  },
+  {
+    "id": "HYB017",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın mevcut süt verisi ile besleme hakkındaki bilimsel bilgileri birlikte değerlendir."
+  },
+  {
+    "id": "HYB018",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın mevcut süt verisi ile hayvan refahı hakkındaki bilimsel bilgileri birlikte değerlendir."
+  },
+  {
+    "id": "HYB019",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın son süt verisini ve meme sağlığına ilişkin bilimsel bilgileri birlikte açıkla."
+  },
+  {
+    "id": "HYB020",
+    "route": "HYBRID",
+    "category": "farm_plus_science",
+    "question": "Serap'ın son süt düşüşünü kesin tanı koymadan, bilimsel kaynaklara dayanarak yorumla."
+  }
+]

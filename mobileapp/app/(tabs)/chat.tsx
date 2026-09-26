@@ -48,9 +48,9 @@ const getApiUrl = () => {
   const hostUri = Constants.expoConfig?.hostUri;
   if (hostUri) {
     const ip = hostUri.split(':')[0];
-    return `http://${ip}:8000`;
+    return `http://${ip}:8001`;
   }
-  return `http://localhost:8000`;
+  return `http://localhost:8001`;
 };
 
 const API_URL = getApiUrl();
@@ -225,97 +225,122 @@ export default function Chat() {
     );
   };
 
-  const sendMessage = async (textOverride?: string | any) => {
-    const finalQuery = (typeof textOverride === 'string' ? textOverride : inputText).trim();
-    if (!finalQuery || isLoading) return;
+const sendMessage = async (textOverride?: string | any) => {
+  const finalQuery = (
+    typeof textOverride === 'string' ? textOverride : inputText
+  ).trim();
 
-    if (activeEventSourceRef.current) {
-      activeEventSourceRef.current.close();
-    }
+  if (!finalQuery || isLoading) return;
 
-    const userMsgId = `user-${Date.now()}`;
-    const botMsgId = `bot-${Date.now() + 1}`;
+  const userMsgId = `user-${Date.now()}`;
+  const botMsgId = `bot-${Date.now() + 1}`;
 
-    setMessages((prev) => [
-      ...prev,
-      { id: userMsgId, text: finalQuery, sender: 'user', timestamp: new Date() },
-      { id: botMsgId, text: '', sender: 'bot', timestamp: new Date(), isStreaming: true, step: 'Sorunuz analiz ediliyor...' }
-    ]);
+  setMessages((prev) => [
+    ...prev,
+    {
+      id: userMsgId,
+      text: finalQuery,
+      sender: 'user',
+      timestamp: new Date(),
+    },
+    {
+      id: botMsgId,
+      text: '',
+      sender: 'bot',
+      timestamp: new Date(),
+      isStreaming: true,
+      step: 'Sorunuz analiz ediliyor...',
+    },
+  ]);
 
-    if (typeof textOverride !== 'string') setInputText('');
-    setIsLoading(true);
-    setCurrentStep('Sorunuz analiz ediliyor...');
-    const startTime = Date.now();
+  if (typeof textOverride !== 'string') {
+    setInputText('');
+  }
 
-    try {
-      const es = new EventSource(`${API_URL}/query/tool/stream`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ question: finalQuery }),
-      });
+  setIsLoading(true);
+  setCurrentStep('Sorunuz analiz ediliyor...');
 
-      activeEventSourceRef.current = es;
+  const startTime = Date.now();
 
-      es.addEventListener('message', (event) => {
-        try {
-          const data = JSON.parse(event.data ?? '{}');
-          if (data.done) {
-            const duration = ((Date.now() - startTime) / 1000).toFixed(1);
-            setMessages((prev) =>
-              prev.map((msg) =>
-                msg.id === botMsgId
-                  ? {
-                    ...msg,
-                    text: `${data.answer}\n\n*⏱️ Yanıt süresi: ${duration} saniye*`,
-                    spokenText: data.answer,
-                    isStreaming: false,
-                    step: undefined
-                  }
-                  : msg
-              )
-            );
-            setIsLoading(false);
-            es.close();
-            activeEventSourceRef.current = null;
-          } else if (data.step) {
-            setCurrentStep(data.step);
-            setMessages((prev) =>
-              prev.map((msg) =>
-                msg.id === botMsgId
-                  ? { ...msg, step: data.step }
-                  : msg
-              )
-            );
-          }
-        } catch (e) { }
-      });
+  try {
+    const response = await fetch(`${API_URL}/query/thesis/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        question: finalQuery,
+      }),
+    });
 
-      es.addEventListener('error', () => {
-        setMessages((prev) =>
-          prev.map((msg) =>
-            msg.id === botMsgId
-              ? { ...msg, text: '❌ *Bağlantı hatası oluştu.*', isStreaming: false, step: undefined }
-              : msg
-          )
-        );
-        setIsLoading(false);
-        es.close();
-        activeEventSourceRef.current = null;
-      });
-    } catch (error) {
-      setIsLoading(false);
-      setMessages((prev) =>
-        prev.map((msg) =>
-          msg.id === botMsgId
-            ? { ...msg, text: '❌ *Bağlantı başlatılamadı.*', isStreaming: false, step: undefined }
-            : msg
-        )
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(
+        `Sunucu hatası (${response.status}): ${errorText}`
       );
     }
-  };
+
+    const data = await response.json();
+
+    const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+
+    let sourceText = '';
+
+    if (Array.isArray(data.sources) && data.sources.length > 0) {
+      sourceText =
+        '\n\n**Kaynaklar:**\n' +
+        data.sources
+          .map((source: any) => {
+            const page =
+              source.page !== null &&
+              source.page !== undefined
+                ? `, s. ${source.page}`
+                : '';
+
+            return `- [${source.id}] ${source.title}${page}`;
+          })
+          .join('\n');
+    }
+
+    const finalAnswer =
+      `${data.answer || 'Yanıt oluşturulamadı.'}` +
+      sourceText +
+      `\n\n*⏱️ Yanıt süresi: ${duration} saniye*`;
+
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg.id === botMsgId
+          ? {
+              ...msg,
+              text: finalAnswer,
+              spokenText: data.answer,
+              isStreaming: false,
+              step: undefined,
+            }
+          : msg
+      )
+    );
+  } catch (error) {
+    console.error('Tez RAG sorgu hatası:', error);
+
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg.id === botMsgId
+          ? {
+              ...msg,
+              text: '❌ Yanıt alınırken bir bağlantı hatası oluştu.',
+              isStreaming: false,
+              step: undefined,
+            }
+          : msg
+      )
+    );
+  } finally {
+    setIsLoading(false);
+    setCurrentStep('');
+  }
+};
 
   const startRecording = async () => {
     try {
@@ -451,7 +476,7 @@ export default function Chat() {
         </View>
         <View style={styles.botContent}>
           <View style={styles.botHeaderRow}>
-            <Text style={styles.botSenderName}>Süt Sihirbazı</Text>
+            <Text style={styles.botSenderName}>Çiftlik Asistanı</Text>
             {!item.isStreaming && item.text ? (
               <TouchableOpacity style={styles.speakerButton} onPress={() => speakText(item.id, item.spokenText ?? item.text)}>
                 <Ionicons name={speakingId === item.id ? 'volume-high' : 'volume-medium-outline'} size={18} color={speakingId === item.id ? COLORS.primary : COLORS.textSecondary} />
@@ -476,7 +501,7 @@ export default function Chat() {
       <View style={styles.topBar}>
         <View style={styles.topBarTitleRow}>
           <MaterialCommunityIcons name="magic-staff" size={22} color="#1B5E20" />
-          <Text style={styles.topBarTitle}>Süt Sihirbazı Kaptan Köşkü</Text>
+          <Text style={styles.topBarTitle}>Çiftlik Asistanı</Text>
         </View>
 
         {/* ZİL BUTONU */}
@@ -534,7 +559,7 @@ export default function Chat() {
             <View style={styles.emptyIconContainer}>
               <MaterialCommunityIcons name="barn" size={56} color="#388E3C" />
             </View>
-            <Text style={styles.welcomeTitle}>Merhaba, Çiftçi Dostum!</Text>
+            <Text style={styles.welcomeTitle}>Merhaba! Çiftliğinizle ilgili ne öğrenmek istersiniz?</Text>
             <Text style={styles.welcomeSubtitle}>Bugün çiftliğin verimi veya ineklerin sağlığı hakkında ne öğrenmek istersin?</Text>
           </View>
         }
@@ -562,17 +587,26 @@ export default function Chat() {
         <View style={styles.inputWrapper}>
           <View style={styles.inputContainer}>
             <TextInput
-              style={styles.input}
-              value={inputText}
-              onChangeText={setInputText}
-              placeholder={isLoading ? "Sihirbazın yanıt vermesi bekleniyor..." : "Sihirbaza sorun..."}
-              placeholderTextColor="#7cb342"
-              multiline
-              maxLength={1000}
-              editable={!isLoading && !isRecording}
-              returnKeyType="default"
-              blurOnSubmit={false}
-            />
+  style={styles.input}
+  value={inputText}
+  onChangeText={setInputText}
+  placeholder={
+    isLoading
+      ? 'Çiftlik Asistanı yanıt hazırlıyor...'
+      : 'Çiftlik Asistanına sorun...'
+  }
+  placeholderTextColor="#7cb342"
+  maxLength={1000}
+  editable={!isLoading && !isRecording}
+  returnKeyType="send"
+  enterKeyHint="send"
+  blurOnSubmit={false}
+  onSubmitEditing={() => {
+    if (!isLoading && inputText.trim().length > 0) {
+      sendMessage();
+    }
+  }}
+/>
 
             {isLoading ? (
               /* İŞLEMİ GERİ ALMA / DURDURMA BUTONU */
