@@ -181,21 +181,3 @@ Uygulama, doğa ve çiftçilik temalı yeşil tonlarla tasarlanmıştır:
 | **Bağlantı hatası** | Backend sunucusunun çalıştığından emin olun |
 | **Sesli yanıt çalmıyor** | Cihazınızın sesinin açık olduğunu kontrol edin |
 | **Yanıt gelmiyor** | İnternet bağlantınızı ve API sunucusunu kontrol edin |
-
----
-
-## 📝 Lisans
-
-Bu proje bir **bitirme projesi** kapsamında geliştirilmiştir.
-
----
-
-## 👤 Geliştirici
-
-**Kaan Sezen** — [GitHub](https://github.com/KaanSezen1923)
-
----
-
-<p align="center">
-  <b>🐄 Süt Sihirbazı — Çiftliğinizin Yapay Zekâ Destekli Asistanı</b>
-</p>
