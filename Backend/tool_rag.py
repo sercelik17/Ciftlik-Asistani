@@ -7,7 +7,8 @@ from langchain_ollama import ChatOllama
 from langchain_community.utilities import SQLDatabase
 from langgraph.graph import START, END, StateGraph, MessagesState
 from langgraph.prebuilt import ToolNode, tools_condition
-from langchain_core.prompts import ChatPromptTemplate
+from thesis_rag.farm_context import farm_sql_clause
+from thesis_rag.sql_guard import reject_unsafe_sql
 
 # Çevre değişkenlerini yükle
 load_dotenv()
@@ -65,7 +66,8 @@ def get_unread_alarms_tool() -> str:
     query = """
     SELECT a.kupe_no, i.isim, a.tarih, a.sagim_zamani, a.eski_ortalama, a.son_verim, a.dusus_yuzdesi, a.mesaj
     FROM alarmlar a LEFT JOIN inekler i ON a.kupe_no = i.kupe_no
-    WHERE a.okundu = FALSE ORDER BY a.tarih DESC, a.id DESC LIMIT 10;
+    WHERE a.okundu = FALSE""" + farm_sql_clause("a.") + """
+    ORDER BY a.tarih DESC, a.id DESC LIMIT 10;
     """
     try:
         result = db.run(query)
@@ -78,7 +80,7 @@ def get_cow_alarm_history_tool(kupe_no: str) -> str:
     'Sarıkız'ın neden alarm verdiği', 'geçmiş hastalıkları' sorulduğunda kullan."""
     if not db: return "Veritabanı bağlantısı yok."
     safe_kupe = sanitize_input(kupe_no)
-    query = f"SELECT tarih, sagim_zamani, dusus_yuzdesi, mesaj FROM alarmlar WHERE kupe_no = '{safe_kupe}' ORDER BY tarih DESC LIMIT 10;"
+    query = f"SELECT tarih, sagim_zamani, dusus_yuzdesi, mesaj FROM alarmlar WHERE kupe_no = '{safe_kupe}'{farm_sql_clause()} ORDER BY tarih DESC LIMIT 10;"
     try:
         return f"İnek Alarm Geçmişi: {db.run(query)}"
     except Exception as e: return f"Hata: {e}"
@@ -91,6 +93,7 @@ def get_latest_daily_summary_tool() -> str:
     query = """
     SELECT s.tarih, s.dunku_toplam_sut, s.bugunku_toplam_sut, i.isim as en_verimli_inek_isim, s.mesaj
     FROM gunluk_ozetler s LEFT JOIN inekler i ON s.en_verimli_inek_kupe_no = i.kupe_no
+    WHERE 1=1""" + farm_sql_clause("s.") + """
     ORDER BY s.tarih DESC LIMIT 1;
     """
     try: return f"Günlük Özet Raporu: {db.run(query)}"
@@ -103,7 +106,7 @@ def get_farm_milk_trend_tool(days: int) -> str:
     if not db: return "Veritabanı bağlantısı yok."
     try:
         safe_days = int(days)
-        query = f"SELECT tarih, ROUND(SUM(sut_miktari)::numeric, 1) as toplam_sut FROM sagim_kayitlari GROUP BY tarih ORDER BY tarih DESC LIMIT {safe_days};"
+        query = f"SELECT tarih, ROUND(SUM(sut_miktari)::numeric, 1) as toplam_sut FROM sagim_kayitlari WHERE 1=1{farm_sql_clause()} GROUP BY tarih ORDER BY tarih DESC LIMIT {safe_days};"
         return f"Son {safe_days} Günlük Üretim Trendi: {db.run(query)}"
     except Exception as e: return f"Hata: {e}"
 
@@ -120,6 +123,7 @@ def get_cows_daily_change_tool() -> str:
     SELECT i.kupe_no, i.isim, COALESCE(d.dun_toplam, 0.0) as dunku_sut, COALESCE(b.bugun_toplam, 0.0) as bugunku_sut,
     CASE WHEN COALESCE(d.dun_toplam, 0) > 0 THEN ROUND(((COALESCE(b.bugun_toplam, 0) - d.dun_toplam) / d.dun_toplam * 100)::numeric, 1) ELSE 0.0 END as degisim_orani
     FROM inekler i LEFT JOIN dun_sut d ON i.kupe_no = d.kupe_no LEFT JOIN bugun_sut b ON i.kupe_no = b.kupe_no
+    WHERE 1=1""" + farm_sql_clause("i.") + """
     ORDER BY degisim_orani DESC LIMIT 15;
     """
     try: return f"Günlük Verim Değişim Tablosu: {db.run(query)}"
@@ -135,6 +139,7 @@ def get_top_producing_cows_tool(limit: int) -> str:
         query = f"""
         SELECT i.kupe_no, i.isim, ROUND(AVG(sk.sut_miktari)::numeric, 1) as ortalama_sut
         FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no
+        WHERE 1=1{farm_sql_clause("i.")}{farm_sql_clause("sk.")}
         GROUP BY i.kupe_no, i.isim ORDER BY ortalama_sut DESC LIMIT {safe_limit};
         """
         return f"En Verimli {safe_limit} İnek: {db.run(query)}"
@@ -167,8 +172,9 @@ def get_cow_profile_and_stats_tool(cow_identifier: str) -> str:
     JOIN sagim_kayitlari sk
         ON i.kupe_no = sk.kupe_no
     WHERE
-        i.kupe_no = '{safe_value}'
-        OR i.isim ILIKE '%{safe_value}%'
+        (i.kupe_no = '{safe_value}'
+        OR i.isim ILIKE '%{safe_value}%')
+    """ + farm_sql_clause("i.") + farm_sql_clause("sk.") + """
     ORDER BY sk.tarih DESC, sk.id DESC
     LIMIT 10;
     """
@@ -212,8 +218,9 @@ def get_cow_latest_milk_drop_tool(cow_identifier: str) -> str:
     JOIN inekler i
         ON a.kupe_no = i.kupe_no
     WHERE
-        i.kupe_no = '{safe_value}'
-        OR i.isim ILIKE '%{safe_value}%'
+        (i.kupe_no = '{safe_value}'
+        OR i.isim ILIKE '%{safe_value}%')
+    """ + farm_sql_clause("i.") + farm_sql_clause("a.") + """
     ORDER BY a.tarih DESC, a.id DESC
     LIMIT 1;
     """
@@ -255,9 +262,9 @@ def run_dynamic_sql_tool(query_description: str) -> str:
         generated_sql = cloud_llm.invoke(sql_prompt).content.strip().replace("```sql", "").replace("```", "").strip()
         print(f"⚙️ [Dinamik SQL] Üretilen Sorgu: {generated_sql}")
         
-        # GÜVENLİK KONTROLÜ: Sadece SELECT sorgularına izin ver
-        if not generated_sql.upper().startswith("SELECT"):
-            return "Hata: Güvenlik nedeniyle yalnızca SELECT (okuma) sorguları çalıştırılabilir."
+        blocked = reject_unsafe_sql(generated_sql)
+        if blocked:
+            return f"Hata: {blocked}"
             
         result = db.run(generated_sql)
         return f"Özel Sorgu Sonucu: {result}" if result and result != "[]" else "Bu kritere uygun kayıt bulunamadı."
@@ -343,8 +350,9 @@ def summarizer_node(state: MessagesState):
             
             KRİTİK KURAL VE YORUMLAMA REHBERİ:
             1. 'get_cow_alarm_history_tool' veya 'get_unread_alarms_tool' tarafından döndürülen her mesaj bir "RİSK ALARMI" kaydıdır.
-            2. Mesajların içindeki "meme sağlığı", "mastitis", "stres" veya "süt düşüşü" uyarılarını o ineğin geçmiş risk alarmı / olası hastalık şüphesi olarak kabul et ve çiftçiye özetle.
-            3. Sadece ve sadece araçlardan GEREKLİ HİÇBİR VERİ DÖNMEDİYSE "Bu konuda bilgi çekilemedi" de. Veri varsa mutlaka listele veya tablo halinde sun.
+            2. Mesajların içindeki "meme sağlığı", "mastitis", "stres" veya "süt düşüşü" uyarılarını kesin tanı olarak sunma; olası risk işareti olarak özetle.
+            3. Antibiyotik, ilaç adı veya doz önerme. Veteriner hekim tanısının yerini alma.
+            4. Sadece ve sadece araçlardan GEREKLİ HİÇBİR VERİ DÖNMEDİYSE "Bu konuda bilgi çekilemedi" de. Veri varsa mutlaka listele veya tablo halinde sun.
 
             Verileri okunaklı listeler veya küçük tablolar halinde sun.
             Ham SQL veya teknik terimler kullanma.

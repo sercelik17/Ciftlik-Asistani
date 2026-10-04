@@ -27,3 +27,4 @@ Thumbs.db
 # --- Proje Çıktıları ---
 # Eğer kodun png üretiyorsa bunu versiyonlamaya gerek yok
 *.png
+rag_index/eval_dense_embeddings.npy

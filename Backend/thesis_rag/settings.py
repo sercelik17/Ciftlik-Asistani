@@ -23,6 +23,15 @@ class RAGSettings:
     final_top_k: int = int(os.getenv("RAG_FINAL_TOP_K", "5"))
     dense_weight: float = float(os.getenv("RAG_DENSE_WEIGHT", "0.60"))
     sparse_weight: float = float(os.getenv("RAG_SPARSE_WEIGHT", "0.40"))
+    fusion_method: str = os.getenv("RAG_FUSION_METHOD", "weighted_rrf")
+    rrf_k: float = float(os.getenv("RAG_RRF_K", "60"))
+    bm25_k1: float = float(os.getenv("RAG_BM25_K1", "1.5"))
+    bm25_b: float = float(os.getenv("RAG_BM25_B", "0.75"))
+    llm_temperature: float = float(os.getenv("RAG_LLM_TEMPERATURE", "0.0"))
+    llm_num_predict: int = int(os.getenv("RAG_LLM_NUM_PREDICT", "160"))
+    llm_num_ctx: int = int(os.getenv("RAG_LLM_NUM_CTX", "2048"))
+    llm_seed: int = int(os.getenv("RAG_LLM_SEED", "0"))
+    faiss_metric: str = os.getenv("RAG_FAISS_METRIC", "l2")
 
     def resolved_knowledge_base_dir(self) -> Path:
         path = self.knowledge_base_dir

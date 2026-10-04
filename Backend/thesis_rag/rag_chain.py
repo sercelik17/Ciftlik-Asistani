@@ -36,10 +36,11 @@ class RAGService:
         self.retriever = HybridRetriever()
         self.llm = ChatOllama(
             model=settings.rag_llm,
-            temperature=0.0,
+            temperature=settings.llm_temperature,
             base_url=settings.ollama_base_url,
-            num_predict=160,
-            num_ctx=2048,
+            num_predict=settings.llm_num_predict,
+            num_ctx=settings.llm_num_ctx,
+            seed=settings.llm_seed,
             num_gpu=0,
             keep_alive="5m",
         )
@@ -68,6 +69,8 @@ KURALLAR:
 - Sorunun konusu süt kalitesiyse süt kalitesine odaklan.
 - Neden-sonuç ilişkisini kaynakta açıkça belirtilmedikçe uydurma.
 - Kesin hastalık tanısı koyma.
+- Antibiyotik, ilaç adı veya doz önerme.
+- Kullanıcı tanı veya tedavi isterse veteriner hekime yönlendir.
 - Kaynakta bulunmayan bilgi ekleme.
 - İngilizce teknik terimleri şu anlamlarla kullan: calving = buzağılama/doğum; calf = buzağı; antibody = antikor; immunoglobulin = immünoglobulin; colostrum = kolostrum/ağız sütü; body condition score = vücut kondisyon skoru; reproductive = üreme ile ilgili; embryo = embriyo; lameness = topallık; milking personnel = sağım personeli; teat = meme başı; udder = meme; cow = inek.
 - antibody kelimesini antibiyotik, calf kelimesini kuzu, cow veya milking personnel ifadelerini kadın olarak çevirme.

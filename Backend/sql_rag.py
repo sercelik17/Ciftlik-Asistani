@@ -8,6 +8,7 @@ from langgraph.graph import START, END, StateGraph
 import os 
 from dotenv import load_dotenv
 import time
+from thesis_rag.sql_guard import reject_unsafe_sql
 load_dotenv()
 
 # --- YARDIMCI FONKSİYONLAR ---
@@ -101,9 +102,10 @@ def write_query(state: State):
     1. Sadece geçerli PostgreSQL sorgusu döndür.
     2. Markdown kod bloklarını (```sql ... ```) kullanma, sadece ham metin olarak sorguyu yaz.
     3. Çıktıda SQL dışında tek bir karakter bile olmamalıdır.
-    4.Veritabanındaki bütün inek isimleri küçük harflerle kaydedilmiştir. Bu nedenle, filtreleme yaparken büyük/küçük harf duyarlılığına dikkat et ve gerektiğinde 'ILIKE' kullan.
-    4. METİN ARAMALARI: Metin tabanlı filtrelemelerde (özellikle inek isimleri aranırken) büyük/küçük harf duyarlılığını önlemek için '=' veya 'LIKE' yerine KESİNLİKLE 'ILIKE%isim%' operatörünü kullan. 
-    5. VERİ STANDARDI: Sağım zamanı sorgulanırken Sabah sağımı için 'm', Akşam sağımı için 'e' değerleri aranmalıdır. Filtrelemelerde (WHERE koşullarında) asla "sabah" veya "akşam" kelimelerini kullanma, kesinlikle 'm' ve 'e' karakterlerini kullan.
+    4. Yalnızca SELECT veya WITH ... SELECT okuma sorgusu yaz. INSERT, UPDATE, DELETE, DROP, ALTER, TRUNCATE yasaktır.
+    5. Veritabanındaki bütün inek isimleri küçük harflerle kaydedilmiştir. Bu nedenle, filtreleme yaparken büyük/küçük harf duyarlılığına dikkat et ve gerektiğinde 'ILIKE' kullan.
+    6. METİN ARAMALARI: Metin tabanlı filtrelemelerde (özellikle inek isimleri aranırken) büyük/küçük harf duyarlılığını önlemek için '=' veya 'LIKE' yerine KESİNLİKLE 'ILIKE %isim%' operatörünü kullan.
+    7. VERİ STANDARDI: Sağım zamanı sorgulanırken Sabah sağımı için 'm', Akşam sağımı için 'e' değerleri aranmalıdır. Filtrelemelerde (WHERE koşullarında) asla "sabah" veya "akşam" kelimelerini kullanma, kesinlikle 'm' ve 'e' karakterlerini kullan.
     
 
 
@@ -131,6 +133,9 @@ def write_query(state: State):
 
 
 def execute_query(state: State):
+    blocked = reject_unsafe_sql(state.get("query", ""))
+    if blocked:
+        return {"result": blocked}
     execute_tool = QuerySQLDatabaseTool(db=db)
     return {"result": execute_tool.invoke(state["query"])}
     

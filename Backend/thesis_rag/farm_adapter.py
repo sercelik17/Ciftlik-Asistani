@@ -4,7 +4,6 @@ import os
 
 import psycopg2
 from dotenv import load_dotenv
-from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 
 load_dotenv()
 
@@ -14,6 +13,8 @@ class FarmDataService:
         self.app = None
 
     def _invoke(self, question: str):
+        from langchain_core.messages import HumanMessage
+
         if self.app is None:
             from tool_rag import toolrag_app
             self.app = toolrag_app
@@ -33,6 +34,8 @@ class FarmDataService:
         """
         SQL rotasında normal LangGraph cevabını döndürür.
         """
+        from langchain_core.messages import AIMessage
+
         result = self._invoke(question)
 
         messages = result.get("messages", [])
@@ -47,6 +50,8 @@ class FarmDataService:
         """
         Tool sonuçlarını ham olarak döndürür.
         """
+        from langchain_core.messages import ToolMessage
+
         result = self._invoke(question)
 
         messages = result.get("messages", [])

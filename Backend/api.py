@@ -4,11 +4,29 @@ from contextlib import asynccontextmanager
 from fastapi.responses import StreamingResponse, FileResponse
 from pydantic import BaseModel
 from typing import Optional, AsyncGenerator, List, Dict, Any
-from langchain_core.messages import HumanMessage, ToolMessage, AIMessage
-from sql_rag import rag_app
-from csv_rag import csv_rag_app
-from tool_rag import toolrag_app
 from thesis_rag.api_router import create_thesis_router
+
+rag_app = None
+csv_rag_app = None
+toolrag_app = None
+
+
+def _load_legacy_graphs():
+    global rag_app, csv_rag_app, toolrag_app
+    if toolrag_app is not None:
+        return
+    try:
+        from sql_rag import rag_app as _rag
+        from csv_rag import csv_rag_app as _csv
+        from tool_rag import toolrag_app as _tool
+        rag_app = _rag
+        csv_rag_app = _csv
+        toolrag_app = _tool
+    except Exception as exc:
+        raise HTTPException(
+            status_code=503,
+            detail=f"LangChain/Torch yolu bu makinede açılamadı: {exc}",
+        ) from exc
 import uvicorn
 import os
 from dotenv import load_dotenv
@@ -276,6 +294,9 @@ def login(request: LoginRequest):
             conn.close()
 
 async def tool_query_stream(question: str) -> AsyncGenerator[str, None]:
+    from langchain_core.messages import HumanMessage, ToolMessage
+
+    _load_legacy_graphs()
     yield sse_event({"step": "☁️ Süt Sihirbazı sorunuzu analiz ediyor...", "done": False})
     
     final_answer = ""
@@ -341,6 +362,9 @@ async def process_tool_query_stream(request: QueryRequest, current_user: dict = 
 @app.post("/query/tool/", response_model=ToolQueryResponse)
 def process_tool_query(request: QueryRequest, current_user: dict = Depends(get_current_user)):
     """Streaming olmayan standart istekler için Tool RAG endpointi."""
+    from langchain_core.messages import HumanMessage, ToolMessage
+
+    _load_legacy_graphs()
     state = {"messages": [HumanMessage(content=request.question)]}
     
     # DÜZELTME 3: Burada da rag_app yerine toolrag_app kullanıldı!
@@ -365,6 +389,7 @@ def process_tool_query(request: QueryRequest, current_user: dict = Depends(get_c
 
 # === SQL RAG ENDPOINTLERİ ===
 async def sql_query_stream(question: str) -> AsyncGenerator[str, None]:
+    _load_legacy_graphs()
     yield sse_event({"step": "Sorunuz analiz ediliyor...", "done": False})
     
     final_state = {"question": question}
@@ -410,6 +435,7 @@ async def process_query_stream(request: QueryRequest, current_user: dict = Depen
 
 @app.post("/query/sql/")
 def process_query(request: QueryRequest, current_user: dict = Depends(get_current_user)):
+    _load_legacy_graphs()
     state = {"question": request.question}
     final_state = rag_app.invoke(state)
     return {
@@ -421,6 +447,7 @@ def process_query(request: QueryRequest, current_user: dict = Depends(get_curren
 
 # === CSV RAG ENDPOINTLERİ ===
 async def csv_query_stream(question: str) -> AsyncGenerator[str, None]:
+    _load_legacy_graphs()
     yield sse_event({"step": "Soru sınıflandırılıyor...", "done": False})
     await asyncio.sleep(0)
 
@@ -458,6 +485,7 @@ async def process_csv_query_stream(request: QueryRequest, current_user: dict = D
 
 @app.post("/query/csv/")
 def process_csv_query(request: QueryRequest, current_user: dict = Depends(get_current_user)):
+    _load_legacy_graphs()
     state = {"question": request.question}
     final_state = csv_rag_app.invoke(state)
     return {
@@ -894,4 +922,4 @@ def get_cow_stats(kupe_no: str, current_user: dict = Depends(get_current_user)):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)

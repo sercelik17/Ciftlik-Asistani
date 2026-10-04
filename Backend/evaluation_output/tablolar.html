@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>Tez Değerlendirme Tabloları</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; max-width: 900px; margin: 32px auto; padding: 0 16px; color: #222; }
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; margin-top: 36px; }
+    p.note { background: #f4f8f4; border-left: 4px solid #2e7d32; padding: 10px 12px; }
+    table { border-collapse: collapse; width: 100%; margin: 12px 0 8px; }
+    th, td { border: 1px solid #bbb; padding: 8px 10px; text-align: center; }
+    th { background: #e8f5e9; }
+    td.left, th.left { text-align: left; }
+    caption { caption-side: bottom; font-size: 13px; color: #555; padding-top: 6px; text-align: left; }
+    .path { font-size: 13px; color: #666; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <h1>Süt Sihirbazı — Akademik değerlendirme tabloları</h1>
+  <p class="path">Bu sayfa tarayıcıda açılır. JSON dosyasını çalıştırmana gerek yok.</p>
+
+  <h2>Tablo 1. Sorgu yönlendirme performansı</h2>
+  <table>
+    <tr>
+      <th class="left">Sınıf</th>
+      <th>Soru sayısı</th>
+      <th>Doğru</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1</th>
+    </tr>
+    <tr><td class="left">RAG</td><td>33</td><td>33</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+    <tr><td class="left">SQL</td><td>24</td><td>24</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+    <tr><td class="left">HYBRID</td><td>16</td><td>16</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+    <tr><td class="left">CHAT</td><td>16</td><td>16</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+    <tr>
+      <td class="left"><b>Toplam</b></td>
+      <td><b>89</b></td>
+      <td><b>89</b></td>
+      <td colspan="3"><b>Accuracy 1.00 &nbsp; Macro-F1 1.00 &nbsp; %95 GA 0.96–1.00</b></td>
+    </tr>
+  </table>
+  <caption>Bu tablo yanıt doğruluğunu değil, sorunun doğru işleme kanalına yönlendirilmesini gösterir. Final held-out set, n = 89.</caption>
+
+  <h2>Tablo 1b. Yönlendirme confusion matrix</h2>
+  <table>
+    <tr>
+      <th class="left">Gerçek \ Tahmin</th>
+      <th>RAG</th>
+      <th>SQL</th>
+      <th>HYBRID</th>
+      <th>CHAT</th>
+    </tr>
+    <tr><td class="left">RAG</td><td>33</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td class="left">SQL</td><td>0</td><td>24</td><td>0</td><td>0</td></tr>
+    <tr><td class="left">HYBRID</td><td>0</td><td>0</td><td>16</td><td>0</td></tr>
+    <tr><td class="left">CHAT</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
+  </table>
+
+  <h2>Tablo 2. Retrieval karşılaştırması (P@5, R@5, MRR, nDCG@5)</h2>
+  <table>
+    <tr>
+      <th class="left">Sistem</th>
+      <th>P@5</th>
+      <th>R@5</th>
+      <th>MRR</th>
+      <th>nDCG@5</th>
+    </tr>
+    <tr><td class="left">BM25-only</td><td>0.35</td><td>0.27</td><td>0.42</td><td>0.42</td></tr>
+    <tr><td class="left">BGE-M3 + FAISS (L2)</td><td>0.90</td><td>0.71</td><td>0.91</td><td>0.92</td></tr>
+    <tr><td class="left">FAISS + BM25 Hybrid (60/40 RRF)</td><td>0.89</td><td>0.71</td><td>0.88</td><td>0.90</td></tr>
+  </table>
+  <caption>Final held-out RAG soruları, n = 33, K = 5. Altın etiket belge düzeyindedir (preferred_sources).</caption>
+
+  <h2>Tablo 3. Hibrit ağırlık ablation (geliştirme / pilot set)</h2>
+  <table>
+    <tr>
+      <th class="left">FAISS / BM25</th>
+      <th>P@5</th>
+      <th>R@5</th>
+      <th>MRR</th>
+      <th>nDCG@5</th>
+    </tr>
+    <tr><td class="left">50/50</td><td>0.80</td><td>0.59</td><td>0.84</td><td>0.84</td></tr>
+    <tr><td class="left"><b>60/40 (seçilen)</b></td><td><b>0.81</b></td><td><b>0.59</b></td><td><b>0.84</b></td><td><b>0.84</b></td></tr>
+    <tr><td class="left">70/30</td><td>0.81</td><td>0.59</td><td>0.84</td><td>0.84</td></tr>
+  </table>
+  <caption>Pilot RAG soruları, n = 50. 60/40 geliştirme setinde seçilmiş ve final sette dondurulmuştur.</caption>
+
+  <p class="note">Teze aktarmak için tabloyu sürükleyerek seç → Ctrl+C → Word’de Ctrl+V.</p>
+
+  <h2>Tablo 4. SQL altın sonuçlar (veritabanından doğrulanmış beklenen cevaplar)</h2>
+  <p>Bu tablo sistemin ürettiği SQL’in doğruluğu değildir. Jüriye “sayıları nereden biliyorsunuz?” dendiğinde gösterilecek <b>gold-standard</b> cevaplardır. 24 sorunun 23’ü çalıştı.</p>
+  <table>
+    <tr><th>ID</th><th class="left">Soru</th><th class="left">Beklenen sonuç</th></tr>
+    <tr><td>F-SQL001</td><td class="left">Çiftlikte kayıtlı inek sayısı</td><td class="left">5</td></tr>
+    <tr><td>F-SQL002</td><td class="left">TR0002’nin adı</td><td class="left">Beyza</td></tr>
+    <tr><td>F-SQL003</td><td class="left">Beyza’nın küpe no</td><td class="left">TR0002</td></tr>
+    <tr><td>F-SQL004</td><td class="left">Papatya’nın ırkı</td><td class="left">Holstein</td></tr>
+    <tr><td>F-SQL005</td><td class="left">Lale son sağım (L)</td><td class="left">11,90</td></tr>
+    <tr><td>F-SQL006</td><td class="left">Boncuk 5 Eylül toplam (L)</td><td class="left">25,70</td></tr>
+    <tr><td>F-SQL007</td><td class="left">Serap 5 Eylül akşam (L)</td><td class="left">7,80</td></tr>
+    <tr><td>F-SQL008</td><td class="left">30 Ağustos toplam (L)</td><td class="left">133,50</td></tr>
+    <tr><td>F-SQL009</td><td class="left">En yüksek 4 inek</td><td class="left">Papatya 14,86; Serap 13,84; Beyza 13,56; Lale 13,01</td></tr>
+    <tr><td>F-SQL010</td><td class="left">Ortalama en düşük</td><td class="left">Boncuk</td></tr>
+    <tr><td>F-SQL011</td><td class="left">Holstein sayısı</td><td class="left">3</td></tr>
+    <tr><td>F-SQL012</td><td class="left">Papatya ortalama (L)</td><td class="left">14,86</td></tr>
+    <tr><td>F-SQL013</td><td class="left">Lale alarm sayısı</td><td class="left">0</td></tr>
+    <tr><td>F-SQL014</td><td class="left">Serap küpe no</td><td class="left">TR0001</td></tr>
+    <tr><td>F-SQL015</td><td class="left">1–5 Eylül sağım kaydı</td><td class="left">50</td></tr>
+    <tr><td>F-SQL016</td><td class="left">Son gün toplam süt (L)</td><td class="left">133,40</td></tr>
+    <tr><td>F-SQL017</td><td class="left">Boncuk küpe no</td><td class="left">TR0003</td></tr>
+    <tr><td>F-SQL018</td><td class="left">TR0004 son süt (L)</td><td class="left">13,50</td></tr>
+    <tr><td>F-SQL020</td><td class="left">Simental sayısı</td><td class="left">2</td></tr>
+    <tr><td>F-SQL021</td><td class="left">Beyza ortalama (L)</td><td class="left">13,56</td></tr>
+    <tr><td>F-SQL022</td><td class="left">Serap alarm düşüş %</td><td class="left">39,06</td></tr>
+    <tr><td>F-SQL023</td><td class="left">Okunmamış alarm</td><td class="left">0</td></tr>
+    <tr><td>F-SQL024</td><td class="left">4 Eylül en çok süt</td><td class="left">Papatya</td></tr>
+  </table>
+  <caption>F-SQL019 (çiftlik adı) şema uyumsuzluğu nedeniyle çalışmadı. Veri sentetik prototiptir.</caption>
+
+  <h2>Tablo 5. Bilgi tabanı corpus manifestosu (16 PDF)</h2>
+  <table>
+    <tr><th>ID</th><th class="left">Belge</th><th>Yıl</th><th class="left">Tür</th><th class="left">Tema</th></tr>
+    <tr><td>D01</td><td class="left">FAO Mastitis Dairy Manual</td><td>2010</td><td class="left">uluslararası rehber</td><td class="left">Mastitis</td></tr>
+    <tr><td>D02</td><td class="left">Kurt 2019 Kuru/Geçiş Dönemi</td><td>2019</td><td class="left">hakemli makale</td><td class="left">Mastitis</td></tr>
+    <tr><td>D03</td><td class="left">Darbaz &amp; Ergene 2015 SHS</td><td>2015</td><td class="left">hakemli makale</td><td class="left">Süt kalitesi</td></tr>
+    <tr><td>D04</td><td class="left">Yalçın &amp; Çakmak 2022 SHS</td><td>2022</td><td class="left">hakemli makale</td><td class="left">Süt kalitesi</td></tr>
+    <tr><td>D05</td><td class="left">FAO 2012 Balanced Feeding</td><td>2012</td><td class="left">uluslararası rehber</td><td class="left">Besleme</td></tr>
+    <tr><td>D06</td><td class="left">Tennessee Managing Intake</td><td>—</td><td class="left">üniversite yayını</td><td class="left">Besleme</td></tr>
+    <tr><td>D07</td><td class="left">Wisconsin Fresh Cow Milk Fever</td><td>—</td><td class="left">üniversite yayını</td><td class="left">Metabolik hastalıklar</td></tr>
+    <tr><td>D08</td><td class="left">Cornell Transition Cow Metabolic</td><td>—</td><td class="left">üniversite yayını</td><td class="left">Metabolik hastalıklar</td></tr>
+    <tr><td>D09</td><td class="left">UF IFAS Dairy Calf Nutrition</td><td>—</td><td class="left">üniversite yayını</td><td class="left">Buzağı sağlığı</td></tr>
+    <tr><td>D10</td><td class="left">USU 2026 Colostrum</td><td>2026</td><td class="left">üniversite yayını</td><td class="left">Buzağı sağlığı</td></tr>
+    <tr><td>D11</td><td class="left">DCRC Reproductive Management</td><td>—</td><td class="left">mesleki rehber</td><td class="left">Üreme</td></tr>
+    <tr><td>D12</td><td class="left">Wisconsin High Fertility Cycle</td><td>—</td><td class="left">üniversite yayını</td><td class="left">Üreme</td></tr>
+    <tr><td>D13</td><td class="left">WOAH Dairy Cattle Welfare</td><td>—</td><td class="left">uluslararası standart</td><td class="left">Hayvan refahı</td></tr>
+    <tr><td>D14</td><td class="left">Öcal, Güven &amp; Cedden 2026</td><td>2026</td><td class="left">hakemli makale</td><td class="left">Hayvan refahı</td></tr>
+    <tr><td>D15</td><td class="left">FAO/IDF Good Dairy Farming</td><td>—</td><td class="left">uluslararası rehber</td><td class="left">Süt hijyeni</td></tr>
+    <tr><td>D16</td><td class="left">Codex Milk Hygiene</td><td>—</td><td class="left">uluslararası standart</td><td class="left">Süt hijyeni</td></tr>
+  </table>
+  <caption>16 belge, 748 sayfa birimi, 1833 metin parçası. Seçim: süt sığırcılığına ilgili, resmi/üniversite/hakemli, sekiz temadan biri, izlenebilir kaynak.</caption>
+
+  <h2>Tablo 6. Tekrarlanabilir deney yapılandırması</h2>
+  <table>
+    <tr><th class="left">Bileşen</th><th class="left">Değer</th></tr>
+    <tr><td class="left">LLM (üretim)</td><td class="left">mistral; temperature 0; seed 0; max 160 token; ctx 2048</td></tr>
+    <tr><td class="left">Yönlendirici LLM</td><td class="left">mistral (kural eşleşmezse); kural eşleşirse LLM çağrılmaz</td></tr>
+    <tr><td class="left">Gömme modeli</td><td class="left">bge-m3 (Ollama)</td></tr>
+    <tr><td class="left">Parçalama</td><td class="left">900 karakter, 150 örtüşme</td></tr>
+    <tr><td class="left">Top-K</td><td class="left">FAISS 8, BM25 8, nihai 5</td></tr>
+    <tr><td class="left">Birleştirme</td><td class="left">Weighted RRF; 0,60 / 0,40; k = 60</td></tr>
+    <tr><td class="left">BM25</td><td class="left">k1 = 1,5; b = 0,75</td></tr>
+    <tr><td class="left">FAISS</td><td class="left">IndexFlatL2 (L2 uzaklık)</td></tr>
+    <tr><td class="left">Veritabanı</td><td class="left">PostgreSQL, sentetik prototip kayıtlar</td></tr>
+    <tr><td class="left">Test ayrımı</td><td class="left">100 soru = pilot; 89 soru = held-out final</td></tr>
+  </table>
+
+  <h2>Teze yapıştırılacak kısa metinler</h2>
+  <p class="note"><b>Yöntem / veri:</b> Çiftlik kayıtları ticari işletme verisi değildir; prototip ve deney için üretilmiş sentetik örnek kayıtlardır. Bilgi tabanı 16 PDF belgeden oluşturulmuş, 1833 parçaya bölünmüştür.</p>
+  <p class="note"><b>RAG tanımı (ilk geçiş):</b> Bu çalışmada Geri Getirme Destekli Üretim (Retrieval-Augmented Generation, RAG) kullanılmıştır. Bundan sonra RAG kısaltması kullanılır. Büyük Dil Modeli (Large Language Model, LLM) ifadesi, Transformer tabanlı sohbet/üretim modellerini belirtir; öğrenme yönetim sistemi anlamına gelmez.</p>
+  <p class="note"><b>Bulgular / retrieval:</b> Final sette anlamsal erişim (BGE-M3 + L2) sözcüksel BM25’ten belirgin biçimde daha yüksek P@5, MRR ve nDCG@5 üretmiştir. Hibrit RRF, BM25’i iyileştirmekle birlikte bu sette salt anlamsal erişimin çok az gerisinde kalmıştır. Bu sonuç, hibrit birleştirmenin her veri kümesinde otomatik üstünlük sağlamadığını göstermektedir.</p>
+  <p class="note"><b>Bulgular / ağırlık:</b> %60/%40 oranı geliştirme (pilot) setinde 50/50 ve 70/30 ile karşılaştırılmış; 60/40 en az diğerleri kadar iyi bulunarak dondurulmuştur. Final sette bu oran tekrar optimize edilmemiştir.</p>
+  <p class="note"><b>Sınırlılık:</b> Uçtan uca SQL execution accuracy, HYBRID sentez doğruluğu ve LLM yanıt faithfulness/halüsinasyon oranlarının tam nicel ölçümü, mevcut ortamda Torch bağımlılığı nedeniyle henüz tamamlanmamıştır. Retrieval ve routing sonuçları held-out set üzerinden raporlanmıştır.</p>
+</body>
+</html>

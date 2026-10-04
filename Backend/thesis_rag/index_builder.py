@@ -70,6 +70,13 @@ def build_index(source_dir: Path | None = None, index_dir: Path | None = None) -
         "embedding_model": settings.embed_model,
         "chunk_size": settings.chunk_size,
         "chunk_overlap": settings.chunk_overlap,
+        "faiss_index": "IndexFlatL2",
+        "faiss_metric": settings.faiss_metric,
+        "bm25_k1": settings.bm25_k1,
+        "bm25_b": settings.bm25_b,
+        "fusion_method": settings.fusion_method,
+        "dense_weight": settings.dense_weight,
+        "sparse_weight": settings.sparse_weight,
         "source_dir": str(source_dir),
     }
     (index_dir / "manifest.json").write_text(

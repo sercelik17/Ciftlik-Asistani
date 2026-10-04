@@ -4,8 +4,6 @@ from psycopg2.extras import RealDictCursor
 from dotenv import load_dotenv
 from apscheduler.schedulers.background import BackgroundScheduler
 from exponent_server_sdk import PushClient, PushMessage
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
 from zoneinfo import ZoneInfo
 
 # Veri üretimi fonksiyonunu import ediyoruz
@@ -13,15 +11,19 @@ from data import sagim_verisi_uret_ve_kaydet
 
 load_dotenv()
 
+local_llm = None
 try:
     from sql_rag import local_llm
-except ImportError:
-    from langchain_ollama import ChatOllama
-    local_llm = ChatOllama(
-        model=os.getenv("LOCAL_LLM"),
-        temperature=0.1,
-        base_url=os.getenv("OLLAMA_BASE_URL")
-    )
+except Exception:
+    try:
+        from langchain_ollama import ChatOllama
+        local_llm = ChatOllama(
+            model=os.getenv("LOCAL_LLM"),
+            temperature=0.1,
+            base_url=os.getenv("OLLAMA_BASE_URL"),
+        )
+    except Exception:
+        local_llm = None
 
 def get_db_connection():
     db_user = os.getenv("DB_USER")
@@ -186,23 +188,37 @@ def check_for_milk_drops():
                 Lütfen sadece oluşturduğun alarm mesajını döndür, başka hiçbir şey yazma.
                 """
                 
-                prompt = ChatPromptTemplate.from_template(prompt_template)
-                chain = prompt | local_llm | StrOutputParser()
-                
-                try:
-                    mesaj = chain.invoke({
-                        "isim": isim,
-                        "kupe_no": kupe_no,
-                        "sagim_zamani_tr": sagim_zamani_tr,
-                        "sagim_zamani": sagim_zamani,
-                        "tarih": str(tarih),
-                        "son_verim": son_verim,
-                        "eski_ortalama": eski_ortalama,
-                        "dusus_yuzdesi": dusus_yuzdesi
-                    }).strip()
-                except Exception as llm_err:
-                    print(f"LLM mesaj üretme hatası: {llm_err}")
-                    mesaj = f"Dikkat! {isim} ({kupe_no}) isimli ineğinizin {tarih} tarihindeki {sagim_zamani_tr} sağım verimi %{dusus_yuzdesi:.1f} düşmüştür. Son verim: {son_verim} L, Eski Ortalama: {eski_ortalama:.1f} L."
+                if local_llm is None:
+                    mesaj = (
+                        f"{isim} ({kupe_no}) {sagim_zamani_tr} sağımında "
+                        f"süt verimi %{dusus_yuzdesi:.1f} düştü "
+                        f"({eski_ortalama:.1f} L → {son_verim:.1f} L)."
+                    )
+                else:
+                    from langchain_core.prompts import ChatPromptTemplate
+                    from langchain_core.output_parsers import StrOutputParser
+
+                    prompt = ChatPromptTemplate.from_template(prompt_template)
+                    chain = prompt | local_llm | StrOutputParser()
+                    try:
+                        mesaj = chain.invoke({
+                            "isim": isim,
+                            "kupe_no": kupe_no,
+                            "sagim_zamani_tr": sagim_zamani_tr,
+                            "sagim_zamani": sagim_zamani,
+                            "tarih": str(tarih),
+                            "son_verim": son_verim,
+                            "eski_ortalama": eski_ortalama,
+                            "dusus_yuzdesi": dusus_yuzdesi,
+                        }).strip()
+                    except Exception as llm_err:
+                        print(f"LLM mesaj üretme hatası: {llm_err}")
+                        mesaj = (
+                            f"Dikkat! {isim} ({kupe_no}) isimli ineğinizin "
+                            f"{tarih} tarihindeki {sagim_zamani_tr} sağım verimi "
+                            f"%{dusus_yuzdesi:.1f} düşmüştür. Son verim: {son_verim} L, "
+                            f"Eski Ortalama: {eski_ortalama:.1f} L."
+                        )
 
                 # YENİ: ciftlik_id ile alarmlar tablosuna kayıt atılıyor
                 cursor.execute(

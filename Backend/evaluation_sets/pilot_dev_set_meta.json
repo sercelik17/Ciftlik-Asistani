@@ -1,0 +1,7 @@
+{
+  "dataset_role": "pilot_development",
+  "path": "tez_test_seti_100.json",
+  "n": 100,
+  "classes": {"RAG": 50, "SQL": 30, "HYBRID": 20, "CHAT": 0},
+  "note": "Sistem geliştirilirken kullanıldığı için final performans olarak raporlanmamalıdır. Final sonuçlar evaluation_sets/final_heldout_set.json üzerinden alınır."
+}

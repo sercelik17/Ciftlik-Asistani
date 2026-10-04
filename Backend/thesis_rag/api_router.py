@@ -6,7 +6,7 @@ from typing import Any, Callable
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
-from .thesis_service import ThesisAssistantService
+from .local_runtime import LocalThesisService
 
 
 class ThesisQueryRequest(BaseModel):
@@ -19,14 +19,14 @@ class ThesisQueryResponse(BaseModel):
     sources: list[dict[str, Any]] = Field(default_factory=list)
 
 
-_service: ThesisAssistantService | None = None
+_service: LocalThesisService | None = None
 
 
-def get_service() -> ThesisAssistantService:
+def get_service() -> LocalThesisService:
     global _service
 
     if _service is None:
-        _service = ThesisAssistantService()
+        _service = LocalThesisService()
 
     return _service
 

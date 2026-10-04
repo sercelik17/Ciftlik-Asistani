@@ -179,10 +179,27 @@ def _metadata_category(metadata: dict) -> str | None:
     return None
 
 
+def _minmax_normalize(raw: dict[str, float]) -> dict[str, float]:
+    if not raw:
+        return {}
+    values = list(raw.values())
+    lo = min(values)
+    hi = max(values)
+    if hi == lo:
+        return {key: 1.0 for key in raw}
+    return {
+        key: (value - lo) / (hi - lo)
+        for key, value in raw.items()
+    }
+
+
 class HybridRetriever:
     """
-    Dense FAISS + sparse BM25 sonuclarini Weighted Reciprocal
-    Rank Fusion ile birlestirir.
+    Dense FAISS + sparse BM25 sonuclarini birlestirir.
+
+    Varsayilan yontem Weighted Reciprocal Rank Fusion'dir.
+    FAISS L2 uzakligi ile BM25 skoru farkli olceklerde oldugu icin
+    ham skorlar dogrudan toplanmaz; sira tabanli RRF kullanilir.
 
     Soru belirli bir uzmanlik kategorisine acikca aitse,
     retrieval o kategoriye ait dokumanlarla sinirlandirilir.
@@ -219,7 +236,9 @@ class HybridRetriever:
             [
                 tokenize(d.page_content)
                 for d in self.documents
-            ]
+            ],
+            k1=settings.bm25_k1,
+            b=settings.bm25_b,
         )
 
         self.embeddings = OllamaEmbeddings(
@@ -377,74 +396,158 @@ class HybridRetriever:
                 if self._allowed(doc, categories)
             ][:top_k]
 
-    def retrieve(
+    def _candidate_lists(
         self,
         question: str,
-        final_top_k: int | None = None,
-    ) -> list[Document]:
-
-        final_top_k = (
-            final_top_k
-            or settings.final_top_k
+        categories: list[str] | None = None,
+    ) -> tuple[list[Document], list[Document], list[str]]:
+        categories = (
+            categories
+            if categories is not None
+            else self.detect_categories(question)
         )
-
-        categories = self.detect_categories(question)
 
         dense = self._dense_docs(
             question,
             settings.vector_top_k,
             categories=categories,
         )
-
         sparse = self._bm25_docs(
             question,
             settings.bm25_top_k,
             categories=categories,
         )
 
-        # Kategori siniflandirmasi cok kati kalirsa ve
-        # hic sonuc bulunamazsa global retrieval'a geri don.
         if categories and not dense and not sparse:
             categories = []
-
             dense = self._dense_docs(
                 question,
                 settings.vector_top_k,
             )
-
             sparse = self._bm25_docs(
                 question,
                 settings.bm25_top_k,
             )
 
-        scores: dict[str, float] = defaultdict(float)
+        return dense, sparse, categories
+
+    def _fuse(
+        self,
+        dense: list[Document],
+        sparse: list[Document],
+        dense_weight: float | None = None,
+        sparse_weight: float | None = None,
+        fusion_method: str | None = None,
+    ) -> dict[str, float]:
+        dense_weight = (
+            settings.dense_weight
+            if dense_weight is None
+            else dense_weight
+        )
+        sparse_weight = (
+            settings.sparse_weight
+            if sparse_weight is None
+            else sparse_weight
+        )
+        fusion_method = (
+            settings.fusion_method
+            if fusion_method is None
+            else fusion_method
+        ).lower()
+
         docs_by_key: dict[str, Document] = {}
+        scores: dict[str, float] = defaultdict(float)
+        rrf_k = settings.rrf_k
 
-        rrf_k = 60.0
+        if fusion_method == "weighted_minmax":
+            dense_raw: dict[str, float] = {}
+            sparse_raw: dict[str, float] = {}
 
-        for rank, doc in enumerate(
+            for rank, doc in enumerate(dense, start=1):
+                key = _doc_key(doc)
+                docs_by_key[key] = doc
+                dense_raw[key] = 1.0 / rank
+
+            for rank, doc in enumerate(sparse, start=1):
+                key = _doc_key(doc)
+                docs_by_key[key] = doc
+                sparse_raw[key] = 1.0 / rank
+
+            dense_norm = _minmax_normalize(dense_raw)
+            sparse_norm = _minmax_normalize(sparse_raw)
+            all_keys = set(dense_norm) | set(sparse_norm)
+            for key in all_keys:
+                scores[key] = (
+                    dense_weight * dense_norm.get(key, 0.0)
+                    + sparse_weight * sparse_norm.get(key, 0.0)
+                )
+            return scores
+
+        dense_w = 1.0 if fusion_method == "rrf" else dense_weight
+        sparse_w = 1.0 if fusion_method == "rrf" else sparse_weight
+
+        for rank, doc in enumerate(dense, start=1):
+            key = _doc_key(doc)
+            docs_by_key[key] = doc
+            scores[key] += dense_w / (rrf_k + rank)
+
+        for rank, doc in enumerate(sparse, start=1):
+            key = _doc_key(doc)
+            docs_by_key[key] = doc
+            scores[key] += sparse_w / (rrf_k + rank)
+
+        return scores
+
+    def retrieve(
+        self,
+        question: str,
+        final_top_k: int | None = None,
+        mode: str = "hybrid",
+        dense_weight: float | None = None,
+        sparse_weight: float | None = None,
+        fusion_method: str | None = None,
+    ) -> list[Document]:
+        """
+        mode: hybrid | faiss | bm25
+        """
+
+        final_top_k = final_top_k or settings.final_top_k
+        dense, sparse, categories = self._candidate_lists(question)
+        mode = (mode or "hybrid").lower()
+
+        if mode == "faiss":
+            ranked_docs = dense[:final_top_k]
+            for doc in ranked_docs:
+                doc.metadata["hybrid_score"] = None
+                doc.metadata["retrieval_mode"] = "faiss"
+                doc.metadata["retrieval_category"] = _metadata_category(
+                    doc.metadata
+                )
+                doc.metadata["detected_categories"] = categories
+            return ranked_docs
+
+        if mode == "bm25":
+            ranked_docs = sparse[:final_top_k]
+            for doc in ranked_docs:
+                doc.metadata["hybrid_score"] = None
+                doc.metadata["retrieval_mode"] = "bm25"
+                doc.metadata["retrieval_category"] = _metadata_category(
+                    doc.metadata
+                )
+                doc.metadata["detected_categories"] = categories
+            return ranked_docs
+
+        docs_by_key: dict[str, Document] = {}
+        for doc in dense + sparse:
+            docs_by_key[_doc_key(doc)] = doc
+
+        scores = self._fuse(
             dense,
-            start=1,
-        ):
-            key = _doc_key(doc)
-            docs_by_key[key] = doc
-
-            scores[key] += (
-                settings.dense_weight
-                / (rrf_k + rank)
-            )
-
-        for rank, doc in enumerate(
             sparse,
-            start=1,
-        ):
-            key = _doc_key(doc)
-            docs_by_key[key] = doc
-
-            scores[key] += (
-                settings.sparse_weight
-                / (rrf_k + rank)
-            )
+            dense_weight=dense_weight,
+            sparse_weight=sparse_weight,
+            fusion_method=fusion_method,
+        )
 
         ranked_keys = sorted(
             scores,
@@ -453,23 +556,14 @@ class HybridRetriever:
         )[:final_top_k]
 
         result = []
-
         for key in ranked_keys:
             doc = docs_by_key[key]
-
-            doc.metadata["hybrid_score"] = round(
-                scores[key],
-                8,
+            doc.metadata["hybrid_score"] = round(scores[key], 8)
+            doc.metadata["retrieval_mode"] = "hybrid"
+            doc.metadata["retrieval_category"] = _metadata_category(
+                doc.metadata
             )
-
-            doc.metadata["retrieval_category"] = (
-                _metadata_category(doc.metadata)
-            )
-
-            doc.metadata["detected_categories"] = (
-                categories
-            )
-
+            doc.metadata["detected_categories"] = categories
             result.append(doc)
 
         return result

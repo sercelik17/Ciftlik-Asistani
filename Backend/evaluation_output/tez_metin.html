@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>Teze yapıştırılacak metinler</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; max-width: 820px; margin: 32px auto; padding: 0 16px; line-height: 1.5; }
+    h1 { font-size: 22px; }
+    h2 { font-size: 17px; margin-top: 28px; }
+    .box { background: #f7f7f7; border: 1px solid #ccc; padding: 12px 14px; margin: 10px 0; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <h1>Tez Word dosyasına yapıştır</h1>
+  <p>Aşağıdaki kutuları kopyala (Ctrl+C) ve ilgili bölüme yapıştır (Ctrl+V). JSON ile işin yok.</p>
+
+  <h2>1. Önerilen başlık</h2>
+  <div class="box">Süt Sığırcılığında Yapılandırılmış Çiftlik Verileri ile Bilimsel Bilginin Entegrasyonu için RAG Tabanlı Yapay Zekâ Sohbet Asistanı</div>
+
+  <h2>2. İlk geçişte yazılacak tanımlar (sonra kısalt)</h2>
+  <div class="box">
+    Bu çalışmada Geri Getirme Destekli Üretim (Retrieval-Augmented Generation, RAG) kullanılmıştır. Bundan sonra metinde RAG kısaltması kullanılacaktır.
+    Büyük Dil Modeli (Large Language Model, LLM) ifadesi, doğal dil üretimi yapan Transformer tabanlı modelleri belirtir; öğrenme yönetim sistemi anlamına gelmez.
+  </div>
+  <p>Word’de Ctrl+H (Değiştir) ile şunları düzelt:</p>
+  <ul>
+    <li>İlişkisel Toplu Veritabanı → sil / RAG yaz</li>
+    <li>AGR → RAG</li>
+    <li>artırılmış üretim yoluyla bilgi alma → Geri Getirme Destekli Üretim (RAG)</li>
+    <li>Transformer tabanlı öğrenme yönetim sistemleri (LLM’ler) → Büyük Dil Modelleri (LLM’ler)</li>
+    <li>yapay zeka → yapay zekâ (hepsini aynı yap)</li>
+    <li>“Belirli alanlar veya sektörler hakkında daha detaylı bir analiz isterseniz lütfen bize bildirin.” → bu cümleyi tamamen sil</li>
+  </ul>
+
+  <h2>3. Veri niteliği (kapsam / yöntem)</h2>
+  <div class="box">
+    Prototipteki inek, sağım ve alarm kayıtları ticari bir işletmeden alınmış gerçek veriler değildir. Bu kayıtlar sistemin SQL ve HYBRID iş akışlarını sınamak üzere üretilmiş sentetik örnek verilerdir. Bilgi tabanı ise 16 açık bilimsel/rehber belgeden oluşturulmuştur; 748 sayfa birimi 900 karakterlik parçalara (150 karakter örtüşme) bölünerek 1833 metin parçası elde edilmiştir.
+  </div>
+
+  <h2>4. CHAT tutarsızlığı (yöntem + bulgular)</h2>
+  <div class="box">
+    Yöntem bölümünde dört sorgu sınıfı tanımlanmıştır: SQL, RAG, HYBRID ve CHAT. Geliştirme (pilot) kümesi 50 RAG, 30 SQL ve 20 HYBRID sorudan oluşur; CHAT bu kümede yer almaz. Final değerlendirme, daha önce geliştirme sırasında kullanılmamış held-out küme üzerinde yapılmıştır. Held-out kümede 33 RAG, 24 SQL, 16 HYBRID ve 16 CHAT sorusu bulunmaktadır. Böylece yöntem–bulgular uyumu sağlanmıştır. Pilot küme üzerindeki yönlendirme oranı final sistem başarısı olarak sunulmamıştır.
+  </div>
+
+  <h2>5. Araştırma soruları</h2>
+  <div class="box">
+    RQ1. SQL, RAG, HYBRID ve CHAT sorguları ne ölçüde doğru yönlendirilmektedir?<br>
+    RQ2. FAISS + BM25 hibrit erişim, tekil BM25 ve tekil FAISS yöntemlerine göre daha iyi midir?<br>
+    RQ3. RAG yanıtları getirilen kaynaklarla ne ölçüde uyumludur (atıf doğruluğu ve desteksiz iddia oranı)?<br>
+    RQ4. SQL sorgularında altın standart sayısal sonuçlar nelerdir; uçtan uca execution accuracy ayrıca raporlanacak mıdır?<br>
+    RQ5. Yönlendirme ve üretim gecikmesi nasıl dağılmaktadır?
+  </div>
+
+  <h2>6. Bulgular (yönlendirme + retrieval) — kopyala</h2>
+  <div class="box">
+    Held-out final kümesinde (n = 89) yönlendirme doğruluğu 1,00 (89/89) ve Macro-F1 1,00 olarak bulunmuştur. Sınıf dağılımı RAG 33, SQL 24, HYBRID 16 ve CHAT 16’dır; confusion matrix köşegendedir. Bu sonuç yanıt doğruluğu değil, sorunun doğru işleme kanalına gitme başarısıdır.
+    <br><br>
+    Retrieval değerlendirmesinde (n = 33 RAG, K = 5) BM25 için P@5 = 0,35 ve MRR = 0,42; BGE-M3 tabanlı anlamsal erişim için P@5 = 0,90 ve MRR = 0,91; Weighted RRF hibrit (0,60/0,40) için P@5 = 0,89 ve MRR = 0,88 elde edilmiştir. Anlamsal erişim sözcüksel erişimden belirgin biçimde üstündür. Hibrit birleştirme BM25’i iyileştirmekle birlikte bu sette salt anlamsal erişimin çok az gerisinde kalmıştır. Bu bulgu, hibrit yöntemin her veri kümesinde otomatik olarak en iyi sonuç vermediğini göstermektedir.
+    <br><br>
+    FAISS/BM25 ağırlığı geliştirme setinde (n = 50) 50/50, 60/40 ve 70/30 olarak karşılaştırılmıştır. 60/40, 50/50’ye göre nDCG@5 açısından biraz daha yüksek veya eşdeğer bulunmuş ve final sette dondurulmuştur.
+  </div>
+
+  <h2>7. Tartışma taslağı</h2>
+  <div class="box">
+    Literatürde hibrit erişimin hem sözcüksel hem anlamsal sinyali birleştirdiği savunulur. Bu çalışmada nihai kümede anlamsal modelin (BGE-M3) tek başına yeterli belgesel isabet ürettiği, BM25’in ise aynı altın belgelerde daha düşük kaldığı görülmüştür. Dolayısıyla “hibrit her zaman daha iyidir” iddiası bu derleme ve soru seti için desteklenmemektedir; hibritin katkısı özellikle eşanlamlı/çok dilli kaçırma riskine karşı bir güvenlik ağı olarak yorumlanmalıdır.
+    <br><br>
+    Yönlendirme başarısının yüksekliği, kural tabanlı ön sınıflandırıcının held-out soru diline iyi örtüşmesinden kaynaklanır. Bu, LLM yönlendiricisinin her örnekte çağrılmadığı anlamına gelir ve tekrarlanabilirliği artırır; ancak kural setinin çiftlik özel isimlerine (Serap, Beyza vb.) dayanması genelleme sınırıdır.
+    <br><br>
+    Sistem veteriner tanısı veya antibiyotik kararı vermek üzere tasarlanmamıştır. Tanı/tedavi taleplerinde yanıt reddedilir ve kullanıcı hekime yönlendirilir.
+  </div>
+
+  <h2>8. Sınırlılıklar (dürüst yaz)</h2>
+  <div class="box">
+    Mevcut raporda uçtan uca SQL execution accuracy ve HYBRID sentez doğruluğunun LLM üzerinden tam nicel ölçümü, Windows ortamındaki Torch/LangChain yükleme hatası nedeniyle henüz tamamlanmamıştır. SQL için altın sorgular PostgreSQL üzerinde çalıştırılmış ve beklenen sayısal değerler belirlenmiştir. Yanıt kalitesi (faithfulness, desteksiz iddia) ölçümü Ollama üzerinden ayrı bir üretim deneyi ile sürdürülmektedir. 900 karakter / 150 örtüşme / Top-5 seçimi tam bir ablation tablosu ile değil, uygulama literatürü ve geliştirme seti gözlemleriyle gerekçelendirilmiştir.
+  </div>
+</body>
+</html>

@@ -1,0 +1,922 @@
+{
+  "n": 89,
+  "accuracy": 1.0,
+  "accuracy_ci95": {
+    "low": 0.9586,
+    "high": 1.0
+  },
+  "macro_f1": 1.0,
+  "per_class": {
+    "RAG": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 33,
+      "accuracy": 1.0
+    },
+    "SQL": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 24,
+      "accuracy": 1.0
+    },
+    "HYBRID": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 16,
+      "accuracy": 1.0
+    },
+    "CHAT": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 16,
+      "accuracy": 1.0
+    }
+  },
+  "confusion_matrix": {
+    "RAG": {
+      "RAG": 33,
+      "SQL": 0,
+      "HYBRID": 0,
+      "CHAT": 0
+    },
+    "SQL": {
+      "RAG": 0,
+      "SQL": 24,
+      "HYBRID": 0,
+      "CHAT": 0
+    },
+    "HYBRID": {
+      "RAG": 0,
+      "SQL": 0,
+      "HYBRID": 16,
+      "CHAT": 0
+    },
+    "CHAT": {
+      "RAG": 0,
+      "SQL": 0,
+      "HYBRID": 0,
+      "CHAT": 16
+    }
+  },
+  "exact_counts": {
+    "correct": 89,
+    "incorrect": 0
+  },
+  "router_note": "Canlı sistem önce kural tabanlı yönlendiriciyi kullanır; kural sonuç verirse LLM çağrılmaz. Bu rapor aynı sırayı izler.",
+  "latency": {
+    "overall": {
+      "n": 89,
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "p95": 0.0
+    },
+    "by_expected_route": {
+      "RAG": {
+        "n": 33,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p95": 0.0
+      },
+      "SQL": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p95": 0.0
+      },
+      "HYBRID": {
+        "n": 16,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p95": 0.0
+      },
+      "CHAT": {
+        "n": 16,
+        "mean": 0.0,
+        "median": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p95": 0.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "F-RAG001",
+      "question": "Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG002",
+      "question": "Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG003",
+      "question": "Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG004",
+      "question": "Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG005",
+      "question": "Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG006",
+      "question": "Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG007",
+      "question": "Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG008",
+      "question": "Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG009",
+      "question": "Dengeli rasyon süt sığırlarında verimi neden destekler?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG010",
+      "question": "Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG011",
+      "question": "Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG012",
+      "question": "Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG013",
+      "question": "Süt humması taze inek döneminde neden önemli bir risktir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG014",
+      "question": "Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG015",
+      "question": "Doğum sonrası hipokalsemi belirtileri neler olabilir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG016",
+      "question": "Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG017",
+      "question": "Kolostrumun buzağıya zamanında verilmesi neden kritiktir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG018",
+      "question": "Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG019",
+      "question": "Kolostrumdaki immünoglobulin düzeyi neden önemlidir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG020",
+      "question": "Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG021",
+      "question": "Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG022",
+      "question": "Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG023",
+      "question": "Tohumlama zamanlaması gebelik oranını neden etkiler?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG024",
+      "question": "Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG025",
+      "question": "Topallık süt sığırlarında refahı nasıl etkiler?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG026",
+      "question": "Barınak konforu ineklerin dinlenme davranışını neden etkiler?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG027",
+      "question": "Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG028",
+      "question": "Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG029",
+      "question": "Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG030",
+      "question": "İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG031",
+      "question": "Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG032",
+      "question": "Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-RAG033",
+      "question": "Bu inekte mastitis var mı, antibiyotik vermeli miyim?",
+      "expected_route": "RAG",
+      "predicted_route": "RAG",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL001",
+      "question": "Çiftlikte kayıtlı inek sayısı kaçtır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL002",
+      "question": "TR0002 küpe numaralı ineğin adı nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL003",
+      "question": "Beyza'nın küpe numarası nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL004",
+      "question": "Papatya hangi ırktandır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL005",
+      "question": "Lale'nin son sağımında kaç litre süt alınmıştır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL006",
+      "question": "Boncuk'un 5 Eylül 2026 tarihindeki toplam sütü kaç litredir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL007",
+      "question": "5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL008",
+      "question": "30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL009",
+      "question": "Süt verimi en yüksek dört ineği listele.",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL010",
+      "question": "Ortalama süt verimi en düşük inek hangisidir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL011",
+      "question": "Holstein ırkındaki ineklerin sayısı nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL012",
+      "question": "Papatya'nın ortalama süt verimi nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL013",
+      "question": "Lale için süt düşüş alarmı var mıdır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL014",
+      "question": "Serap'ın küpe numarası TR0001 midir, doğrula.",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL015",
+      "question": "1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL016",
+      "question": "Bugünkü toplam süt üretimini getir.",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL017",
+      "question": "Boncuk'un küpe numarası nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL018",
+      "question": "TR0004 numaralı ineğin son süt miktarı kaç litredir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL019",
+      "question": "Çiftliğin adını söyle.",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL020",
+      "question": "Simental ırkı inek sayısı kaçtır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL021",
+      "question": "Beyza'nın ortalama süt verimini getir.",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL022",
+      "question": "Serap için son alarmdaki düşüş yüzdesi nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL023",
+      "question": "Okunmamış alarm sayısı kaçtır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-SQL024",
+      "question": "4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB001",
+      "question": "Beyza'nın süt verimindeki değişimi bilimsel kaynaklara göre yorumla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB002",
+      "question": "Boncuk'un mevcut süt kaydı ile mastitis literatürünü birlikte değerlendir.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB003",
+      "question": "Papatya'nın süt verisini besleme bilgisiyle birlikte açıkla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB004",
+      "question": "Lale'nin sağım kaydını süt hijyeni açısından kaynaklarla değerlendir.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB005",
+      "question": "TR0001 küpe numaralı ineğin süt düşüşünü metabolik hastalık bilgisiyle yorumla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB006",
+      "question": "Serap'ın alarm kaydını hayvan refahı literatürüyle birlikte ele al.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB007",
+      "question": "Beyza'nın son süt miktarını süt kalitesi bilgisiyle birlikte değerlendir.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB008",
+      "question": "Çiftlikteki süt düşüş alarmını kesin tanı koymadan bilimsel kaynaklarla yorumla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB009",
+      "question": "Boncuk'un verim kaydını geçiş dönemi metabolik riskleri açısından tartış.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB010",
+      "question": "Papatya'nın süt verisi ile kuru madde tüketimi literatürünü birlikte kullan.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB011",
+      "question": "Lale'nin çiftlik kaydını meme sağlığı kaynaklarıyla sentezle.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB012",
+      "question": "Serap'ın sayısal süt düşüşünü kaynaklara dayanarak ama tanı koymadan açıkla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB013",
+      "question": "Çiftlikteki günlük süt değişimini sağım hijyeni bilgisiyle birlikte yorumla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB014",
+      "question": "TR0003 küpe numaralı ineğin kaydını besleme literatürüyle değerlendir.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB015",
+      "question": "Beyza için oluşan süt verisi değişimini üreme yönetimi bilgisiyle ilişkilendirme; yalnızca süt ve sağlık kaynaklarıyla yorumla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-HYB016",
+      "question": "Çiftlikteki ineklerin süt kayıtlarını hayvan refahı ilkeleriyle birlikte genel olarak değerlendir.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT001",
+      "question": "Merhaba",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT002",
+      "question": "Selam",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT003",
+      "question": "Teşekkürler",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT004",
+      "question": "Sağ ol",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT005",
+      "question": "Nasılsın?",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT006",
+      "question": "İyi günler",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT007",
+      "question": "İyi akşamlar",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT008",
+      "question": "Günaydın",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT009",
+      "question": "Ne yapabilirsin?",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT010",
+      "question": "Kendini tanıt",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT011",
+      "question": "Yardımcı olur musun?",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT012",
+      "question": "Teşekkür ederim",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT013",
+      "question": "Merhaba nasılsın",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT014",
+      "question": "Selam, iyi günler",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT015",
+      "question": "Sağol",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    },
+    {
+      "id": "F-CHAT016",
+      "question": "Günaydın, nasılsın?",
+      "expected_route": "CHAT",
+      "predicted_route": "CHAT",
+      "route_correct": true,
+      "router_backend": "rules",
+      "latency_sec": 0.0
+    }
+  ]
+}

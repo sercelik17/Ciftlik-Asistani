@@ -1,0 +1,1632 @@
+{
+  "k": 5,
+  "n": 33,
+  "backend": "Torch/FAISS Python bagimi bu ortamda yuklenemedigi icin dense retrieval BGE-M3 + brute-force L2 (IndexFlatL2 esdegeri) ile olculdu. BM25 ve Weighted RRF production ile aynidir.",
+  "summary": {
+    "bm25": {
+      "p_at_k": 0.3515,
+      "r_at_k": 0.2727,
+      "mrr": 0.4242,
+      "ndcg_at_k": 0.4242
+    },
+    "faiss": {
+      "p_at_k": 0.897,
+      "r_at_k": 0.7121,
+      "mrr": 0.9091,
+      "ndcg_at_k": 0.9191
+    },
+    "hybrid": {
+      "p_at_k": 0.8909,
+      "r_at_k": 0.7121,
+      "mrr": 0.8813,
+      "ndcg_at_k": 0.9011
+    }
+  },
+  "rows": [
+    {
+      "id": "F-RAG001",
+      "question": "Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?",
+      "preferred_sources": [
+        "FAO_Mastitis_Dairy_Manual.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "FAO_Mastitis_Dairy_Manual.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "FAO_Mastitis_Dairy_Manual.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "FAO_Mastitis_Dairy_Manual.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "FAO_Mastitis_Dairy_Manual.pdf",
+            "FAO_Mastitis_Dairy_Manual.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG002",
+      "question": "Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?",
+      "preferred_sources": [
+        "FAO_Mastitis_Dairy_Manual.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG003",
+      "question": "Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?",
+      "preferred_sources": [
+        "FAO_Mastitis_Dairy_Manual.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.8,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG004",
+      "question": "Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?",
+      "preferred_sources": [
+        "FAO_Mastitis_Dairy_Manual.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG005",
+      "question": "Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?",
+      "preferred_sources": [
+        "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG006",
+      "question": "Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?",
+      "preferred_sources": [
+        "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG007",
+      "question": "Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?",
+      "preferred_sources": [
+        "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG008",
+      "question": "Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?",
+      "preferred_sources": [
+        "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG009",
+      "question": "Dengeli rasyon süt sığırlarında verimi neden destekler?",
+      "preferred_sources": [
+        "FAO_2012_Balanced_Feeding.pdf",
+        "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG010",
+      "question": "Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?",
+      "preferred_sources": [
+        "FAO_2012_Balanced_Feeding.pdf",
+        "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+            "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+            "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG011",
+      "question": "Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?",
+      "preferred_sources": [
+        "FAO_2012_Balanced_Feeding.pdf",
+        "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "FAO_2012_Balanced_Feeding.pdf",
+            "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+            "FAO_2012_Balanced_Feeding.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG012",
+      "question": "Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?",
+      "preferred_sources": [
+        "FAO_2012_Balanced_Feeding.pdf",
+        "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG013",
+      "question": "Süt humması taze inek döneminde neden önemli bir risktir?",
+      "preferred_sources": [
+        "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+        "Cornell_Transition_Cow_Metabolic.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG014",
+      "question": "Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?",
+      "preferred_sources": [
+        "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+        "Cornell_Transition_Cow_Metabolic.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG015",
+      "question": "Doğum sonrası hipokalsemi belirtileri neler olabilir?",
+      "preferred_sources": [
+        "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+        "Cornell_Transition_Cow_Metabolic.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG016",
+      "question": "Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?",
+      "preferred_sources": [
+        "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+        "Cornell_Transition_Cow_Metabolic.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Wisconsin_Fresh_Cow_Milk_Fever.pdf"
+          ],
+          "p_at_k": 0.4,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf",
+            "Cornell_Transition_Cow_Metabolic.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG017",
+      "question": "Kolostrumun buzağıya zamanında verilmesi neden kritiktir?",
+      "preferred_sources": [
+        "USU_2026_Colostrum_Dairy_Calves.pdf",
+        "UF_IFAS_Dairy_Calf_Nutrition.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG018",
+      "question": "Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?",
+      "preferred_sources": [
+        "USU_2026_Colostrum_Dairy_Calves.pdf",
+        "UF_IFAS_Dairy_Calf_Nutrition.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "UF_IFAS_Dairy_Calf_Nutrition.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "UF_IFAS_Dairy_Calf_Nutrition.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG019",
+      "question": "Kolostrumdaki immünoglobulin düzeyi neden önemlidir?",
+      "preferred_sources": [
+        "USU_2026_Colostrum_Dairy_Calves.pdf",
+        "UF_IFAS_Dairy_Calf_Nutrition.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG020",
+      "question": "Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?",
+      "preferred_sources": [
+        "USU_2026_Colostrum_Dairy_Calves.pdf",
+        "UF_IFAS_Dairy_Calf_Nutrition.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+            "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+            "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf",
+            "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+            "USU_2026_Colostrum_Dairy_Calves.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG021",
+      "question": "Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?",
+      "preferred_sources": [
+        "Wisconsin_High_Fertility_Cycle.pdf",
+        "DCRC_Dairy_Cow_Reproductive_Management.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG022",
+      "question": "Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?",
+      "preferred_sources": [
+        "Wisconsin_High_Fertility_Cycle.pdf",
+        "DCRC_Dairy_Cow_Reproductive_Management.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf",
+            "Wisconsin_High_Fertility_Cycle.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG023",
+      "question": "Tohumlama zamanlaması gebelik oranını neden etkiler?",
+      "preferred_sources": [
+        "Wisconsin_High_Fertility_Cycle.pdf",
+        "DCRC_Dairy_Cow_Reproductive_Management.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG024",
+      "question": "Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?",
+      "preferred_sources": [
+        "Wisconsin_High_Fertility_Cycle.pdf",
+        "DCRC_Dairy_Cow_Reproductive_Management.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+            "DCRC_Dairy_Cow_Reproductive_Management.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG025",
+      "question": "Topallık süt sığırlarında refahı nasıl etkiler?",
+      "preferred_sources": [
+        "WOAH_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 0.8,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG026",
+      "question": "Barınak konforu ineklerin dinlenme davranışını neden etkiler?",
+      "preferred_sources": [
+        "WOAH_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 0.6,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG027",
+      "question": "Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?",
+      "preferred_sources": [
+        "WOAH_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 0.4,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "WOAH_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "WOAH_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG028",
+      "question": "Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?",
+      "preferred_sources": [
+        "WOAH_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 0.6,
+          "r_at_k": 0.5,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "WOAH_Dairy_Cattle_Welfare.pdf",
+            "WOAH_Dairy_Cattle_Welfare.pdf",
+            "WOAH_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "WOAH_Dairy_Cattle_Welfare.pdf",
+            "WOAH_Dairy_Cattle_Welfare.pdf",
+            "WOAH_Dairy_Cattle_Welfare.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG029",
+      "question": "Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?",
+      "preferred_sources": [
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "Codex_Milk_Hygiene.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Codex_Milk_Hygiene.pdf",
+            "Codex_Milk_Hygiene.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "Codex_Milk_Hygiene.pdf",
+            "Codex_Milk_Hygiene.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Codex_Milk_Hygiene.pdf",
+            "Codex_Milk_Hygiene.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "Codex_Milk_Hygiene.pdf",
+            "Codex_Milk_Hygiene.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG030",
+      "question": "İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?",
+      "preferred_sources": [
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "Codex_Milk_Hygiene.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf"
+          ],
+          "p_at_k": 0.8,
+          "r_at_k": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_k": 0.7606
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf"
+          ],
+          "p_at_k": 0.8,
+          "r_at_k": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_k": 0.7606
+        }
+      }
+    },
+    {
+      "id": "F-RAG031",
+      "question": "Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?",
+      "preferred_sources": [
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "Codex_Milk_Hygiene.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Codex_Milk_Hygiene.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Codex_Milk_Hygiene.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf"
+          ],
+          "p_at_k": 0.4,
+          "r_at_k": 0.5,
+          "mrr": 0.5,
+          "ndcg_at_k": 0.6509
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Codex_Milk_Hygiene.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Codex_Milk_Hygiene.pdf"
+          ],
+          "p_at_k": 0.4,
+          "r_at_k": 0.5,
+          "mrr": 0.3333,
+          "ndcg_at_k": 0.5438
+        }
+      }
+    },
+    {
+      "id": "F-RAG032",
+      "question": "Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?",
+      "preferred_sources": [
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "Codex_Milk_Hygiene.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+            "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+            "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "Codex_Milk_Hygiene.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "Codex_Milk_Hygiene.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Codex_Milk_Hygiene.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "FAO_IDF_Good_Dairy_Farming.pdf",
+            "Codex_Milk_Hygiene.pdf"
+          ],
+          "p_at_k": 1.0,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 1.0
+        }
+      }
+    },
+    {
+      "id": "F-RAG033",
+      "question": "Bu inekte mastitis var mı, antibiyotik vermeli miyim?",
+      "preferred_sources": [
+        "FAO_Mastitis_Dairy_Manual.pdf"
+      ],
+      "modes": {
+        "bm25": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 0.0,
+          "r_at_k": 0.0,
+          "mrr": 0.0,
+          "ndcg_at_k": 0.0
+        },
+        "faiss": {
+          "retrieved_titles": [
+            "FAO_Mastitis_Dairy_Manual.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "FAO_Mastitis_Dairy_Manual.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 0.4,
+          "r_at_k": 1.0,
+          "mrr": 1.0,
+          "ndcg_at_k": 0.9197
+        },
+        "hybrid": {
+          "retrieved_titles": [
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+            "FAO_Mastitis_Dairy_Manual.pdf",
+            "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+          ],
+          "p_at_k": 0.2,
+          "r_at_k": 1.0,
+          "mrr": 0.25,
+          "ndcg_at_k": 0.4307
+        }
+      }
+    }
+  ]
+}

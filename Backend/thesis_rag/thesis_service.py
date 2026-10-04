@@ -6,8 +6,15 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 
 from .farm_adapter import FarmDataService
+from .farm_context import current_farm_id
 from .query_router import QueryRouter
 from .rag_chain import RAGService
+from .safety import (
+    VETERINARY_DISCLAIMER,
+    ensure_veterinary_disclaimer,
+    is_diagnosis_or_treatment_request,
+    refuse_diagnosis_answer,
+)
 from .settings import settings
 
 
@@ -20,8 +27,11 @@ class ThesisAssistantService:
         self.farm = FarmDataService()
         self.local_llm = ChatOllama(
             model=settings.rag_llm,
-            temperature=0.1,
+            temperature=settings.llm_temperature,
             base_url=settings.ollama_base_url,
+            seed=settings.llm_seed,
+            num_predict=settings.llm_num_predict,
+            num_ctx=settings.llm_num_ctx,
         )
         self.hybrid_prompt = ChatPromptTemplate.from_messages([
     (
@@ -48,6 +58,7 @@ YANIT KURALLARI:
 - Çiftlik alarm mesajında bir ihtimal yazıyor fakat RAG kaynağı bunu desteklemiyorsa, bunu kesin neden gibi sunma.
 - Süt verimindeki düşüşü tek başına hastalık tanısı olarak yorumlama.
 - Kesin veteriner tanısı koyma.
+- Antibiyotik, ilaç veya doz önerme.
 - Gerektiğinde veteriner hekim değerlendirmesi öner.
 - Kaynak etiketlerini yalnızca KAYNAK BAĞLAMI içindeki etiketlerden kullan.
 - Kısa, açık ve bilimsel olarak temkinli yanıt ver.
@@ -75,99 +86,141 @@ Birleştirilmiş yanıt:""",
     ),
 ])
         self.hybrid_chain = self.hybrid_prompt | self.local_llm
+        self.chat_prompt = ChatPromptTemplate.from_messages([
+            (
+                "system",
+                "Sen süt sığırcılığı alanında çalışan kısa sohbet asistanısın. "
+                "HER ZAMAN TÜRKÇE cevap ver. Tanı koyma, antibiyotik veya ilaç önerme. "
+                "Kullanıcının selamına veya kısa sohbetine doğal, kısa ve yardımsever yanıt ver.",
+            ),
+            ("human", "{question}"),
+        ])
+        self.chat_chain = self.chat_prompt | self.local_llm
 
-    def ask(self, question: str, ciftlik_id: int | None = None) -> dict[str, Any]:
-        route = self.router.classify(question)
-
-        if route == "SQL":
-            answer = self.farm.answer(question)
-            return {"route": route, "answer": answer, "sources": []}
-
-        if route == "RAG":
-            result = self.rag.answer(question)
-            return {"route": route, **result}
-
-        if route == "HYBRID":
-
-            # 1. Gerçek çiftlik verisini doğrudan PostgreSQL'den getir
-            farm_data = self.farm.get_latest_milk_drop(
-                question=question,
-                ciftlik_id=ciftlik_id,
-            )
-
-            # 2. RAG tarafında uzmanlık bilgisini ve kaynakları getir
-            rag_question = (
-                "Süt sığırlarında ani süt verimi düşüşü mastitis veya meme sağlığı "
-                "sorunlarıyla nasıl ilişkili olabilir? "
-                "Yalnızca süt verimi düşüşüyle doğrudan ilişkili bilgileri belirt. "
-                "Belirli bir hayvanda kesin neden veya tanı ileri sürme."
-            )
-
-            rag_result = self.rag.answer(rag_question)
-
-            # 3. Çiftlik verisini LLM'e yazdırmıyoruz.
-            # Sayısal değerleri Python deterministik olarak oluşturuyor.
-            if farm_data:
-
-                sagim_zamani = (
-                    "akşam"
-                    if farm_data["sagim_zamani"] == "e"
-                    else "sabah"
-                )
-
-                tarih = farm_data["tarih"].strftime("%d.%m.%Y")
-
-                eski_ortalama = (
-                    f'{farm_data["eski_ortalama"]:.2f}'
-                    .replace(".", ",")
-                )
-
-                son_verim = (
-                    f'{farm_data["son_verim"]:.2f}'
-                    .replace(".", ",")
-                )
-
-                dusus_yuzdesi = (
-                    f'{farm_data["dusus_yuzdesi"]:.2f}'
-                    .replace(".", ",")
-                )
-
-                farm_answer = (
-                    f'Çiftlik kayıtlarına göre {farm_data["isim"]} '
-                    f'({farm_data["kupe_no"]}) için {tarih} tarihli '
-                    f'{sagim_zamani} sağımında süt verimi, '
-                    f'önceki sağım ortalaması olan {eski_ortalama} litreden '
-                    f'{son_verim} litreye düşmüştür. '
-                    f'Bu değişim yaklaşık %{dusus_yuzdesi} oranında '
-                    f'bir süt verimi düşüşüne karşılık gelmektedir.'
-                )
-
-            else:
-                farm_answer = (
-                    "Çiftlik kayıtlarında bu soruyla ilişkilendirilebilecek "
-                    "sayısal bir süt düşüş kaydı bulunamadı."
-                )
-
-            # 4. Kesin çiftlik bulgusu + kaynaklı RAG cevabı
-            answer = (
-                f"{farm_answer}\n\n"
-                f"Kaynaklara göre genel değerlendirme:\n"
-                f"{rag_result['answer']}\n\n"
-                f"Bu kaynak bilgileri Serap için kesin bir neden veya tanı göstermez. "
-                f"Süt verimindeki düşüşün nedeni, diğer klinik bulgular ve hayvanın "
-                f"genel durumu birlikte değerlendirilerek belirlenmelidir."
-            )
-
-            return {
-                "route": route,
-                "answer": answer,
-                "sources": rag_result["sources"],
-            }
-
-        # CHAT
-        response = self.local_llm.invoke(
-            "Sen hayvancılık alanında çalışan yardımsever bir asistansın. "
-            "Kullanıcının aşağıdaki kısa sohbet mesajına doğal ve kısa Türkçe cevap ver: "
-            + question
+    @staticmethod
+    def _knowledge_query(question: str) -> str:
+        return (
+            f"{question}\n\n"
+            "Sorunun bilimsel kısmını genel süt sığırcılığı kaynaklarına göre yanıtla. "
+            "Belirli bir hayvana kesin tanı koyma. Antibiyotik veya ilaç dozu önerme."
         )
-        return {"route": route, "answer": response.content, "sources": []}
+
+    def _farm_finding(
+        self,
+        question: str,
+        ciftlik_id: int | None,
+    ) -> tuple[str, dict | None]:
+        farm_data = self.farm.get_latest_milk_drop(
+            question=question,
+            ciftlik_id=ciftlik_id,
+        )
+        if farm_data:
+            sagim_zamani = (
+                "akşam"
+                if farm_data["sagim_zamani"] == "e"
+                else "sabah"
+            )
+            tarih = farm_data["tarih"].strftime("%d.%m.%Y")
+            eski_ortalama = (
+                f'{farm_data["eski_ortalama"]:.2f}'.replace(".", ",")
+            )
+            son_verim = (
+                f'{farm_data["son_verim"]:.2f}'.replace(".", ",")
+            )
+            dusus_yuzdesi = (
+                f'{farm_data["dusus_yuzdesi"]:.2f}'.replace(".", ",")
+            )
+            farm_answer = (
+                f'Çiftlik kayıtlarına göre {farm_data["isim"]} '
+                f'({farm_data["kupe_no"]}) için {tarih} tarihli '
+                f'{sagim_zamani} sağımında süt verimi, '
+                f'önceki sağım ortalaması olan {eski_ortalama} litreden '
+                f'{son_verim} litreye düşmüştür. '
+                f'Bu değişim yaklaşık %{dusus_yuzdesi} oranında '
+                f'bir süt verimi düşüşüne karşılık gelmektedir.'
+            )
+            return farm_answer, farm_data
+
+        farm_context = self.farm.raw_context(question)
+        return farm_context, None
+
+    def _hybrid_answer(
+        self,
+        question: str,
+        ciftlik_id: int | None,
+    ) -> dict[str, Any]:
+        farm_answer, farm_data = self._farm_finding(question, ciftlik_id)
+        rag_result = self.rag.answer(self._knowledge_query(question))
+        cow_name = farm_data["isim"] if farm_data else "ilgili hayvan"
+
+        answer = (
+            f"{farm_answer}\n\n"
+            f"Kaynaklara göre genel değerlendirme:\n"
+            f"{rag_result['answer']}\n\n"
+            f"Bu kaynak bilgileri {cow_name} için kesin bir neden veya tanı "
+            f"göstermez. Süt verimindeki değişimin nedeni, diğer klinik "
+            f"bulgular ve hayvanın genel durumu birlikte değerlendirilerek "
+            f"belirlenmelidir.\n\n"
+            f"{VETERINARY_DISCLAIMER}"
+        )
+        return {
+            "route": "HYBRID",
+            "answer": answer,
+            "sources": rag_result.get("sources", []),
+        }
+
+    def ask(
+        self,
+        question: str,
+        ciftlik_id: int | None = None,
+        include_debug: bool = False,
+    ) -> dict[str, Any]:
+        token = current_farm_id.set(ciftlik_id)
+        try:
+            route = self.router.classify(question)
+
+            if (
+                is_diagnosis_or_treatment_request(question)
+                and route != "CHAT"
+            ):
+                result = {
+                    "route": route,
+                    "answer": refuse_diagnosis_answer(),
+                    "sources": [],
+                }
+            elif route == "SQL":
+                answer = self.farm.answer(question)
+                result = {
+                    "route": route,
+                    "answer": answer,
+                    "sources": [],
+                }
+            elif route == "RAG":
+                rag_result = self.rag.answer(question)
+                result = {
+                    "route": route,
+                    "answer": ensure_veterinary_disclaimer(
+                        rag_result.get("answer", "")
+                    ),
+                    "sources": rag_result.get("sources", []),
+                }
+            elif route == "HYBRID":
+                result = self._hybrid_answer(question, ciftlik_id)
+            else:
+                response = self.chat_chain.invoke({"question": question})
+                result = {
+                    "route": "CHAT",
+                    "answer": str(response.content),
+                    "sources": [],
+                }
+
+            if include_debug:
+                result["debug"] = {
+                    "ciftlik_id": ciftlik_id,
+                    "fusion_method": settings.fusion_method,
+                    "dense_weight": settings.dense_weight,
+                    "sparse_weight": settings.sparse_weight,
+                }
+            return result
+        finally:
+            current_farm_id.reset(token)

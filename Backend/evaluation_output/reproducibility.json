@@ -1,0 +1,68 @@
+{
+  "captured_at_utc": "2026-10-04T18:58:28.133333+00:00",
+  "python": "3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]",
+  "platform": {
+    "system": "Windows",
+    "release": "11",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel"
+  },
+  "packages": {
+    "langchain": "0.1.17",
+    "langchain_core": "1.4.7",
+    "langchain_community": "0.4.2",
+    "langchain_ollama": "1.1.0",
+    "langgraph": "1.2.5",
+    "faiss": "1.8.0",
+    "rank_bm25": null,
+    "psycopg2": "2.9.12"
+  },
+  "models": {
+    "rag_llm": "mistral",
+    "router_llm": "mistral",
+    "embed_model": "bge-m3",
+    "ollama_base_url": "http://127.0.0.1:11434",
+    "cloud_llm": "llama3.2",
+    "local_llm": "llama3.2"
+  },
+  "generation": {
+    "temperature": 0.0,
+    "num_predict": 160,
+    "num_ctx": 2048,
+    "seed": 0
+  },
+  "retrieval": {
+    "chunk_size": 900,
+    "chunk_overlap": 150,
+    "vector_top_k": 8,
+    "bm25_top_k": 8,
+    "final_top_k": 5,
+    "dense_weight": 0.6,
+    "sparse_weight": 0.4,
+    "fusion_method": "weighted_rrf",
+    "rrf_k": 60.0,
+    "bm25_k1": 1.5,
+    "bm25_b": 0.75,
+    "faiss_index": "IndexFlatL2",
+    "faiss_metric": "l2"
+  },
+  "index_manifest": {
+    "document_count": 748,
+    "chunk_count": 1833,
+    "embedding_model": "bge-m3",
+    "chunk_size": 900,
+    "chunk_overlap": 150,
+    "source_dir": "C:\\Users\\Serenay\\Documents\\Tez\\Sut_Sihirbazi_Bitirme_Projesi\\Backend\\knowledge_base"
+  },
+  "database": {
+    "engine": "PostgreSQL",
+    "host": "127.0.0.1",
+    "name": "Sut_Sihirbazi",
+    "data_nature": "synthetic_prototype"
+  },
+  "notes": [
+    "Mevcut 100 soruluk küme geliştirme/pilot setidir; final sonuçlar held-out set üzerinden raporlanmalıdır.",
+    "Çiftlik verisi ticari işletme verisi değil, prototip amaçlı sentetik kayıtlardır.",
+    "FAISS ve BM25 skorları farklı ölçekte olduğu için birleştirme Weighted Reciprocal Rank Fusion ile yapılır."
+  ]
+}

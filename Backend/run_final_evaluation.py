@@ -4,8 +4,13 @@ import argparse
 import json
 import time
 from pathlib import Path
-from statistics import mean, median
 
+from thesis_eval.metrics import (
+    ROUTES,
+    classification_report,
+    latency_stats,
+    summarize_errors,
+)
 from thesis_rag.thesis_service import ThesisAssistantService
 
 DEFAULT_TEST_SET = Path("tez_test_seti_100.json")
@@ -56,50 +61,42 @@ def read_results(path: Path):
 def build_summary(rows: list[dict]):
     valid = [r for r in rows if not r.get("error")]
     latencies = [r["latency_sec"] for r in valid]
-
-    route_total = len(valid)
-    route_correct = sum(
-        1 for r in valid
-        if r.get("predicted_route") == r.get("expected_route")
-    )
+    y_true = [r.get("expected_route") for r in valid]
+    y_pred = [r.get("predicted_route") for r in valid]
+    routing = classification_report(y_true, y_pred)
 
     by_route = {}
-    for route in ("RAG", "SQL", "HYBRID"):
-        subset = [r for r in valid if r["expected_route"] == route]
+    for route in ROUTES:
+        subset = [r for r in valid if r.get("expected_route") == route]
         if not subset:
             continue
-
-        correct = sum(
-            1 for r in subset
-            if r.get("predicted_route") == route
-        )
+        correct = sum(1 for r in subset if r.get("predicted_route") == route)
         route_lat = [r["latency_sec"] for r in subset]
-
         by_route[route] = {
             "count": len(subset),
             "route_correct": correct,
             "route_accuracy": round(correct / len(subset), 4),
-            "mean_latency_sec": round(mean(route_lat), 3),
-            "median_latency_sec": round(median(route_lat), 3),
+            "latency": latency_stats(route_lat),
         }
 
     return {
         "completed": len(rows),
         "successful": len(valid),
         "errors": len(rows) - len(valid),
-        "route_accuracy": (
-            round(route_correct / route_total, 4)
-            if route_total else None
+        "note": (
+            "Bu özet yönlendirme (routing) başarısıdır; "
+            "yanıt doğruluğu, retrieval veya SQL execution accuracy değildir. "
+            "Nihai akademik metrikler için thesis_eval.run_academic_evaluation kullanın."
         ),
-        "mean_latency_sec": (
-            round(mean(latencies), 3)
-            if latencies else None
-        ),
-        "median_latency_sec": (
-            round(median(latencies), 3)
-            if latencies else None
-        ),
+        "route_accuracy": routing.get("accuracy"),
+        "macro_f1": routing.get("macro_f1"),
+        "accuracy_ci95": routing.get("accuracy_ci95"),
+        "per_class": routing.get("per_class"),
+        "confusion_matrix": routing.get("confusion_matrix"),
+        "exact_counts": routing.get("exact_counts"),
+        "latency": latency_stats(latencies),
         "by_expected_route": by_route,
+        "error_analysis": summarize_errors(rows),
     }
 
 
@@ -128,7 +125,7 @@ def main():
     )
     parser.add_argument(
         "--route",
-        choices=["RAG", "SQL", "HYBRID"],
+        choices=["RAG", "SQL", "HYBRID", "CHAT"],
         default=None,
         help="Yalnızca seçilen beklenen rota üzerinde test yap",
     )
