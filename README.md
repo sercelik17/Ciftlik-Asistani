@@ -1,6 +1,6 @@
 # Çiftlik Asistanı
 
-Yüksek lisans tez projesi: süt sığırcılığında yapılandırılmış çiftlik kayıtları ile bilimsel kaynakları aynı sohbet asistanında birleştiren RAG tabanlı karar destek sistemi.
+Yüksek Lisans Tez Projesi: Süt sığırcılığında yapılandırılmış çiftlik kayıtları ile bilimsel kaynakları aynı sohbet asistanında birleştiren RAG tabanlı karar destek sistemi.
 
 **Geliştiren:** Serenay Çelikkaya  
 **Tez:** Hayvancılık Sektöründe Yapay Zekâ Destekli Sohbet Robotu Geliştirme: LangChain ve RAG Teknolojileriyle Uygulamalı Bir Model
