@@ -1,398 +1,134 @@
-# 🐄 Çiftlik Asistanı
+# Çiftlik Asistanı
 
-> **Çiftlik Asistanı**, süt sığırcılığı alanında çiftçilere yönelik geliştirilmiş yapay zekâ destekli bir karar destek ve sohbet asistanıdır. Sistem; kullanıcının kendi çiftliğine ait PostgreSQL verileri ile bilimsel ve veterinerlik kaynaklarından oluşturulan RAG bilgi tabanını birlikte kullanarak doğal dilde sorulara yanıt verir.
+Yüksek lisans tez projesi: süt sığırcılığında yapılandırılmış çiftlik kayıtları ile bilimsel kaynakları aynı sohbet asistanında birleştiren RAG tabanlı karar destek sistemi.
 
-Çiftlik Asistanı; **LangChain, RAG (Retrieval-Augmented Generation), PostgreSQL, FAISS, BM25, Ollama ve Mistral** teknolojilerini bir araya getirir.
+**Geliştiren:** Serenay Çelikkaya  
+**Tez:** Hayvancılık Sektöründe Yapay Zekâ Destekli Sohbet Robotu Geliştirme: LangChain ve RAG Teknolojileriyle Uygulamalı Bir Model
 
----
-
-## 📱 Uygulama Özellikleri
-
-| Özellik | Açıklama |
-|---------|----------|
-| 💬 **Yapay Zekâ Sohbet Asistanı** | Süt sığırcılığı ve çiftlik yönetimiyle ilgili sorular doğal dilde sorulabilir |
-| 🗄️ **Çiftlik Verisi Sorgulama** | PostgreSQL veritabanındaki inek, sağım, süt üretimi ve alarm kayıtları sorgulanabilir |
-| 📚 **Kaynak Temelli RAG Yanıtları** | Bilimsel ve veterinerlik PDF kaynaklarından ilgili bilgiler getirilerek kaynaklandırılmış yanıtlar oluşturulur |
-| 🔀 **Akıllı Sorgu Yönlendirme** | Sorular otomatik olarak SQL, RAG, HYBRID veya CHAT rotalarından uygun olana yönlendirilir |
-| 🔎 **Hibrit Arama** | Bilgi erişiminde FAISS vektör araması ile BM25 anahtar kelime araması birlikte kullanılır |
-| 📌 **Kaynak Gösterimi** | RAG yanıtlarında kullanılan bilimsel kaynaklar `[K1]`, `[K2]` biçiminde gösterilir |
-| 🎤 **Sesli Soru Sorma** | Desteklenen ortamlarda kullanıcı sorusunu mikrofon aracılığıyla iletebilir |
-| 🔊 **Sesli Yanıt** | Asistan yanıtları sesli olarak dinlenebilir |
-| 🐄 **Sürü Görüntüleme** | İneklerin ve sürü durumunun kullanıcı arayüzünden görüntülenmesi sağlanır |
-| 🚨 **Alarm Takibi** | Süt verimindeki önemli değişimler ve oluşturulan alarm kayıtları görüntülenebilir |
-| ⏱️ **Yanıt Süresi** | Asistanın yanıt üretme süresi sohbet ekranında gösterilir |
+Sistem tanı koymaz; antibiyotik, ilaç veya doz önermez. Hayvan sağlığı kararları veteriner hekime aittir.
 
 ---
 
-## 🧠 Sistem Nasıl Çalışır?
+## Ne yapar?
 
-Kullanıcının gönderdiği soru öncelikle **Query Router** tarafından analiz edilir.
+Kullanıcı doğal dilde soru sorar. Sorgu yönlendirici isteği dört kanaldan birine alır:
 
-Soru dört farklı işlem türünden birine yönlendirilir:
+| Kanal | Ne zaman |
+|--------|----------|
+| **SQL** | İnek sayısı, sağım, toplam süt, alarm gibi çiftlik kayıtları |
+| **RAG** | Mastitis, besleme, buzağı sağlığı gibi kaynak temelli genel bilgi |
+| **HYBRID** | Hem kayıt hem bilimsel arka plan gereken sorular |
+| **CHAT** | Selamlaşma ve kısa sohbet |
 
-| Rota | Kullanım Amacı |
-|------|----------------|
-| **SQL** | Kullanıcının kendi çiftlik kayıtlarıyla ilgili sayısal veya veri tabanı sorguları |
-| **RAG** | Genel süt sığırcılığı, hayvan sağlığı, besleme ve süt kalitesi gibi bilimsel bilgi gerektiren sorular |
-| **HYBRID** | Hem çiftlik verisinin hem de bilimsel kaynak bilgisinin birlikte gerektiği sorular |
-| **CHAT** | Selamlaşma ve kısa genel sohbetler |
+RAG kanalında BGE-M3 (FAISS) ile BM25 birleştirilir (ağırlıklı RRF, 60/40). Yanıtlarda kaynak `[K1]`, `[K2]` biçiminde gösterilir.
 
-### Örnek
-
-**Kullanıcı:**
-
-> Süt verimi en yüksek olan 10 ineği getir.
-
-Bu soru **SQL** rotasına yönlendirilir ve PostgreSQL veritabanındaki çiftlik kayıtları kullanılır.
+PostgreSQL’deki inek, sağım ve alarm kayıtları **ticari işletme verisi değildir**; prototip ve değerlendirme için üretilmiş **sentetik** örneklerdir. Bilgi tabanı 16 açık bilimsel/rehber belgeden oluşur.
 
 ---
 
-**Kullanıcı:**
+## Tez katkısı ve taban uygulama
 
-> Somatik hücre sayısının artması süt kalitesini nasıl etkiler?
+Bu depodaki tez çalışması şunları kapsar:
 
-Bu soru **RAG** rotasına yönlendirilir. Sistem bilimsel dokümanlardan ilgili bölümleri bulur ve kaynaklandırılmış yanıt oluşturur.
+- sorgu yönlendirme (SQL / RAG / HYBRID / CHAT)
+- hibrit bilgi erişimi (FAISS + BM25 + Weighted RRF)
+- SQL okuma güvenliği ve veteriner tanı reddi
+- held-out akademik değerlendirme (yönlendirme, retrieval, SQL altın sonuçlar, üretim metrikleri)
+- Torch’suz yerel çalışma yolu (`thesis_rag/local_runtime.py`)
 
----
-
-**Kullanıcı:**
-
-> Sütü en fazla düşen ineğin olası nedenleri nelerdir?
-
-Bu tür bir soru çiftlik verisi ile bilimsel bilgiyi birlikte gerektirdiğinden **HYBRID** rotası kullanılır.
+Mobil arayüz, kimlik doğrulama, sürü/alarm ekranları ve temel çiftlik API’si, [Süt Sihirbazı bitirme projesi](https://github.com/KaanSezen1923/Sut_Sihirbazi_Bitirme_Projesi) üzerine kurulmuştur. Bu depo o çalışmanın çatalı değil, tez uyarlamasının kendi GitHub kopyasıdır; Git geçmişinde taban uygulamaya ait commit’ler durur.
 
 ---
 
-## 📖 Kullanım
+## Özellikler
 
-### 1️⃣ Sisteme Giriş
-
-Uygulama açıldığında kullanıcıyı **Çiftlik Asistanı giriş ekranı** karşılar.
-
-Kullanıcı kayıtlı e-posta adresi ve parolası ile sisteme giriş yapar.
-
-Başarılı giriş sonrasında kullanıcı kendi çiftliğine ait verilere erişebilir.
-
----
-
-## 💬 2️⃣ Yazılı Soru Sorma
-
-1. **Asistan** sekmesine girin.
-2. Alt bölümde bulunan **"Çiftlik Asistanına sorun..."** alanına sorunuzu yazın.
-3. **Enter** tuşuna veya gönder butonuna basın.
-4. Soru backend sistemine iletilir.
-5. Query Router soruyu uygun işlem rotasına yönlendirir.
-6. Yanıt oluşturulduktan sonra sohbet ekranında görüntülenir.
-7. RAG kullanılan yanıtlarda yararlanılan bilimsel kaynaklar ayrıca gösterilir.
-
-### Örnek Sorular
-
-```text
-Süt verimi en yüksek olan 10 ineği getir.
-```
-
-```text
-Bugünkü toplam süt üretimim ne kadar?
-```
-
-```text
-Somatik hücre sayısının artması süt kalitesini nasıl etkiler?
-```
-
-```text
-Mastitis nedir ve süt kalitesini nasıl etkileyebilir?
-```
-
-```text
-Sütü azalan ineklerimi göster.
-```
+- Çiftlik kayıtlarına göre süt verimi, inek ve alarm sorgusu
+- Kaynak gösterimli bilimsel yanıt
+- Kullanıcı–çiftlik izolasyonu (`ciftlik_id`)
+- Alarm ve sürü görüntüleme
+- Sesli soru / sesli yanıt (desteklenen ortamlarda)
+- Yanıt süresi gösterimi
 
 ---
 
-## 🎤 3️⃣ Sesli Soru Sorma
+## Teknoloji
 
-Desteklenen cihazlarda kullanıcı mikrofon butonu aracılığıyla sesli soru gönderebilir.
-
-1. Mikrofon simgesine dokunun.
-2. Mikrofon erişimine izin verin.
-3. Sorunuzu sesli olarak ifade edin.
-4. Kaydı sonlandırın.
-5. Ses kaydı metne dönüştürülerek sorgu sistemine aktarılır.
-
-> Ses özelliklerinin kullanılabilmesi için cihazın mikrofon erişimine izin verilmiş olması gerekir.
-
----
-
-## 🔊 4️⃣ Yanıtı Sesli Dinleme
-
-Asistan tarafından oluşturulan yanıtlar desteklenen cihazlarda sesli olarak dinlenebilir.
-
-Yanıtın yanında bulunan hoparlör simgesi kullanılarak metin seslendirme işlemi başlatılabilir veya durdurulabilir.
-
----
-
-## 📚 RAG Bilgi Tabanı
-
-Çiftlik Asistanı yalnızca büyük dil modelinin önceden öğrendiği bilgilere dayanmaz.
-
-Sistem için süt sığırcılığıyla ilgili bilimsel ve teknik dokümanlardan özel bir bilgi tabanı oluşturulmuştur.
-
-Bilgi tabanı aşağıdaki konu kategorilerini içerir:
-
-| Kategori | İçerik |
-|----------|--------|
-| 🦠 **Mastitis** | Mastitis, meme sağlığı ve hastalık yönetimi |
-| 🥛 **Süt Kalitesi** | Somatik hücre sayısı ve süt kalite göstergeleri |
-| 🌾 **Besleme** | Rasyon, kuru madde tüketimi ve dengeli besleme |
-| ⚕️ **Metabolik Hastalıklar** | Geçiş dönemi, süt humması ve metabolik problemlere ilişkin kaynaklar |
-| 🐄 **Buzağı Sağlığı** | Kolostrum ve buzağı besleme yönetimi |
-| 🧬 **Üreme** | Süt sığırlarında üreme ve fertilite yönetimi |
-| ❤️ **Hayvan Refahı** | Süt sığırlarında hayvan refahı |
-| 🧼 **Süt Hijyeni** | Süt hijyeni ve iyi süt çiftçiliği uygulamaları |
-
-Dokümanlar parçalar hâline getirilerek indekslenir ve sorguya en uygun bölümler geri getirilir.
-
----
-
-## 🔎 Hibrit Bilgi Erişimi
-
-RAG altyapısında iki farklı arama yaklaşımı birlikte kullanılmaktadır:
-
-### FAISS
-
-Anlamsal olarak soruya benzeyen doküman parçalarını bulmak için vektör tabanlı arama gerçekleştirir.
-
-### BM25
-
-Soruda geçen kelimeler ve terimler üzerinden klasik metin tabanlı arama gerçekleştirir.
-
-Sistem bu iki yöntemin sonuçlarını birleştirerek en ilgili doküman parçalarını büyük dil modeline aktarır.
-
-```text
-Kullanıcı Sorusu
-       │
-       ▼
- Query Router
-       │
- ┌─────┼─────────┬─────────┐
- ▼     ▼         ▼         ▼
-SQL   RAG      HYBRID     CHAT
- │     │          │
- │   FAISS       PostgreSQL
- │     +          +
- │   BM25        RAG
- │     │          │
- └─────┴──────────┘
-       │
-       ▼
-     Mistral
-       │
-       ▼
-Kaynaklandırılmış Yanıt
-```
-
----
-
-## 🧩 Kullanılan Yapay Zekâ Teknolojileri
-
-| Bileşen | Kullanılan Teknoloji |
-|---------|----------------------|
-| **LLM** | Mistral |
-| **LLM Çalıştırma Ortamı** | Ollama |
-| **Embedding Modeli** | BGE-M3 |
-| **Vektör Veritabanı / İndeks** | FAISS |
-| **Anahtar Kelime Araması** | BM25 |
-| **RAG Framework** | LangChain |
-| **Akış / Orkestrasyon** | LangGraph / LangChain |
-| **Backend** | FastAPI |
-| **Veritabanı** | PostgreSQL |
-| **Mobil/Web Arayüzü** | React Native + Expo |
-| **Programlama Dili** | Python / TypeScript |
-
----
-
-## ⚙️ Sistem Gereksinimleri
-
-| Bileşen | Gereksinim |
+| Bileşen | Kullanılan |
 |---------|------------|
-| **Python** | Python 3.12 veya uyumlu sürüm |
-| **Node.js** | Node.js 20 veya uyumlu sürüm |
-| **Veritabanı** | PostgreSQL |
-| **Yerel LLM Servisi** | Ollama |
-| **LLM Modeli** | `mistral:latest` |
-| **Embedding Modeli** | `bge-m3:latest` |
-| **Frontend** | Expo / React Native |
-| **Backend Portu** | `8001` |
-| **Frontend Web Portu** | Genellikle `8081` |
+| LLM | Mistral (Ollama) |
+| Gömme | BGE-M3 |
+| Vektör indeksi | FAISS (L2) |
+| Sözcüksel arama | BM25 |
+| Birleştirme | Weighted RRF (0,60 / 0,40) |
+| Backend | FastAPI, Python 3.12 |
+| Veritabanı | PostgreSQL |
+| Arayüz | React Native + Expo |
 
 ---
 
-# 🛠️ Geliştirici Kurulumu
+## Kurulum
 
-## 1. Projeyi Klonlama
+### 1. Depoyu alın
 
 ```bash
 git clone https://github.com/sercelik17/Ciftlik-Asistani.git
 cd Ciftlik-Asistani
-```
-
-Proje geliştirme branch'i:
-
-```bash
 git checkout thesis-rag
 ```
 
----
-
-## 2. Ollama Kurulumu
-
-Sistemde Ollama kurulu olmalıdır.
-
-Gerekli modeller:
+### 2. Ollama
 
 ```bash
 ollama pull mistral
 ollama pull bge-m3
 ```
 
-Kurulu modelleri kontrol etmek için:
-
-```bash
-ollama list
-```
-
----
-
-## 3. Backend Ortamını Hazırlama
+### 3. Backend
 
 ```bash
 cd Backend
-```
-
-Sanal ortam oluşturun:
-
-### Windows
-
-```powershell
 python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
-
-Bağımlılıkları yükleyin:
-
-```bash
+.\venv\Scripts\Activate.ps1   # Windows
 pip install -r requirements.txt
 ```
 
----
+`Backend/.env` dosyasını oluşturun (repoya **yüklemeyin**). RAG örneği: `Backend/.env.rag.example`.
 
-## 4. PostgreSQL Veritabanını Başlatma
+```env
+DB_HOST=localhost
+DB_PORT=5433
+DB_NAME=Sut_Sihirbazi
+DB_USER=...
+DB_PASSWORD=...
+RAG_EMBED_MODEL=bge-m3
+RAG_LLM=mistral
+RAG_DENSE_WEIGHT=0.60
+RAG_SPARSE_WEIGHT=0.40
+```
 
-Proje PostgreSQL veritabanını kullanmaktadır.
-
-Docker yapılandırması mevcutsa:
+PostgreSQL için Docker varsa:
 
 ```bash
 docker compose up -d
 ```
 
-Veritabanı bağlantı bilgileri `Backend/.env` dosyasında yapılandırılır.
-
-> `.env` dosyası kullanıcı adı, parola ve bağlantı bilgileri içerebileceğinden GitHub'a yüklenmemelidir.
-
----
-
-## 5. Ortam Değişkenleri
-
-`Backend/.env` içerisinde RAG ve veritabanı yapılandırmaları tanımlanır.
-
-Örnek RAG yapılandırması:
-
-```env
-RAG_KNOWLEDGE_BASE=knowledge_base
-RAG_INDEX_DIR=rag_index
-
-RAG_EMBED_MODEL=bge-m3
-RAG_LLM=mistral
-RAG_ROUTER_LLM=mistral
-
-RAG_CHUNK_SIZE=900
-RAG_CHUNK_OVERLAP=150
-
-RAG_VECTOR_TOP_K=8
-RAG_BM25_TOP_K=8
-RAG_FINAL_TOP_K=5
-
-RAG_DENSE_WEIGHT=0.60
-RAG_SPARSE_WEIGHT=0.40
-```
-
-PostgreSQL için ayrıca aşağıdaki değişkenler yapılandırılmalıdır:
-
-```env
-DB_HOST=localhost
-DB_PORT=5433
-DB_NAME=...
-DB_USER=...
-DB_PASSWORD=...
-```
-
----
-
-## 6. RAG İndeksini Oluşturma
-
-Bilgi tabanı indeksleri mevcut değilse aşağıdaki komut kullanılabilir:
+İndeks yoksa:
 
 ```bash
 python -m thesis_rag.build_index
 ```
 
-Bu işlem bilgi tabanındaki dokümanları işler ve FAISS/BM25 tabanlı RAG indekslerini oluşturur.
-
----
-
-## 7. Backend'i Başlatma
-
-Backend klasöründe:
+Backend:
 
 ```bash
 python -m uvicorn api:app --host 127.0.0.1 --port 8001
 ```
 
-Başarılı olduğunda:
+- API: http://127.0.0.1:8001  
+- Swagger: http://127.0.0.1:8001/docs  
+- RAG sağlık: http://127.0.0.1:8001/query/thesis/health  
 
-```text
-Uvicorn running on http://127.0.0.1:8001
-```
-
-mesajı görüntülenir.
-
-### Swagger API Arayüzü
-
-```text
-http://127.0.0.1:8001/docs
-```
-
-### RAG Sağlık Kontrolü
-
-```text
-http://127.0.0.1:8001/query/thesis/health
-```
-
-Beklenen yanıt:
-
-```json
-{
-  "status": "ok",
-  "module": "LangChain + BM25 + FAISS Hybrid RAG"
-}
-```
-
----
-
-## 8. Frontend'i Başlatma
-
-Yeni bir terminal açın:
+### 4. Arayüz
 
 ```bash
 cd mobileapp
@@ -400,155 +136,69 @@ npm install
 npm run web
 ```
 
-Web arayüzü genellikle:
-
-```text
-http://localhost:8081
-```
-
-adresinde açılır.
-
-Mobil cihaz üzerinden test için:
-
-```bash
-npx expo start
-```
-
-komutu kullanılabilir.
+Web genelde http://localhost:8081 adresindedir.
 
 ---
 
-# 🏗️ Proje Yapısı
+## Örnek sorular
+
+```text
+Merhaba
+Küpe numarası TR0001 olan Serap adlı ineğin verim durumu nasıldır?
+Bugün sağılan toplam süt miktarı kaç litre?
+Süt veriminde düşüş yaşayan riskli inekleri listele
+Somatik hücre sayısının artması süt kalitesini nasıl etkiler?
+```
+
+---
+
+## Akademik değerlendirme
+
+Pilot küme (100 soru) geliştirme içindir; **final sonuç held-out settir** (89 soru: RAG, SQL, HYBRID, CHAT). Yönlendirme doğruluğu yanıt doğruluğu değildir.
+
+```bash
+cd Backend
+python -m thesis_eval.run_academic_evaluation --task routing --test-set evaluation_sets/final_heldout_set.json
+python -m thesis_eval.run_academic_evaluation --task retrieval
+python -m thesis_eval.run_academic_evaluation --task fusion-ablation --pilot-set tez_test_seti_100.json
+```
+
+Raporlar `Backend/evaluation_output/` altındadır (`routing_report.json`, `retrieval_report.json`, `sql_gold_results.json`, `tablolar.html`).
+
+Özet (held-out): yönlendirme 89/89; retrieval’de BGE-M3 P@5 = 0,90, hibrit P@5 = 0,89, BM25 P@5 = 0,35. SQL altın sorgularının 23/24’ü beklenen değeri üretir. RAG üretim kalitesi (atıf uyumu) düşüktür; bu sınırlılık tezde raporlanır.
+
+---
+
+## Proje yapısı
 
 ```text
 Ciftlik-Asistani/
-│
 ├── Backend/
 │   ├── api.py
-│   │
-│   ├── thesis_rag/
-│   │   ├── api_router.py
-│   │   ├── query_router.py
-│   │   ├── thesis_service.py
-│   │   ├── rag_chain.py
-│   │   ├── hybrid_retriever.py
-│   │   ├── farm_adapter.py
-│   │   ├── index_builder.py
-│   │   ├── build_index.py
-│   │   └── settings.py
-│   │
-│   ├── knowledge_base/
-│   │   ├── 01_mastitis/
-│   │   ├── 02_sut_kalitesi/
-│   │   ├── 03_besleme/
-│   │   ├── 04_metabolik_hastaliklar/
-│   │   ├── 05_buzagi_sagligi/
-│   │   ├── 06_ureme/
-│   │   ├── 07_hayvan_refahi/
-│   │   └── 08_sut_hijyeni/
-│   │
-│   ├── rag_index/
-│   ├── requirements.txt
-│   └── .env
-│
-├── mobileapp/
-│   ├── app/
-│   │   ├── (tabs)/
-│   │   │   ├── chat.tsx
-│   │   │   ├── herd.tsx
-│   │   │   ├── index.tsx
-│   │   │   └── stats.tsx
-│   │   ├── login.tsx
-│   │   ├── signup.tsx
-│   │   └── _layout.tsx
-│   │
-│   ├── assets/
-│   ├── package.json
-│   └── tsconfig.json
-│
+│   ├── thesis_rag/          # tez RAG/SQL/HYBRID/CHAT hattı
+│   ├── thesis_eval/         # akademik ölçüm betikleri
+│   ├── evaluation_sets/     # held-out ve şablonlar
+│   ├── evaluation_output/   # raporlar ve teze yapıştırılacak tablolar
+│   ├── knowledge_base/      # 16 belgelik derleme
+│   └── rag_index/
+├── mobileapp/               # Expo arayüz (giriş, asistan, sürü, istatistik)
 └── README.md
 ```
 
 ---
 
-# 🔌 API Endpoint'leri
+## Sık sorunlar
 
-Tez kapsamında geliştirilen temel yapay zekâ endpoint'i:
-
-| Endpoint | Metod | Açıklama |
-|----------|-------|----------|
-| `/` | GET | Backend servis durumunu kontrol eder |
-| `/query/thesis/health` | GET | RAG modülünün çalışıp çalışmadığını kontrol eder |
-| `/query/thesis/` | POST | SQL / RAG / HYBRID / CHAT yönlendirmeli Çiftlik Asistanı sorgusu |
-| `/cows` | GET | Çiftliğe ait inekleri getirir |
-| `/alarms` | GET | Alarm kayıtlarını getirir |
-| `/summaries` | GET | Çiftlik özet verilerini getirir |
-
-`/query/thesis/` endpoint'i aşağıdaki örnekte olduğu gibi bir soru alır:
-
-```json
-{
-  "question": "Somatik hücre sayısının artması süt kalitesini nasıl etkiler?"
-}
-```
-
-Örnek cevap yapısı:
-
-```json
-{
-  "route": "RAG",
-  "answer": "Somatik hücre sayısının artması süt kalitesini azaltır [K1].",
-  "sources": [
-    {
-      "id": "K1",
-      "title": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
-      "page": 2
-    }
-  ]
-}
-```
-
-> Korumalı endpoint'lerde kullanıcı kimlik doğrulaması için yetkilendirme bilgisi gereklidir.
+| Sorun | Ne bakılır |
+|-------------------|
+| Arayüz API’ye bağlanmıyor | Backend `127.0.0.1:8001` |
+| RAG yanıtı yok | Ollama, `mistral`, `bge-m3` |
+| İndeks yok | `python -m thesis_rag.build_index` |
+| Veritabanı hatası | PostgreSQL ve `Backend/.env` |
+| 401 | Oturum / JWT |
 
 ---
 
-# 🔐 Veri Güvenliği
+## Lisans ve paylaşım
 
-Çiftlik Asistanı'nda kullanıcıların kendi çiftlik verilerine erişebilmesi için kullanıcı ve çiftlik ilişkisi kullanılmaktadır.
-
-Sorgular kullanıcının bağlı olduğu çiftliğin `ciftlik_id` bilgisine göre işlenir.
-
-`.env` içerisinde bulunan:
-
-- Veritabanı kullanıcı adı
-- Veritabanı parolası
-- Bağlantı bilgileri
-- Gizli uygulama değerleri
-
-GitHub'a yüklenmemelidir.
-
----
-
-# ❓ Sık Karşılaşılan Sorunlar
-
-| Sorun | Çözüm |
-|-------|-------|
-| **Frontend backend'e bağlanmıyor** | Backend'in `127.0.0.1:8001` üzerinde çalıştığını kontrol edin |
-| **RAG yanıtı oluşturulamıyor** | Ollama servisinin ve `mistral` modelinin çalıştığını kontrol edin |
-| **Embedding hatası oluşuyor** | `bge-m3` modelinin Ollama içerisinde kurulu olduğunu kontrol edin |
-| **RAG indeksi bulunamadı** | `python -m thesis_rag.build_index` komutunu çalıştırın |
-| **Veritabanı bağlantı hatası** | PostgreSQL container'ını ve `.env` veritabanı ayarlarını kontrol edin |
-| **401 Unauthorized** | Kullanıcının oturum açtığını ve token bilgisinin geçerli olduğunu kontrol edin |
-| **500 Internal Server Error** | Backend terminalindeki Python traceback çıktısını kontrol edin |
-| **Mikrofon çalışmıyor** | Uygulama için mikrofon izninin etkin olduğundan emin olun |
-| **Ollama bellek hatası** | Kullanılmayan modelleri `ollama stop` ile kapatın ve sistem belleğini kontrol edin |
-
----
-
-# 🎓 Tez Kapsamı
-
-Bu proje aşağıdaki yüksek lisans tez çalışması kapsamında geliştirilmiştir:
-
-**Hayvancılık Sektöründe Yapay Zekâ Destekli Sohbet Robotu Geliştirme: LangChain ve RAG (Retrieval-Augmented Generation) Teknolojileriyle Uygulamalı Bir Model**
-
-Çalışmanın temel amacı; yapılandırılmış çiftlik verileri ile bilimsel ve veterinerlik dokümanlarından elde edilen yapılandırılmamış bilgileri aynı sohbet sistemi içerisinde birleştirerek çiftçilere yönelik kaynak temelli bir karar destek asistanı geliştirmektir.
+Öğrenci tez reposudur. `.env` ve gerçek parola GitHub’a konmaz.
