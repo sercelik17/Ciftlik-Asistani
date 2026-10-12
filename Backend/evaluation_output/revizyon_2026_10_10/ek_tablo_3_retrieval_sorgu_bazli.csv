@@ -1,0 +1,34 @@
+﻿query_id;query_text;n_relevant_docs;preferred_sources;bm25_p_at_k;bm25_r_at_k;bm25_mrr;bm25_ndcg_at_k;faiss_p_at_k;faiss_r_at_k;faiss_mrr;faiss_ndcg_at_k;hybrid_p_at_k;hybrid_r_at_k;hybrid_mrr;hybrid_ndcg_at_k
+F-RAG001;Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?;2;"FAO_Mastitis_Dairy_Manual.pdf; Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf";1.0;0.5;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG002;Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?;2;"FAO_Mastitis_Dairy_Manual.pdf; Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf";1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG003;Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?;2;"FAO_Mastitis_Dairy_Manual.pdf; Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf";0.8;0.5;1.0;1.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG004;Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?;2;"FAO_Mastitis_Dairy_Manual.pdf; Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf";0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+F-RAG005;Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?;2;"Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf; Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf";1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG006;Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?;2;"Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf; Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf";1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG007;Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?;2;"Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf; Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf";1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG008;Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?;2;"Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf; Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf";1.0;0.5;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG009;Dengeli rasyon süt sığırlarında verimi neden destekler?;2;"FAO_2012_Balanced_Feeding.pdf; Tennessee_Managing_Intake_Dairy_Cows.pdf";0.0;0.0;0.0;0.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG010;Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?;2;"FAO_2012_Balanced_Feeding.pdf; Tennessee_Managing_Intake_Dairy_Cows.pdf";0.0;0.0;0.0;0.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG011;Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?;2;"FAO_2012_Balanced_Feeding.pdf; Tennessee_Managing_Intake_Dairy_Cows.pdf";1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG012;Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?;2;"FAO_2012_Balanced_Feeding.pdf; Tennessee_Managing_Intake_Dairy_Cows.pdf";0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0;0.0
+F-RAG013;Süt humması taze inek döneminde neden önemli bir risktir?;2;"Wisconsin_Fresh_Cow_Milk_Fever.pdf; Cornell_Transition_Cow_Metabolic.pdf";0.0;0.0;0.0;0.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG014;Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?;2;"Wisconsin_Fresh_Cow_Milk_Fever.pdf; Cornell_Transition_Cow_Metabolic.pdf";0.0;0.0;0.0;0.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG015;Doğum sonrası hipokalsemi belirtileri neler olabilir?;2;"Wisconsin_Fresh_Cow_Milk_Fever.pdf; Cornell_Transition_Cow_Metabolic.pdf";0.0;0.0;0.0;0.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG016;Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?;2;"Wisconsin_Fresh_Cow_Milk_Fever.pdf; Cornell_Transition_Cow_Metabolic.pdf";0.4;1.0;1.0;1.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG017;Kolostrumun buzağıya zamanında verilmesi neden kritiktir?;2;"USU_2026_Colostrum_Dairy_Calves.pdf; UF_IFAS_Dairy_Calf_Nutrition.pdf";0.0;0.0;0.0;0.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG018;Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?;2;"USU_2026_Colostrum_Dairy_Calves.pdf; UF_IFAS_Dairy_Calf_Nutrition.pdf";0.0;0.0;0.0;0.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG019;Kolostrumdaki immünoglobulin düzeyi neden önemlidir?;2;"USU_2026_Colostrum_Dairy_Calves.pdf; UF_IFAS_Dairy_Calf_Nutrition.pdf";1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG020;Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?;2;"USU_2026_Colostrum_Dairy_Calves.pdf; UF_IFAS_Dairy_Calf_Nutrition.pdf";0.0;0.0;0.0;0.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG021;Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?;2;"Wisconsin_High_Fertility_Cycle.pdf; DCRC_Dairy_Cow_Reproductive_Management.pdf";0.0;0.0;0.0;0.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG022;Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?;2;"Wisconsin_High_Fertility_Cycle.pdf; DCRC_Dairy_Cow_Reproductive_Management.pdf";0.0;0.0;0.0;0.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG023;Tohumlama zamanlaması gebelik oranını neden etkiler?;2;"Wisconsin_High_Fertility_Cycle.pdf; DCRC_Dairy_Cow_Reproductive_Management.pdf";0.0;0.0;0.0;0.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG024;Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?;2;"Wisconsin_High_Fertility_Cycle.pdf; DCRC_Dairy_Cow_Reproductive_Management.pdf";0.0;0.0;0.0;0.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG025;Topallık süt sığırlarında refahı nasıl etkiler?;2;"WOAH_Dairy_Cattle_Welfare.pdf; Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf";0.8;0.5;1.0;1.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG026;Barınak konforu ineklerin dinlenme davranışını neden etkiler?;2;"WOAH_Dairy_Cattle_Welfare.pdf; Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf";0.6;0.5;1.0;1.0;1.0;0.5;1.0;1.0;1.0;0.5;1.0;1.0
+F-RAG027;Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?;2;"WOAH_Dairy_Cattle_Welfare.pdf; Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf";0.4;0.5;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG028;Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?;2;"WOAH_Dairy_Cattle_Welfare.pdf; Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf";0.6;0.5;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG029;Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?;2;"FAO_IDF_Good_Dairy_Farming.pdf; Codex_Milk_Hygiene.pdf";0.0;0.0;0.0;0.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG030;İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?;2;"FAO_IDF_Good_Dairy_Farming.pdf; Codex_Milk_Hygiene.pdf";0.0;0.0;0.0;0.0;0.8;0.5;0.5;0.7606;0.8;0.5;0.5;0.7606
+F-RAG031;Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?;2;"FAO_IDF_Good_Dairy_Farming.pdf; Codex_Milk_Hygiene.pdf";0.0;0.0;0.0;0.0;0.4;0.5;0.5;0.6509;0.4;0.5;0.3333;0.5438
+F-RAG032;Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?;2;"FAO_IDF_Good_Dairy_Farming.pdf; Codex_Milk_Hygiene.pdf";0.0;0.0;0.0;0.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0;1.0
+F-RAG033;Bu inekte mastitis var mı, antibiyotik vermeli miyim?;1;FAO_Mastitis_Dairy_Manual.pdf;0.0;0.0;0.0;0.0;0.4;1.0;1.0;0.9197;0.2;1.0;0.25;0.4307

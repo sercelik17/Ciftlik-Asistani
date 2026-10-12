@@ -91,32 +91,33 @@
   <p class="note">Teze aktarmak için tabloyu sürükleyerek seç → Ctrl+C → Word’de Ctrl+V.</p>
 
   <h2>Tablo 4. SQL altın sonuçlar (veritabanından doğrulanmış beklenen cevaplar)</h2>
-  <p>Bu tablo sistemin ürettiği SQL’in doğruluğu değildir. Jüriye “sayıları nereden biliyorsunuz?” dendiğinde gösterilecek <b>gold-standard</b> cevaplardır. 24 sorunun 23’ü çalıştı.</p>
+  <p>Bu tablo sistemin ürettiği SQL’in doğruluğu değildir. Jüriye “sayıları nereden biliyorsunuz?” dendiğinde gösterilecek <b>gold-standard</b> cevaplardır. 24 kaydın 23’ü çalıştı; F-SQL019 şema hatası verdi ve tabloda yer alır. Tam sütunlu sürüm (çalıştırılan sorgu, gözlenen değer, durum, hata türü): <a href="revizyon_2026_10_10/tez_revizyon_paketi.html">revizyon_2026_10_10/tez_revizyon_paketi.html</a>.</p>
   <table>
-    <tr><th>ID</th><th class="left">Soru</th><th class="left">Beklenen sonuç</th></tr>
-    <tr><td>F-SQL001</td><td class="left">Çiftlikte kayıtlı inek sayısı</td><td class="left">5</td></tr>
-    <tr><td>F-SQL002</td><td class="left">TR0002’nin adı</td><td class="left">Beyza</td></tr>
-    <tr><td>F-SQL003</td><td class="left">Beyza’nın küpe no</td><td class="left">TR0002</td></tr>
-    <tr><td>F-SQL004</td><td class="left">Papatya’nın ırkı</td><td class="left">Holstein</td></tr>
-    <tr><td>F-SQL005</td><td class="left">Lale son sağım (L)</td><td class="left">11,90</td></tr>
-    <tr><td>F-SQL006</td><td class="left">Boncuk 5 Eylül toplam (L)</td><td class="left">25,70</td></tr>
-    <tr><td>F-SQL007</td><td class="left">Serap 5 Eylül akşam (L)</td><td class="left">7,80</td></tr>
-    <tr><td>F-SQL008</td><td class="left">30 Ağustos toplam (L)</td><td class="left">133,50</td></tr>
-    <tr><td>F-SQL009</td><td class="left">En yüksek 4 inek</td><td class="left">Papatya 14,86; Serap 13,84; Beyza 13,56; Lale 13,01</td></tr>
-    <tr><td>F-SQL010</td><td class="left">Ortalama en düşük</td><td class="left">Boncuk</td></tr>
-    <tr><td>F-SQL011</td><td class="left">Holstein sayısı</td><td class="left">3</td></tr>
-    <tr><td>F-SQL012</td><td class="left">Papatya ortalama (L)</td><td class="left">14,86</td></tr>
-    <tr><td>F-SQL013</td><td class="left">Lale alarm sayısı</td><td class="left">0</td></tr>
-    <tr><td>F-SQL014</td><td class="left">Serap küpe no</td><td class="left">TR0001</td></tr>
-    <tr><td>F-SQL015</td><td class="left">1–5 Eylül sağım kaydı</td><td class="left">50</td></tr>
-    <tr><td>F-SQL016</td><td class="left">Son gün toplam süt (L)</td><td class="left">133,40</td></tr>
-    <tr><td>F-SQL017</td><td class="left">Boncuk küpe no</td><td class="left">TR0003</td></tr>
-    <tr><td>F-SQL018</td><td class="left">TR0004 son süt (L)</td><td class="left">13,50</td></tr>
-    <tr><td>F-SQL020</td><td class="left">Simental sayısı</td><td class="left">2</td></tr>
-    <tr><td>F-SQL021</td><td class="left">Beyza ortalama (L)</td><td class="left">13,56</td></tr>
-    <tr><td>F-SQL022</td><td class="left">Serap alarm düşüş %</td><td class="left">39,06</td></tr>
-    <tr><td>F-SQL023</td><td class="left">Okunmamış alarm</td><td class="left">0</td></tr>
-    <tr><td>F-SQL024</td><td class="left">4 Eylül en çok süt</td><td class="left">Papatya</td></tr>
+    <tr><th>ID</th><th class="left">Soru</th><th class="left">Beklenen sonuç</th><th class="left">Durum</th></tr>
+    <tr><td>F-SQL001</td><td class="left">Çiftlikte kayıtlı inek sayısı</td><td class="left">5</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL002</td><td class="left">TR0002’nin adı</td><td class="left">Beyza</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL003</td><td class="left">Beyza’nın küpe no</td><td class="left">TR0002</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL004</td><td class="left">Papatya’nın ırkı</td><td class="left">Holstein</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL005</td><td class="left">Lale son sağım (L)</td><td class="left">11,90</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL006</td><td class="left">Boncuk 5 Eylül toplam (L)</td><td class="left">25,70</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL007</td><td class="left">Serap 5 Eylül akşam (L)</td><td class="left">7,80</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL008</td><td class="left">30 Ağustos toplam (L)</td><td class="left">133,50</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL009</td><td class="left">En yüksek 4 inek</td><td class="left">Papatya 14,86; Serap 13,84; Beyza 13,56; Lale 13,01</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL010</td><td class="left">Ortalama en düşük</td><td class="left">Boncuk</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL011</td><td class="left">Holstein sayısı</td><td class="left">3</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL012</td><td class="left">Papatya ortalama (L)</td><td class="left">14,86</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL013</td><td class="left">Lale alarm sayısı</td><td class="left">0</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL014</td><td class="left">Serap küpe no</td><td class="left">TR0001</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL015</td><td class="left">1–5 Eylül sağım kaydı</td><td class="left">50</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL016</td><td class="left">Son gün toplam süt (L)</td><td class="left">133,40</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL017</td><td class="left">Boncuk küpe no</td><td class="left">TR0003</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL018</td><td class="left">TR0004 son süt (L)</td><td class="left">13,50</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL019</td><td class="left">Çiftliğin adı</td><td class="left">tanımsız (ciftlikler.ad sütunu şemada yok)</td><td class="left">hata: UndefinedColumn</td></tr>
+    <tr><td>F-SQL020</td><td class="left">Simental sayısı</td><td class="left">2</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL021</td><td class="left">Beyza ortalama (L)</td><td class="left">13,56</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL022</td><td class="left">Serap alarm düşüş %</td><td class="left">39,06</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL023</td><td class="left">Okunmamış alarm</td><td class="left">0</td><td class="left">çalıştı</td></tr>
+    <tr><td>F-SQL024</td><td class="left">4 Eylül en çok süt</td><td class="left">Papatya</td><td class="left">çalıştı</td></tr>
   </table>
   <caption>F-SQL019 (çiftlik adı) şema uyumsuzluğu nedeniyle çalışmadı. Veri sentetik prototiptir.</caption>
 
@@ -162,6 +163,7 @@
   <p class="note"><b>RAG tanımı (ilk geçiş):</b> Bu çalışmada Geri Getirme Destekli Üretim (Retrieval-Augmented Generation, RAG) kullanılmıştır. Bundan sonra RAG kısaltması kullanılır. Büyük Dil Modeli (Large Language Model, LLM) ifadesi, Transformer tabanlı sohbet/üretim modellerini belirtir; öğrenme yönetim sistemi anlamına gelmez.</p>
   <p class="note"><b>Bulgular / retrieval:</b> Final sette anlamsal erişim (BGE-M3 + L2) sözcüksel BM25’ten belirgin biçimde daha yüksek P@5, MRR ve nDCG@5 üretmiştir. Hibrit RRF, BM25’i iyileştirmekle birlikte bu sette salt anlamsal erişimin çok az gerisinde kalmıştır. Bu sonuç, hibrit birleştirmenin her veri kümesinde otomatik üstünlük sağlamadığını göstermektedir.</p>
   <p class="note"><b>Bulgular / ağırlık:</b> %60/%40 oranı geliştirme (pilot) setinde 50/50 ve 70/30 ile karşılaştırılmış; 60/40 en az diğerleri kadar iyi bulunarak dondurulmuştur. Final sette bu oran tekrar optimize edilmemiştir.</p>
-  <p class="note"><b>Sınırlılık:</b> Uçtan uca SQL execution accuracy, HYBRID sentez doğruluğu ve LLM yanıt faithfulness/halüsinasyon oranlarının tam nicel ölçümü, mevcut ortamda Torch bağımlılığı nedeniyle henüz tamamlanmamıştır. Retrieval ve routing sonuçları held-out set üzerinden raporlanmıştır.</p>
+  <p class="note"><b>Üretim kalitesi (otomatik, n = 33):</b> atıf doğruluğu 0,30; atıf tamlığı 0,14; desteksiz iddia oranı 0,86; tercih edilen kaynağa isabet 0,68. 22 yanıtta hiç kaynak kimliği yok, 30 yanıt 160 token sınırında kesilmiş. Uzman puanı yoktur.</p>
+  <p class="note"><b>Sınırlılık:</b> Modelin ürettiği SQL’in execution accuracy’si ve HYBRID uçtan uca doğruluk ölçülmemiştir (<code>run_academic_evaluation --task e2e</code> ile alınmalıdır). Retrieval, routing ve otomatik üretim ölçütleri held-out set üzerinden raporlanmıştır.</p>
 </body>
 </html>

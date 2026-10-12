@@ -1,0 +1,442 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8">
+<title>Tez revizyon paketi – 10 Ekim 2026 raporu</title>
+<style>
+body{font-family:Segoe UI,Arial,sans-serif;max-width:1000px;margin:32px auto;padding:0 16px;line-height:1.5;color:#222}
+h1{font-size:22px}h2{font-size:18px;margin-top:34px;border-bottom:1px solid #ccc}h3{font-size:15px;margin-top:22px}
+.box{background:#f7f7f7;border:1px solid #ccc;padding:12px 14px;margin:10px 0;white-space:pre-wrap}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13px}th,td{border:1px solid #bbb;padding:5px 7px;text-align:left;vertical-align:top}
+th{background:#e8f5e9}.cap{font-size:12px;color:#555}.warn{background:#fff3e0;border-left:4px solid #ef6c00;padding:8px 12px}
+</style></head><body>
+<h1>Tez revizyon paketi (10 Ekim 2026 yeniden değerlendirme raporuna göre)</h1>
+<p class="warn">Kutular doğrudan Word'e yapıştırılabilir. Aynı içerik <code>revise_thesis.py</code> ile otomatik olarak da uygulanır. Ölçülmeyen bileşenler (SQL execution accuracy, HYBRID E2E, uzman puanı) burada <b>ölçülmedi</b> olarak yazılmıştır; bunlar için <code>run_academic_evaluation --task e2e</code> çalıştırılmalıdır.</p>
+<h2>1. Başlık önerisi</h2>
+<div class="box">Süt Sığırcılığında Yapılandırılmış Çiftlik Verileri ile Bilimsel Bilginin Entegrasyonu için RAG Tabanlı Sohbet Asistanı</div>
+<h2>2. Bölüm 3.7 – Değerlendirme protokolü (ekle)</h2>
+<div class="box">Değerlendirme protokolü ve ölçülen/ölçülmeyen bileşenler. Bu çalışmada üç düzey ayrı tutulmuştur: (i) yönlendirme doğruluğu, (ii) bilgi erişimi (retrieval) kalitesi ve (iii) yanıt üretimi kalitesi. Yönlendirme ve retrieval için nihai nicel sonuçlar held-out kümede ölçülmüştür. Yanıt üretimi için yalnızca otomatik vekil ölçütler (atıf doğruluğu, atıf tamlığı, desteksiz iddia oranı) hesaplanmış; gold cevap seti, iki bağımsız değerlendiricili 0–2 puanlama ve Cohen's κ bu teslimde yapılmamıştır. Modelin ürettiği SQL'in execution accuracy'si ile HYBRID uçtan uca doğruluk ölçülmemiştir; bunlar 'planlanan' olarak sınıflandırılır. Gold relevance etiketleri belge düzeyindedir: her RAG sorusu yazılırken, soru metninden bağımsız olarak, yanıtı taşıması beklenen bir veya iki kaynak belge (preferred_sources) tez yazarı tarafından önceden atanmıştır; etiketleme tek değerlendiriciyle ve sistem çıktısı görülmeden yapılmıştır. İlgililik ikilidir; nDCG@5 ikili kazançla hesaplanmıştır. Recall@5 paydası, soru için atanmış ilgili belge sayısıdır (33 RAG sorusunun 32'sinde iki, 1'inde bir belge). Birden fazla değerlendirici bulunmadığından değerlendiriciler arası uyum raporlanamamıştır; bu bir sınırlılıktır.</div>
+<h2>3. Bölüm 4.2/4.3 – Test seti bağımsızlığı (ekle)</h2>
+<div class="box">Held-out kümesi (n = 89) pilot kümeden (100 soru) bağımsız olarak, pilot deneyler tamamlandıktan sonra tez yazarı tarafından yazılmış, sınıf etiketleri soru yazımı sırasında atanmış ve küme sistem çalıştırılmadan önce dosya olarak dondurulmuştur (evaluation_sets/final_heldout_set.json). İki küme arasında birebir aynı soru yoktur (0 tekrar). Bununla birlikte küme tam anlamıyla bağımsız değil, 'şablon-yakın' bir kümedir: held-out sorularının pilot kümedeki en yakın soruya göre sözcük kümesi Jaccard benzerliği ortalama 0,28, medyan 0,23, en yüksek 0,89 olup 17 soru 0,50 ve üzeri benzerlik taşımaktadır (SQL 12, RAG 4, HYBRID 1; Ek Tablo 2 notu). Yüksek benzerlik çoğunlukla SQL kanalında aynı soru kalıbının farklı inek adı veya tarihle yeniden örneklenmesinden kaynaklanır. Bu nedenle 89/89 sonucu, kural setinin bu soru diline iyi örtüştüğünün göstergesidir; saha genellemesi veya pilot %97'ye göre nedensel bir iyileşme olarak okunmamalıdır. Sistem yapılandırması (kurallar, prompt, model, ağırlıklar, Top-K) held-out sonuçları görüldükten sonra değiştirilmemiştir. Yazım hatalı, çift anlamlı ve farklı ifadelendirilmiş sorularla ayrı bir stres testi yapılmamıştır.</div>
+<table>
+<tr><th>Held-out ID</th><th>Held-out soru</th><th>Pilot ID</th><th>Pilot soru</th><th>Jaccard</th></tr>
+<tr><td>F-RAG017</td><td>Kolostrumun buzağıya zamanında verilmesi neden kritiktir?</td><td>RAG029</td><td>Buzağılarda kolostrumun zamanında verilmesi neden önemlidir?</td><td>0,50</td></tr>
+<tr><td>F-RAG022</td><td>Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?</td><td>RAG033</td><td>Süt sığırlarında vücut kondisyonu üreme performansını nasıl etkileyebilir?</td><td>0,50</td></tr>
+<tr><td>F-RAG025</td><td>Topallık süt sığırlarında refahı nasıl etkiler?</td><td>RAG039</td><td>Topallık süt sığırlarında hayvan refahını nasıl etkiler?</td><td>0,62</td></tr>
+<tr><td>F-RAG029</td><td>Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?</td><td>RAG045</td><td>Sağım hijyeni ve meme başı temizliği neden önemlidir?</td><td>0,70</td></tr>
+<tr><td>F-SQL002</td><td>TR0002 küpe numaralı ineğin adı nedir?</td><td>SQL024</td><td>TR0001 küpe numaralı ineğin adı nedir?</td><td>0,71</td></tr>
+<tr><td>F-SQL003</td><td>Beyza'nın küpe numarası nedir?</td><td>SQL025</td><td>Serap'ın küpe numarası nedir?</td><td>0,50</td></tr>
+<tr><td>F-SQL005</td><td>Lale'nin son sağımında kaç litre süt alınmıştır?</td><td>SQL008</td><td>Lale'nin son süt verimi kaç litredir?</td><td>0,50</td></tr>
+<tr><td>F-SQL007</td><td>5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?</td><td>SQL011</td><td>Serap 5 Eylül 2026 tarihinde toplam kaç litre süt vermiştir?</td><td>0,64</td></tr>
+<tr><td>F-SQL008</td><td>30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?</td><td>SQL010</td><td>5 Eylül 2026 tarihinde toplam süt üretimi kaç litredir?</td><td>0,78</td></tr>
+<tr><td>F-SQL010</td><td>Ortalama süt verimi en düşük inek hangisidir?</td><td>SQL003</td><td>Toplam süt üretimi en düşük inek hangisidir?</td><td>0,50</td></tr>
+<tr><td>F-SQL012</td><td>Papatya'nın ortalama süt verimi nedir?</td><td>SQL014</td><td>Beyza'nın ortalama süt verimi nedir?</td><td>0,71</td></tr>
+<tr><td>F-SQL015</td><td>1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?</td><td>SQL028</td><td>30 Ağustos 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?</td><td>0,89</td></tr>
+<tr><td>F-SQL017</td><td>Boncuk'un küpe numarası nedir?</td><td>SQL025</td><td>Serap'ın küpe numarası nedir?</td><td>0,60</td></tr>
+<tr><td>F-SQL021</td><td>Beyza'nın ortalama süt verimini getir.</td><td>SQL014</td><td>Beyza'nın ortalama süt verimi nedir?</td><td>0,50</td></tr>
+<tr><td>F-SQL022</td><td>Serap için son alarmdaki düşüş yüzdesi nedir?</td><td>SQL016</td><td>Serap için son süt düşüş alarmı nedir?</td><td>0,56</td></tr>
+<tr><td>F-SQL024</td><td>4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?</td><td>SQL030</td><td>5 Eylül 2026 tarihinde en fazla süt veren inek hangisidir?</td><td>0,78</td></tr>
+<tr><td>F-HYB012</td><td>Serap'ın sayısal süt düşüşünü kaynaklara dayanarak ama tanı koymadan açıkla.</td><td>HYB020</td><td>Serap'ın son süt düşüşünü kesin tanı koymadan, bilimsel kaynaklara dayanarak yorumla.</td><td>0,50</td></tr>
+</table>
+<p class="cap">Jaccard ≥ 0,50 çiftler (n = 17); birebir tekrar 0.</p>
+<h2>4. Bölüm 4.3 – SQL paragrafı (değiştir)</h2>
+<div class="box">SQL kanalı için 24 referans sorgu PostgreSQL üzerinde çalıştırılmış; 23 sorgu beklenen değeri üretmiş, 1 sorgu (F-SQL019, 'Çiftliğin adını söyle') referans sorgunun ciftlikler tablosunda bulunmayan 'ad' sütununa başvurması nedeniyle UndefinedColumn hatası vermiştir. Ek Tablo 1'de 24 kaydın tamamı benzersiz kimlik, çalıştırılan sorgu, beklenen değer, gözlenen değer, çalışma durumu, karşılaştırma sonucu ve hata türü sütunlarıyla sunulmuştur. Bu oran referans sorguların çalıştırılabilirliğini gösterir; modelin ürettiği SQL'in execution accuracy'si değildir ve bu çalışmada ölçülmemiştir.</div>
+<h2>5. Bölüm 4.4 – Çelişen cümle (değiştir)</h2>
+<div class="box">Bilgi erişimi düzeyindeki nihai nicel sonuçlar (Precision@5, Recall@5, MRR ve nDCG@5) held-out RAG kümesinde üç yöntem için Tablo 4.5'te verilmiştir. Yanıt üretimi düzeyinde ise yalnızca otomatik vekil ölçütler (atıf doğruluğu, atıf tamlığı, desteksiz iddia oranı) hesaplanmış olup Bölüm 4.6'da sunulmuştur; uzman puanlı faithfulness ve yanıt alaka düzeyi ölçümleri bu çalışmada tamamlanmamıştır.</div>
+<h2>6. Bölüm 4.5 – Eşleştirilmiş retrieval farkları ve ağırlık seçimi (ekle)</h2>
+<div class="box">BGE-M3 ile hibrit RRF arasındaki fark küçüktür ve örneklem (n = 33) içinde istatistiksel üstünlük kanıtı sayılmamalıdır. Soru bazında eşleştirilmiş farklar (FAISS − hibrit) için ortalama P@5 farkı 0,006 (bootstrap %95 GA 0,000 … 0,018), MRR farkı 0,028 (%95 GA 0,000 … 0,078) ve nDCG@5 farkı 0,018 (%95 GA 0,000 … 0,051) bulunmuştur; aralıkların alt sınırı sıfırdır ve farklar birkaç soruda yoğunlaşmaktadır. P@5'te FAISS 1 soruda, hibrit 0 soruda daha iyi, 32 soruda eşittir; MRR'de FAISS 2 soruda daha iyi, 31 soruda eşittir. İki yöntem 25 soruda birebir aynı ilk beş listesini üretmiştir; kalan sorularda liste sırası değişmiş ancak belge düzeyinde ilgililik çoğunlukla aynı kalmıştır. Bu kadar az uyumsuz çift ile işaret testi anlamlı sonuç veremez; bulgu, 'hibrit bu sette ölçülebilir kazanç sağlamadı' biçiminde ifade edilmelidir. Buna karşılık hibritin BM25'e göre P@5 kazancı 0,539 (%95 GA 0,394 … 0,691) ile belirgindir. Pilot ağırlık taramasında 60/40 ve 70/30 bütün ölçütlerde eşit (P@5 0,81; R@5 0,59; MRR 0,84; nDCG@5 0,84) ve 50/50'den çok az yüksek çıktığından, 60/40 'tek ve açık en iyi' değil, deney öncesi belirlenen eşitlik-bozma kuralına (eşitlikte yoğun ağırlığı 0,50'ye en yakın yapılandırma) göre seçilmiş yapılandırmadır.</div>
+<table>
+<tr><th>Ölçüt</th><th>FAISS</th><th>Hibrit</th><th>Ortalama fark (FAISS − hibrit)</th><th>Bootstrap %95 GA</th><th>FAISS daha iyi / eşit / hibrit daha iyi</th></tr>
+<tr><td>P@5</td><td>0,90</td><td>0,89</td><td>0,006</td><td>0,000 … 0,018</td><td>1 / 32 / 0</td></tr>
+<tr><td>R@5</td><td>0,71</td><td>0,71</td><td>0,000</td><td>0,000 … 0,000</td><td>0 / 33 / 0</td></tr>
+<tr><td>MRR</td><td>0,91</td><td>0,88</td><td>0,028</td><td>0,000 … 0,078</td><td>2 / 31 / 0</td></tr>
+<tr><td>nDCG@5</td><td>0,92</td><td>0,90</td><td>0,018</td><td>0,000 … 0,051</td><td>2 / 31 / 0</td></tr>
+</table>
+<p class="cap">Tablo 4.7 (öneri). Soru bazında eşleştirilmiş farklar, n = 33, 10.000 bootstrap örneği. İki yöntem 25 soruda aynı ilk 5 listesini üretmiştir.</p>
+<h2>7. Bölüm 4.6 – Üretim kalitesi (değiştir/ekle)</h2>
+<div class="box">Held-out RAG kümesindeki 33 soruda üretilen yanıtlar, getirilen kaynak listesine karşı otomatik ölçütlerle değerlendirilmiştir. Ortalama atıf doğruluğu 0,30, atıf tamlığı 0,14, desteksiz iddia oranı 0,86 ve tercih edilen kaynağa isabet 0,68 bulunmuştur. Hata tipolojisi: 22 yanıtta hiç kaynak kimliği yoktur, 10 yanıtta kısmi atıf, 0 yanıtta tüm cümleler atıflıdır; 30 yanıt 160 token sınırı nedeniyle cümle ortasında kesilmiştir; 3 yanıtta İngilizce sözcük kalıntısı vardır (sezgisel sayım); tanı/antibiyotik talebi içeren tek maddede (F-RAG033) sistem beklendiği gibi yanıtı reddedip veteriner hekime yönlendirmiştir. Burada 'desteksiz iddia' ölçütü, cümlenin kaynak kimliği taşımamasını esas alan otomatik bir vekildir; cümle içeriğinin kaynakla gerçekten çeliştiğini göstermez. Uzman puanlı faithfulness ve gold cevap karşılaştırması yapılmadığından RQ5 yalnızca vekil ölçütlerle yanıtlanmıştır.</div>
+<table>
+<tr><th>Ölçüt (otomatik)</th><th>Değer</th></tr>
+<tr><td>Atıf doğruluğu (geçerli K-id / yazılan K-id)</td><td>0,30</td></tr>
+<tr><td>Atıf tamlığı (atıflı cümle / cümle)</td><td>0,14</td></tr>
+<tr><td>Desteksiz iddia oranı (1 − atıf tamlığı)</td><td>0,86</td></tr>
+<tr><td>Tercih edilen kaynağa isabet</td><td>0,68</td></tr>
+<tr><td>Tanı reddi (beklenen 1 madde)</td><td>33/33 maddede kural ihlali yok</td></tr>
+</table>
+<p class="cap">Tablo 4.8 (öneri). Held-out RAG, n = 33. Uzman puanı yoktur.</p>
+<table>
+<tr><th>Hata türü</th><th>Sayı</th></tr>
+<tr><td>atıf yok</td><td>22</td></tr>
+<tr><td>kesik yanıt (token sınırı)</td><td>30</td></tr>
+<tr><td>İngilizce sözcük kalıntısı (sezgisel)</td><td>3</td></tr>
+<tr><td>kısmi atıf</td><td>10</td></tr>
+<tr><td>tanı reddi (beklenen davranış)</td><td>1</td></tr>
+</table>
+<p class="cap">Tablo 4.9 (öneri). RAG üretim hata tipolojisi (otomatik sınıflama).</p>
+<h2>8. Bölüm 4.4/4.7 – Yanıt süresi (değiştir)</h2>
+<div class="box">Geliştirme aşamasındaki ortalama yanıt süreleri tablosunda verilen değerler (RAG 55,49 s; HYBRID 39,18 s; SQL 6,91 s) pilot koşullardan gelen ön ölçümlerdir ve nihai yapılandırmayı temsil etmez. Dondurulmuş final yapılandırmada RAG kanalı için uçtan uca yanıt süresi 33 soruda ölçülmüştür: LLM çağrısı içeren 32 soruda ortalama 46,00 s, medyan 41,49 s, standart sapma 10,97 s, en düşük 33,37 s, en yüksek 76,92 s, p90 58,20 s, p95 61,03 s (tanı reddi maddesi LLM çağrılmadan 0,002 s'de yanıtlanmıştır). Ölçüm Windows 11 üzerinde, Intel 11. nesil mobil işlemci ile, GPU kullanılmadan (num_gpu = 0) ve Ollama modeli bellekte sıcakken (keep_alive = 5 dk) tek tekrarla alınmıştır; her soru için retrieval ve LLM süreleri ayrı kaydedilmemiştir. SQL ve HYBRID kanalları için final gecikme dağılımı ölçülmemiştir. Yaklaşık 40 saniyelik medyan, gerçek zamanlı sohbet beklentisinin üzerindedir; darboğaz CPU üzerinde 7B parametreli üretim modelidir ve GPU çıkarımı, daha kısa bağlam veya daha küçük nicemlenmiş model ile azaltılması beklenir.</div>
+<table>
+<tr><th>Küme</th><th>n</th><th>Ortalama</th><th>Medyan</th><th>SS</th><th>Min</th><th>Maks</th><th>p90</th><th>p95</th></tr>
+<tr><td>RAG final – tüm maddeler</td><td>33</td><td>44,61</td><td>41,19</td><td>13,38</td><td>0,002</td><td>76,92</td><td>58,05</td><td>60,79</td></tr>
+<tr><td>RAG final – LLM çağrısı içeren</td><td>32</td><td>46,00</td><td>41,49</td><td>10,97</td><td>33,37</td><td>76,92</td><td>58,20</td><td>61,03</td></tr>
+</table>
+<p class="cap">Tablo 4.10 (öneri). Saniye; Windows 11, Intel 11. nesil CPU, GPU yok, tek tekrar. SQL/HYBRID final gecikmesi ölçülmedi.</p>
+<h2>9. Bölüm 5 (Sonuç) – LLM/FAISS/hibrit cümlesi (değiştir)</h2>
+<div class="box">Yalnızca LLM (erişimsiz) yanıt üretimi ile RAG yanıtları arasında nicel bir karşılaştırma bu çalışmada yapılmamıştır. Buna karşılık bilgi erişimi düzeyinde BM25, BGE-M3 + FAISS ve hibrit RRF için kesin sayılar held-out kümede elde edilmiş ve Tablo 4.5'te raporlanmıştır.</div>
+<h2>10. Yeni Bölüm 5 – TARTIŞMA (Sonuç bölümünün önüne ekle; Sonuç 6 olur)</h2>
+<h3><b>5. TARTIŞMA</b></h3>
+<h3>5.1. Araştırma Sorularının Yanıtlanma Düzeyi</h3>
+<div class="box">Bu çalışmada beş araştırma sorusu tanımlanmıştır; ancak hepsi aynı kanıt düzeyinde yanıtlanmamıştır. Tablo 5.1, her soru için ölçülen ve ölçülmeyen bileşenleri ayırmaktadır. RQ1 ve RQ2 held-out kümede nicel olarak yanıtlanmış, RQ3 pilot sette keşifsel düzeyde incelenmiş, RQ4 yalnızca referans sorgu düzeyinde ele alınmış, RQ5 ise otomatik vekil ölçütlerle sınırlı kalmıştır. Dolayısıyla sistemin 'doğru ve güvenilir bilimsel karar destek asistanı' olduğu iddiası bu tezin bulgularıyla desteklenmemekte; desteklenen iddia, sorguların doğru kanala yönlendirildiği ve ilgili belgelerin yüksek isabetle getirildiğidir.</div>
+<table>
+<tr><th>Araştırma sorusu</th><th>Yanıtlanma düzeyi</th><th>Dayanak / kalan iş</th></tr>
+<tr><td>RQ1 – Dört sınıfta yönlendirme</td><td>Nicel olarak ölçüldü</td><td>Held-out n = 89; 89/89, Macro-F1 = 1,00; %95 Wilson GA 0,96–1,00; tam soru–etiket–tahmin kaydı Ek Tablo 2'de.</td></tr>
+<tr><td>RQ2 – BM25 / FAISS / RRF erişim kıyası</td><td>Nicel olarak ölçüldü</td><td>n = 33, K = 5; P@5, R@5, MRR, nDCG@5 (Tablo 4.5); eşleştirilmiş fark ve bootstrap GA Bölüm 5.2'de; gold etiket protokolü Bölüm 3.7'de.</td></tr>
+<tr><td>RQ3 – Birleştirme ağırlığının etkisi</td><td>Pilot sette ölçüldü (keşifsel)</td><td>n = 50; 50/50, 60/40, 70/30; 60/40 ile 70/30 eşit; 60/40 önceden belirlenmiş eşitlik-bozma kuralıyla seçildi.</td></tr>
+<tr><td>RQ4 – SQL doğal dil sorgu başarısı</td><td>ÖLÇÜLMEDİ (yalnızca referans sorgu çalıştırılabilirliği)</td><td>24 referans sorgunun 23'ü PostgreSQL'de çalıştı (Ek Tablo 1). Modelin ürettiği SQL'in execution accuracy'si ve sayısal sözelleştirme doğruluğu bu sürümde raporlanmamıştır.</td></tr>
+<tr><td>RQ5 – Kaynak bağlılığı ve desteksiz iddia</td><td>Otomatik vekil ölçütlerle ölçüldü; uzman puanı yok</td><td>n = 33; atıf doğruluğu 0,30, atıf tamlığı 0,14, desteksiz iddia oranı 0,86 (Bölüm 4.6). İki değerlendiricili 0–2 puanlama ve gold cevap seti yapılmamıştır.</td></tr>
+<tr><td>HYBRID uçtan uca doğruluk</td><td>ÖLÇÜLMEDİ</td><td>16 soruda yalnızca yönlendirme ölçüldü; SQL + kanıt + sentez bileşik 0/1 puanı yoktur.</td></tr>
+</table>
+<p class="cap">Tablo 5.1. Araştırma sorularının ölçülen ve ölçülmeyen bileşenleri.</p>
+<h3>5.2. Hibrit Erişim Neden Anlamsal Erişimi Geçmedi?</h3>
+<div class="box">Literatürde hibrit erişimin sözcüksel ve anlamsal sinyalleri birleştirerek tek başına yöntemlerden daha sağlam sonuç verdiği sıkça raporlanır. Bu çalışmada ise BGE-M3 tek başına P@5 = 0,90 üretirken hibrit RRF 0,89 ile çok az gerisinde kalmıştır. Üç açıklama öne çıkmaktadır. Birincisi, sorular Türkçe yazılmışken derlemenin büyük kısmı İngilizcedir; BM25 diller arası sözcük eşleşmesi yapamadığı için düşük kalmakta (P@5 = 0,35) ve RRF içinde zayıf sıralamalar katkı yerine gürültü taşımaktadır. İkincisi, çok dilli BGE-M3 modeli bu dil uyumsuzluğunu zaten çözdüğünden hibritin ekleyeceği tamamlayıcı sinyal sınırlıdır. Üçüncüsü, gold etiket belge düzeyinde olduğundan ve çoğu soruya iki belge atandığından tavan etkisi vardır; FAISS birçok soruda zaten mükemmel skora ulaşmıştır. Eşleştirilmiş farkların bootstrap %95 güven aralıkları sıfırı kapsamaktadır; dolayısıyla bulgu 'FAISS hibritten üstündür' değil, 'bu derleme ve soru setinde hibrit birleştirme ölçülebilir bir kazanç sağlamamıştır' biçiminde ifade edilmelidir. Hibritin pratik değeri, Türkçe terim içeren belgelerde ve nadir özel adlarda sözcüksel kaçırmaya karşı bir güvenlik ağı olmasıdır; bu etkinin görülmesi için Türkçe ağırlıklı ya da terim-yoğun bir derleme gerekir.</div>
+<h3>5.3. Yönlendirmede %100 Sonucunun Anlamı ve Sınırı</h3>
+<div class="box">Held-out kümede 89/89 doğru yönlendirme, birinci aşama kural tabanlı sınıflandırıcının tüm soruları LLM'e başvurmadan çözdüğünü göstermektedir. Bu, tekrarlanabilirlik açısından olumludur; fakat kural seti prototipteki beş ineğin özel adlarını (Serap, Beyza, Boncuk, Papatya, Lale) ve küpe numaralarını içermektedir. Farklı bir işletmede hayvan adları değişeceğinden kuralların doğrudan taşınması mümkün değildir; adların veritabanından dinamik olarak yüklenmesi gerekir. Ayrıca held-out sorular pilot sorularla aynı tema ve sözcük dağarcığını paylaştığından (Bölüm 4.2), sonuç zor örnekler, yazım hataları ve çift anlamlı istekler içeren bir stres testine genellenemez. %95 Wilson aralığının alt sınırı 0,96 olsa da bu aralık yalnızca örneklem hatasını yansıtır; soru dağılımı kaymasını yansıtmaz. Pilot %97 ile final %100 farklı soru kümelerinden geldiği için aralarındaki fark nedensel bir iyileşme olarak yorumlanmamalıdır.</div>
+<h3>5.4. Doğru Belgeyi Getirmek ile Doğru Cümleyi Üretmek Arasındaki Boşluk</h3>
+<div class="box">Retrieval ölçütleri yüksekken üretim düzeyinde atıf doğruluğu 0,30 ve desteksiz iddia oranı 0,86 bulunmuştur. Bu açı, RAG literatüründe 'retrieval başarısı yanıt doğruluğunu garanti etmez' uyarısının bu sistemde de geçerli olduğunu gösterir. Hata tipolojisi iki baskın örüntüye işaret etmektedir: modelin kaynak kimliklerini hiç yazmaması ve 160 token sınırı nedeniyle yanıtların kesilmesi. İlki, prompt'taki atıf talimatına rağmen 7B parametreli modelin biçim talimatına uyum zayıflığıyla; ikincisi ise gecikmeyi sınırlamak için seçilen kısa üretim penceresiyle ilgilidir. Kullanılan 'desteksiz iddia' ölçütü atıfsız cümle oranını saymaktadır; cümlenin içerik olarak kaynağa aykırı olup olmadığını ölçmez. Bu nedenle gerçek halüsinasyon oranı daha düşük ya da daha yüksek olabilir; iki bağımsız değerlendiricili 0–2 puanlama ve gold cevap seti olmadan bu belirsizlik giderilemez. Ölçülen bu zayıflık, sistemin kaynak göstermekle yükümlü bir karar destek aracı olarak konumlanmasını ve veteriner tanısının yerine geçmemesini zorunlu kılar.</div>
+<h3>5.5. Yanıt Süresi ve Kullanılabilirlik</h3>
+<div class="box">Final RAG yapılandırmasında medyan 41,49 s ve p95 61,03 s gecikme, sohbet arayüzü beklentilerinin çok üzerindedir. Ölçüm CPU üzerinde ve GPU'suz yapılmıştır; darboğaz üretim modelidir, çünkü SQL kanalı aynı altyapıda belirgin biçimde kısadır. Saha kullanımında GPU çıkarımı, daha küçük nicemlenmiş model, bağlam penceresinin ilk 3 parçayla sınırlanması veya yanıtın akışlı (streaming) gösterimi gecikmeyi azaltabilir. SQL ve HYBRID kanallarının final gecikme dağılımı ölçülmediğinden bu kanallar için yalnızca pilot ortalamaları mevcuttur.</div>
+<h3>5.6. Sentetik Veri, Genellenebilirlik ve Sorumlu Kullanım Sınırı</h3>
+<div class="box">Çiftlik kayıtları ticari bir işletmeden alınmamış, beş inek ve kısa bir sağım dönemi için üretilmiş sentetik verilerdir. Bu, SQL ve HYBRID kanallarının veri çeşitliliği, eksik kayıt, tutarsız girdi ve ölçek açısından sınanmadığı anlamına gelir; sonuçlar gerçek sürülere genellenemez. Çok çiftlikli, gerçek kayıtlarla dış doğrulama bu tezin kapsamı dışında kalmış ve gelecek çalışma olarak önerilmiştir. Güvenlik tarafında tanı/antibiyotik taleplerinin reddi ve yalnızca okuma SQL muhafızı uygulanmış; ancak prompt-injection, yetkisiz SQL yazma girişimi ve işletmeler arası veri izolasyonu sistematik olarak test edilmemiştir. Bu özellikler 'tasarlandı' düzeyinde kalmakta, 'kanıtlandı' olarak sunulmamaktadır.</div>
+<h3>5.7. Literatürdeki Boşluk ve Bu Çalışmanın Konumu</h3>
+<div class="box">Süt sığırcılığı alanındaki yapay zekâ çalışmaları ağırlıklı olarak sensör verisinden hastalık öngörüsü veya verim tahmini üzerine yoğunlaşmakta; RAG ve Text-to-SQL çalışmaları ise genel alan ya da tarım dışı kurumsal veri üzerinde raporlanmaktadır. Yapılandırılmış sürü kayıtları ile hakemli/kurumsal bilimsel belgeleri aynı sohbet asistanında, kaynak göstererek ve Türkçe birleştiren uçtan uca bir prototip ile bunun held-out değerlendirmesi bu çalışmanın katkısıdır. Bulgular, bu entegrasyonun mühendislik olarak mümkün olduğunu; ancak bilimsel güvenilirlik iddiasının üretim düzeyi ölçümleri tamamlanmadan ileri sürülemeyeceğini göstermektedir.</div>
+<h2>11. Sınırlılıklara eklenecek paragraf</h2>
+<div class="box">Ek sınırlılıklar: (1) Gold relevance etiketleri tek değerlendirici tarafından belge düzeyinde atanmıştır; değerlendiriciler arası uyum raporlanamamıştır. (2) Üretim kalitesi ölçütleri otomatik vekillerdir; uzman puanlı faithfulness, gold cevap karşılaştırması ve Cohen's κ yapılmamıştır. (3) Modelin ürettiği SQL'in execution accuracy'si ve HYBRID uçtan uca doğruluk ölçülmemiştir; Ek Tablo 1 yalnızca referans sorguların çalıştırılabilirliğini gösterir. (4) Final gecikme dağılımı yalnızca RAG kanalı için, tek tekrarla ve GPU'suz ölçülmüştür. (5) Ollama model digest'leri kaydedilmemiştir. (6) Parçalama ve Top-K değerleri için ablasyon yapılmamış; 900/150 ve K = 5 değerleri 2048 token bağlam penceresine beş parçanın sığması ve CPU gecikme kısıtıyla gerekçelendirilmiştir. (7) Prompt-injection ve işletmeler arası veri izolasyonu test edilmemiştir.</div>
+<h2>12. Ek Tablo 1 – SQL referans sorguları (24 satır, F-SQL019 dâhil)</h2>
+<table>
+<tr><th>ID</th><th>Soru</th><th>Çalıştırılan sorgu</th><th>Beklenen</th><th>Gözlenen</th><th>Durum</th><th>Karşılaştırma</th><th>Hata türü</th></tr>
+<tr><td>F-SQL001</td><td>Çiftlikte kayıtlı inek sayısı kaçtır?</td><td>SELECT COUNT(*) FROM inekler WHERE COALESCE(ciftlik_id, 1) = 1;</td><td>[(5,)]</td><td>[(5,)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL002</td><td>TR0002 küpe numaralı ineğin adı nedir?</td><td>SELECT isim FROM inekler WHERE kupe_no = 'TR0002';</td><td>[('Beyza',)]</td><td>[('Beyza',)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL003</td><td>Beyza'nın küpe numarası nedir?</td><td>SELECT kupe_no FROM inekler WHERE isim ILIKE '%beyza%';</td><td>[('TR0002',)]</td><td>[('TR0002',)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL004</td><td>Papatya hangi ırktandır?</td><td>SELECT irk FROM inekler WHERE isim ILIKE '%papatya%';</td><td>[('Holstein',)]</td><td>[('Holstein',)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL005</td><td>Lale'nin son sağımında kaç litre süt alınmıştır?</td><td>SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0005' ORDER BY tarih DESC, id DESC LIMIT 1;</td><td>[(Decimal('11.90'),)]</td><td>[(Decimal('11.90'),)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL006</td><td>Boncuk'un 5 Eylül 2026 tarihindeki toplam sütü kaç litredir?</td><td>SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE kupe_no = 'TR0003' AND tarih = DATE '2026-09-05';</td><td>[(Decimal('25.70'),)]</td><td>[(Decimal('25.70'),)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL007</td><td>5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?</td><td>SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0001' AND tarih = DATE '2026-09-05' AND sagim_zamani = 'e';</td><td>[(Decimal('7.80'),)]</td><td>[(Decimal('7.80'),)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL008</td><td>30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?</td><td>SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = DATE '2026-08-30' AND COALESCE(ciftlik_id, 1) = 1;</td><td>[(Decimal('133.50'),)]</td><td>[(Decimal('133.50'),)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL009</td><td>Süt verimi en yüksek dört ineği listele.</td><td>SELECT i.isim, ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) DESC LIMIT 4;</td><td>[('Papatya', Decimal('14.86')), ('Serap', Decimal('13.84')), ('Beyza', Decimal('13.56')), ('Lale', Decimal('13.01'))]</td><td>[('Papatya', Decimal('14.86')), ('Serap', Decimal('13.84')), ('Beyza', Decimal('13.56')), ('Lale', Decimal('13.01'))]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL010</td><td>Ortalama süt verimi en düşük inek hangisidir?</td><td>SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) ASC LIMIT 1;</td><td>[('Boncuk',)]</td><td>[('Boncuk',)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL011</td><td>Holstein ırkındaki ineklerin sayısı nedir?</td><td>SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%holstein%';</td><td>[(3,)]</td><td>[(3,)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL012</td><td>Papatya'nın ortalama süt verimi nedir?</td><td>SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%papatya%';</td><td>[(Decimal('14.86'),)]</td><td>[(Decimal('14.86'),)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL013</td><td>Lale için süt düşüş alarmı var mıdır?</td><td>SELECT COUNT(*) FROM alarmlar a JOIN inekler i ON a.kupe_no = i.kupe_no WHERE i.isim ILIKE '%lale%';</td><td>[(0,)]</td><td>[(0,)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL014</td><td>Serap'ın küpe numarası TR0001 midir, doğrula.</td><td>SELECT kupe_no FROM inekler WHERE isim ILIKE '%serap%';</td><td>[('TR0001',)]</td><td>[('TR0001',)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL015</td><td>1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?</td><td>SELECT COUNT(*) FROM sagim_kayitlari WHERE tarih BETWEEN DATE '2026-09-01' AND DATE '2026-09-05';</td><td>[(50,)]</td><td>[(50,)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL016</td><td>Bugünkü toplam süt üretimini getir.</td><td>SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = (SELECT MAX(tarih) FROM sagim_kayitlari);</td><td>[(Decimal('133.40'),)]</td><td>[(Decimal('133.40'),)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL017</td><td>Boncuk'un küpe numarası nedir?</td><td>SELECT kupe_no FROM inekler WHERE isim ILIKE '%boncuk%';</td><td>[('TR0003',)]</td><td>[('TR0003',)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL018</td><td>TR0004 numaralı ineğin son süt miktarı kaç litredir?</td><td>SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0004' ORDER BY tarih DESC, id DESC LIMIT 1;</td><td>[(Decimal('13.50'),)]</td><td>[(Decimal('13.50'),)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL019</td><td>Çiftliğin adını söyle.</td><td>SELECT ad FROM ciftlikler WHERE id = 1;</td><td>tanımsız (sütun şemada yok)</td><td>UndefinedColumn('column "ad" does not exist</td><td>hata</td><td>karşılaştırılamadı</td><td>şema uyumsuzluğu (UndefinedColumn)</td></tr>
+<tr><td>F-SQL020</td><td>Simental ırkı inek sayısı kaçtır?</td><td>SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%simental%';</td><td>[(2,)]</td><td>[(2,)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL021</td><td>Beyza'nın ortalama süt verimini getir.</td><td>SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%beyza%';</td><td>[(Decimal('13.56'),)]</td><td>[(Decimal('13.56'),)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL022</td><td>Serap için son alarmdaki düşüş yüzdesi nedir?</td><td>SELECT dusus_yuzdesi FROM alarmlar WHERE kupe_no = 'TR0001' ORDER BY tarih DESC, id DESC LIMIT 1;</td><td>[(Decimal('39.06'),)]</td><td>[(Decimal('39.06'),)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL023</td><td>Okunmamış alarm sayısı kaçtır?</td><td>SELECT COUNT(*) FROM alarmlar WHERE okundu = FALSE;</td><td>[(0,)]</td><td>[(0,)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+<tr><td>F-SQL024</td><td>4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?</td><td>SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE sk.tarih = DATE '2026-09-04' GROUP BY i.isim ORDER BY SUM(sk.sut_miktari) DESC LIMIT 1;</td><td>[('Papatya',)]</td><td>[('Papatya',)]</td><td>çalıştı</td><td>beklenen = gözlenen</td><td>—</td></tr>
+</table>
+<p class="cap">Ek Tablo 1. n = 24; 23 çalıştı, 1 hata (F-SQL019). Bu tablo modelin Text-to-SQL execution accuracy'si değildir.</p>
+<h2>13. Ek Tablo 2 – Held-out yönlendirme kaydı (89 satır)</h2>
+<table>
+<tr><th>ID</th><th>Soru</th><th>Gold</th><th>Tahmin</th><th>Mekanizma</th><th>Doğru</th></tr>
+<tr><td>F-RAG001</td><td>Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG002</td><td>Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG003</td><td>Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG004</td><td>Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG005</td><td>Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG006</td><td>Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG007</td><td>Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG008</td><td>Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG009</td><td>Dengeli rasyon süt sığırlarında verimi neden destekler?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG010</td><td>Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG011</td><td>Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG012</td><td>Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG013</td><td>Süt humması taze inek döneminde neden önemli bir risktir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG014</td><td>Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG015</td><td>Doğum sonrası hipokalsemi belirtileri neler olabilir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG016</td><td>Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG017</td><td>Kolostrumun buzağıya zamanında verilmesi neden kritiktir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG018</td><td>Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG019</td><td>Kolostrumdaki immünoglobulin düzeyi neden önemlidir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG020</td><td>Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG021</td><td>Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG022</td><td>Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG023</td><td>Tohumlama zamanlaması gebelik oranını neden etkiler?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG024</td><td>Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG025</td><td>Topallık süt sığırlarında refahı nasıl etkiler?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG026</td><td>Barınak konforu ineklerin dinlenme davranışını neden etkiler?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG027</td><td>Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG028</td><td>Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG029</td><td>Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG030</td><td>İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG031</td><td>Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG032</td><td>Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-RAG033</td><td>Bu inekte mastitis var mı, antibiyotik vermeli miyim?</td><td>RAG</td><td>RAG</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL001</td><td>Çiftlikte kayıtlı inek sayısı kaçtır?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL002</td><td>TR0002 küpe numaralı ineğin adı nedir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL003</td><td>Beyza'nın küpe numarası nedir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL004</td><td>Papatya hangi ırktandır?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL005</td><td>Lale'nin son sağımında kaç litre süt alınmıştır?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL006</td><td>Boncuk'un 5 Eylül 2026 tarihindeki toplam sütü kaç litredir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL007</td><td>5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL008</td><td>30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL009</td><td>Süt verimi en yüksek dört ineği listele.</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL010</td><td>Ortalama süt verimi en düşük inek hangisidir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL011</td><td>Holstein ırkındaki ineklerin sayısı nedir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL012</td><td>Papatya'nın ortalama süt verimi nedir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL013</td><td>Lale için süt düşüş alarmı var mıdır?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL014</td><td>Serap'ın küpe numarası TR0001 midir, doğrula.</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL015</td><td>1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL016</td><td>Bugünkü toplam süt üretimini getir.</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL017</td><td>Boncuk'un küpe numarası nedir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL018</td><td>TR0004 numaralı ineğin son süt miktarı kaç litredir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL019</td><td>Çiftliğin adını söyle.</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL020</td><td>Simental ırkı inek sayısı kaçtır?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL021</td><td>Beyza'nın ortalama süt verimini getir.</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL022</td><td>Serap için son alarmdaki düşüş yüzdesi nedir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL023</td><td>Okunmamış alarm sayısı kaçtır?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-SQL024</td><td>4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?</td><td>SQL</td><td>SQL</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB001</td><td>Beyza'nın süt verimindeki değişimi bilimsel kaynaklara göre yorumla.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB002</td><td>Boncuk'un mevcut süt kaydı ile mastitis literatürünü birlikte değerlendir.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB003</td><td>Papatya'nın süt verisini besleme bilgisiyle birlikte açıkla.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB004</td><td>Lale'nin sağım kaydını süt hijyeni açısından kaynaklarla değerlendir.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB005</td><td>TR0001 küpe numaralı ineğin süt düşüşünü metabolik hastalık bilgisiyle yorumla.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB006</td><td>Serap'ın alarm kaydını hayvan refahı literatürüyle birlikte ele al.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB007</td><td>Beyza'nın son süt miktarını süt kalitesi bilgisiyle birlikte değerlendir.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB008</td><td>Çiftlikteki süt düşüş alarmını kesin tanı koymadan bilimsel kaynaklarla yorumla.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB009</td><td>Boncuk'un verim kaydını geçiş dönemi metabolik riskleri açısından tartış.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB010</td><td>Papatya'nın süt verisi ile kuru madde tüketimi literatürünü birlikte kullan.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB011</td><td>Lale'nin çiftlik kaydını meme sağlığı kaynaklarıyla sentezle.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB012</td><td>Serap'ın sayısal süt düşüşünü kaynaklara dayanarak ama tanı koymadan açıkla.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB013</td><td>Çiftlikteki günlük süt değişimini sağım hijyeni bilgisiyle birlikte yorumla.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB014</td><td>TR0003 küpe numaralı ineğin kaydını besleme literatürüyle değerlendir.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB015</td><td>Beyza için oluşan süt verisi değişimini üreme yönetimi bilgisiyle ilişkilendirme; yalnızca süt ve sağlık kaynaklarıyla yorumla.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-HYB016</td><td>Çiftlikteki ineklerin süt kayıtlarını hayvan refahı ilkeleriyle birlikte genel olarak değerlendir.</td><td>HYBRID</td><td>HYBRID</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT001</td><td>Merhaba</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT002</td><td>Selam</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT003</td><td>Teşekkürler</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT004</td><td>Sağ ol</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT005</td><td>Nasılsın?</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT006</td><td>İyi günler</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT007</td><td>İyi akşamlar</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT008</td><td>Günaydın</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT009</td><td>Ne yapabilirsin?</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT010</td><td>Kendini tanıt</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT011</td><td>Yardımcı olur musun?</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT012</td><td>Teşekkür ederim</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT013</td><td>Merhaba nasılsın</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT014</td><td>Selam, iyi günler</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT015</td><td>Sağol</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+<tr><td>F-CHAT016</td><td>Günaydın, nasılsın?</td><td>CHAT</td><td>CHAT</td><td>kural</td><td>evet</td></tr>
+</table>
+<p class="cap">Ek Tablo 2. Çalıştırma 2026-10-04T18:58:28.133333+00:00; yapılandırma özeti 0fa25632aa8b; mekanizma dağılımı {'kural': 89}.</p>
+<h2>14. Ek Tablo 3 – Sorgu bazlı retrieval (33 satır)</h2>
+<table>
+<tr><th>ID</th><th>Soru</th><th>İlgili belge sayısı</th><th>BM25 P@5</th><th>BM25 RR</th><th>BM25 nDCG</th><th>FAISS P@5</th><th>FAISS RR</th><th>FAISS nDCG</th><th>Hibrit P@5</th><th>Hibrit RR</th><th>Hibrit nDCG</th></tr>
+<tr><td>F-RAG001</td><td>Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?</td><td>2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG002</td><td>Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?</td><td>2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG003</td><td>Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?</td><td>2</td><td>0,80</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG004</td><td>Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td></tr>
+<tr><td>F-RAG005</td><td>Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?</td><td>2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG006</td><td>Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?</td><td>2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG007</td><td>Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?</td><td>2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG008</td><td>Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?</td><td>2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG009</td><td>Dengeli rasyon süt sığırlarında verimi neden destekler?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG010</td><td>Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG011</td><td>Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?</td><td>2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG012</td><td>Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,00</td></tr>
+<tr><td>F-RAG013</td><td>Süt humması taze inek döneminde neden önemli bir risktir?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG014</td><td>Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG015</td><td>Doğum sonrası hipokalsemi belirtileri neler olabilir?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG016</td><td>Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?</td><td>2</td><td>0,40</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG017</td><td>Kolostrumun buzağıya zamanında verilmesi neden kritiktir?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG018</td><td>Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG019</td><td>Kolostrumdaki immünoglobulin düzeyi neden önemlidir?</td><td>2</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG020</td><td>Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG021</td><td>Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG022</td><td>Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG023</td><td>Tohumlama zamanlaması gebelik oranını neden etkiler?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG024</td><td>Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG025</td><td>Topallık süt sığırlarında refahı nasıl etkiler?</td><td>2</td><td>0,80</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG026</td><td>Barınak konforu ineklerin dinlenme davranışını neden etkiler?</td><td>2</td><td>0,60</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG027</td><td>Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?</td><td>2</td><td>0,40</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG028</td><td>Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?</td><td>2</td><td>0,60</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG029</td><td>Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG030</td><td>İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,80</td><td>0,50</td><td>0,76</td><td>0,80</td><td>0,50</td><td>0,76</td></tr>
+<tr><td>F-RAG031</td><td>Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,40</td><td>0,50</td><td>0,65</td><td>0,40</td><td>0,33</td><td>0,54</td></tr>
+<tr><td>F-RAG032</td><td>Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?</td><td>2</td><td>0,00</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td><td>1,00</td></tr>
+<tr><td>F-RAG033</td><td>Bu inekte mastitis var mı, antibiyotik vermeli miyim?</td><td>1</td><td>0,00</td><td>0,00</td><td>0,00</td><td>0,40</td><td>1,00</td><td>0,92</td><td>0,20</td><td>0,25</td><td>0,43</td></tr>
+</table>
+<p class="cap">Ek Tablo 3. K = 5; gold etiket belge düzeyinde (preferred_sources).</p>
+<h2>15. Ek Tablo 4 – RAG üretim deneyi sorgu bazlı (33 satır)</h2>
+<table>
+<tr><th>ID</th><th>Soru</th><th>Atıf doğ.</th><th>Atıf taml.</th><th>Desteksiz</th><th>Terc. kaynak</th><th>Yazılan K-id</th><th>Cümle</th><th>Kategori</th><th>Süre (s)</th></tr>
+<tr><td>F-RAG001</td><td>Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>—</td><td>1</td><td>atıf yok</td><td>43,2</td></tr>
+<tr><td>F-RAG002</td><td>Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>5</td><td>atıf yok + kesik</td><td>56,8</td></tr>
+<tr><td>F-RAG003</td><td>Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>3</td><td>atıf yok + kesik</td><td>76,9</td></tr>
+<tr><td>F-RAG004</td><td>Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,00</td><td>—</td><td>3</td><td>atıf yok + kesik</td><td>56,9</td></tr>
+<tr><td>F-RAG005</td><td>Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>5</td><td>atıf yok + kesik</td><td>54,7</td></tr>
+<tr><td>F-RAG006</td><td>Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>—</td><td>7</td><td>atıf yok + kesik</td><td>58,3</td></tr>
+<tr><td>F-RAG007</td><td>Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>—</td><td>3</td><td>atıf yok + kesik</td><td>53,3</td></tr>
+<tr><td>F-RAG008</td><td>Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>—</td><td>5</td><td>atıf yok + kesik</td><td>63,7</td></tr>
+<tr><td>F-RAG009</td><td>Dengeli rasyon süt sığırlarında verimi neden destekler?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>1</td><td>atıf yok + kesik</td><td>55,1</td></tr>
+<tr><td>F-RAG010</td><td>Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>—</td><td>3</td><td>atıf yok</td><td>39,0</td></tr>
+<tr><td>F-RAG011</td><td>Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?</td><td>1,00</td><td>0,33</td><td>0,67</td><td>1,00</td><td>K1</td><td>3</td><td>kısmi atıf + kesik</td><td>39,8</td></tr>
+<tr><td>F-RAG012</td><td>Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?</td><td>1,00</td><td>0,33</td><td>0,67</td><td>0,00</td><td>K1</td><td>3</td><td>kısmi atıf + kesik</td><td>34,4</td></tr>
+<tr><td>F-RAG013</td><td>Süt humması taze inek döneminde neden önemli bir risktir?</td><td>1,00</td><td>0,50</td><td>0,50</td><td>1,00</td><td>K1</td><td>2</td><td>kısmi atıf + kesik</td><td>41,2</td></tr>
+<tr><td>F-RAG014</td><td>Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>—</td><td>5</td><td>atıf yok + kesik</td><td>55,2</td></tr>
+<tr><td>F-RAG015</td><td>Doğum sonrası hipokalsemi belirtileri neler olabilir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>1</td><td>atıf yok + kesik</td><td>54,7</td></tr>
+<tr><td>F-RAG016</td><td>Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>5</td><td>atıf yok + kesik</td><td>33,4</td></tr>
+<tr><td>F-RAG017</td><td>Kolostrumun buzağıya zamanında verilmesi neden kritiktir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>4</td><td>atıf yok + kesik</td><td>33,7</td></tr>
+<tr><td>F-RAG018</td><td>Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?</td><td>1,00</td><td>0,67</td><td>0,33</td><td>1,00</td><td>K1 K2</td><td>3</td><td>kısmi atıf + kesik</td><td>53,0</td></tr>
+<tr><td>F-RAG019</td><td>Kolostrumdaki immünoglobulin düzeyi neden önemlidir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>3</td><td>atıf yok + kesik</td><td>52,3</td></tr>
+<tr><td>F-RAG020</td><td>Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>—</td><td>2</td><td>atıf yok + kesik</td><td>38,6</td></tr>
+<tr><td>F-RAG021</td><td>Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>—</td><td>3</td><td>atıf yok + kesik</td><td>37,4</td></tr>
+<tr><td>F-RAG022</td><td>Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>3</td><td>atıf yok + kesik</td><td>41,8</td></tr>
+<tr><td>F-RAG023</td><td>Tohumlama zamanlaması gebelik oranını neden etkiler?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>4</td><td>atıf yok + kesik</td><td>33,9</td></tr>
+<tr><td>F-RAG024</td><td>Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?</td><td>1,00</td><td>0,33</td><td>0,67</td><td>0,50</td><td>K1 K3 K4 K5</td><td>3</td><td>kısmi atıf + kesik</td><td>38,6</td></tr>
+<tr><td>F-RAG025</td><td>Topallık süt sığırlarında refahı nasıl etkiler?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>2</td><td>atıf yok + kesik</td><td>34,2</td></tr>
+<tr><td>F-RAG026</td><td>Barınak konforu ineklerin dinlenme davranışını neden etkiler?</td><td>1,00</td><td>0,50</td><td>0,50</td><td>0,50</td><td>K1</td><td>2</td><td>kısmi atıf + kesik</td><td>35,4</td></tr>
+<tr><td>F-RAG027</td><td>Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?</td><td>1,00</td><td>0,50</td><td>0,50</td><td>1,00</td><td>K1</td><td>2</td><td>kısmi atıf + kesik</td><td>35,5</td></tr>
+<tr><td>F-RAG028</td><td>Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?</td><td>1,00</td><td>0,50</td><td>0,50</td><td>1,00</td><td>K1</td><td>2</td><td>kısmi atıf + kesik</td><td>36,4</td></tr>
+<tr><td>F-RAG029</td><td>Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?</td><td>1,00</td><td>0,33</td><td>0,67</td><td>1,00</td><td>K1</td><td>3</td><td>kısmi atıf + kesik</td><td>58,9</td></tr>
+<tr><td>F-RAG030</td><td>İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?</td><td>1,00</td><td>0,50</td><td>0,50</td><td>0,50</td><td>K1 K2 K3 K4 K5</td><td>2</td><td>kısmi atıf + kesik</td><td>36,8</td></tr>
+<tr><td>F-RAG031</td><td>Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,50</td><td>—</td><td>3</td><td>atıf yok + kesik</td><td>52,2</td></tr>
+<tr><td>F-RAG032</td><td>Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>1,00</td><td>—</td><td>3</td><td>atıf yok + kesik</td><td>36,8</td></tr>
+<tr><td>F-RAG033</td><td>Bu inekte mastitis var mı, antibiyotik vermeli miyim?</td><td>0,00</td><td>0,00</td><td>1,00</td><td>0,00</td><td>—</td><td>5</td><td>tanı reddi (beklenen davranış)</td><td>0,0</td></tr>
+</table>
+<p class="cap">Ek Tablo 4. Otomatik ölçütler; uzman puanı yoktur.</p>
+<h2>16. Tablo 3.2 – Corpus manifestosu (tam künye, sayfa ve parça sayısı)</h2>
+<table>
+<tr><th>ID</th><th>Künye</th><th>Yıl</th><th>Tür</th><th>Tema</th><th>Sayfa</th><th>Parça</th></tr>
+<tr><td>D01</td><td>FAO (1993; elektronik baskı 2008). Small-scale Dairy Farming Manual, Vol. 5 (Husbandry Units 10.1–11.4; Unit 10.5: Mastitis). Regional Dairy Development and Training Team for Asia and Pacific, FAO Regional Office for Asia and the Pacific, Bangkok / FAO, Rome.</td><td>1993/2008</td><td>uluslararası rehber</td><td>Mastitis</td><td>278</td><td>326</td></tr>
+<tr><td>D02</td><td>Kurt, S., Çolakoğlu, H. E., Yazlık, M. O., Vural, M. R., Küplülü, Ş. (2019). Sütçü ineklerde mastitis yönünden kuru ve geçiş dönemlerinin önemi. Atatürk Üniversitesi Veteriner Bilimleri Dergisi, 14(1), 107–113. DOI: 10.17094/ataunivbd.407022</td><td>2019</td><td>hakemli derleme</td><td>Mastitis</td><td>7</td><td>37</td></tr>
+<tr><td>D03</td><td>Darbaz, İ., Ergene, O. (2015). Sürü meme sağlığı yönetiminde somatik hücre sayısının önemi. Erciyes Üniversitesi Veteriner Fakültesi Dergisi, 12(3), 203–210.</td><td>2015</td><td>hakemli derleme</td><td>Süt kalitesi</td><td>8</td><td>41</td></tr>
+<tr><td>D04</td><td>Yalçın, H., Çakmak, T. (2022). İnek sütlerinde somatik hücre sayısı ve bazı parametrelerin araştırılması. Manas Journal of Agriculture, Veterinary and Life Sciences, 12(1), 81–87. DOI: 10.53518/mjavl.1092994</td><td>2022</td><td>hakemli araştırma makalesi</td><td>Süt kalitesi</td><td>7</td><td>47</td></tr>
+<tr><td>D05</td><td>FAO (2012). Balanced feeding for improving livestock productivity – Increase in milk production and nutrient use efficiency and decrease in methane emission, by M. R. Garg. FAO Animal Production and Health Paper No. 173. Rome.</td><td>2012</td><td>uluslararası teknik rapor</td><td>Besleme</td><td>46</td><td>125</td></tr>
+<tr><td>D06</td><td>Bernard, J. K., Montgomery, M. J. (1997). Managing Intake of Lactating Dairy Cows. The University of Tennessee Agricultural Extension Service, PB 1598. [Teyit: Yıl PDF üst verisinden (1997-12); basılı künyede teyit edilmeli.]</td><td>1997</td><td>üniversite yayım bülteni</td><td>Besleme</td><td>7</td><td>23</td></tr>
+<tr><td>D07</td><td>University of Wisconsin–Madison Division of Extension (2023). The Fresh Cow: Milk Fever. Dairy fact sheet. [Teyit: Yıl PDF üst verisinden (2023-09).]</td><td>2023</td><td>üniversite bilgi notu</td><td>Metabolik hastalıklar</td><td>2</td><td>10</td></tr>
+<tr><td>D08</td><td>Overton, T. R. (2009). Effective transition cow management to maximize Internal Herd Growth. Department of Animal Science, Cornell University (sunum notları). [Teyit: Yıl PDF üst verisinden (2009-07); yayın yeri teyit edilmeli.]</td><td>2009</td><td>üniversite sunum/ders notu</td><td>Metabolik hastalıklar</td><td>26</td><td>25</td></tr>
+<tr><td>D09</td><td>Moriel, P., Batistel, F. (2021). Nutrition at Early Stages of Life Determines the Future Growth and Reproductive Performance of Dairy Calves. UF/IFAS Extension, AN336. DOI: 10.32473/edis-an336-2021</td><td>2021</td><td>üniversite yayım belgesi</td><td>Buzağı sağlığı</td><td>6</td><td>30</td></tr>
+<tr><td>D10</td><td>Utah State University Extension (2026). Colostrum management fact sheet for dairy calves (A. Snarr vd.). [Teyit: Tam başlık ve yazar listesi PDF kapak görselinden teyit edilmeli.]</td><td>2026</td><td>üniversite bilgi notu</td><td>Buzağı sağlığı</td><td>8</td><td>33</td></tr>
+<tr><td>D11</td><td>Fricke, P. M. (2018). Evolution of timed AI protocols and overview of the 2018 DCRC Reproductive Management Strategies protocol sheet for dairy cows. Dairy Cattle Reproduction Council (DCRC) Annual Meeting Proceedings.</td><td>2018</td><td>mesleki bildiri/rehber</td><td>Üreme</td><td>19</td><td>93</td></tr>
+<tr><td>D12</td><td>Fricke, P. M., Wiltbank, M. C., Pursley, J. R. (2023). The High Fertility Cycle. University of Wisconsin–Madison Division of Extension.</td><td>2023</td><td>üniversite yayım belgesi</td><td>Üreme</td><td>8</td><td>30</td></tr>
+<tr><td>D13</td><td>WOAH (2024). Terrestrial Animal Health Code, Chapter 7.11: Animal welfare and dairy cattle production systems. World Organisation for Animal Health, Paris.</td><td>2024</td><td>uluslararası standart</td><td>Hayvan refahı</td><td>14</td><td>72</td></tr>
+<tr><td>D14</td><td>Öcal, G. O., Güven, F. M., Cedden, F. (2026). Evaluation of housing and management conditions affecting animal welfare in dairy cattle farms in Ankara Province, Türkiye. ADÜ Ziraat Dergisi, 23(1), 47–53. DOI: 10.25308/aduziraat.1850888</td><td>2026</td><td>hakemli araştırma makalesi</td><td>Hayvan refahı</td><td>8</td><td>48</td></tr>
+<tr><td>D15</td><td>FAO &amp; IDF (2011). Guide to Good Dairy Farming Practice. FAO Animal Production and Health Guidelines No. 8. Rome.</td><td>2011</td><td>uluslararası rehber</td><td>Süt hijyeni</td><td>50</td><td>144</td></tr>
+<tr><td>D16</td><td>FAO &amp; WHO (2007). Codex Alimentarius: Milk and Milk Products (First edition). Joint FAO/WHO Food Standards Programme, Rome. ISBN 978-92-5-105837-4 [Teyit: ISBN son hanesi PDF'de kesilmiş; künyeden teyit edilmeli.]</td><td>2007</td><td>uluslararası standart</td><td>Süt hijyeni</td><td>254</td><td>749</td></tr>
+</table>
+<p class="cap">Tablo 3.2. 16 belge; toplam 748 sayfa birimi ve 1833 parça (indeks manifestosu: 748 / 1833). Sayfa ve parça sayıları aynı parçalama ayarlarıyla (900/150) yeniden hesaplanmıştır. Seçim ölçütleri: Süt sığırcılığına doğrudan ilgili olma; Resmi rehber, üniversite yayını veya hakemli yayın olma; Sekiz tematik kategoriden en az birini kapsama; Kaynak gösterilebilir bibliyografik kimliğe sahip olma; Klinik tanı protokolü değil, yönetim ve bilimsel arka plan bilgisi sağlama. Dışlanan belge: Cornell_Feeding_Dairy_Calf.pdf (buzağı temasında içerik örtüşmesi; knowledge_base_disabled/).</p>
+<h2>17. Tablo 3.4 – Yapılandırma ve sürümler (genişletilmiş)</h2>
+<table>
+<tr><th>Bileşen</th><th>Değer</th></tr>
+<tr><td>Üretim LLM</td><td>Ollama `mistral` (varsayılan etiket; 7B); temperature=0.0, seed=0, num_predict=160, num_ctx=2048, num_gpu=0 (CPU çıkarımı)</td></tr>
+<tr><td>Yönlendirici</td><td>1. aşama kural tabanlı (route_rules.py); eşleşme yoksa 2. aşama Ollama `mistral` (num_ctx=1024, num_predict=16, temperature=0)</td></tr>
+<tr><td>SQL kanalı LLM</td><td>LangGraph araç-çağrı ajanı, Ollama `llama3.2`; 8 parametrik SQL aracı + yalnızca SELECT üreten dinamik sorgu aracı</td></tr>
+<tr><td>Gömme modeli</td><td>Ollama `bge-m3` (BGE-M3, 1024 boyut)</td></tr>
+<tr><td>Vektör indeksi</td><td>FAISS IndexFlatL2 (L2 uzaklık), faiss-cpu 1.8.0</td></tr>
+<tr><td>Sözcüksel arama</td><td>BM25Okapi (rank_bm25), k1=1.5, b=0.75</td></tr>
+<tr><td>Birleştirme</td><td>weighted_rrf; yoğun 0.6 / seyrek 0.4; k=60</td></tr>
+<tr><td>Top-K</td><td>FAISS 8, BM25 8, nihai 5</td></tr>
+<tr><td>Parçalama</td><td>RecursiveCharacterTextSplitter, 900 karakter / 150 örtüşme; ayırıcılar: paragraf, satır, cümle, boşluk</td></tr>
+<tr><td>Bilgi tabanı</td><td>748 sayfa birimi, 1833 parça, 16 PDF</td></tr>
+<tr><td>Veritabanı</td><td>PostgreSQL (Sut_Sihirbazi); kayıtlar sentetik prototip verisi; SQL muhafızı yalnızca SELECT/WITH…SELECT kabul eder (sql_guard.py)</td></tr>
+<tr><td>Python / paketler</td><td>Python 3.12.2; langchain 0.1.17, langchain-core 1.4.7, langchain-community 0.4.2, langchain-ollama 1.1.0, langgraph 1.2.5, psycopg2 2.9.12</td></tr>
+<tr><td>İşletim sistemi / donanım</td><td>Windows 11 (AMD64); CPU: Intel64 Family 6 Model 141 Stepping 1, GenuineIntel; GPU kullanılmadı</td></tr>
+<tr><td>İstemci / sunucu</td><td>FastAPI (uvicorn, 127.0.0.1:8001) + React Native/Expo web istemcisi; Ollama 127.0.0.1:11434</td></tr>
+<tr><td>Deney kaydı</td><td>captured_at 2026-10-04T18:58:28.133333+00:00; yapılandırma özeti (SHA-256/12) 0fa25632aa8b</td></tr>
+<tr><td>Model sürüm özeti (digest)</td><td>Ollama model digest'i deney sırasında kaydedilmemiştir (sınırlılık); `ollama show mistral` / `ollama show bge-m3` çıktısı savunma öncesi eklenmelidir</td></tr>
+</table>
+<p class="cap">Tablo 3.4. Tekrarlanabilirlik için tam yapılandırma.</p>
+<h2>18. Ek – Prompt şablonları</h2>
+<h3>Yönlendirici sistem istemi</h3><div class='box'>Kullanıcının sorusunu yalnızca şu dört etiketten biriyle sınıflandır:
+
+RAG:
+Genel hayvancılık, süt sığırı sağlığı, besleme, mastitis,
+ketozis, buzağı, üreme ve süt kalitesi gibi uzmanlık
+bilgisini dokümanlardan gerektiren sorular.
+
+SQL:
+Kullanıcının kendi çiftliğindeki inekler, sağım kayıtları,
+süt miktarı, günlük üretim, alarmlar, trendler ve sayısal
+çiftlik kayıtlarıyla ilgili sorular.
+
+HYBRID:
+Hem kullanıcının çiftlik verisini hem de bilimsel/veteriner
+kaynak bilgisini birlikte gerektiren sorular.
+
+CHAT:
+Selamlaşma, teşekkür veya kısa genel sohbet.
+
+Örnekler:
+'Mastitis nedir?' -&gt; RAG
+'Somatik hücre sayısı süt kalitesini nasıl etkiler?' -&gt; RAG
+'Bugün toplam kaç litre süt aldım?' -&gt; SQL
+'Süt verimi en yüksek inekleri getir' -&gt; SQL
+'Serap'ın sütü neden düştü?' -&gt; HYBRID
+'Merhaba' -&gt; CHAT
+'Teşekkürler' -&gt; CHAT
+'Nasılsın?' -&gt; CHAT
+
+Sadece etiketi döndür.</div>
+<h3>RAG sistem istemi</h3><div class='box'>Sen süt sığırcılığı alanında çalışan kaynak-temelli bir yapay zekâ danışmanısın.
+
+SADECE verilen KAYNAK BAĞLAMI içindeki bilgileri kullan.
+
+KURALLAR:
+- HER ZAMAN TÜRKÇE cevap ver.
+- Kaynak İngilizceyse cümleyi kelimesi kelimesine çevirme; bilimsel anlamını doğru ve doğal Türkçe ile özetle.
+- İngilizce veya yarı İngilizce cümle bırakma.
+- Kullanıcının sorusuna doğrudan cevap ver.
+- Cevap en fazla 3 kısa ve tam cümleden oluşsun.
+- Her cümle kullanıcının sorusunu doğrudan yanıtlasın.
+- Soruda hangi sonuç değişkeni soruluyorsa yalnızca ona odaklan.
+- Süt verimi sorusunda süt kalitesi, ekonomik kayıp, sürüden çıkarılma veya başka sonuçları gereksiz yere ekleme.
+- Süt kalitesi sorusunda yalnızca süt veriminin azalmasından söz etmek yeterli değildir; süt kalitesi üzerindeki etkiyi açıkça belirt.
+- Cevaba 'Bu durumda', 'Ayrıca' veya benzeri bağlamsız ifadelerle başlama.
+- Soru ekonomik kayıplarla ilgili değilse ekonomik kayıp, prim veya rekabet bilgisini ekleme.
+- Ayrı bir 'Kaynaklar:' bölümü oluşturma.
+- Gereksiz ekonomik, tarihsel veya genel bilgilere girme.
+- Sorunun konusu süt verimiyse süt verimine odaklan.
+- Sorunun konusu süt kalitesiyse süt kalitesine odaklan.
+- Neden-sonuç ilişkisini kaynakta açıkça belirtilmedikçe uydurma.
+- Kesin hastalık tanısı koyma.
+- Antibiyotik, ilaç adı veya doz önerme.
+- Kullanıcı tanı veya tedavi isterse veteriner hekime yönlendir.
+- Kaynakta bulunmayan bilgi ekleme.
+- İngilizce teknik terimleri şu anlamlarla kullan: calving = buzağılama/doğum; calf = buzağı; antibody = antikor; immunoglobulin = immünoglobulin; colostrum = kolostrum/ağız sütü; body condition score = vücut kondisyon skoru; reproductive = üreme ile ilgili; embryo = embriyo; lameness = topallık; milking personnel = sağım personeli; teat = meme başı; udder = meme; cow = inek.
+- antibody kelimesini antibiyotik, calf kelimesini kuzu, cow veya milking personnel ifadelerini kadın olarak çevirme.
+- Her bilimsel bulgunun sonunda onu destekleyen kaynak kimliğini [K1], [K2] gibi yaz.
+- Yalnızca KAYNAK BAĞLAMI içinde verilen K1, K2, K3 gibi kaynak kimliklerini kullan.
+- JSON, XML, Python sözlüğü veya kod bloğu üretme.
+- "response", "content", "source", "id", "claims" gibi yapısal alan adları kullanma.
+- Kaynak yetersizse açıkça: "Mevcut kaynaklarda bu soruyu güvenilir biçimde yanıtlayacak yeterli bilgi bulunamadı." de.
+
+YANIT BİÇİMİ:
+Doğrudan normal Türkçe metin yaz.
+
+Örnek:
+Mastitis, süt veriminde azalmaya neden olabilir. [K1]
+Subklinik olgularda belirgin klinik bulgular görülmeyebilir ve somatik hücre sayısı gibi dolaylı göstergelerden yararlanılabilir. [K2]</div>
+<h3>RAG kullanıcı istemi</h3><div class='box'>SORU:
+{question}
+
+KAYNAK BAĞLAMI:
+{context}
+
+Yalnızca yukarıdaki kaynak bağlamına dayanarak Türkçe cevap ver.</div>
+<h3>Veteriner uyarı metni</h3><div class='box'>Bu sistem veteriner hekim tanısının yerine geçmez.  Kesin hastalık tanısı konulmaz; antibiyotik, ilaç veya doz önerilmez.  Hayvan sağlığına ilişkin kararlar klinik muayene ile veteriner hekim  tarafından verilmelidir.</div>
+<h2>19. Ctrl+H ile düzeltilecek ifadeler</h2>
+<table>
+<tr><th>Bul</th><th>Değiştir</th></tr>
+<tr><td>Geri Alma Destekli Üretim / Geri Getirim Destekli Üretim / Geri Alma</td><td>Geri Getirme Destekli Üretim (ilk geçişte) → sonrasında RAG</td></tr>
+<tr><td>AGR</td><td>RAG</td></tr>
+<tr><td>ticari veriler / şirkete özgü veriler</td><td>sentetik çiftlik kayıtları</td></tr>
+<tr><td>Belirli alanlar veya sektörler hakkında daha detaylı bir analiz isterseniz lütfen bize bildirin.</td><td>(sil)</td></tr>
+<tr><td>Bu yaklaşımlar, ... daha güvenilir karar destek sistemleri oluşturur.</td><td>Bu yaklaşımlar, yapılandırılmış çiftlik verileri ile kaynak gösterilebilir bilimsel bilginin birlikte kullanımı yoluyla daha güvenilir karar destek sistemlerinin oluşturulmasına katkı sağlar.</td></tr>
+<tr><td>değerlendirildi Bu çalışmada</td><td>değerlendirildi. Bu çalışmada</td></tr>
+<tr><td>Şekil3.2.Kullanıcı</td><td>Şekil 3.2. Kullanıcı</td></tr>
+<tr><td>Hayvancılık Sektöründe ... (başlık)</td><td>Süt Sığırcılığında Yapılandırılmış Çiftlik Verileri ile Bilimsel Bilginin Entegrasyonu için RAG Tabanlı Sohbet Asistanı</td></tr>
+</table>
+</body></html>
