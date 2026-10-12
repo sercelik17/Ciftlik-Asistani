@@ -163,9 +163,21 @@ python -m thesis_eval.run_academic_evaluation --task retrieval
 python -m thesis_eval.run_academic_evaluation --task fusion-ablation --pilot-set tez_test_seti_100.json
 ```
 
-Raporlar `Backend/evaluation_output/` altındadır (`routing_report.json`, `retrieval_report.json`, `sql_gold_results.json`, `tablolar.html`).
+Raporlar `Backend/evaluation_output/` altındadır (`routing_report.json`, `retrieval_report.json`, `generation_report.json`, `sql_gold_results.json`, `tablolar.html`).
 
-Özet (held-out): yönlendirme 89/89; retrieval’de BGE-M3 P@5 = 0,90, hibrit P@5 = 0,89, BM25 P@5 = 0,35. SQL altın sorgularının 23/24’ü beklenen değeri üretir. RAG üretim kalitesi (atıf uyumu) düşüktür; bu sınırlılık tezde raporlanır.
+Özet (held-out): yönlendirme 89/89; retrieval’de BGE-M3 P@5 = 0,90, hibrit P@5 = 0,89, BM25 P@5 = 0,35. SQL referans sorgularının 24’ünden 23’ü beklenen değeri üretir (F-SQL019 şema hatası). RAG üretim kalitesi otomatik ölçütlerle düşüktür (atıf doğruluğu 0,30; desteksiz iddia 0,86); modelin SQL execution accuracy’si ve HYBRID uçtan uca doğruluk henüz ölçülmemiştir. Bu sınırlılıklar tezde açıkça raporlanır.
+
+### Tez belgesi revizyonu
+
+10 Ekim 2026 yeniden değerlendirme raporundaki belge maddeleri (ek tablolar, Tartışma bölümü, çelişen cümleler, terim birliği, corpus künyeleri) deney kayıtlarından üretilip Word dosyasına uygulanır:
+
+```bash
+cd Backend
+python -m thesis_eval.build_thesis_revision
+python -m thesis_eval.revise_thesis --src "<tez>.docx" --retitle
+```
+
+Ayrıntı: `Backend/thesis_eval/README.md`; paste edilebilir paket: `Backend/evaluation_output/revizyon_2026_10_10/tez_revizyon_paketi.html`.
 
 ---
 
