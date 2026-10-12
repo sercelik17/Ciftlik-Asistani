@@ -1,0 +1,17 @@
+﻿component;value
+Üretim LLM;"Ollama `mistral` (varsayılan etiket; 7B); temperature=0.0, seed=0, num_predict=160, num_ctx=2048, num_gpu=0 (CPU çıkarımı)"
+Yönlendirici;"1. aşama kural tabanlı (route_rules.py); eşleşme yoksa 2. aşama Ollama `mistral` (num_ctx=1024, num_predict=16, temperature=0)"
+SQL kanalı LLM;"LangGraph araç-çağrı ajanı, Ollama `llama3.2`; 8 parametrik SQL aracı + yalnızca SELECT üreten dinamik sorgu aracı"
+Gömme modeli;Ollama `bge-m3` (BGE-M3, 1024 boyut)
+Vektör indeksi;FAISS IndexFlatL2 (L2 uzaklık), faiss-cpu 1.8.0
+Sözcüksel arama;BM25Okapi (rank_bm25), k1=1.5, b=0.75
+Birleştirme;"weighted_rrf; yoğun 0.6 / seyrek 0.4; k=60"
+Top-K;FAISS 8, BM25 8, nihai 5
+Parçalama;"RecursiveCharacterTextSplitter, 900 karakter / 150 örtüşme; ayırıcılar: paragraf, satır, cümle, boşluk"
+Bilgi tabanı;748 sayfa birimi, 1833 parça, 16 PDF
+Veritabanı;"PostgreSQL (Sut_Sihirbazi); kayıtlar sentetik prototip verisi; SQL muhafızı yalnızca SELECT/WITH…SELECT kabul eder (sql_guard.py)"
+Python / paketler;"Python 3.12.2; langchain 0.1.17, langchain-core 1.4.7, langchain-community 0.4.2, langchain-ollama 1.1.0, langgraph 1.2.5, psycopg2 2.9.12"
+İşletim sistemi / donanım;"Windows 11 (AMD64); CPU: Intel64 Family 6 Model 141 Stepping 1, GenuineIntel; GPU kullanılmadı"
+İstemci / sunucu;"FastAPI (uvicorn, 127.0.0.1:8001) + React Native/Expo web istemcisi; Ollama 127.0.0.1:11434"
+Deney kaydı;"captured_at 2026-10-04T18:58:28.133333+00:00; yapılandırma özeti (SHA-256/12) 0fa25632aa8b"
+Model sürüm özeti (digest);"Ollama model digest'i deney sırasında kaydedilmemiştir (sınırlılık); `ollama show mistral` / `ollama show bge-m3` çıktısı savunma öncesi eklenmelidir"

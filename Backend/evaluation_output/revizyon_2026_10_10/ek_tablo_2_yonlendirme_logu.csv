@@ -1,0 +1,90 @@
+﻿query_id;query_text;gold_label;predicted_label;mechanism;correct;run_timestamp_utc;configuration_hash
+F-RAG001;Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG002;Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG003;Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG004;Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG005;Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG006;Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG007;Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG008;Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG009;Dengeli rasyon süt sığırlarında verimi neden destekler?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG010;Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG011;Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG012;Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG013;Süt humması taze inek döneminde neden önemli bir risktir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG014;Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG015;Doğum sonrası hipokalsemi belirtileri neler olabilir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG016;Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG017;Kolostrumun buzağıya zamanında verilmesi neden kritiktir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG018;Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG019;Kolostrumdaki immünoglobulin düzeyi neden önemlidir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG020;Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG021;Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG022;Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG023;Tohumlama zamanlaması gebelik oranını neden etkiler?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG024;Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG025;Topallık süt sığırlarında refahı nasıl etkiler?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG026;Barınak konforu ineklerin dinlenme davranışını neden etkiler?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG027;Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG028;Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG029;Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG030;İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG031;Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG032;Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-RAG033;Bu inekte mastitis var mı, antibiyotik vermeli miyim?;RAG;RAG;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL001;Çiftlikte kayıtlı inek sayısı kaçtır?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL002;TR0002 küpe numaralı ineğin adı nedir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL003;Beyza'nın küpe numarası nedir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL004;Papatya hangi ırktandır?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL005;Lale'nin son sağımında kaç litre süt alınmıştır?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL006;Boncuk'un 5 Eylül 2026 tarihindeki toplam sütü kaç litredir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL007;5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL008;30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL009;Süt verimi en yüksek dört ineği listele.;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL010;Ortalama süt verimi en düşük inek hangisidir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL011;Holstein ırkındaki ineklerin sayısı nedir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL012;Papatya'nın ortalama süt verimi nedir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL013;Lale için süt düşüş alarmı var mıdır?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL014;Serap'ın küpe numarası TR0001 midir, doğrula.;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL015;1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL016;Bugünkü toplam süt üretimini getir.;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL017;Boncuk'un küpe numarası nedir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL018;TR0004 numaralı ineğin son süt miktarı kaç litredir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL019;Çiftliğin adını söyle.;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL020;Simental ırkı inek sayısı kaçtır?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL021;Beyza'nın ortalama süt verimini getir.;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL022;Serap için son alarmdaki düşüş yüzdesi nedir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL023;Okunmamış alarm sayısı kaçtır?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-SQL024;4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?;SQL;SQL;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB001;Beyza'nın süt verimindeki değişimi bilimsel kaynaklara göre yorumla.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB002;Boncuk'un mevcut süt kaydı ile mastitis literatürünü birlikte değerlendir.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB003;Papatya'nın süt verisini besleme bilgisiyle birlikte açıkla.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB004;Lale'nin sağım kaydını süt hijyeni açısından kaynaklarla değerlendir.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB005;TR0001 küpe numaralı ineğin süt düşüşünü metabolik hastalık bilgisiyle yorumla.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB006;Serap'ın alarm kaydını hayvan refahı literatürüyle birlikte ele al.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB007;Beyza'nın son süt miktarını süt kalitesi bilgisiyle birlikte değerlendir.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB008;Çiftlikteki süt düşüş alarmını kesin tanı koymadan bilimsel kaynaklarla yorumla.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB009;Boncuk'un verim kaydını geçiş dönemi metabolik riskleri açısından tartış.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB010;Papatya'nın süt verisi ile kuru madde tüketimi literatürünü birlikte kullan.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB011;Lale'nin çiftlik kaydını meme sağlığı kaynaklarıyla sentezle.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB012;Serap'ın sayısal süt düşüşünü kaynaklara dayanarak ama tanı koymadan açıkla.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB013;Çiftlikteki günlük süt değişimini sağım hijyeni bilgisiyle birlikte yorumla.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB014;TR0003 küpe numaralı ineğin kaydını besleme literatürüyle değerlendir.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB015;"Beyza için oluşan süt verisi değişimini üreme yönetimi bilgisiyle ilişkilendirme; yalnızca süt ve sağlık kaynaklarıyla yorumla.";HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-HYB016;Çiftlikteki ineklerin süt kayıtlarını hayvan refahı ilkeleriyle birlikte genel olarak değerlendir.;HYBRID;HYBRID;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT001;Merhaba;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT002;Selam;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT003;Teşekkürler;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT004;Sağ ol;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT005;Nasılsın?;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT006;İyi günler;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT007;İyi akşamlar;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT008;Günaydın;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT009;Ne yapabilirsin?;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT010;Kendini tanıt;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT011;Yardımcı olur musun?;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT012;Teşekkür ederim;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT013;Merhaba nasılsın;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT014;Selam, iyi günler;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT015;Sağol;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b
+F-CHAT016;Günaydın, nasılsın?;CHAT;CHAT;kural;True;2026-10-04T18:58:28.133333+00:00;0fa25632aa8b

@@ -1,0 +1,3004 @@
+{
+ "generated_for": "10 Ekim 2026 yeniden değerlendirme raporu",
+ "config_hash": "0fa25632aa8b",
+ "routing": {
+  "n": 89,
+  "accuracy": 1.0,
+  "ci95": {
+   "low": 0.9586,
+   "high": 1.0
+  },
+  "macro_f1": 1.0,
+  "per_class": {
+   "RAG": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 33,
+    "accuracy": 1.0
+   },
+   "SQL": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 24,
+    "accuracy": 1.0
+   },
+   "HYBRID": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 16,
+    "accuracy": 1.0
+   },
+   "CHAT": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "support": 16,
+    "accuracy": 1.0
+   }
+  },
+  "confusion_matrix": {
+   "RAG": {
+    "RAG": 33,
+    "SQL": 0,
+    "HYBRID": 0,
+    "CHAT": 0
+   },
+   "SQL": {
+    "RAG": 0,
+    "SQL": 24,
+    "HYBRID": 0,
+    "CHAT": 0
+   },
+   "HYBRID": {
+    "RAG": 0,
+    "SQL": 0,
+    "HYBRID": 16,
+    "CHAT": 0
+   },
+   "CHAT": {
+    "RAG": 0,
+    "SQL": 0,
+    "HYBRID": 0,
+    "CHAT": 16
+   }
+  },
+  "mechanism_counts": {
+   "kural": 89
+  },
+  "rows": [
+   {
+    "query_id": "F-RAG001",
+    "query_text": "Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG002",
+    "query_text": "Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG003",
+    "query_text": "Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG004",
+    "query_text": "Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG005",
+    "query_text": "Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG006",
+    "query_text": "Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG007",
+    "query_text": "Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG008",
+    "query_text": "Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG009",
+    "query_text": "Dengeli rasyon süt sığırlarında verimi neden destekler?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG010",
+    "query_text": "Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG011",
+    "query_text": "Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG012",
+    "query_text": "Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG013",
+    "query_text": "Süt humması taze inek döneminde neden önemli bir risktir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG014",
+    "query_text": "Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG015",
+    "query_text": "Doğum sonrası hipokalsemi belirtileri neler olabilir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG016",
+    "query_text": "Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG017",
+    "query_text": "Kolostrumun buzağıya zamanında verilmesi neden kritiktir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG018",
+    "query_text": "Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG019",
+    "query_text": "Kolostrumdaki immünoglobulin düzeyi neden önemlidir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG020",
+    "query_text": "Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG021",
+    "query_text": "Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG022",
+    "query_text": "Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG023",
+    "query_text": "Tohumlama zamanlaması gebelik oranını neden etkiler?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG024",
+    "query_text": "Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG025",
+    "query_text": "Topallık süt sığırlarında refahı nasıl etkiler?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG026",
+    "query_text": "Barınak konforu ineklerin dinlenme davranışını neden etkiler?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG027",
+    "query_text": "Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG028",
+    "query_text": "Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG029",
+    "query_text": "Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG030",
+    "query_text": "İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG031",
+    "query_text": "Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG032",
+    "query_text": "Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-RAG033",
+    "query_text": "Bu inekte mastitis var mı, antibiyotik vermeli miyim?",
+    "gold_label": "RAG",
+    "predicted_label": "RAG",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL001",
+    "query_text": "Çiftlikte kayıtlı inek sayısı kaçtır?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL002",
+    "query_text": "TR0002 küpe numaralı ineğin adı nedir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL003",
+    "query_text": "Beyza'nın küpe numarası nedir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL004",
+    "query_text": "Papatya hangi ırktandır?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL005",
+    "query_text": "Lale'nin son sağımında kaç litre süt alınmıştır?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL006",
+    "query_text": "Boncuk'un 5 Eylül 2026 tarihindeki toplam sütü kaç litredir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL007",
+    "query_text": "5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL008",
+    "query_text": "30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL009",
+    "query_text": "Süt verimi en yüksek dört ineği listele.",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL010",
+    "query_text": "Ortalama süt verimi en düşük inek hangisidir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL011",
+    "query_text": "Holstein ırkındaki ineklerin sayısı nedir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL012",
+    "query_text": "Papatya'nın ortalama süt verimi nedir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL013",
+    "query_text": "Lale için süt düşüş alarmı var mıdır?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL014",
+    "query_text": "Serap'ın küpe numarası TR0001 midir, doğrula.",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL015",
+    "query_text": "1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL016",
+    "query_text": "Bugünkü toplam süt üretimini getir.",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL017",
+    "query_text": "Boncuk'un küpe numarası nedir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL018",
+    "query_text": "TR0004 numaralı ineğin son süt miktarı kaç litredir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL019",
+    "query_text": "Çiftliğin adını söyle.",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL020",
+    "query_text": "Simental ırkı inek sayısı kaçtır?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL021",
+    "query_text": "Beyza'nın ortalama süt verimini getir.",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL022",
+    "query_text": "Serap için son alarmdaki düşüş yüzdesi nedir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL023",
+    "query_text": "Okunmamış alarm sayısı kaçtır?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-SQL024",
+    "query_text": "4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?",
+    "gold_label": "SQL",
+    "predicted_label": "SQL",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB001",
+    "query_text": "Beyza'nın süt verimindeki değişimi bilimsel kaynaklara göre yorumla.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB002",
+    "query_text": "Boncuk'un mevcut süt kaydı ile mastitis literatürünü birlikte değerlendir.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB003",
+    "query_text": "Papatya'nın süt verisini besleme bilgisiyle birlikte açıkla.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB004",
+    "query_text": "Lale'nin sağım kaydını süt hijyeni açısından kaynaklarla değerlendir.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB005",
+    "query_text": "TR0001 küpe numaralı ineğin süt düşüşünü metabolik hastalık bilgisiyle yorumla.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB006",
+    "query_text": "Serap'ın alarm kaydını hayvan refahı literatürüyle birlikte ele al.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB007",
+    "query_text": "Beyza'nın son süt miktarını süt kalitesi bilgisiyle birlikte değerlendir.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB008",
+    "query_text": "Çiftlikteki süt düşüş alarmını kesin tanı koymadan bilimsel kaynaklarla yorumla.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB009",
+    "query_text": "Boncuk'un verim kaydını geçiş dönemi metabolik riskleri açısından tartış.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB010",
+    "query_text": "Papatya'nın süt verisi ile kuru madde tüketimi literatürünü birlikte kullan.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB011",
+    "query_text": "Lale'nin çiftlik kaydını meme sağlığı kaynaklarıyla sentezle.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB012",
+    "query_text": "Serap'ın sayısal süt düşüşünü kaynaklara dayanarak ama tanı koymadan açıkla.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB013",
+    "query_text": "Çiftlikteki günlük süt değişimini sağım hijyeni bilgisiyle birlikte yorumla.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB014",
+    "query_text": "TR0003 küpe numaralı ineğin kaydını besleme literatürüyle değerlendir.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB015",
+    "query_text": "Beyza için oluşan süt verisi değişimini üreme yönetimi bilgisiyle ilişkilendirme; yalnızca süt ve sağlık kaynaklarıyla yorumla.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-HYB016",
+    "query_text": "Çiftlikteki ineklerin süt kayıtlarını hayvan refahı ilkeleriyle birlikte genel olarak değerlendir.",
+    "gold_label": "HYBRID",
+    "predicted_label": "HYBRID",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT001",
+    "query_text": "Merhaba",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT002",
+    "query_text": "Selam",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT003",
+    "query_text": "Teşekkürler",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT004",
+    "query_text": "Sağ ol",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT005",
+    "query_text": "Nasılsın?",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT006",
+    "query_text": "İyi günler",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT007",
+    "query_text": "İyi akşamlar",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT008",
+    "query_text": "Günaydın",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT009",
+    "query_text": "Ne yapabilirsin?",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT010",
+    "query_text": "Kendini tanıt",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT011",
+    "query_text": "Yardımcı olur musun?",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT012",
+    "query_text": "Teşekkür ederim",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT013",
+    "query_text": "Merhaba nasılsın",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT014",
+    "query_text": "Selam, iyi günler",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT015",
+    "query_text": "Sağol",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   },
+   {
+    "query_id": "F-CHAT016",
+    "query_text": "Günaydın, nasılsın?",
+    "gold_label": "CHAT",
+    "predicted_label": "CHAT",
+    "mechanism": "kural",
+    "correct": true,
+    "run_timestamp_utc": "2026-10-04T18:58:28.133333+00:00",
+    "configuration_hash": "0fa25632aa8b"
+   }
+  ]
+ },
+ "overlap": {
+  "heldout_n": 89,
+  "pilot_n": 100,
+  "exact_duplicates": 0,
+  "max_jaccard_mean": 0.28366526549249965,
+  "max_jaccard_median": 0.23076923076923078,
+  "max_jaccard_max": 0.8888888888888888,
+  "buckets": {
+   "0,20–0,34": 24,
+   "<0,20": 33,
+   "0,35–0,49": 15,
+   "≥0,50": 17
+  },
+  "high_similarity_pairs": [
+   {
+    "heldout_id": "F-RAG017",
+    "heldout": "Kolostrumun buzağıya zamanında verilmesi neden kritiktir?",
+    "pilot_id": "RAG029",
+    "pilot": "Buzağılarda kolostrumun zamanında verilmesi neden önemlidir?",
+    "jaccard": 0.5
+   },
+   {
+    "heldout_id": "F-RAG022",
+    "heldout": "Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?",
+    "pilot_id": "RAG033",
+    "pilot": "Süt sığırlarında vücut kondisyonu üreme performansını nasıl etkileyebilir?",
+    "jaccard": 0.5
+   },
+   {
+    "heldout_id": "F-RAG025",
+    "heldout": "Topallık süt sığırlarında refahı nasıl etkiler?",
+    "pilot_id": "RAG039",
+    "pilot": "Topallık süt sığırlarında hayvan refahını nasıl etkiler?",
+    "jaccard": 0.625
+   },
+   {
+    "heldout_id": "F-RAG029",
+    "heldout": "Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?",
+    "pilot_id": "RAG045",
+    "pilot": "Sağım hijyeni ve meme başı temizliği neden önemlidir?",
+    "jaccard": 0.7
+   },
+   {
+    "heldout_id": "F-SQL002",
+    "heldout": "TR0002 küpe numaralı ineğin adı nedir?",
+    "pilot_id": "SQL024",
+    "pilot": "TR0001 küpe numaralı ineğin adı nedir?",
+    "jaccard": 0.714
+   },
+   {
+    "heldout_id": "F-SQL003",
+    "heldout": "Beyza'nın küpe numarası nedir?",
+    "pilot_id": "SQL025",
+    "pilot": "Serap'ın küpe numarası nedir?",
+    "jaccard": 0.5
+   },
+   {
+    "heldout_id": "F-SQL005",
+    "heldout": "Lale'nin son sağımında kaç litre süt alınmıştır?",
+    "pilot_id": "SQL008",
+    "pilot": "Lale'nin son süt verimi kaç litredir?",
+    "jaccard": 0.5
+   },
+   {
+    "heldout_id": "F-SQL007",
+    "heldout": "5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?",
+    "pilot_id": "SQL011",
+    "pilot": "Serap 5 Eylül 2026 tarihinde toplam kaç litre süt vermiştir?",
+    "jaccard": 0.636
+   },
+   {
+    "heldout_id": "F-SQL008",
+    "heldout": "30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?",
+    "pilot_id": "SQL010",
+    "pilot": "5 Eylül 2026 tarihinde toplam süt üretimi kaç litredir?",
+    "jaccard": 0.778
+   },
+   {
+    "heldout_id": "F-SQL010",
+    "heldout": "Ortalama süt verimi en düşük inek hangisidir?",
+    "pilot_id": "SQL003",
+    "pilot": "Toplam süt üretimi en düşük inek hangisidir?",
+    "jaccard": 0.5
+   },
+   {
+    "heldout_id": "F-SQL012",
+    "heldout": "Papatya'nın ortalama süt verimi nedir?",
+    "pilot_id": "SQL014",
+    "pilot": "Beyza'nın ortalama süt verimi nedir?",
+    "jaccard": 0.714
+   },
+   {
+    "heldout_id": "F-SQL015",
+    "heldout": "1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?",
+    "pilot_id": "SQL028",
+    "pilot": "30 Ağustos 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?",
+    "jaccard": 0.889
+   },
+   {
+    "heldout_id": "F-SQL017",
+    "heldout": "Boncuk'un küpe numarası nedir?",
+    "pilot_id": "SQL025",
+    "pilot": "Serap'ın küpe numarası nedir?",
+    "jaccard": 0.6
+   },
+   {
+    "heldout_id": "F-SQL021",
+    "heldout": "Beyza'nın ortalama süt verimini getir.",
+    "pilot_id": "SQL014",
+    "pilot": "Beyza'nın ortalama süt verimi nedir?",
+    "jaccard": 0.5
+   },
+   {
+    "heldout_id": "F-SQL022",
+    "heldout": "Serap için son alarmdaki düşüş yüzdesi nedir?",
+    "pilot_id": "SQL016",
+    "pilot": "Serap için son süt düşüş alarmı nedir?",
+    "jaccard": 0.556
+   },
+   {
+    "heldout_id": "F-SQL024",
+    "heldout": "4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?",
+    "pilot_id": "SQL030",
+    "pilot": "5 Eylül 2026 tarihinde en fazla süt veren inek hangisidir?",
+    "jaccard": 0.778
+   },
+   {
+    "heldout_id": "F-HYB012",
+    "heldout": "Serap'ın sayısal süt düşüşünü kaynaklara dayanarak ama tanı koymadan açıkla.",
+    "pilot_id": "HYB020",
+    "pilot": "Serap'ın son süt düşüşünü kesin tanı koymadan, bilimsel kaynaklara dayanarak yorumla.",
+    "jaccard": 0.5
+   }
+  ]
+ },
+ "retrieval": {
+  "n": 33,
+  "k": 5,
+  "backend_note": "Torch/FAISS Python bagimi bu ortamda yuklenemedigi icin dense retrieval BGE-M3 + brute-force L2 (IndexFlatL2 esdegeri) ile olculdu. BM25 ve Weighted RRF production ile aynidir.",
+  "summary": {
+   "bm25": {
+    "p_at_k": 0.3515,
+    "r_at_k": 0.2727,
+    "mrr": 0.4242,
+    "ndcg_at_k": 0.4242
+   },
+   "faiss": {
+    "p_at_k": 0.897,
+    "r_at_k": 0.7121,
+    "mrr": 0.9091,
+    "ndcg_at_k": 0.9191
+   },
+   "hybrid": {
+    "p_at_k": 0.8909,
+    "r_at_k": 0.7121,
+    "mrr": 0.8813,
+    "ndcg_at_k": 0.9011
+   }
+  },
+  "identical_top5_faiss_hybrid": 25,
+  "paired_faiss_minus_hybrid": {
+   "p_at_k": {
+    "mean_diff": 0.006060606060606061,
+    "ci95_low": 0.0,
+    "ci95_high": 0.018181818181818184,
+    "faiss_better": 1,
+    "hybrid_better": 0,
+    "ties": 32
+   },
+   "mrr": {
+    "mean_diff": 0.027778787878787882,
+    "ci95_low": 0.0,
+    "ci95_high": 0.07828484848484848,
+    "faiss_better": 2,
+    "hybrid_better": 0,
+    "ties": 31
+   },
+   "ndcg_at_k": {
+    "mean_diff": 0.018063636363636365,
+    "ci95_low": 0.0,
+    "ci95_high": 0.050945454545454544,
+    "faiss_better": 2,
+    "hybrid_better": 0,
+    "ties": 31
+   },
+   "r_at_k": {
+    "mean_diff": 0.0,
+    "ci95_low": 0.0,
+    "ci95_high": 0.0,
+    "faiss_better": 0,
+    "hybrid_better": 0,
+    "ties": 33
+   }
+  },
+  "paired_hybrid_minus_bm25_p_at_k": {
+   "mean_diff": 0.5393939393939394,
+   "ci95_low": 0.3939393939393939,
+   "ci95_high": 0.6909090909090909
+  },
+  "rows": [
+   {
+    "query_id": "F-RAG001",
+    "query_text": "Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_Mastitis_Dairy_Manual.pdf; Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+    "bm25_p_at_k": 1.0,
+    "bm25_r_at_k": 0.5,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG002",
+    "query_text": "Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_Mastitis_Dairy_Manual.pdf; Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+    "bm25_p_at_k": 1.0,
+    "bm25_r_at_k": 0.5,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG003",
+    "query_text": "Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_Mastitis_Dairy_Manual.pdf; Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+    "bm25_p_at_k": 0.8,
+    "bm25_r_at_k": 0.5,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG004",
+    "query_text": "Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_Mastitis_Dairy_Manual.pdf; Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 0.0,
+    "faiss_r_at_k": 0.0,
+    "faiss_mrr": 0.0,
+    "faiss_ndcg_at_k": 0.0,
+    "hybrid_p_at_k": 0.0,
+    "hybrid_r_at_k": 0.0,
+    "hybrid_mrr": 0.0,
+    "hybrid_ndcg_at_k": 0.0
+   },
+   {
+    "query_id": "F-RAG005",
+    "query_text": "Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf; Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+    "bm25_p_at_k": 1.0,
+    "bm25_r_at_k": 0.5,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG006",
+    "query_text": "Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf; Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+    "bm25_p_at_k": 1.0,
+    "bm25_r_at_k": 1.0,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG007",
+    "query_text": "Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf; Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+    "bm25_p_at_k": 1.0,
+    "bm25_r_at_k": 1.0,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG008",
+    "query_text": "Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf; Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+    "bm25_p_at_k": 1.0,
+    "bm25_r_at_k": 0.5,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG009",
+    "query_text": "Dengeli rasyon süt sığırlarında verimi neden destekler?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_2012_Balanced_Feeding.pdf; Tennessee_Managing_Intake_Dairy_Cows.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG010",
+    "query_text": "Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_2012_Balanced_Feeding.pdf; Tennessee_Managing_Intake_Dairy_Cows.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG011",
+    "query_text": "Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_2012_Balanced_Feeding.pdf; Tennessee_Managing_Intake_Dairy_Cows.pdf",
+    "bm25_p_at_k": 1.0,
+    "bm25_r_at_k": 1.0,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG012",
+    "query_text": "Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_2012_Balanced_Feeding.pdf; Tennessee_Managing_Intake_Dairy_Cows.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 0.0,
+    "faiss_r_at_k": 0.0,
+    "faiss_mrr": 0.0,
+    "faiss_ndcg_at_k": 0.0,
+    "hybrid_p_at_k": 0.0,
+    "hybrid_r_at_k": 0.0,
+    "hybrid_mrr": 0.0,
+    "hybrid_ndcg_at_k": 0.0
+   },
+   {
+    "query_id": "F-RAG013",
+    "query_text": "Süt humması taze inek döneminde neden önemli bir risktir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Wisconsin_Fresh_Cow_Milk_Fever.pdf; Cornell_Transition_Cow_Metabolic.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG014",
+    "query_text": "Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Wisconsin_Fresh_Cow_Milk_Fever.pdf; Cornell_Transition_Cow_Metabolic.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG015",
+    "query_text": "Doğum sonrası hipokalsemi belirtileri neler olabilir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Wisconsin_Fresh_Cow_Milk_Fever.pdf; Cornell_Transition_Cow_Metabolic.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG016",
+    "query_text": "Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Wisconsin_Fresh_Cow_Milk_Fever.pdf; Cornell_Transition_Cow_Metabolic.pdf",
+    "bm25_p_at_k": 0.4,
+    "bm25_r_at_k": 1.0,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG017",
+    "query_text": "Kolostrumun buzağıya zamanında verilmesi neden kritiktir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "USU_2026_Colostrum_Dairy_Calves.pdf; UF_IFAS_Dairy_Calf_Nutrition.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG018",
+    "query_text": "Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "USU_2026_Colostrum_Dairy_Calves.pdf; UF_IFAS_Dairy_Calf_Nutrition.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG019",
+    "query_text": "Kolostrumdaki immünoglobulin düzeyi neden önemlidir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "USU_2026_Colostrum_Dairy_Calves.pdf; UF_IFAS_Dairy_Calf_Nutrition.pdf",
+    "bm25_p_at_k": 1.0,
+    "bm25_r_at_k": 0.5,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG020",
+    "query_text": "Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "USU_2026_Colostrum_Dairy_Calves.pdf; UF_IFAS_Dairy_Calf_Nutrition.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG021",
+    "query_text": "Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Wisconsin_High_Fertility_Cycle.pdf; DCRC_Dairy_Cow_Reproductive_Management.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG022",
+    "query_text": "Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Wisconsin_High_Fertility_Cycle.pdf; DCRC_Dairy_Cow_Reproductive_Management.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG023",
+    "query_text": "Tohumlama zamanlaması gebelik oranını neden etkiler?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Wisconsin_High_Fertility_Cycle.pdf; DCRC_Dairy_Cow_Reproductive_Management.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG024",
+    "query_text": "Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "Wisconsin_High_Fertility_Cycle.pdf; DCRC_Dairy_Cow_Reproductive_Management.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG025",
+    "query_text": "Topallık süt sığırlarında refahı nasıl etkiler?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "WOAH_Dairy_Cattle_Welfare.pdf; Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+    "bm25_p_at_k": 0.8,
+    "bm25_r_at_k": 0.5,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG026",
+    "query_text": "Barınak konforu ineklerin dinlenme davranışını neden etkiler?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "WOAH_Dairy_Cattle_Welfare.pdf; Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+    "bm25_p_at_k": 0.6,
+    "bm25_r_at_k": 0.5,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG027",
+    "query_text": "Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "WOAH_Dairy_Cattle_Welfare.pdf; Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+    "bm25_p_at_k": 0.4,
+    "bm25_r_at_k": 0.5,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG028",
+    "query_text": "Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "WOAH_Dairy_Cattle_Welfare.pdf; Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+    "bm25_p_at_k": 0.6,
+    "bm25_r_at_k": 0.5,
+    "bm25_mrr": 1.0,
+    "bm25_ndcg_at_k": 1.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG029",
+    "query_text": "Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_IDF_Good_Dairy_Farming.pdf; Codex_Milk_Hygiene.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG030",
+    "query_text": "İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_IDF_Good_Dairy_Farming.pdf; Codex_Milk_Hygiene.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 0.8,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 0.5,
+    "faiss_ndcg_at_k": 0.7606,
+    "hybrid_p_at_k": 0.8,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 0.5,
+    "hybrid_ndcg_at_k": 0.7606
+   },
+   {
+    "query_id": "F-RAG031",
+    "query_text": "Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_IDF_Good_Dairy_Farming.pdf; Codex_Milk_Hygiene.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 0.4,
+    "faiss_r_at_k": 0.5,
+    "faiss_mrr": 0.5,
+    "faiss_ndcg_at_k": 0.6509,
+    "hybrid_p_at_k": 0.4,
+    "hybrid_r_at_k": 0.5,
+    "hybrid_mrr": 0.3333,
+    "hybrid_ndcg_at_k": 0.5438
+   },
+   {
+    "query_id": "F-RAG032",
+    "query_text": "Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?",
+    "n_relevant_docs": 2,
+    "preferred_sources": "FAO_IDF_Good_Dairy_Farming.pdf; Codex_Milk_Hygiene.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 1.0,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 1.0,
+    "hybrid_p_at_k": 1.0,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 1.0,
+    "hybrid_ndcg_at_k": 1.0
+   },
+   {
+    "query_id": "F-RAG033",
+    "query_text": "Bu inekte mastitis var mı, antibiyotik vermeli miyim?",
+    "n_relevant_docs": 1,
+    "preferred_sources": "FAO_Mastitis_Dairy_Manual.pdf",
+    "bm25_p_at_k": 0.0,
+    "bm25_r_at_k": 0.0,
+    "bm25_mrr": 0.0,
+    "bm25_ndcg_at_k": 0.0,
+    "faiss_p_at_k": 0.4,
+    "faiss_r_at_k": 1.0,
+    "faiss_mrr": 1.0,
+    "faiss_ndcg_at_k": 0.9197,
+    "hybrid_p_at_k": 0.2,
+    "hybrid_r_at_k": 1.0,
+    "hybrid_mrr": 0.25,
+    "hybrid_ndcg_at_k": 0.4307
+   }
+  ]
+ },
+ "generation": {
+  "n": 33,
+  "summary": {
+   "n": 33,
+   "mean_citation_correctness": 0.303,
+   "mean_citation_completeness": 0.1364,
+   "mean_unsupported_claim_rate": 0.8636,
+   "mean_preferred_source_hit_rate": 0.6818,
+   "diagnosis_refusal_ok": 33,
+   "latency": {
+    "n": 33,
+    "mean": 44.6088,
+    "median": 41.1946,
+    "std": 13.3778,
+    "min": 0.0021,
+    "max": 76.921,
+    "p95": 60.786
+   }
+  },
+  "error_categories": {
+   "atıf yok": 22,
+   "kesik yanıt (token sınırı)": 30,
+   "İngilizce sözcük kalıntısı (sezgisel)": 3,
+   "kısmi atıf": 10,
+   "tanı reddi (beklenen davranış)": 1
+  },
+  "latency_all": {
+   "n": 33,
+   "mean": 44.6088,
+   "median": 41.1946,
+   "sd": 13.377826846938433,
+   "min": 0.0021,
+   "max": 76.921,
+   "p90": 58.05254,
+   "p95": 60.78603999999999
+  },
+  "latency_llm_only": {
+   "n": 32,
+   "mean": 46.002759375000004,
+   "median": 41.487750000000005,
+   "sd": 10.974328959122609,
+   "min": 33.3658,
+   "max": 76.921,
+   "p90": 58.19507,
+   "p95": 61.027195
+  },
+  "rows": [
+   {
+    "query_id": "F-RAG001",
+    "query_text": "Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "",
+    "sentence_count": 1,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": false,
+    "mixed_language": false,
+    "latency_sec": 43.1736,
+    "retrieved_sources": "K1=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:2; K2=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:4; K3=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:2; K4=FAO_Mastitis_Dairy_Manual.pdf:142; K5=FAO_Mastitis_Dairy_Manual.pdf:178"
+   },
+   {
+    "query_id": "F-RAG002",
+    "query_text": "Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 5,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 56.8182,
+    "retrieved_sources": "K1=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:4; K2=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:3; K3=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:5; K4=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:3; K5=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:5"
+   },
+   {
+    "query_id": "F-RAG003",
+    "query_text": "Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": true,
+    "latency_sec": 76.921,
+    "retrieved_sources": "K1=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:4; K2=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:5; K3=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:1; K4=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:3; K5=Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf:5"
+   },
+   {
+    "query_id": "F-RAG004",
+    "query_text": "Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.0,
+    "cited_ids": "",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 56.9123,
+    "retrieved_sources": "K1=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:2; K2=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:2; K3=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:1; K4=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:2; K5=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:1"
+   },
+   {
+    "query_id": "F-RAG005",
+    "query_text": "Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 5,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 54.6744,
+    "retrieved_sources": "K1=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:2; K2=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:2; K3=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:1; K4=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:4; K5=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:1"
+   },
+   {
+    "query_id": "F-RAG006",
+    "query_text": "Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "",
+    "sentence_count": 7,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": true,
+    "latency_sec": 58.3376,
+    "retrieved_sources": "K1=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:5; K2=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:1; K3=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:2; K4=Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf:6; K5=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:4"
+   },
+   {
+    "query_id": "F-RAG007",
+    "query_text": "Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 53.3079,
+    "retrieved_sources": "K1=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:5; K2=Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf:3; K3=Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf:5; K4=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:5; K5=Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf:4"
+   },
+   {
+    "query_id": "F-RAG008",
+    "query_text": "Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "",
+    "sentence_count": 5,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": true,
+    "latency_sec": 63.6799,
+    "retrieved_sources": "K1=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:2; K2=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:1; K3=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:1; K4=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:2; K5=Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf:1"
+   },
+   {
+    "query_id": "F-RAG009",
+    "query_text": "Dengeli rasyon süt sığırlarında verimi neden destekler?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 1,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 55.083,
+    "retrieved_sources": "K1=FAO_2012_Balanced_Feeding.pdf:15; K2=FAO_2012_Balanced_Feeding.pdf:9; K3=FAO_2012_Balanced_Feeding.pdf:30; K4=FAO_2012_Balanced_Feeding.pdf:31; K5=FAO_2012_Balanced_Feeding.pdf:27"
+   },
+   {
+    "query_id": "F-RAG010",
+    "query_text": "Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": false,
+    "mixed_language": false,
+    "latency_sec": 39.0149,
+    "retrieved_sources": "K1=Tennessee_Managing_Intake_Dairy_Cows.pdf:2; K2=Tennessee_Managing_Intake_Dairy_Cows.pdf:3; K3=FAO_2012_Balanced_Feeding.pdf:27; K4=FAO_2012_Balanced_Feeding.pdf:26; K5=FAO_2012_Balanced_Feeding.pdf:15"
+   },
+   {
+    "query_id": "F-RAG011",
+    "query_text": "Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?",
+    "citation_correctness": 1.0,
+    "citation_completeness": 0.3333,
+    "unsupported_claim_rate": 0.6667,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "K1",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "kısmi atıf",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 39.8278,
+    "retrieved_sources": "K1=Tennessee_Managing_Intake_Dairy_Cows.pdf:3; K2=FAO_2012_Balanced_Feeding.pdf:27; K3=FAO_2012_Balanced_Feeding.pdf:17; K4=Tennessee_Managing_Intake_Dairy_Cows.pdf:2; K5=FAO_2012_Balanced_Feeding.pdf:39"
+   },
+   {
+    "query_id": "F-RAG012",
+    "query_text": "Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?",
+    "citation_correctness": 1.0,
+    "citation_completeness": 0.3333,
+    "unsupported_claim_rate": 0.6667,
+    "preferred_source_hit_rate": 0.0,
+    "cited_ids": "K1",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "kısmi atıf",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 34.3741,
+    "retrieved_sources": "K1=Cornell_Transition_Cow_Metabolic.pdf:2; K2=Cornell_Transition_Cow_Metabolic.pdf:21; K3=Cornell_Transition_Cow_Metabolic.pdf:3; K4=Cornell_Transition_Cow_Metabolic.pdf:4; K5=Cornell_Transition_Cow_Metabolic.pdf:17"
+   },
+   {
+    "query_id": "F-RAG013",
+    "query_text": "Süt humması taze inek döneminde neden önemli bir risktir?",
+    "citation_correctness": 1.0,
+    "citation_completeness": 0.5,
+    "unsupported_claim_rate": 0.5,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "K1",
+    "sentence_count": 2,
+    "refuses_diagnosis": false,
+    "category": "kısmi atıf",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 41.1946,
+    "retrieved_sources": "K1=Wisconsin_Fresh_Cow_Milk_Fever.pdf:1; K2=Cornell_Transition_Cow_Metabolic.pdf:8; K3=Wisconsin_Fresh_Cow_Milk_Fever.pdf:1; K4=Wisconsin_Fresh_Cow_Milk_Fever.pdf:2; K5=Cornell_Transition_Cow_Metabolic.pdf:13"
+   },
+   {
+    "query_id": "F-RAG014",
+    "query_text": "Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "",
+    "sentence_count": 5,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 55.2132,
+    "retrieved_sources": "K1=Cornell_Transition_Cow_Metabolic.pdf:13; K2=Cornell_Transition_Cow_Metabolic.pdf:14; K3=Cornell_Transition_Cow_Metabolic.pdf:10; K4=Wisconsin_Fresh_Cow_Milk_Fever.pdf:1; K5=Wisconsin_Fresh_Cow_Milk_Fever.pdf:1"
+   },
+   {
+    "query_id": "F-RAG015",
+    "query_text": "Doğum sonrası hipokalsemi belirtileri neler olabilir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 1,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 54.7067,
+    "retrieved_sources": "K1=Wisconsin_Fresh_Cow_Milk_Fever.pdf:2; K2=Wisconsin_Fresh_Cow_Milk_Fever.pdf:1; K3=Wisconsin_Fresh_Cow_Milk_Fever.pdf:2; K4=Wisconsin_Fresh_Cow_Milk_Fever.pdf:1; K5=Wisconsin_Fresh_Cow_Milk_Fever.pdf:1"
+   },
+   {
+    "query_id": "F-RAG016",
+    "query_text": "Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 5,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 33.3658,
+    "retrieved_sources": "K1=Cornell_Transition_Cow_Metabolic.pdf:2; K2=Cornell_Transition_Cow_Metabolic.pdf:14; K3=Cornell_Transition_Cow_Metabolic.pdf:10; K4=Cornell_Transition_Cow_Metabolic.pdf:5; K5=Cornell_Transition_Cow_Metabolic.pdf:17"
+   },
+   {
+    "query_id": "F-RAG017",
+    "query_text": "Kolostrumun buzağıya zamanında verilmesi neden kritiktir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 4,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 33.7474,
+    "retrieved_sources": "K1=USU_2026_Colostrum_Dairy_Calves.pdf:3; K2=USU_2026_Colostrum_Dairy_Calves.pdf:1; K3=USU_2026_Colostrum_Dairy_Calves.pdf:4; K4=USU_2026_Colostrum_Dairy_Calves.pdf:2; K5=USU_2026_Colostrum_Dairy_Calves.pdf:3"
+   },
+   {
+    "query_id": "F-RAG018",
+    "query_text": "Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?",
+    "citation_correctness": 1.0,
+    "citation_completeness": 0.6667,
+    "unsupported_claim_rate": 0.3333,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "K1 K2",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "kısmi atıf",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 52.9511,
+    "retrieved_sources": "K1=USU_2026_Colostrum_Dairy_Calves.pdf:5; K2=UF_IFAS_Dairy_Calf_Nutrition.pdf:1; K3=USU_2026_Colostrum_Dairy_Calves.pdf:6; K4=USU_2026_Colostrum_Dairy_Calves.pdf:6; K5=UF_IFAS_Dairy_Calf_Nutrition.pdf:1"
+   },
+   {
+    "query_id": "F-RAG019",
+    "query_text": "Kolostrumdaki immünoglobulin düzeyi neden önemlidir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 52.2828,
+    "retrieved_sources": "K1=USU_2026_Colostrum_Dairy_Calves.pdf:1; K2=USU_2026_Colostrum_Dairy_Calves.pdf:1; K3=USU_2026_Colostrum_Dairy_Calves.pdf:4; K4=USU_2026_Colostrum_Dairy_Calves.pdf:7; K5=USU_2026_Colostrum_Dairy_Calves.pdf:2"
+   },
+   {
+    "query_id": "F-RAG020",
+    "query_text": "Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "",
+    "sentence_count": 2,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 38.6338,
+    "retrieved_sources": "K1=UF_IFAS_Dairy_Calf_Nutrition.pdf:1; K2=UF_IFAS_Dairy_Calf_Nutrition.pdf:1; K3=USU_2026_Colostrum_Dairy_Calves.pdf:1; K4=UF_IFAS_Dairy_Calf_Nutrition.pdf:2; K5=USU_2026_Colostrum_Dairy_Calves.pdf:6"
+   },
+   {
+    "query_id": "F-RAG021",
+    "query_text": "Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 37.4195,
+    "retrieved_sources": "K1=Wisconsin_High_Fertility_Cycle.pdf:7; K2=DCRC_Dairy_Cow_Reproductive_Management.pdf:11; K3=Wisconsin_High_Fertility_Cycle.pdf:1; K4=Wisconsin_High_Fertility_Cycle.pdf:6; K5=Wisconsin_High_Fertility_Cycle.pdf:7"
+   },
+   {
+    "query_id": "F-RAG022",
+    "query_text": "Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 41.7809,
+    "retrieved_sources": "K1=Wisconsin_High_Fertility_Cycle.pdf:1; K2=Wisconsin_High_Fertility_Cycle.pdf:1; K3=Wisconsin_High_Fertility_Cycle.pdf:8; K4=Wisconsin_High_Fertility_Cycle.pdf:3; K5=Wisconsin_High_Fertility_Cycle.pdf:6"
+   },
+   {
+    "query_id": "F-RAG023",
+    "query_text": "Tohumlama zamanlaması gebelik oranını neden etkiler?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 4,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 33.9467,
+    "retrieved_sources": "K1=DCRC_Dairy_Cow_Reproductive_Management.pdf:6; K2=DCRC_Dairy_Cow_Reproductive_Management.pdf:19; K3=DCRC_Dairy_Cow_Reproductive_Management.pdf:19; K4=DCRC_Dairy_Cow_Reproductive_Management.pdf:9; K5=DCRC_Dairy_Cow_Reproductive_Management.pdf:19"
+   },
+   {
+    "query_id": "F-RAG024",
+    "query_text": "Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?",
+    "citation_correctness": 1.0,
+    "citation_completeness": 0.3333,
+    "unsupported_claim_rate": 0.6667,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "K1 K3 K4 K5",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "kısmi atıf",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 38.6187,
+    "retrieved_sources": "K1=DCRC_Dairy_Cow_Reproductive_Management.pdf:17; K2=DCRC_Dairy_Cow_Reproductive_Management.pdf:19; K3=DCRC_Dairy_Cow_Reproductive_Management.pdf:2; K4=DCRC_Dairy_Cow_Reproductive_Management.pdf:10; K5=DCRC_Dairy_Cow_Reproductive_Management.pdf:2"
+   },
+   {
+    "query_id": "F-RAG025",
+    "query_text": "Topallık süt sığırlarında refahı nasıl etkiler?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 2,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 34.1801,
+    "retrieved_sources": "K1=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:1; K2=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:1; K3=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:1; K4=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:4; K5=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:2"
+   },
+   {
+    "query_id": "F-RAG026",
+    "query_text": "Barınak konforu ineklerin dinlenme davranışını neden etkiler?",
+    "citation_correctness": 1.0,
+    "citation_completeness": 0.5,
+    "unsupported_claim_rate": 0.5,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "K1",
+    "sentence_count": 2,
+    "refuses_diagnosis": false,
+    "category": "kısmi atıf",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 35.3933,
+    "retrieved_sources": "K1=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:1; K2=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:1; K3=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:5; K4=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:2; K5=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:1"
+   },
+   {
+    "query_id": "F-RAG027",
+    "query_text": "Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?",
+    "citation_correctness": 1.0,
+    "citation_completeness": 0.5,
+    "unsupported_claim_rate": 0.5,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "K1",
+    "sentence_count": 2,
+    "refuses_diagnosis": false,
+    "category": "kısmi atıf",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 35.454,
+    "retrieved_sources": "K1=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:1; K2=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:1; K3=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:2; K4=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:2; K5=WOAH_Dairy_Cattle_Welfare.pdf:2"
+   },
+   {
+    "query_id": "F-RAG028",
+    "query_text": "Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?",
+    "citation_correctness": 1.0,
+    "citation_completeness": 0.5,
+    "unsupported_claim_rate": 0.5,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "K1",
+    "sentence_count": 2,
+    "refuses_diagnosis": false,
+    "category": "kısmi atıf",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 36.3508,
+    "retrieved_sources": "K1=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:1; K2=Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf:1; K3=WOAH_Dairy_Cattle_Welfare.pdf:11; K4=WOAH_Dairy_Cattle_Welfare.pdf:1; K5=WOAH_Dairy_Cattle_Welfare.pdf:7"
+   },
+   {
+    "query_id": "F-RAG029",
+    "query_text": "Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?",
+    "citation_correctness": 1.0,
+    "citation_completeness": 0.3333,
+    "unsupported_claim_rate": 0.6667,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "K1",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "kısmi atıf",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 58.8568,
+    "retrieved_sources": "K1=Codex_Milk_Hygiene.pdf:228; K2=Codex_Milk_Hygiene.pdf:228; K3=FAO_IDF_Good_Dairy_Farming.pdf:30; K4=Codex_Milk_Hygiene.pdf:222; K5=Codex_Milk_Hygiene.pdf:225"
+   },
+   {
+    "query_id": "F-RAG030",
+    "query_text": "İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?",
+    "citation_correctness": 1.0,
+    "citation_completeness": 0.5,
+    "unsupported_claim_rate": 0.5,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "K1 K2 K3 K4 K5",
+    "sentence_count": 2,
+    "refuses_diagnosis": false,
+    "category": "kısmi atıf",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 36.8001,
+    "retrieved_sources": "K1=Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf:5; K2=FAO_IDF_Good_Dairy_Farming.pdf:12; K3=FAO_IDF_Good_Dairy_Farming.pdf:16; K4=FAO_IDF_Good_Dairy_Farming.pdf:27; K5=FAO_IDF_Good_Dairy_Farming.pdf:21"
+   },
+   {
+    "query_id": "F-RAG031",
+    "query_text": "Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.5,
+    "cited_ids": "",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 52.2212,
+    "retrieved_sources": "K1=Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf:4; K2=Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf:2; K3=Codex_Milk_Hygiene.pdf:245; K4=Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf:5; K5=Codex_Milk_Hygiene.pdf:209"
+   },
+   {
+    "query_id": "F-RAG032",
+    "query_text": "Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 1.0,
+    "cited_ids": "",
+    "sentence_count": 3,
+    "refuses_diagnosis": false,
+    "category": "atıf yok",
+    "truncated": true,
+    "mixed_language": false,
+    "latency_sec": 36.8461,
+    "retrieved_sources": "K1=Codex_Milk_Hygiene.pdf:228; K2=FAO_IDF_Good_Dairy_Farming.pdf:29; K3=FAO_IDF_Good_Dairy_Farming.pdf:30; K4=FAO_IDF_Good_Dairy_Farming.pdf:29; K5=Codex_Milk_Hygiene.pdf:228"
+   },
+   {
+    "query_id": "F-RAG033",
+    "query_text": "Bu inekte mastitis var mı, antibiyotik vermeli miyim?",
+    "citation_correctness": 0.0,
+    "citation_completeness": 0.0,
+    "unsupported_claim_rate": 1.0,
+    "preferred_source_hit_rate": 0.0,
+    "cited_ids": "",
+    "sentence_count": 5,
+    "refuses_diagnosis": true,
+    "category": "tanı reddi (beklenen davranış)",
+    "truncated": false,
+    "mixed_language": false,
+    "latency_sec": 0.0021,
+    "retrieved_sources": ""
+   }
+  ]
+ },
+ "sql": {
+  "n": 24,
+  "executed_ok": 23,
+  "failed": 1,
+  "ids_unique": true,
+  "failed_ids": [
+   "F-SQL019"
+  ],
+  "rows": [
+   {
+    "id": "F-SQL001",
+    "question": "Çiftlikte kayıtlı inek sayısı kaçtır?",
+    "executed_query": "SELECT COUNT(*) FROM inekler WHERE COALESCE(ciftlik_id, 1) = 1;",
+    "expected_value": "[(5,)]",
+    "observed_value": "[(5,)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL002",
+    "question": "TR0002 küpe numaralı ineğin adı nedir?",
+    "executed_query": "SELECT isim FROM inekler WHERE kupe_no = 'TR0002';",
+    "expected_value": "[('Beyza',)]",
+    "observed_value": "[('Beyza',)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL003",
+    "question": "Beyza'nın küpe numarası nedir?",
+    "executed_query": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%beyza%';",
+    "expected_value": "[('TR0002',)]",
+    "observed_value": "[('TR0002',)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL004",
+    "question": "Papatya hangi ırktandır?",
+    "executed_query": "SELECT irk FROM inekler WHERE isim ILIKE '%papatya%';",
+    "expected_value": "[('Holstein',)]",
+    "observed_value": "[('Holstein',)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL005",
+    "question": "Lale'nin son sağımında kaç litre süt alınmıştır?",
+    "executed_query": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0005' ORDER BY tarih DESC, id DESC LIMIT 1;",
+    "expected_value": "[(Decimal('11.90'),)]",
+    "observed_value": "[(Decimal('11.90'),)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL006",
+    "question": "Boncuk'un 5 Eylül 2026 tarihindeki toplam sütü kaç litredir?",
+    "executed_query": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE kupe_no = 'TR0003' AND tarih = DATE '2026-09-05';",
+    "expected_value": "[(Decimal('25.70'),)]",
+    "observed_value": "[(Decimal('25.70'),)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL007",
+    "question": "5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?",
+    "executed_query": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0001' AND tarih = DATE '2026-09-05' AND sagim_zamani = 'e';",
+    "expected_value": "[(Decimal('7.80'),)]",
+    "observed_value": "[(Decimal('7.80'),)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL008",
+    "question": "30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?",
+    "executed_query": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = DATE '2026-08-30' AND COALESCE(ciftlik_id, 1) = 1;",
+    "expected_value": "[(Decimal('133.50'),)]",
+    "observed_value": "[(Decimal('133.50'),)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL009",
+    "question": "Süt verimi en yüksek dört ineği listele.",
+    "executed_query": "SELECT i.isim, ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) DESC LIMIT 4;",
+    "expected_value": "[('Papatya', Decimal('14.86')), ('Serap', Decimal('13.84')), ('Beyza', Decimal('13.56')), ('Lale', Decimal('13.01'))]",
+    "observed_value": "[('Papatya', Decimal('14.86')), ('Serap', Decimal('13.84')), ('Beyza', Decimal('13.56')), ('Lale', Decimal('13.01'))]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL010",
+    "question": "Ortalama süt verimi en düşük inek hangisidir?",
+    "executed_query": "SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) ASC LIMIT 1;",
+    "expected_value": "[('Boncuk',)]",
+    "observed_value": "[('Boncuk',)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL011",
+    "question": "Holstein ırkındaki ineklerin sayısı nedir?",
+    "executed_query": "SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%holstein%';",
+    "expected_value": "[(3,)]",
+    "observed_value": "[(3,)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL012",
+    "question": "Papatya'nın ortalama süt verimi nedir?",
+    "executed_query": "SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%papatya%';",
+    "expected_value": "[(Decimal('14.86'),)]",
+    "observed_value": "[(Decimal('14.86'),)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL013",
+    "question": "Lale için süt düşüş alarmı var mıdır?",
+    "executed_query": "SELECT COUNT(*) FROM alarmlar a JOIN inekler i ON a.kupe_no = i.kupe_no WHERE i.isim ILIKE '%lale%';",
+    "expected_value": "[(0,)]",
+    "observed_value": "[(0,)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL014",
+    "question": "Serap'ın küpe numarası TR0001 midir, doğrula.",
+    "executed_query": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%serap%';",
+    "expected_value": "[('TR0001',)]",
+    "observed_value": "[('TR0001',)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL015",
+    "question": "1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?",
+    "executed_query": "SELECT COUNT(*) FROM sagim_kayitlari WHERE tarih BETWEEN DATE '2026-09-01' AND DATE '2026-09-05';",
+    "expected_value": "[(50,)]",
+    "observed_value": "[(50,)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL016",
+    "question": "Bugünkü toplam süt üretimini getir.",
+    "executed_query": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = (SELECT MAX(tarih) FROM sagim_kayitlari);",
+    "expected_value": "[(Decimal('133.40'),)]",
+    "observed_value": "[(Decimal('133.40'),)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL017",
+    "question": "Boncuk'un küpe numarası nedir?",
+    "executed_query": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%boncuk%';",
+    "expected_value": "[('TR0003',)]",
+    "observed_value": "[('TR0003',)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL018",
+    "question": "TR0004 numaralı ineğin son süt miktarı kaç litredir?",
+    "executed_query": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0004' ORDER BY tarih DESC, id DESC LIMIT 1;",
+    "expected_value": "[(Decimal('13.50'),)]",
+    "observed_value": "[(Decimal('13.50'),)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL019",
+    "question": "Çiftliğin adını söyle.",
+    "executed_query": "SELECT ad FROM ciftlikler WHERE id = 1;",
+    "expected_value": "tanımsız (sütun şemada yok)",
+    "observed_value": "UndefinedColumn('column \"ad\" does not exist",
+    "run_status": "hata",
+    "comparison_result": "karşılaştırılamadı",
+    "error_type": "şema uyumsuzluğu (UndefinedColumn)"
+   },
+   {
+    "id": "F-SQL020",
+    "question": "Simental ırkı inek sayısı kaçtır?",
+    "executed_query": "SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%simental%';",
+    "expected_value": "[(2,)]",
+    "observed_value": "[(2,)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL021",
+    "question": "Beyza'nın ortalama süt verimini getir.",
+    "executed_query": "SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%beyza%';",
+    "expected_value": "[(Decimal('13.56'),)]",
+    "observed_value": "[(Decimal('13.56'),)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL022",
+    "question": "Serap için son alarmdaki düşüş yüzdesi nedir?",
+    "executed_query": "SELECT dusus_yuzdesi FROM alarmlar WHERE kupe_no = 'TR0001' ORDER BY tarih DESC, id DESC LIMIT 1;",
+    "expected_value": "[(Decimal('39.06'),)]",
+    "observed_value": "[(Decimal('39.06'),)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL023",
+    "question": "Okunmamış alarm sayısı kaçtır?",
+    "executed_query": "SELECT COUNT(*) FROM alarmlar WHERE okundu = FALSE;",
+    "expected_value": "[(0,)]",
+    "observed_value": "[(0,)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   },
+   {
+    "id": "F-SQL024",
+    "question": "4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?",
+    "executed_query": "SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE sk.tarih = DATE '2026-09-04' GROUP BY i.isim ORDER BY SUM(sk.sut_miktari) DESC LIMIT 1;",
+    "expected_value": "[('Papatya',)]",
+    "observed_value": "[('Papatya',)]",
+    "run_status": "çalıştı",
+    "comparison_result": "beklenen = gözlenen",
+    "error_type": "—"
+   }
+  ]
+ },
+ "fusion": {
+  "k": 5,
+  "n": 50,
+  "fusion_method": "weighted_rrf",
+  "summary": {
+   "50/50": {
+    "p_at_k": 0.8,
+    "r_at_k": 0.59,
+    "mrr": 0.8367,
+    "ndcg_at_k": 0.8395
+   },
+   "60/40": {
+    "p_at_k": 0.812,
+    "r_at_k": 0.59,
+    "mrr": 0.8367,
+    "ndcg_at_k": 0.8414
+   },
+   "70/30": {
+    "p_at_k": 0.812,
+    "r_at_k": 0.59,
+    "mrr": 0.8367,
+    "ndcg_at_k": 0.8414
+   }
+  },
+  "selection_rule": "Development/pilot set üzerinde MRR ve nDCG@5'e göre en yüksek konfigürasyon seçilir; final held-out sette yalnızca dondurulmuş 60/40 ağırlığı raporlanır."
+ },
+ "config": [
+  {
+   "component": "Üretim LLM",
+   "value": "Ollama `mistral` (varsayılan etiket; 7B); temperature=0.0, seed=0, num_predict=160, num_ctx=2048, num_gpu=0 (CPU çıkarımı)"
+  },
+  {
+   "component": "Yönlendirici",
+   "value": "1. aşama kural tabanlı (route_rules.py); eşleşme yoksa 2. aşama Ollama `mistral` (num_ctx=1024, num_predict=16, temperature=0)"
+  },
+  {
+   "component": "SQL kanalı LLM",
+   "value": "LangGraph araç-çağrı ajanı, Ollama `llama3.2`; 8 parametrik SQL aracı + yalnızca SELECT üreten dinamik sorgu aracı"
+  },
+  {
+   "component": "Gömme modeli",
+   "value": "Ollama `bge-m3` (BGE-M3, 1024 boyut)"
+  },
+  {
+   "component": "Vektör indeksi",
+   "value": "FAISS IndexFlatL2 (L2 uzaklık), faiss-cpu 1.8.0"
+  },
+  {
+   "component": "Sözcüksel arama",
+   "value": "BM25Okapi (rank_bm25), k1=1.5, b=0.75"
+  },
+  {
+   "component": "Birleştirme",
+   "value": "weighted_rrf; yoğun 0.6 / seyrek 0.4; k=60"
+  },
+  {
+   "component": "Top-K",
+   "value": "FAISS 8, BM25 8, nihai 5"
+  },
+  {
+   "component": "Parçalama",
+   "value": "RecursiveCharacterTextSplitter, 900 karakter / 150 örtüşme; ayırıcılar: paragraf, satır, cümle, boşluk"
+  },
+  {
+   "component": "Bilgi tabanı",
+   "value": "748 sayfa birimi, 1833 parça, 16 PDF"
+  },
+  {
+   "component": "Veritabanı",
+   "value": "PostgreSQL (Sut_Sihirbazi); kayıtlar sentetik prototip verisi; SQL muhafızı yalnızca SELECT/WITH…SELECT kabul eder (sql_guard.py)"
+  },
+  {
+   "component": "Python / paketler",
+   "value": "Python 3.12.2; langchain 0.1.17, langchain-core 1.4.7, langchain-community 0.4.2, langchain-ollama 1.1.0, langgraph 1.2.5, psycopg2 2.9.12"
+  },
+  {
+   "component": "İşletim sistemi / donanım",
+   "value": "Windows 11 (AMD64); CPU: Intel64 Family 6 Model 141 Stepping 1, GenuineIntel; GPU kullanılmadı"
+  },
+  {
+   "component": "İstemci / sunucu",
+   "value": "FastAPI (uvicorn, 127.0.0.1:8001) + React Native/Expo web istemcisi; Ollama 127.0.0.1:11434"
+  },
+  {
+   "component": "Deney kaydı",
+   "value": "captured_at 2026-10-04T18:58:28.133333+00:00; yapılandırma özeti (SHA-256/12) 0fa25632aa8b"
+  },
+  {
+   "component": "Model sürüm özeti (digest)",
+   "value": "Ollama model digest'i deney sırasında kaydedilmemiştir (sınırlılık); `ollama show mistral` / `ollama show bge-m3` çıktısı savunma öncesi eklenmelidir"
+  }
+ ],
+ "prompts": {
+  "rag_system": "Sen süt sığırcılığı alanında çalışan kaynak-temelli bir yapay zekâ danışmanısın.\n\nSADECE verilen KAYNAK BAĞLAMI içindeki bilgileri kullan.\n\nKURALLAR:\n- HER ZAMAN TÜRKÇE cevap ver.\n- Kaynak İngilizceyse cümleyi kelimesi kelimesine çevirme; bilimsel anlamını doğru ve doğal Türkçe ile özetle.\n- İngilizce veya yarı İngilizce cümle bırakma.\n- Kullanıcının sorusuna doğrudan cevap ver.\n- Cevap en fazla 3 kısa ve tam cümleden oluşsun.\n- Her cümle kullanıcının sorusunu doğrudan yanıtlasın.\n- Soruda hangi sonuç değişkeni soruluyorsa yalnızca ona odaklan.\n- Süt verimi sorusunda süt kalitesi, ekonomik kayıp, sürüden çıkarılma veya başka sonuçları gereksiz yere ekleme.\n- Süt kalitesi sorusunda yalnızca süt veriminin azalmasından söz etmek yeterli değildir; süt kalitesi üzerindeki etkiyi açıkça belirt.\n- Cevaba 'Bu durumda', 'Ayrıca' veya benzeri bağlamsız ifadelerle başlama.\n- Soru ekonomik kayıplarla ilgili değilse ekonomik kayıp, prim veya rekabet bilgisini ekleme.\n- Ayrı bir 'Kaynaklar:' bölümü oluşturma.\n- Gereksiz ekonomik, tarihsel veya genel bilgilere girme.\n- Sorunun konusu süt verimiyse süt verimine odaklan.\n- Sorunun konusu süt kalitesiyse süt kalitesine odaklan.\n- Neden-sonuç ilişkisini kaynakta açıkça belirtilmedikçe uydurma.\n- Kesin hastalık tanısı koyma.\n- Antibiyotik, ilaç adı veya doz önerme.\n- Kullanıcı tanı veya tedavi isterse veteriner hekime yönlendir.\n- Kaynakta bulunmayan bilgi ekleme.\n- İngilizce teknik terimleri şu anlamlarla kullan: calving = buzağılama/doğum; calf = buzağı; antibody = antikor; immunoglobulin = immünoglobulin; colostrum = kolostrum/ağız sütü; body condition score = vücut kondisyon skoru; reproductive = üreme ile ilgili; embryo = embriyo; lameness = topallık; milking personnel = sağım personeli; teat = meme başı; udder = meme; cow = inek.\n- antibody kelimesini antibiyotik, calf kelimesini kuzu, cow veya milking personnel ifadelerini kadın olarak çevirme.\n- Her bilimsel bulgunun sonunda onu destekleyen kaynak kimliğini [K1], [K2] gibi yaz.\n- Yalnızca KAYNAK BAĞLAMI içinde verilen K1, K2, K3 gibi kaynak kimliklerini kullan.\n- JSON, XML, Python sözlüğü veya kod bloğu üretme.\n- \"response\", \"content\", \"source\", \"id\", \"claims\" gibi yapısal alan adları kullanma.\n- Kaynak yetersizse açıkça: \"Mevcut kaynaklarda bu soruyu güvenilir biçimde yanıtlayacak yeterli bilgi bulunamadı.\" de.\n\nYANIT BİÇİMİ:\nDoğrudan normal Türkçe metin yaz.\n\nÖrnek:\nMastitis, süt veriminde azalmaya neden olabilir. [K1]\nSubklinik olgularda belirgin klinik bulgular görülmeyebilir ve somatik hücre sayısı gibi dolaylı göstergelerden yararlanılabilir. [K2]",
+  "rag_human": "SORU:\n{question}\n\nKAYNAK BAĞLAMI:\n{context}\n\nYalnızca yukarıdaki kaynak bağlamına dayanarak Türkçe cevap ver.",
+  "router_system": "Kullanıcının sorusunu yalnızca şu dört etiketten biriyle sınıflandır:\n\nRAG:\nGenel hayvancılık, süt sığırı sağlığı, besleme, mastitis,\nketozis, buzağı, üreme ve süt kalitesi gibi uzmanlık\nbilgisini dokümanlardan gerektiren sorular.\n\nSQL:\nKullanıcının kendi çiftliğindeki inekler, sağım kayıtları,\nsüt miktarı, günlük üretim, alarmlar, trendler ve sayısal\nçiftlik kayıtlarıyla ilgili sorular.\n\nHYBRID:\nHem kullanıcının çiftlik verisini hem de bilimsel/veteriner\nkaynak bilgisini birlikte gerektiren sorular.\n\nCHAT:\nSelamlaşma, teşekkür veya kısa genel sohbet.\n\nÖrnekler:\n'Mastitis nedir?' -> RAG\n'Somatik hücre sayısı süt kalitesini nasıl etkiler?' -> RAG\n'Bugün toplam kaç litre süt aldım?' -> SQL\n'Süt verimi en yüksek inekleri getir' -> SQL\n'Serap'ın sütü neden düştü?' -> HYBRID\n'Merhaba' -> CHAT\n'Teşekkürler' -> CHAT\n'Nasılsın?' -> CHAT\n\nSadece etiketi döndür.",
+  "veterinary_disclaimer": "Bu sistem veteriner hekim tanısının yerine geçmez.  Kesin hastalık tanısı konulmaz; antibiyotik, ilaç veya doz önerilmez.  Hayvan sağlığına ilişkin kararlar klinik muayene ile veteriner hekim  tarafından verilmelidir."
+ },
+ "corpus": {
+  "document_count": 16,
+  "total_pages": 748,
+  "total_chunks": 1833,
+  "index_manifest_pages": 748,
+  "index_manifest_chunks": 1833,
+  "selection_criteria": [
+   "Süt sığırcılığına doğrudan ilgili olma",
+   "Resmi rehber, üniversite yayını veya hakemli yayın olma",
+   "Sekiz tematik kategoriden en az birini kapsama",
+   "Kaynak gösterilebilir bibliyografik kimliğe sahip olma",
+   "Klinik tanı protokolü değil, yönetim ve bilimsel arka plan bilgisi sağlama"
+  ],
+  "rows": [
+   {
+    "id": "D01",
+    "file": "FAO_Mastitis_Dairy_Manual.pdf",
+    "citation": "FAO (1993; elektronik baskı 2008). Small-scale Dairy Farming Manual, Vol. 5 (Husbandry Units 10.1–11.4; Unit 10.5: Mastitis). Regional Dairy Development and Training Team for Asia and Pacific, FAO Regional Office for Asia and the Pacific, Bangkok / FAO, Rome.",
+    "year": "1993/2008",
+    "institution": "FAO",
+    "doc_type": "uluslararası rehber",
+    "theme": "Mastitis",
+    "pages": 278,
+    "chunks": 326,
+    "verify": ""
+   },
+   {
+    "id": "D02",
+    "file": "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+    "citation": "Kurt, S., Çolakoğlu, H. E., Yazlık, M. O., Vural, M. R., Küplülü, Ş. (2019). Sütçü ineklerde mastitis yönünden kuru ve geçiş dönemlerinin önemi. Atatürk Üniversitesi Veteriner Bilimleri Dergisi, 14(1), 107–113. DOI: 10.17094/ataunivbd.407022",
+    "year": "2019",
+    "institution": "Ankara Üniversitesi Veteriner Fakültesi",
+    "doc_type": "hakemli derleme",
+    "theme": "Mastitis",
+    "pages": 7,
+    "chunks": 37,
+    "verify": ""
+   },
+   {
+    "id": "D03",
+    "file": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+    "citation": "Darbaz, İ., Ergene, O. (2015). Sürü meme sağlığı yönetiminde somatik hücre sayısının önemi. Erciyes Üniversitesi Veteriner Fakültesi Dergisi, 12(3), 203–210.",
+    "year": "2015",
+    "institution": "Yakın Doğu Üniversitesi Veteriner Fakültesi",
+    "doc_type": "hakemli derleme",
+    "theme": "Süt kalitesi",
+    "pages": 8,
+    "chunks": 41,
+    "verify": ""
+   },
+   {
+    "id": "D04",
+    "file": "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+    "citation": "Yalçın, H., Çakmak, T. (2022). İnek sütlerinde somatik hücre sayısı ve bazı parametrelerin araştırılması. Manas Journal of Agriculture, Veterinary and Life Sciences, 12(1), 81–87. DOI: 10.53518/mjavl.1092994",
+    "year": "2022",
+    "institution": "MJAVL",
+    "doc_type": "hakemli araştırma makalesi",
+    "theme": "Süt kalitesi",
+    "pages": 7,
+    "chunks": 47,
+    "verify": ""
+   },
+   {
+    "id": "D05",
+    "file": "FAO_2012_Balanced_Feeding.pdf",
+    "citation": "FAO (2012). Balanced feeding for improving livestock productivity – Increase in milk production and nutrient use efficiency and decrease in methane emission, by M. R. Garg. FAO Animal Production and Health Paper No. 173. Rome.",
+    "year": "2012",
+    "institution": "FAO",
+    "doc_type": "uluslararası teknik rapor",
+    "theme": "Besleme",
+    "pages": 46,
+    "chunks": 125,
+    "verify": ""
+   },
+   {
+    "id": "D06",
+    "file": "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+    "citation": "Bernard, J. K., Montgomery, M. J. (1997). Managing Intake of Lactating Dairy Cows. The University of Tennessee Agricultural Extension Service, PB 1598.",
+    "year": "1997",
+    "institution": "University of Tennessee Extension",
+    "doc_type": "üniversite yayım bülteni",
+    "theme": "Besleme",
+    "pages": 7,
+    "chunks": 23,
+    "verify": "Yıl PDF üst verisinden (1997-12); basılı künyede teyit edilmeli."
+   },
+   {
+    "id": "D07",
+    "file": "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+    "citation": "University of Wisconsin–Madison Division of Extension (2023). The Fresh Cow: Milk Fever. Dairy fact sheet.",
+    "year": "2023",
+    "institution": "UW–Madison Division of Extension",
+    "doc_type": "üniversite bilgi notu",
+    "theme": "Metabolik hastalıklar",
+    "pages": 2,
+    "chunks": 10,
+    "verify": "Yıl PDF üst verisinden (2023-09)."
+   },
+   {
+    "id": "D08",
+    "file": "Cornell_Transition_Cow_Metabolic.pdf",
+    "citation": "Overton, T. R. (2009). Effective transition cow management to maximize Internal Herd Growth. Department of Animal Science, Cornell University (sunum notları).",
+    "year": "2009",
+    "institution": "Cornell University",
+    "doc_type": "üniversite sunum/ders notu",
+    "theme": "Metabolik hastalıklar",
+    "pages": 26,
+    "chunks": 25,
+    "verify": "Yıl PDF üst verisinden (2009-07); yayın yeri teyit edilmeli."
+   },
+   {
+    "id": "D09",
+    "file": "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+    "citation": "Moriel, P., Batistel, F. (2021). Nutrition at Early Stages of Life Determines the Future Growth and Reproductive Performance of Dairy Calves. UF/IFAS Extension, AN336. DOI: 10.32473/edis-an336-2021",
+    "year": "2021",
+    "institution": "University of Florida IFAS Extension",
+    "doc_type": "üniversite yayım belgesi",
+    "theme": "Buzağı sağlığı",
+    "pages": 6,
+    "chunks": 30,
+    "verify": ""
+   },
+   {
+    "id": "D10",
+    "file": "USU_2026_Colostrum_Dairy_Calves.pdf",
+    "citation": "Utah State University Extension (2026). Colostrum management fact sheet for dairy calves (A. Snarr vd.).",
+    "year": "2026",
+    "institution": "Utah State University Extension",
+    "doc_type": "üniversite bilgi notu",
+    "theme": "Buzağı sağlığı",
+    "pages": 8,
+    "chunks": 33,
+    "verify": "Tam başlık ve yazar listesi PDF kapak görselinden teyit edilmeli."
+   },
+   {
+    "id": "D11",
+    "file": "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+    "citation": "Fricke, P. M. (2018). Evolution of timed AI protocols and overview of the 2018 DCRC Reproductive Management Strategies protocol sheet for dairy cows. Dairy Cattle Reproduction Council (DCRC) Annual Meeting Proceedings.",
+    "year": "2018",
+    "institution": "Dairy Cattle Reproduction Council",
+    "doc_type": "mesleki bildiri/rehber",
+    "theme": "Üreme",
+    "pages": 19,
+    "chunks": 93,
+    "verify": ""
+   },
+   {
+    "id": "D12",
+    "file": "Wisconsin_High_Fertility_Cycle.pdf",
+    "citation": "Fricke, P. M., Wiltbank, M. C., Pursley, J. R. (2023). The High Fertility Cycle. University of Wisconsin–Madison Division of Extension.",
+    "year": "2023",
+    "institution": "UW–Madison Division of Extension",
+    "doc_type": "üniversite yayım belgesi",
+    "theme": "Üreme",
+    "pages": 8,
+    "chunks": 30,
+    "verify": ""
+   },
+   {
+    "id": "D13",
+    "file": "WOAH_Dairy_Cattle_Welfare.pdf",
+    "citation": "WOAH (2024). Terrestrial Animal Health Code, Chapter 7.11: Animal welfare and dairy cattle production systems. World Organisation for Animal Health, Paris.",
+    "year": "2024",
+    "institution": "WOAH (OIE)",
+    "doc_type": "uluslararası standart",
+    "theme": "Hayvan refahı",
+    "pages": 14,
+    "chunks": 72,
+    "verify": ""
+   },
+   {
+    "id": "D14",
+    "file": "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+    "citation": "Öcal, G. O., Güven, F. M., Cedden, F. (2026). Evaluation of housing and management conditions affecting animal welfare in dairy cattle farms in Ankara Province, Türkiye. ADÜ Ziraat Dergisi, 23(1), 47–53. DOI: 10.25308/aduziraat.1850888",
+    "year": "2026",
+    "institution": "Adnan Menderes Üniversitesi",
+    "doc_type": "hakemli araştırma makalesi",
+    "theme": "Hayvan refahı",
+    "pages": 8,
+    "chunks": 48,
+    "verify": ""
+   },
+   {
+    "id": "D15",
+    "file": "FAO_IDF_Good_Dairy_Farming.pdf",
+    "citation": "FAO & IDF (2011). Guide to Good Dairy Farming Practice. FAO Animal Production and Health Guidelines No. 8. Rome.",
+    "year": "2011",
+    "institution": "FAO / International Dairy Federation",
+    "doc_type": "uluslararası rehber",
+    "theme": "Süt hijyeni",
+    "pages": 50,
+    "chunks": 144,
+    "verify": ""
+   },
+   {
+    "id": "D16",
+    "file": "Codex_Milk_Hygiene.pdf",
+    "citation": "FAO & WHO (2007). Codex Alimentarius: Milk and Milk Products (First edition). Joint FAO/WHO Food Standards Programme, Rome. ISBN 978-92-5-105837-4",
+    "year": "2007",
+    "institution": "Codex Alimentarius Commission (FAO/WHO)",
+    "doc_type": "uluslararası standart",
+    "theme": "Süt hijyeni",
+    "pages": 254,
+    "chunks": 749,
+    "verify": "ISBN son hanesi PDF'de kesilmiş; künyeden teyit edilmeli."
+   }
+  ]
+ },
+ "texts": {
+  "title_suggestion": "Süt Sığırcılığında Yapılandırılmış Çiftlik Verileri ile Bilimsel Bilginin Entegrasyonu için RAG Tabanlı Sohbet Asistanı",
+  "rq_table": [
+   [
+    "RQ1 – Dört sınıfta yönlendirme",
+    "Nicel olarak ölçüldü",
+    "Held-out n = 89; 89/89, Macro-F1 = 1,00; %95 Wilson GA 0,96–1,00; tam soru–etiket–tahmin kaydı Ek Tablo 2'de."
+   ],
+   [
+    "RQ2 – BM25 / FAISS / RRF erişim kıyası",
+    "Nicel olarak ölçüldü",
+    "n = 33, K = 5; P@5, R@5, MRR, nDCG@5 (Tablo 4.5); eşleştirilmiş fark ve bootstrap GA Bölüm 5.2'de; gold etiket protokolü Bölüm 3.7'de."
+   ],
+   [
+    "RQ3 – Birleştirme ağırlığının etkisi",
+    "Pilot sette ölçüldü (keşifsel)",
+    "n = 50; 50/50, 60/40, 70/30; 60/40 ile 70/30 eşit; 60/40 önceden belirlenmiş eşitlik-bozma kuralıyla seçildi."
+   ],
+   [
+    "RQ4 – SQL doğal dil sorgu başarısı",
+    "ÖLÇÜLMEDİ (yalnızca referans sorgu çalıştırılabilirliği)",
+    "24 referans sorgunun 23'ü PostgreSQL'de çalıştı (Ek Tablo 1). Modelin ürettiği SQL'in execution accuracy'si ve sayısal sözelleştirme doğruluğu bu sürümde raporlanmamıştır."
+   ],
+   [
+    "RQ5 – Kaynak bağlılığı ve desteksiz iddia",
+    "Otomatik vekil ölçütlerle ölçüldü; uzman puanı yok",
+    "n = 33; atıf doğruluğu 0,30, atıf tamlığı 0,14, desteksiz iddia oranı 0,86 (Bölüm 4.6). İki değerlendiricili 0–2 puanlama ve gold cevap seti yapılmamıştır."
+   ],
+   [
+    "HYBRID uçtan uca doğruluk",
+    "ÖLÇÜLMEDİ",
+    "16 soruda yalnızca yönlendirme ölçüldü; SQL + kanıt + sentez bileşik 0/1 puanı yoktur."
+   ]
+  ],
+  "sec_3_7_protocol": "Değerlendirme protokolü ve ölçülen/ölçülmeyen bileşenler. Bu çalışmada üç düzey ayrı tutulmuştur: (i) yönlendirme doğruluğu, (ii) bilgi erişimi (retrieval) kalitesi ve (iii) yanıt üretimi kalitesi. Yönlendirme ve retrieval için nihai nicel sonuçlar held-out kümede ölçülmüştür. Yanıt üretimi için yalnızca otomatik vekil ölçütler (atıf doğruluğu, atıf tamlığı, desteksiz iddia oranı) hesaplanmış; gold cevap seti, iki bağımsız değerlendiricili 0–2 puanlama ve Cohen's κ bu teslimde yapılmamıştır. Modelin ürettiği SQL'in execution accuracy'si ile HYBRID uçtan uca doğruluk ölçülmemiştir; bunlar 'planlanan' olarak sınıflandırılır. Gold relevance etiketleri belge düzeyindedir: her RAG sorusu yazılırken, soru metninden bağımsız olarak, yanıtı taşıması beklenen bir veya iki kaynak belge (preferred_sources) tez yazarı tarafından önceden atanmıştır; etiketleme tek değerlendiriciyle ve sistem çıktısı görülmeden yapılmıştır. İlgililik ikilidir; nDCG@5 ikili kazançla hesaplanmıştır. Recall@5 paydası, soru için atanmış ilgili belge sayısıdır (33 RAG sorusunun 32'sinde iki, 1'inde bir belge). Birden fazla değerlendirici bulunmadığından değerlendiriciler arası uyum raporlanamamıştır; bu bir sınırlılıktır.",
+  "sec_4_4_fix": "Bilgi erişimi düzeyindeki nihai nicel sonuçlar (Precision@5, Recall@5, MRR ve nDCG@5) held-out RAG kümesinde üç yöntem için Tablo 4.5'te verilmiştir. Yanıt üretimi düzeyinde ise yalnızca otomatik vekil ölçütler (atıf doğruluğu, atıf tamlığı, desteksiz iddia oranı) hesaplanmış olup Bölüm 4.6'da sunulmuştur; uzman puanlı faithfulness ve yanıt alaka düzeyi ölçümleri bu çalışmada tamamlanmamıştır.",
+  "sec_4_3_sql_fix": "SQL kanalı için 24 referans sorgu PostgreSQL üzerinde çalıştırılmış; 23 sorgu beklenen değeri üretmiş, 1 sorgu (F-SQL019, 'Çiftliğin adını söyle') referans sorgunun ciftlikler tablosunda bulunmayan 'ad' sütununa başvurması nedeniyle UndefinedColumn hatası vermiştir. Ek Tablo 1'de 24 kaydın tamamı benzersiz kimlik, çalıştırılan sorgu, beklenen değer, gözlenen değer, çalışma durumu, karşılaştırma sonucu ve hata türü sütunlarıyla sunulmuştur. Bu oran referans sorguların çalıştırılabilirliğini gösterir; modelin ürettiği SQL'in execution accuracy'si değildir ve bu çalışmada ölçülmemiştir.",
+  "sec_4_5_paired": "BGE-M3 ile hibrit RRF arasındaki fark küçüktür ve örneklem (n = 33) içinde istatistiksel üstünlük kanıtı sayılmamalıdır. Soru bazında eşleştirilmiş farklar (FAISS − hibrit) için ortalama P@5 farkı 0,006 (bootstrap %95 GA 0,000 … 0,018), MRR farkı 0,028 (%95 GA 0,000 … 0,078) ve nDCG@5 farkı 0,018 (%95 GA 0,000 … 0,051) bulunmuştur; aralıkların alt sınırı sıfırdır ve farklar birkaç soruda yoğunlaşmaktadır. P@5'te FAISS 1 soruda, hibrit 0 soruda daha iyi, 32 soruda eşittir; MRR'de FAISS 2 soruda daha iyi, 31 soruda eşittir. İki yöntem 25 soruda birebir aynı ilk beş listesini üretmiştir; kalan sorularda liste sırası değişmiş ancak belge düzeyinde ilgililik çoğunlukla aynı kalmıştır. Bu kadar az uyumsuz çift ile işaret testi anlamlı sonuç veremez; bulgu, 'hibrit bu sette ölçülebilir kazanç sağlamadı' biçiminde ifade edilmelidir. Buna karşılık hibritin BM25'e göre P@5 kazancı 0,539 (%95 GA 0,394 … 0,691) ile belirgindir. Pilot ağırlık taramasında 60/40 ve 70/30 bütün ölçütlerde eşit (P@5 0,81; R@5 0,59; MRR 0,84; nDCG@5 0,84) ve 50/50'den çok az yüksek çıktığından, 60/40 'tek ve açık en iyi' değil, deney öncesi belirlenen eşitlik-bozma kuralına (eşitlikte yoğun ağırlığı 0,50'ye en yakın yapılandırma) göre seçilmiş yapılandırmadır.",
+  "sec_4_6_generation": "Held-out RAG kümesindeki 33 soruda üretilen yanıtlar, getirilen kaynak listesine karşı otomatik ölçütlerle değerlendirilmiştir. Ortalama atıf doğruluğu 0,30, atıf tamlığı 0,14, desteksiz iddia oranı 0,86 ve tercih edilen kaynağa isabet 0,68 bulunmuştur. Hata tipolojisi: 22 yanıtta hiç kaynak kimliği yoktur, 10 yanıtta kısmi atıf, 0 yanıtta tüm cümleler atıflıdır; 30 yanıt 160 token sınırı nedeniyle cümle ortasında kesilmiştir; 3 yanıtta İngilizce sözcük kalıntısı vardır (sezgisel sayım); tanı/antibiyotik talebi içeren tek maddede (F-RAG033) sistem beklendiği gibi yanıtı reddedip veteriner hekime yönlendirmiştir. Burada 'desteksiz iddia' ölçütü, cümlenin kaynak kimliği taşımamasını esas alan otomatik bir vekildir; cümle içeriğinin kaynakla gerçekten çeliştiğini göstermez. Uzman puanlı faithfulness ve gold cevap karşılaştırması yapılmadığından RQ5 yalnızca vekil ölçütlerle yanıtlanmıştır.",
+  "sec_latency": "Geliştirme aşamasındaki ortalama yanıt süreleri tablosunda verilen değerler (RAG 55,49 s; HYBRID 39,18 s; SQL 6,91 s) pilot koşullardan gelen ön ölçümlerdir ve nihai yapılandırmayı temsil etmez. Dondurulmuş final yapılandırmada RAG kanalı için uçtan uca yanıt süresi 33 soruda ölçülmüştür: LLM çağrısı içeren 32 soruda ortalama 46,00 s, medyan 41,49 s, standart sapma 10,97 s, en düşük 33,37 s, en yüksek 76,92 s, p90 58,20 s, p95 61,03 s (tanı reddi maddesi LLM çağrılmadan 0,002 s'de yanıtlanmıştır). Ölçüm Windows 11 üzerinde, Intel 11. nesil mobil işlemci ile, GPU kullanılmadan (num_gpu = 0) ve Ollama modeli bellekte sıcakken (keep_alive = 5 dk) tek tekrarla alınmıştır; her soru için retrieval ve LLM süreleri ayrı kaydedilmemiştir. SQL ve HYBRID kanalları için final gecikme dağılımı ölçülmemiştir. Yaklaşık 40 saniyelik medyan, gerçek zamanlı sohbet beklentisinin üzerindedir; darboğaz CPU üzerinde 7B parametreli üretim modelidir ve GPU çıkarımı, daha kısa bağlam veya daha küçük nicemlenmiş model ile azaltılması beklenir.",
+  "sec_test_set": "Held-out kümesi (n = 89) pilot kümeden (100 soru) bağımsız olarak, pilot deneyler tamamlandıktan sonra tez yazarı tarafından yazılmış, sınıf etiketleri soru yazımı sırasında atanmış ve küme sistem çalıştırılmadan önce dosya olarak dondurulmuştur (evaluation_sets/final_heldout_set.json). İki küme arasında birebir aynı soru yoktur (0 tekrar). Bununla birlikte küme tam anlamıyla bağımsız değil, 'şablon-yakın' bir kümedir: held-out sorularının pilot kümedeki en yakın soruya göre sözcük kümesi Jaccard benzerliği ortalama 0,28, medyan 0,23, en yüksek 0,89 olup 17 soru 0,50 ve üzeri benzerlik taşımaktadır (SQL 12, RAG 4, HYBRID 1; Ek Tablo 2 notu). Yüksek benzerlik çoğunlukla SQL kanalında aynı soru kalıbının farklı inek adı veya tarihle yeniden örneklenmesinden kaynaklanır. Bu nedenle 89/89 sonucu, kural setinin bu soru diline iyi örtüştüğünün göstergesidir; saha genellemesi veya pilot %97'ye göre nedensel bir iyileşme olarak okunmamalıdır. Sistem yapılandırması (kurallar, prompt, model, ağırlıklar, Top-K) held-out sonuçları görüldükten sonra değiştirilmemiştir. Yazım hatalı, çift anlamlı ve farklı ifadelendirilmiş sorularla ayrı bir stres testi yapılmamıştır.",
+  "sec_5_claim_fix": "Yalnızca LLM (erişimsiz) yanıt üretimi ile RAG yanıtları arasında nicel bir karşılaştırma bu çalışmada yapılmamıştır. Buna karşılık bilgi erişimi düzeyinde BM25, BGE-M3 + FAISS ve hibrit RRF için kesin sayılar held-out kümede elde edilmiş ve Tablo 4.5'te raporlanmıştır.",
+  "discussion": [
+   [
+    "5. TARTIŞMA",
+    "h1"
+   ],
+   [
+    "5.1. Araştırma Sorularının Yanıtlanma Düzeyi",
+    "h2"
+   ],
+   [
+    "Bu çalışmada beş araştırma sorusu tanımlanmıştır; ancak hepsi aynı kanıt düzeyinde yanıtlanmamıştır. Tablo 5.1, her soru için ölçülen ve ölçülmeyen bileşenleri ayırmaktadır. RQ1 ve RQ2 held-out kümede nicel olarak yanıtlanmış, RQ3 pilot sette keşifsel düzeyde incelenmiş, RQ4 yalnızca referans sorgu düzeyinde ele alınmış, RQ5 ise otomatik vekil ölçütlerle sınırlı kalmıştır. Dolayısıyla sistemin 'doğru ve güvenilir bilimsel karar destek asistanı' olduğu iddiası bu tezin bulgularıyla desteklenmemekte; desteklenen iddia, sorguların doğru kanala yönlendirildiği ve ilgili belgelerin yüksek isabetle getirildiğidir.",
+    "p"
+   ],
+   [
+    "TABLE:rq",
+    "table"
+   ],
+   [
+    "5.2. Hibrit Erişim Neden Anlamsal Erişimi Geçmedi?",
+    "h2"
+   ],
+   [
+    "Literatürde hibrit erişimin sözcüksel ve anlamsal sinyalleri birleştirerek tek başına yöntemlerden daha sağlam sonuç verdiği sıkça raporlanır. Bu çalışmada ise BGE-M3 tek başına P@5 = 0,90 üretirken hibrit RRF 0,89 ile çok az gerisinde kalmıştır. Üç açıklama öne çıkmaktadır. Birincisi, sorular Türkçe yazılmışken derlemenin büyük kısmı İngilizcedir; BM25 diller arası sözcük eşleşmesi yapamadığı için düşük kalmakta (P@5 = 0,35) ve RRF içinde zayıf sıralamalar katkı yerine gürültü taşımaktadır. İkincisi, çok dilli BGE-M3 modeli bu dil uyumsuzluğunu zaten çözdüğünden hibritin ekleyeceği tamamlayıcı sinyal sınırlıdır. Üçüncüsü, gold etiket belge düzeyinde olduğundan ve çoğu soruya iki belge atandığından tavan etkisi vardır; FAISS birçok soruda zaten mükemmel skora ulaşmıştır. Eşleştirilmiş farkların bootstrap %95 güven aralıkları sıfırı kapsamaktadır; dolayısıyla bulgu 'FAISS hibritten üstündür' değil, 'bu derleme ve soru setinde hibrit birleştirme ölçülebilir bir kazanç sağlamamıştır' biçiminde ifade edilmelidir. Hibritin pratik değeri, Türkçe terim içeren belgelerde ve nadir özel adlarda sözcüksel kaçırmaya karşı bir güvenlik ağı olmasıdır; bu etkinin görülmesi için Türkçe ağırlıklı ya da terim-yoğun bir derleme gerekir.",
+    "p"
+   ],
+   [
+    "5.3. Yönlendirmede %100 Sonucunun Anlamı ve Sınırı",
+    "h2"
+   ],
+   [
+    "Held-out kümede 89/89 doğru yönlendirme, birinci aşama kural tabanlı sınıflandırıcının tüm soruları LLM'e başvurmadan çözdüğünü göstermektedir. Bu, tekrarlanabilirlik açısından olumludur; fakat kural seti prototipteki beş ineğin özel adlarını (Serap, Beyza, Boncuk, Papatya, Lale) ve küpe numaralarını içermektedir. Farklı bir işletmede hayvan adları değişeceğinden kuralların doğrudan taşınması mümkün değildir; adların veritabanından dinamik olarak yüklenmesi gerekir. Ayrıca held-out sorular pilot sorularla aynı tema ve sözcük dağarcığını paylaştığından (Bölüm 4.2), sonuç zor örnekler, yazım hataları ve çift anlamlı istekler içeren bir stres testine genellenemez. %95 Wilson aralığının alt sınırı 0,96 olsa da bu aralık yalnızca örneklem hatasını yansıtır; soru dağılımı kaymasını yansıtmaz. Pilot %97 ile final %100 farklı soru kümelerinden geldiği için aralarındaki fark nedensel bir iyileşme olarak yorumlanmamalıdır.",
+    "p"
+   ],
+   [
+    "5.4. Doğru Belgeyi Getirmek ile Doğru Cümleyi Üretmek Arasındaki Boşluk",
+    "h2"
+   ],
+   [
+    "Retrieval ölçütleri yüksekken üretim düzeyinde atıf doğruluğu 0,30 ve desteksiz iddia oranı 0,86 bulunmuştur. Bu açı, RAG literatüründe 'retrieval başarısı yanıt doğruluğunu garanti etmez' uyarısının bu sistemde de geçerli olduğunu gösterir. Hata tipolojisi iki baskın örüntüye işaret etmektedir: modelin kaynak kimliklerini hiç yazmaması ve 160 token sınırı nedeniyle yanıtların kesilmesi. İlki, prompt'taki atıf talimatına rağmen 7B parametreli modelin biçim talimatına uyum zayıflığıyla; ikincisi ise gecikmeyi sınırlamak için seçilen kısa üretim penceresiyle ilgilidir. Kullanılan 'desteksiz iddia' ölçütü atıfsız cümle oranını saymaktadır; cümlenin içerik olarak kaynağa aykırı olup olmadığını ölçmez. Bu nedenle gerçek halüsinasyon oranı daha düşük ya da daha yüksek olabilir; iki bağımsız değerlendiricili 0–2 puanlama ve gold cevap seti olmadan bu belirsizlik giderilemez. Ölçülen bu zayıflık, sistemin kaynak göstermekle yükümlü bir karar destek aracı olarak konumlanmasını ve veteriner tanısının yerine geçmemesini zorunlu kılar.",
+    "p"
+   ],
+   [
+    "5.5. Yanıt Süresi ve Kullanılabilirlik",
+    "h2"
+   ],
+   [
+    "Final RAG yapılandırmasında medyan 41,49 s ve p95 61,03 s gecikme, sohbet arayüzü beklentilerinin çok üzerindedir. Ölçüm CPU üzerinde ve GPU'suz yapılmıştır; darboğaz üretim modelidir, çünkü SQL kanalı aynı altyapıda belirgin biçimde kısadır. Saha kullanımında GPU çıkarımı, daha küçük nicemlenmiş model, bağlam penceresinin ilk 3 parçayla sınırlanması veya yanıtın akışlı (streaming) gösterimi gecikmeyi azaltabilir. SQL ve HYBRID kanallarının final gecikme dağılımı ölçülmediğinden bu kanallar için yalnızca pilot ortalamaları mevcuttur.",
+    "p"
+   ],
+   [
+    "5.6. Sentetik Veri, Genellenebilirlik ve Sorumlu Kullanım Sınırı",
+    "h2"
+   ],
+   [
+    "Çiftlik kayıtları ticari bir işletmeden alınmamış, beş inek ve kısa bir sağım dönemi için üretilmiş sentetik verilerdir. Bu, SQL ve HYBRID kanallarının veri çeşitliliği, eksik kayıt, tutarsız girdi ve ölçek açısından sınanmadığı anlamına gelir; sonuçlar gerçek sürülere genellenemez. Çok çiftlikli, gerçek kayıtlarla dış doğrulama bu tezin kapsamı dışında kalmış ve gelecek çalışma olarak önerilmiştir. Güvenlik tarafında tanı/antibiyotik taleplerinin reddi ve yalnızca okuma SQL muhafızı uygulanmış; ancak prompt-injection, yetkisiz SQL yazma girişimi ve işletmeler arası veri izolasyonu sistematik olarak test edilmemiştir. Bu özellikler 'tasarlandı' düzeyinde kalmakta, 'kanıtlandı' olarak sunulmamaktadır.",
+    "p"
+   ],
+   [
+    "5.7. Literatürdeki Boşluk ve Bu Çalışmanın Konumu",
+    "h2"
+   ],
+   [
+    "Süt sığırcılığı alanındaki yapay zekâ çalışmaları ağırlıklı olarak sensör verisinden hastalık öngörüsü veya verim tahmini üzerine yoğunlaşmakta; RAG ve Text-to-SQL çalışmaları ise genel alan ya da tarım dışı kurumsal veri üzerinde raporlanmaktadır. Yapılandırılmış sürü kayıtları ile hakemli/kurumsal bilimsel belgeleri aynı sohbet asistanında, kaynak göstererek ve Türkçe birleştiren uçtan uca bir prototip ile bunun held-out değerlendirmesi bu çalışmanın katkısıdır. Bulgular, bu entegrasyonun mühendislik olarak mümkün olduğunu; ancak bilimsel güvenilirlik iddiasının üretim düzeyi ölçümleri tamamlanmadan ileri sürülemeyeceğini göstermektedir.",
+    "p"
+   ]
+  ],
+  "limitations_additions": "Ek sınırlılıklar: (1) Gold relevance etiketleri tek değerlendirici tarafından belge düzeyinde atanmıştır; değerlendiriciler arası uyum raporlanamamıştır. (2) Üretim kalitesi ölçütleri otomatik vekillerdir; uzman puanlı faithfulness, gold cevap karşılaştırması ve Cohen's κ yapılmamıştır. (3) Modelin ürettiği SQL'in execution accuracy'si ve HYBRID uçtan uca doğruluk ölçülmemiştir; Ek Tablo 1 yalnızca referans sorguların çalıştırılabilirliğini gösterir. (4) Final gecikme dağılımı yalnızca RAG kanalı için, tek tekrarla ve GPU'suz ölçülmüştür. (5) Ollama model digest'leri kaydedilmemiştir. (6) Parçalama ve Top-K değerleri için ablasyon yapılmamış; 900/150 ve K = 5 değerleri 2048 token bağlam penceresine beş parçanın sığması ve CPU gecikme kısıtıyla gerekçelendirilmiştir. (7) Prompt-injection ve işletmeler arası veri izolasyonu test edilmemiştir."
+ }
+}
