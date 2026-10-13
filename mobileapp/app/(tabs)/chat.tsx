@@ -95,7 +95,7 @@ const markdownRules: RenderRules = {
 
 export default function Chat() {
   const router = useRouter();
-  const { token } = useAuth();
+  const { token, signOut } = useAuth();
   const params = useLocalSearchParams();
   const queryParam = params.query;
 
@@ -172,38 +172,105 @@ export default function Chat() {
     });
   };
 
+  const cleanSpeakText = (raw: string) => {
+    return raw
+      .replace(/\*\*/g, '')
+      .replace(/\*/g, '')
+      .replace(/^\s*[-•]\s*/gm, '')
+      .replace(/\n{2,}/g, '. ')
+      .replace(/\n/g, ' ')
+      .replace(/\s*⏱️[^]*$/u, '')
+      .replace(/\s*Kaynaklar:[^]*$/iu, '')
+      .trim()
+      .slice(0, 800);
+  };
+
   const speakText = async (messageId: string, text: string) => {
-    if (!text || !text.trim()) return;
+    const speakBody = cleanSpeakText(text);
+    if (!speakBody) return;
+
     if (speakingId === messageId) {
-      await soundRef.current?.stopAsync();
-      await soundRef.current?.unloadAsync();
+      await soundRef.current?.stopAsync().catch(() => undefined);
+      await soundRef.current?.unloadAsync().catch(() => undefined);
       soundRef.current = null;
+      if (Platform.OS === 'web' && typeof window !== 'undefined' && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
       setSpeakingId(null);
       return;
     }
+
     if (soundRef.current) {
-      await soundRef.current.stopAsync();
-      await soundRef.current.unloadAsync();
+      await soundRef.current.stopAsync().catch(() => undefined);
+      await soundRef.current.unloadAsync().catch(() => undefined);
       soundRef.current = null;
     }
+
     try {
+      if (!token) {
+        throw new Error('AUTH_REQUIRED');
+      }
       setSpeakingId(messageId);
-      await Audio.setAudioModeAsync({ allowsRecordingIOS: false, playsInSilentModeIOS: true });
-      const ttsUrl = `${API_URL}/tts?text=${encodeURIComponent(text)}`;
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: false,
+        playsInSilentModeIOS: true,
+        staysActiveInBackground: false,
+        playThroughEarpieceAndroid: false,
+      });
+
+      // Web'de Audio.Sound headers göndermez → 401. Blob ile auth'lu çek.
+      const ttsUrl = `${API_URL}/tts?text=${encodeURIComponent(speakBody)}`;
+      const ttsRes = await fetch(ttsUrl, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (ttsRes.status === 401) {
+        throw new Error('AUTH_EXPIRED');
+      }
+      if (!ttsRes.ok) {
+        throw new Error(`TTS_HTTP_${ttsRes.status}`);
+      }
+
+      const blob = await ttsRes.blob();
+      const objectUrl = URL.createObjectURL(blob);
       const { sound } = await Audio.Sound.createAsync(
-        { uri: ttsUrl, headers: { 'Authorization': `Bearer ${token}` } },
-        { shouldPlay: true }
+        { uri: objectUrl },
+        { shouldPlay: true, volume: 1.0 }
       );
       soundRef.current = sound;
       sound.setOnPlaybackStatusUpdate((status) => {
         if (status.isLoaded && status.didJustFinish) {
           setSpeakingId(null);
-          sound.unloadAsync();
+          sound.unloadAsync().catch(() => undefined);
           soundRef.current = null;
+          URL.revokeObjectURL(objectUrl);
         }
       });
     } catch (err) {
+      console.error('TTS hata:', err);
+      // Piper/expo-av başarısızsa web SpeechSynthesis yedek
+      if (
+        Platform.OS === 'web' &&
+        typeof window !== 'undefined' &&
+        window.speechSynthesis
+      ) {
+        try {
+          window.speechSynthesis.cancel();
+          const utter = new SpeechSynthesisUtterance(speakBody);
+          utter.lang = 'tr-TR';
+          utter.onend = () => setSpeakingId(null);
+          utter.onerror = () => setSpeakingId(null);
+          setSpeakingId(messageId);
+          window.speechSynthesis.speak(utter);
+          return;
+        } catch {
+          /* fall through */
+        }
+      }
       setSpeakingId(null);
+      const msg = String((err as Error)?.message || err);
+      if (msg === 'AUTH_REQUIRED' || msg === 'AUTH_EXPIRED') {
+        void signOut().then(() => router.replace('/login'));
+      }
     }
   };
 
@@ -263,6 +330,10 @@ const sendMessage = async (textOverride?: string | any) => {
   const startTime = Date.now();
 
   try {
+    if (!token) {
+      throw new Error('AUTH_REQUIRED');
+    }
+
     const response = await fetch(`${API_URL}/query/thesis/`, {
       method: 'POST',
       headers: {
@@ -273,6 +344,10 @@ const sendMessage = async (textOverride?: string | any) => {
         question: finalQuery,
       }),
     });
+
+    if (response.status === 401) {
+      throw new Error('AUTH_EXPIRED');
+    }
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -323,17 +398,26 @@ const sendMessage = async (textOverride?: string | any) => {
     );
   } catch (error) {
     console.error('Tez RAG sorgu hatası:', error);
+    const msg = String((error as Error)?.message || error);
+    let userText = '❌ Yanıt alınırken bir bağlantı hatası oluştu.';
+    if (msg === 'AUTH_REQUIRED' || msg === 'AUTH_EXPIRED' || msg.includes('(401)')) {
+      userText =
+        '❌ Oturum geçersiz veya süresi dolmuş. Lütfen yeniden giriş yapın.';
+      void signOut().then(() => router.replace('/login'));
+    } else if (msg.startsWith('Sunucu hatası')) {
+      userText = `❌ ${msg}`;
+    }
 
     setMessages((prev) =>
-      prev.map((msg) =>
-        msg.id === botMsgId
+      prev.map((msgItem) =>
+        msgItem.id === botMsgId
           ? {
-              ...msg,
-              text: '❌ Yanıt alınırken bir bağlantı hatası oluştu.',
+              ...msgItem,
+              text: userText,
               isStreaming: false,
               step: undefined,
             }
-          : msg
+          : msgItem
       )
     );
   } finally {
@@ -345,11 +429,45 @@ const sendMessage = async (textOverride?: string | any) => {
   const startRecording = async () => {
     try {
       Keyboard.dismiss();
-      await Audio.setAudioModeAsync({ allowsRecordingIOS: true, playsInSilentModeIOS: true });
-      const { recording: newRecording } = await Audio.Recording.createAsync(Audio.RecordingOptionsPresets.HIGH_QUALITY);
+      if (!token) {
+        void signOut().then(() => router.replace('/login'));
+        return;
+      }
+      const perm = await Audio.requestPermissionsAsync();
+      if (perm.status !== 'granted') {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: `mic-${Date.now()}`,
+            text: '❌ Mikrofon izni verilmedi. Tarayıcı/cihaz ayarlarından izin verin.',
+            sender: 'bot',
+            timestamp: new Date(),
+          },
+        ]);
+        return;
+      }
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: true,
+        playsInSilentModeIOS: true,
+      });
+      const { recording: newRecording } = await Audio.Recording.createAsync(
+        Audio.RecordingOptionsPresets.HIGH_QUALITY
+      );
       setRecording(newRecording);
       setIsRecording(true);
-    } catch (err) { }
+    } catch (err) {
+      console.error('Kayıt başlatma hatası:', err);
+      setIsRecording(false);
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: `mic-${Date.now()}`,
+          text: '❌ Ses kaydı başlatılamadı. Mikrofon iznini kontrol edin.',
+          sender: 'bot',
+          timestamp: new Date(),
+        },
+      ]);
+    }
   };
 
   const stopRecording = async () => {
@@ -359,98 +477,94 @@ const sendMessage = async (textOverride?: string | any) => {
       await recording.stopAndUnloadAsync();
       await Audio.setAudioModeAsync({ allowsRecordingIOS: false });
       const uri = recording.getURI();
-      if (uri) await sendVoiceMessage(uri);
       setRecording(null);
-    } catch (err) { }
+      if (uri) await sendVoiceMessage(uri);
+    } catch (err) {
+      console.error('Kayıt durdurma hatası:', err);
+      setRecording(null);
+      setIsRecording(false);
+    }
   };
 
   const sendVoiceMessage = async (audioUri: string) => {
     setIsLoading(true);
     setCurrentStep('Ses dosyası yükleniyor...');
-    const startTime = Date.now();
     try {
+      if (!token) {
+        throw new Error('AUTH_REQUIRED');
+      }
+
       const formData = new FormData();
-      formData.append('audio', { uri: audioUri, type: 'audio/m4a', name: 'recording.m4a' } as any);
-      const transcribeResponse = await fetch(`${API_URL}/transcribe`, { 
-        method: 'POST', 
-        body: formData, 
-        headers: { 
-          'Content-Type': 'multipart/form-data',
-          'Authorization': `Bearer ${token}`
-        } 
+      if (Platform.OS === 'web') {
+        // Web: { uri } FormData çalışmaz; blob gerekir.
+        const blobRes = await fetch(audioUri);
+        const blob = await blobRes.blob();
+        const ext = blob.type.includes('webm')
+          ? 'webm'
+          : blob.type.includes('ogg')
+            ? 'ogg'
+            : 'm4a';
+        formData.append('audio', blob, `recording.${ext}`);
+      } else {
+        formData.append('audio', {
+          uri: audioUri,
+          type: 'audio/m4a',
+          name: 'recording.m4a',
+        } as any);
+      }
+
+      // Content-Type elle set edilmez (boundary bozulur).
+      const transcribeResponse = await fetch(`${API_URL}/transcribe`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
+
+      if (transcribeResponse.status === 401) {
+        throw new Error('AUTH_EXPIRED');
+      }
+      if (!transcribeResponse.ok) {
+        const detail = await transcribeResponse.text();
+        throw new Error(`Transkripsiyon hatası (${transcribeResponse.status}): ${detail}`);
+      }
+
       const transcribeData = await transcribeResponse.json();
-      const userText = transcribeData.transcription || transcribeData.text;
-      if (!userText) throw new Error('Ses anlaşılamadı');
+      const userText = (
+        transcribeData.transcription ||
+        transcribeData.text ||
+        ''
+      ).trim();
+      if (!userText) {
+        throw new Error('Ses anlaşılamadı');
+      }
 
-      const userMsgId = `user-${Date.now()}`;
-      const botMsgId = `bot-${Date.now() + 1}`;
-
+      setIsLoading(false);
+      setCurrentStep('');
+      // Aynı tez RAG yolunu kullan (tool stream yerine)
+      await sendMessage(userText);
+    } catch (error) {
+      console.error('Sesli soru hatası:', error);
+      const msg = String((error as Error)?.message || error);
+      let text = '❌ Ses anlaşılamadı veya bağlantı hatası.';
+      if (msg === 'AUTH_REQUIRED' || msg === 'AUTH_EXPIRED') {
+        text = '❌ Oturum geçersiz. Yeniden giriş yapın.';
+        void signOut().then(() => router.replace('/login'));
+      } else if (msg.includes('Transkripsiyon')) {
+        text = `❌ ${msg}`;
+      }
       setMessages((prev) => [
         ...prev,
-        { id: userMsgId, text: userText, sender: 'user', timestamp: new Date() },
-        { id: botMsgId, text: '', sender: 'bot', timestamp: new Date(), isStreaming: true, step: 'Sorunuz analiz ediliyor...' }
+        {
+          id: `error-${Date.now()}`,
+          text,
+          sender: 'bot',
+          timestamp: new Date(),
+        },
       ]);
-
-      setCurrentStep('Sorunuz analiz ediliyor...');
-      const es = new EventSource(`${API_URL}/query/tool/stream`, { 
-        method: 'POST', 
-        headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }, 
-        body: JSON.stringify({ question: userText }) 
-      });
-      activeEventSourceRef.current = es;
-
-      es.addEventListener('message', (event) => {
-        try {
-          const data = JSON.parse(event.data ?? '{}');
-          if (data.done) {
-            const duration = ((Date.now() - startTime) / 1000).toFixed(1);
-            setMessages((prev) =>
-              prev.map((msg) =>
-                msg.id === botMsgId
-                  ? {
-                    ...msg,
-                    text: `${data.answer}\n\n*⏱️ Yanıt süresi: ${duration} saniye*`,
-                    spokenText: data.answer,
-                    isStreaming: false,
-                    step: undefined
-                  }
-                  : msg
-              )
-            );
-            setIsLoading(false);
-            es.close();
-            activeEventSourceRef.current = null;
-          } else if (data.step) {
-            setCurrentStep(data.step);
-            setMessages((prev) =>
-              prev.map((msg) =>
-                msg.id === botMsgId
-                  ? { ...msg, step: data.step }
-                  : msg
-              )
-            );
-          }
-        } catch (e) { }
-      });
-      es.addEventListener('error', () => {
-        setMessages((prev) =>
-          prev.map((msg) =>
-            msg.id === botMsgId
-              ? { ...msg, text: '❌ *Sizi anlayamadım veya bağlantı koptu.*', isStreaming: false, step: undefined }
-              : msg
-          )
-        );
-        setIsLoading(false);
-        es.close();
-        activeEventSourceRef.current = null;
-      });
-    } catch (error) {
-      setMessages((prev) => [...prev, { id: `error-${Date.now()}`, text: 'Sizi anlayamadım.', sender: 'bot', timestamp: new Date() }]);
       setIsLoading(false);
+      setCurrentStep('');
     }
   };
 

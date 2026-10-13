@@ -500,10 +500,27 @@ def process_csv_query(request: QueryRequest, current_user: dict = Depends(get_cu
 async def transcribe_audio(audio: UploadFile = File(...), current_user: dict = Depends(get_current_user)):
     temp_file_path = None
     try:
-        file_ext = os.path.splitext(audio.filename)[1].lower()
+        if not os.environ.get("WHISPER_API_KEY"):
+            raise HTTPException(
+                status_code=503,
+                detail="WHISPER_API_KEY tanımlı değil; sesli soru şu an kullanılamıyor.",
+            )
+
+        filename = (audio.filename or "recording.webm").lower()
+        file_ext = os.path.splitext(filename)[1].lower()
+        content_type = (audio.content_type or "").lower()
         if not file_ext:
-            file_ext = ".wav"
-            
+            if "webm" in content_type:
+                file_ext = ".webm"
+            elif "ogg" in content_type:
+                file_ext = ".ogg"
+            elif "wav" in content_type:
+                file_ext = ".wav"
+            elif "mpeg" in content_type or "mp3" in content_type:
+                file_ext = ".mp3"
+            else:
+                file_ext = ".m4a"
+
         with tempfile.NamedTemporaryFile(delete=False, suffix=file_ext) as temp_file:
             content = await audio.read()
             if not content:
@@ -511,15 +528,19 @@ async def transcribe_audio(audio: UploadFile = File(...), current_user: dict = D
             temp_file.write(content)
             temp_file_path = temp_file.name
 
+        # Groq/Whisper dosya adını uzantıdan anlar
+        upload_name = f"recording{file_ext}"
         with open(temp_file_path, "rb") as audio_file:
             transcription = client.audio.transcriptions.create(
-                model="whisper-large-v3", 
-                file=audio_file,
-                language="tr" 
+                model="whisper-large-v3",
+                file=(upload_name, audio_file),
+                language="tr",
             )
 
         return TranscriptionResponse(text=transcription.text.strip(), success=True)
 
+    except HTTPException:
+        raise
     except Exception as e:
         print(f"Hata Detayı: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Transkripsiyon hatası: {str(e)}")
