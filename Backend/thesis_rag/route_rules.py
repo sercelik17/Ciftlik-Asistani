@@ -48,7 +48,7 @@ FARM_TERMS = tuple(_normalize(term) for term in (
     "sagim kayit",
     "inegim",
     "ineklerim",
-    "inekleri",
+    "inekleri listele",
     "ciftligim",
     "ciftlikte",
     "kupe",
@@ -60,7 +60,9 @@ FARM_TERMS = tuple(_normalize(term) for term in (
     "dusen",
     "verim durumu",
     "veriminde",
+    "verim kaydi",
     "sut degisim",
+    "gunluk sut",
     "sut verimi en yuksek",
     "en yuksek sut",
     "en cok sut",
@@ -152,18 +154,21 @@ def deterministic_route(question: str) -> Route | None:
         name in q for name in FARM_ENTITIES
     )
     has_knowledge = any(term in q for term in KNOWLEDGE_TERMS)
-    cow_status = has_farm and any(
-        term in q
-        for term in ("verim", "durum", "degisim", "nasil", "risk")
-    ) and not any(
-        term in q
-        for term in ("neden", "mastitis", "kaynak", "belirti", "tedavi")
+    # Çiftlik kaydı + bilimsel bağlam birlikteyse HYBRID; cow_status bunu ezmesin.
+    cow_status = (
+        has_farm
+        and not has_knowledge
+        and any(term in q for term in ("verim", "durum", "degisim", "nasil", "risk"))
+        and not any(
+            term in q
+            for term in ("neden", "mastitis", "kaynak", "belirti", "tedavi")
+        )
     )
 
-    if cow_status:
-        return "SQL"
     if has_farm and has_knowledge:
         return "HYBRID"
+    if cow_status:
+        return "SQL"
     if has_farm:
         return "SQL"
     if has_knowledge:

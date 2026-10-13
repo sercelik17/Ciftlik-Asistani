@@ -1,0 +1,18 @@
+{
+  "source": "C:\\Users\\Serenay\\Desktop\\hayvancılık güncel son.docx",
+  "dest_desktop": "C:\\Users\\Serenay\\Desktop\\hayvancilik_SAVUNMA_HAZIR.docx",
+  "dest_repo": "C:\\Users\\Serenay\\Documents\\Tez\\Sut_Sihirbazi_Bitirme_Projesi\\hayvancilik_SAVUNMA_HAZIR.docx",
+  "title_updates": 3,
+  "global_replacements": 59,
+  "sql_count_fixes": 1,
+  "appendix_patches": 2,
+  "discussion_blocks": 5,
+  "sql_gold": "24/24",
+  "sql_e2e_value_acc": 0.625,
+  "hybrid_e2e": 0.6875,
+  "gen_citation": 0.303,
+  "gen_unsupported": 0.8636,
+  "gen_acc_0_2": 1.121,
+  "routing": 1.0,
+  "security": "4/4"
+}

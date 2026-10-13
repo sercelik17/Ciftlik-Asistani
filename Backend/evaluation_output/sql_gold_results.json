@@ -1,176 +1,272 @@
 {
   "n": 24,
-  "executed_ok": 23,
-  "failed": 1,
-  "note": "Bu tablo altin SQL sonuclaridir; sistemin urettigi SQL execution accuracy henuz LLM e2e ile olculmemistir.",
+  "executed_ok": 24,
+  "failed": 0,
+  "note": "Bu tablo altin/referans SQL sonuclaridir (24/24). F-SQL019 ciftlik_adi ile duzeltilmistir. Model Text-to-SQL execution accuracy degildir.",
   "rows": [
     {
       "id": "F-SQL001",
       "question": "Çiftlikte kayıtlı inek sayısı kaçtır?",
-      "gold_sql": "SELECT COUNT(*) FROM inekler WHERE COALESCE(ciftlik_id, 1) = 1;",
-      "gold_result": "[(5,)]",
-      "ok": true
+      "executed_query": "SELECT COUNT(*) FROM inekler WHERE COALESCE(ciftlik_id, 1) = 1;",
+      "expected_value": "[(5,)]",
+      "observed_value": "[(5,)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL002",
       "question": "TR0002 küpe numaralı ineğin adı nedir?",
-      "gold_sql": "SELECT isim FROM inekler WHERE kupe_no = 'TR0002';",
-      "gold_result": "[('Beyza',)]",
-      "ok": true
+      "executed_query": "SELECT isim FROM inekler WHERE kupe_no = 'TR0002';",
+      "expected_value": "[('Beyza',)]",
+      "observed_value": "[('Beyza',)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL003",
       "question": "Beyza'nın küpe numarası nedir?",
-      "gold_sql": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%beyza%';",
-      "gold_result": "[('TR0002',)]",
-      "ok": true
+      "executed_query": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%beyza%';",
+      "expected_value": "[('TR0002',)]",
+      "observed_value": "[('TR0002',)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL004",
       "question": "Papatya hangi ırktandır?",
-      "gold_sql": "SELECT irk FROM inekler WHERE isim ILIKE '%papatya%';",
-      "gold_result": "[('Holstein',)]",
-      "ok": true
+      "executed_query": "SELECT irk FROM inekler WHERE isim ILIKE '%papatya%';",
+      "expected_value": "[('Holstein',)]",
+      "observed_value": "[('Holstein',)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL005",
       "question": "Lale'nin son sağımında kaç litre süt alınmıştır?",
-      "gold_sql": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0005' ORDER BY tarih DESC, id DESC LIMIT 1;",
-      "gold_result": "[(Decimal('11.90'),)]",
-      "ok": true
+      "executed_query": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0005' ORDER BY tarih DESC, id DESC LIMIT 1;",
+      "expected_value": "[(Decimal('11.90'),)]",
+      "observed_value": "[(Decimal('11.90'),)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL006",
       "question": "Boncuk'un 5 Eylül 2026 tarihindeki toplam sütü kaç litredir?",
-      "gold_sql": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE kupe_no = 'TR0003' AND tarih = DATE '2026-09-05';",
-      "gold_result": "[(Decimal('25.70'),)]",
-      "ok": true
+      "executed_query": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE kupe_no = 'TR0003' AND tarih = DATE '2026-09-05';",
+      "expected_value": "[(Decimal('25.70'),)]",
+      "observed_value": "[(Decimal('25.70'),)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL007",
       "question": "5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?",
-      "gold_sql": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0001' AND tarih = DATE '2026-09-05' AND sagim_zamani = 'e';",
-      "gold_result": "[(Decimal('7.80'),)]",
-      "ok": true
+      "executed_query": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0001' AND tarih = DATE '2026-09-05' AND sagim_zamani = 'e';",
+      "expected_value": "[(Decimal('7.80'),)]",
+      "observed_value": "[(Decimal('7.80'),)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL008",
       "question": "30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?",
-      "gold_sql": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = DATE '2026-08-30' AND COALESCE(ciftlik_id, 1) = 1;",
-      "gold_result": "[(Decimal('133.50'),)]",
-      "ok": true
+      "executed_query": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = DATE '2026-08-30' AND COALESCE(ciftlik_id, 1) = 1;",
+      "expected_value": "[(Decimal('133.50'),)]",
+      "observed_value": "[(Decimal('133.50'),)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL009",
       "question": "Süt verimi en yüksek dört ineği listele.",
-      "gold_sql": "SELECT i.isim, ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) DESC LIMIT 4;",
-      "gold_result": "[('Papatya', Decimal('14.86')), ('Serap', Decimal('13.84')), ('Beyza', Decimal('13.56')), ('Lale', Decimal('13.01'))]",
-      "ok": true
+      "executed_query": "SELECT i.isim, ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) DESC LIMIT 4;",
+      "expected_value": "[('Papatya', Decimal('14.86')), ('Serap', Decimal('13.84')), ('Beyza', Decimal('13.56')), ('Lale', Decimal('13.01'))]",
+      "observed_value": "[('Papatya', Decimal('14.86')), ('Serap', Decimal('13.84')), ('Beyza', Decimal('13.56')), ('Lale', Decimal('13.01'))]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL010",
       "question": "Ortalama süt verimi en düşük inek hangisidir?",
-      "gold_sql": "SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) ASC LIMIT 1;",
-      "gold_result": "[('Boncuk',)]",
-      "ok": true
+      "executed_query": "SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) ASC LIMIT 1;",
+      "expected_value": "[('Boncuk',)]",
+      "observed_value": "[('Boncuk',)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL011",
       "question": "Holstein ırkındaki ineklerin sayısı nedir?",
-      "gold_sql": "SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%holstein%';",
-      "gold_result": "[(3,)]",
-      "ok": true
+      "executed_query": "SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%holstein%';",
+      "expected_value": "[(3,)]",
+      "observed_value": "[(3,)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL012",
       "question": "Papatya'nın ortalama süt verimi nedir?",
-      "gold_sql": "SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%papatya%';",
-      "gold_result": "[(Decimal('14.86'),)]",
-      "ok": true
+      "executed_query": "SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%papatya%';",
+      "expected_value": "[(Decimal('14.86'),)]",
+      "observed_value": "[(Decimal('14.86'),)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL013",
       "question": "Lale için süt düşüş alarmı var mıdır?",
-      "gold_sql": "SELECT COUNT(*) FROM alarmlar a JOIN inekler i ON a.kupe_no = i.kupe_no WHERE i.isim ILIKE '%lale%';",
-      "gold_result": "[(0,)]",
-      "ok": true
+      "executed_query": "SELECT COUNT(*) FROM alarmlar a JOIN inekler i ON a.kupe_no = i.kupe_no WHERE i.isim ILIKE '%lale%';",
+      "expected_value": "[(0,)]",
+      "observed_value": "[(0,)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL014",
       "question": "Serap'ın küpe numarası TR0001 midir, doğrula.",
-      "gold_sql": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%serap%';",
-      "gold_result": "[('TR0001',)]",
-      "ok": true
+      "executed_query": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%serap%';",
+      "expected_value": "[('TR0001',)]",
+      "observed_value": "[('TR0001',)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL015",
       "question": "1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?",
-      "gold_sql": "SELECT COUNT(*) FROM sagim_kayitlari WHERE tarih BETWEEN DATE '2026-09-01' AND DATE '2026-09-05';",
-      "gold_result": "[(50,)]",
-      "ok": true
+      "executed_query": "SELECT COUNT(*) FROM sagim_kayitlari WHERE tarih BETWEEN DATE '2026-09-01' AND DATE '2026-09-05';",
+      "expected_value": "[(50,)]",
+      "observed_value": "[(50,)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL016",
       "question": "Bugünkü toplam süt üretimini getir.",
-      "gold_sql": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = (SELECT MAX(tarih) FROM sagim_kayitlari);",
-      "gold_result": "[(Decimal('133.40'),)]",
-      "ok": true
+      "executed_query": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = (SELECT MAX(tarih) FROM sagim_kayitlari);",
+      "expected_value": "[(Decimal('133.40'),)]",
+      "observed_value": "[(Decimal('133.40'),)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL017",
       "question": "Boncuk'un küpe numarası nedir?",
-      "gold_sql": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%boncuk%';",
-      "gold_result": "[('TR0003',)]",
-      "ok": true
+      "executed_query": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%boncuk%';",
+      "expected_value": "[('TR0003',)]",
+      "observed_value": "[('TR0003',)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL018",
       "question": "TR0004 numaralı ineğin son süt miktarı kaç litredir?",
-      "gold_sql": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0004' ORDER BY tarih DESC, id DESC LIMIT 1;",
-      "gold_result": "[(Decimal('13.50'),)]",
-      "ok": true
+      "executed_query": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0004' ORDER BY tarih DESC, id DESC LIMIT 1;",
+      "expected_value": "[(Decimal('13.50'),)]",
+      "observed_value": "[(Decimal('13.50'),)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL019",
       "question": "Çiftliğin adını söyle.",
-      "gold_sql": "SELECT ad FROM ciftlikler WHERE id = 1;",
-      "gold_result": "UndefinedColumn('column \"ad\" does not exist\\nLINE 1: SELECT ad FROM ciftlikler WHERE id = 1;\\n               ^\\nHINT:  Perhaps you meant to reference the column \"ciftlikler.id\".\\n')",
-      "ok": false
+      "executed_query": "SELECT ciftlik_adi FROM ciftlikler WHERE id = 1;",
+      "expected_value": "[('Tez Test Ciftligi',)]",
+      "observed_value": "[('Tez Test Ciftligi',)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL calistirilabilirligi; model Text-to-SQL execution accuracy degildir. Sema duzeltmesi: ciftlik_adi."
     },
     {
       "id": "F-SQL020",
       "question": "Simental ırkı inek sayısı kaçtır?",
-      "gold_sql": "SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%simental%';",
-      "gold_result": "[(2,)]",
-      "ok": true
+      "executed_query": "SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%simental%';",
+      "expected_value": "[(2,)]",
+      "observed_value": "[(2,)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL021",
       "question": "Beyza'nın ortalama süt verimini getir.",
-      "gold_sql": "SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%beyza%';",
-      "gold_result": "[(Decimal('13.56'),)]",
-      "ok": true
+      "executed_query": "SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%beyza%';",
+      "expected_value": "[(Decimal('13.56'),)]",
+      "observed_value": "[(Decimal('13.56'),)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL022",
       "question": "Serap için son alarmdaki düşüş yüzdesi nedir?",
-      "gold_sql": "SELECT dusus_yuzdesi FROM alarmlar WHERE kupe_no = 'TR0001' ORDER BY tarih DESC, id DESC LIMIT 1;",
-      "gold_result": "[(Decimal('39.06'),)]",
-      "ok": true
+      "executed_query": "SELECT dusus_yuzdesi FROM alarmlar WHERE kupe_no = 'TR0001' ORDER BY tarih DESC, id DESC LIMIT 1;",
+      "expected_value": "[(Decimal('39.06'),)]",
+      "observed_value": "[(Decimal('39.06'),)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL023",
       "question": "Okunmamış alarm sayısı kaçtır?",
-      "gold_sql": "SELECT COUNT(*) FROM alarmlar WHERE okundu = FALSE;",
-      "gold_result": "[(0,)]",
-      "ok": true
+      "executed_query": "SELECT COUNT(*) FROM alarmlar WHERE okundu = FALSE;",
+      "expected_value": "[(0,)]",
+      "observed_value": "[(0,)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL024",
       "question": "4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?",
-      "gold_sql": "SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE sk.tarih = DATE '2026-09-04' GROUP BY i.isim ORDER BY SUM(sk.sut_miktari) DESC LIMIT 1;",
-      "gold_result": "[('Papatya',)]",
-      "ok": true
+      "executed_query": "SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE sk.tarih = DATE '2026-09-04' GROUP BY i.isim ORDER BY SUM(sk.sut_miktari) DESC LIMIT 1;",
+      "expected_value": "[('Papatya',)]",
+      "observed_value": "[('Papatya',)]",
+      "run_status": "ok",
+      "comparison_result": "match",
+      "error_type": null,
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     }
   ]
 }

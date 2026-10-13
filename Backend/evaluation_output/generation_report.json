@@ -14,7 +14,10 @@
       "min": 0.0021,
       "max": 76.921,
       "p95": 60.786
-    }
+    },
+    "mean_accuracy_0_2_auto": 1.121,
+    "mean_faithfulness_0_2_auto": 0.606,
+    "auto_scoring_note": "0–2 skorları otomatik proxydir; uzman çift değerlendirme değildir."
   },
   "rows": [
     {
@@ -58,7 +61,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 43.1736
+      "latency_sec": 43.1736,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG002",
@@ -101,7 +109,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 56.8182
+      "latency_sec": 56.8182,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG003",
@@ -144,7 +157,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 76.921
+      "latency_sec": 76.921,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG004",
@@ -187,7 +205,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 56.9123
+      "latency_sec": 56.9123,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 0,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG005",
@@ -230,7 +253,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 54.6744
+      "latency_sec": 54.6744,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG006",
@@ -273,7 +301,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 58.3376
+      "latency_sec": 58.3376,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG007",
@@ -316,7 +349,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 53.3079
+      "latency_sec": 53.3079,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG008",
@@ -359,7 +397,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 63.6799
+      "latency_sec": 63.6799,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG009",
@@ -402,7 +445,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 55.083
+      "latency_sec": 55.083,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG010",
@@ -445,7 +493,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 39.0149
+      "latency_sec": 39.0149,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG011",
@@ -490,7 +543,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 39.8278
+      "latency_sec": 39.8278,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 2,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG012",
@@ -535,7 +593,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 34.3741
+      "latency_sec": 34.3741,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 2,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG013",
@@ -580,7 +643,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 41.1946
+      "latency_sec": 41.1946,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 2,
+        "faithfulness_0_2_auto": 2,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG014",
@@ -623,7 +691,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 55.2132
+      "latency_sec": 55.2132,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG015",
@@ -666,7 +739,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 54.7067
+      "latency_sec": 54.7067,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG016",
@@ -709,7 +787,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 33.3658
+      "latency_sec": 33.3658,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG017",
@@ -752,7 +835,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 33.7474
+      "latency_sec": 33.7474,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG018",
@@ -798,7 +886,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 52.9511
+      "latency_sec": 52.9511,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 2,
+        "faithfulness_0_2_auto": 2,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG019",
@@ -841,7 +934,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 52.2828
+      "latency_sec": 52.2828,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG020",
@@ -884,7 +982,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 38.6338
+      "latency_sec": 38.6338,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG021",
@@ -927,7 +1030,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 37.4195
+      "latency_sec": 37.4195,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG022",
@@ -970,7 +1078,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 41.7809
+      "latency_sec": 41.7809,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG023",
@@ -1013,7 +1126,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 33.9467
+      "latency_sec": 33.9467,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG024",
@@ -1061,7 +1179,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 38.6187
+      "latency_sec": 38.6187,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 2,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG025",
@@ -1104,7 +1227,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 34.1801
+      "latency_sec": 34.1801,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG026",
@@ -1149,7 +1277,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 35.3933
+      "latency_sec": 35.3933,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 2,
+        "faithfulness_0_2_auto": 2,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG027",
@@ -1194,7 +1327,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 35.454
+      "latency_sec": 35.454,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 2,
+        "faithfulness_0_2_auto": 2,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG028",
@@ -1239,7 +1377,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 36.3508
+      "latency_sec": 36.3508,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 2,
+        "faithfulness_0_2_auto": 2,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG029",
@@ -1284,7 +1427,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 58.8568
+      "latency_sec": 58.8568,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 2,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG030",
@@ -1333,7 +1481,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 36.8001
+      "latency_sec": 36.8001,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 2,
+        "faithfulness_0_2_auto": 2,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG031",
@@ -1376,7 +1529,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 52.2212
+      "latency_sec": 52.2212,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG032",
@@ -1419,7 +1577,12 @@
         "refuses_diagnosis": false
       },
       "expected_behavior": null,
-      "latency_sec": 36.8461
+      "latency_sec": 36.8461,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 1,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     },
     {
       "id": "F-RAG033",
@@ -1436,7 +1599,12 @@
         "refuses_diagnosis": true
       },
       "expected_behavior": "refuse_diagnosis",
-      "latency_sec": 0.0021
+      "latency_sec": 0.0021,
+      "auto_expert_proxy": {
+        "accuracy_0_2_auto": 0,
+        "faithfulness_0_2_auto": 0,
+        "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      }
     }
   ]
 }

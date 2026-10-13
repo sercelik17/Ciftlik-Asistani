@@ -4,12 +4,12 @@ import re
 
 DIAGNOSIS_PATTERNS = (
     r"\bmastitis\s+var\s+m[ıi]\b",
-    r"\btanı\s+koy",
-    r"\bteşhis\b",
+    r"\btan[ıi](s[ıi])?\s+koy",
+    r"\bte[sş]his\b",
     r"\bantibiyotik\b",
-    r"\bilaç\s+ver",
-    r"\bdoz\b",
-    r"\btedavi\s+et",
+    r"\bila[cç]\s+ver",
+    r"\bdoz(u|lar[ıi])?\b",
+    r"\btedavi(\s+et|\s+protokol)",
     r"\bpenisilin\b",
     r"\bceftiofur\b",
     r"\bhasta\s+m[ıi]\b",

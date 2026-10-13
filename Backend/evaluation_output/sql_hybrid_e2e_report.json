@@ -1,0 +1,1107 @@
+{
+  "captured_at_utc": "2026-10-13T16:34:37.536727+00:00",
+  "configuration_hash": "9bbc5fe3cb3e",
+  "runtime": "SQL: LocalThesisService şablon yolu (önceki koşu); HYBRID: TorchFreeRetriever + varlık protokolü (DB kapalı)",
+  "sql": {
+    "n": 24,
+    "route_accuracy": 1.0,
+    "numerical_accuracy": 0.6316,
+    "value_or_entity_accuracy": 0.625,
+    "note": "SQL E2E: şablon/güvenli SQL yolunun doğal dil yanıtı ile altın sonuç (sayı veya varlık adı) uyumu. LLM Text-to-SQL execution accuracy değildir; referans SQL çalıştırılabilirliği ayrı tablodadır."
+  },
+  "hybrid": {
+    "n": 16,
+    "route_accuracy": 1.0,
+    "end_to_end_accuracy": 0.6875,
+    "preferred_source_hit_rate": 0.6875,
+    "note": "HYBRID E2E protokolü: (1) yönlendirme=HYBRID, (2) gerekli çiftlik varlık terimi yanıtta, (3) tercih edilen kaynak retrieval'da, (4) tanı/antibiyotik sızıntısı yok. Tam LLM sentez kalitesi ayrıca ölçülmemiştir; bu birleşik kontrol bayrağıdır."
+  },
+  "latency": {
+    "sql": {
+      "n": 24,
+      "mean": 11.0153,
+      "median": 0.1146,
+      "std": 26.0539,
+      "min": 0.0382,
+      "max": 96.96,
+      "p95": 51.2329
+    },
+    "hybrid": {
+      "n": 16,
+      "mean": 0.0662,
+      "median": 0.055,
+      "std": 0.0179,
+      "min": 0.0424,
+      "max": 0.1117,
+      "p95": 0.089
+    },
+    "overall": {
+      "n": 40,
+      "mean": 6.6357,
+      "median": 0.0849,
+      "std": 20.8819,
+      "min": 0.0382,
+      "max": 96.96,
+      "p95": 51.2329
+    },
+    "note": "SQL gecikmeleri önceki canlı koşudan; HYBRID gecikmeleri yalnızca retrieval+protokol (LLM sentezi hariç)."
+  },
+  "rows": [
+    {
+      "id": "F-SQL001",
+      "question": "Çiftlikte kayıtlı inek sayısı kaçtır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Çiftlikte kayıtlı inek sayısı 5 adettir.",
+      "latency_sec": 0.0505,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT COUNT(*) FROM inekler WHERE COALESCE(ciftlik_id, 1) = 1;",
+      "expected_value": "[(5,)]",
+      "observed_answer": "Çiftlikte kayıtlı inek sayısı 5 adettir.",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL002",
+      "question": "TR0002 küpe numaralı ineğin adı nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Beyza (TR0002, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 12,30 L\n- 05.09.2026 sabah: 15,20 L\n- 04.09.2026 akşam: 12,50 L\n- 04.09.2026 sabah: 15,00 L\n- 03.09.2026 akşam: 12,00 L\n- 03.09.2026 sabah: 14,50 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "latency_sec": 0.1152,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT isim FROM inekler WHERE kupe_no = 'TR0002';",
+      "expected_value": "[('Beyza',)]",
+      "observed_answer": "Beyza (TR0002, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 12,30 L\n- 05.09.2026 sabah: 15,20 L\n- 04.09.2026 akşam: 12,50 L\n- 04.09.2026 sabah: 15,00 L\n- 03.09.2026 akşam: 12,00 L\n- 03.09.2026 sabah: 14,50 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "gold_sql_ok": true,
+      "numerical_correct": null,
+      "execution_accuracy_proxy": null,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL003",
+      "question": "Beyza'nın küpe numarası nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Beyza (TR0002, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 12,30 L\n- 05.09.2026 sabah: 15,20 L\n- 04.09.2026 akşam: 12,50 L\n- 04.09.2026 sabah: 15,00 L\n- 03.09.2026 akşam: 12,00 L\n- 03.09.2026 sabah: 14,50 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "latency_sec": 0.1226,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%beyza%';",
+      "expected_value": "[('TR0002',)]",
+      "observed_answer": "Beyza (TR0002, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 12,30 L\n- 05.09.2026 sabah: 15,20 L\n- 04.09.2026 akşam: 12,50 L\n- 04.09.2026 sabah: 15,00 L\n- 03.09.2026 akşam: 12,00 L\n- 03.09.2026 sabah: 14,50 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL004",
+      "question": "Papatya hangi ırktandır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Papatya (TR0004, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 13,50 L\n- 05.09.2026 sabah: 16,60 L\n- 04.09.2026 akşam: 13,70 L\n- 04.09.2026 sabah: 16,40 L\n- 03.09.2026 akşam: 13,20 L\n- 03.09.2026 sabah: 15,90 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "latency_sec": 0.1781,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT irk FROM inekler WHERE isim ILIKE '%papatya%';",
+      "expected_value": "[('Holstein',)]",
+      "observed_answer": "Papatya (TR0004, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 13,50 L\n- 05.09.2026 sabah: 16,60 L\n- 04.09.2026 akşam: 13,70 L\n- 04.09.2026 sabah: 16,40 L\n- 03.09.2026 akşam: 13,20 L\n- 03.09.2026 sabah: 15,90 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "gold_sql_ok": true,
+      "numerical_correct": null,
+      "execution_accuracy_proxy": null,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL005",
+      "question": "Lale'nin son sağımında kaç litre süt alınmıştır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Lale (TR0005, Simental) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 11,90 L\n- 05.09.2026 sabah: 14,50 L\n- 04.09.2026 akşam: 12,10 L\n- 04.09.2026 sabah: 14,30 L\n- 03.09.2026 akşam: 11,60 L\n- 03.09.2026 sabah: 13,80 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "latency_sec": 0.1146,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0005' ORDER BY tarih DESC, id DESC LIMIT 1;",
+      "expected_value": "[(Decimal('11.90'),)]",
+      "observed_answer": "Lale (TR0005, Simental) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 11,90 L\n- 05.09.2026 sabah: 14,50 L\n- 04.09.2026 akşam: 12,10 L\n- 04.09.2026 sabah: 14,30 L\n- 03.09.2026 akşam: 11,60 L\n- 03.09.2026 sabah: 13,80 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL006",
+      "question": "Boncuk'un 5 Eylül 2026 tarihindeki toplam sütü kaç litredir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Boncuk (TR0003, Simental) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 11,60 L\n- 05.09.2026 sabah: 14,10 L\n- 04.09.2026 akşam: 11,80 L\n- 04.09.2026 sabah: 13,90 L\n- 03.09.2026 akşam: 11,30 L\n- 03.09.2026 sabah: 13,40 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "latency_sec": 0.1097,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE kupe_no = 'TR0003' AND tarih = DATE '2026-09-05';",
+      "expected_value": "[(Decimal('25.70'),)]",
+      "observed_answer": "Boncuk (TR0003, Simental) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 11,60 L\n- 05.09.2026 sabah: 14,10 L\n- 04.09.2026 akşam: 11,80 L\n- 04.09.2026 sabah: 13,90 L\n- 03.09.2026 akşam: 11,30 L\n- 03.09.2026 sabah: 13,40 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "gold_sql_ok": true,
+      "numerical_correct": false,
+      "execution_accuracy_proxy": false,
+      "entity_or_value_correct": false
+    },
+    {
+      "id": "F-SQL007",
+      "question": "5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Serap (TR0001, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 7,80 L\n- 05.09.2026 sabah: 15,90 L\n- 04.09.2026 akşam: 13,10 L\n- 04.09.2026 sabah: 15,70 L\n- 03.09.2026 akşam: 12,60 L\n- 03.09.2026 sabah: 15,20 L\nSon süt düşüş alarmı: 05.09.2026 akşam sağımında 12,80 L → 7,80 L (%39,06).\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "latency_sec": 0.1275,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0001' AND tarih = DATE '2026-09-05' AND sagim_zamani = 'e';",
+      "expected_value": "[(Decimal('7.80'),)]",
+      "observed_answer": "Serap (TR0001, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 7,80 L\n- 05.09.2026 sabah: 15,90 L\n- 04.09.2026 akşam: 13,10 L\n- 04.09.2026 sabah: 15,70 L\n- 03.09.2026 akşam: 12,60 L\n- 03.09.2026 sabah: 15,20 L\nSon süt düşüş alarmı: 05.09.2026 akşam sağımında 12,80 L → 7,80 L (%39,06).\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL008",
+      "question": "30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Sorgu çalıştırılamadı: syntax error at or near \"=\"\nLINE 4: AND ciftlik_id = COALESCE(ciftlik_id, 1) = 1\n                                                 ^\n",
+      "latency_sec": 38.8436,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = DATE '2026-08-30' AND COALESCE(ciftlik_id, 1) = 1;",
+      "expected_value": "[(Decimal('133.50'),)]",
+      "observed_answer": "Sorgu çalıştırılamadı: syntax error at or near \"=\"\nLINE 4: AND ciftlik_id = COALESCE(ciftlik_id, 1) = 1\n                                                 ^\n",
+      "gold_sql_ok": true,
+      "numerical_correct": false,
+      "execution_accuracy_proxy": false,
+      "entity_or_value_correct": false
+    },
+    {
+      "id": "F-SQL009",
+      "question": "Süt verimi en yüksek dört ineği listele.",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Süt verimi en yüksek 10 inek:\n- Papatya (TR0004): 14,9 L\n- Serap (TR0001): 13,8 L\n- Beyza (TR0002): 13,6 L\n- Lale (TR0005): 13,0 L\n- Boncuk (TR0003): 12,7 L",
+      "latency_sec": 0.0626,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT i.isim, ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) DESC LIMIT 4;",
+      "expected_value": "[('Papatya', Decimal('14.86')), ('Serap', Decimal('13.84')), ('Beyza', Decimal('13.56')), ('Lale', Decimal('13.01'))]",
+      "observed_answer": "Süt verimi en yüksek 10 inek:\n- Papatya (TR0004): 14,9 L\n- Serap (TR0001): 13,8 L\n- Beyza (TR0002): 13,6 L\n- Lale (TR0005): 13,0 L\n- Boncuk (TR0003): 12,7 L",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL010",
+      "question": "Ortalama süt verimi en düşük inek hangisidir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Çiftlik kayıtlarına göre sürü süt ortalaması 13,58 litredir (sağım başına ortalama; 5 inek, 70 sağım kaydı).",
+      "latency_sec": 0.0649,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) ASC LIMIT 1;",
+      "expected_value": "[('Boncuk',)]",
+      "observed_answer": "Çiftlik kayıtlarına göre sürü süt ortalaması 13,58 litredir (sağım başına ortalama; 5 inek, 70 sağım kaydı).",
+      "gold_sql_ok": true,
+      "numerical_correct": null,
+      "execution_accuracy_proxy": null,
+      "entity_or_value_correct": false
+    },
+    {
+      "id": "F-SQL011",
+      "question": "Holstein ırkındaki ineklerin sayısı nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Holstein irkındaki inek sayısı 3'tür.",
+      "latency_sec": 96.96,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%holstein%';",
+      "expected_value": "[(3,)]",
+      "observed_answer": "Holstein irkındaki inek sayısı 3'tür.",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL012",
+      "question": "Papatya'nın ortalama süt verimi nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Çiftlik kayıtlarına göre sürü süt ortalaması 13,58 litredir (sağım başına ortalama; 5 inek, 70 sağım kaydı).",
+      "latency_sec": 0.0709,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%papatya%';",
+      "expected_value": "[(Decimal('14.86'),)]",
+      "observed_answer": "Çiftlik kayıtlarına göre sürü süt ortalaması 13,58 litredir (sağım başına ortalama; 5 inek, 70 sağım kaydı).",
+      "gold_sql_ok": true,
+      "numerical_correct": false,
+      "execution_accuracy_proxy": false,
+      "entity_or_value_correct": false
+    },
+    {
+      "id": "F-SQL013",
+      "question": "Lale için süt düşüş alarmı var mıdır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Süt veriminde düşüş yaşayan riskli inekler:\n- Serap (TR0001): 05.09.2026 akşam sağımında 12,80 L → 7,80 L (%39,06 düşüş)",
+      "latency_sec": 0.0382,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT COUNT(*) FROM alarmlar a JOIN inekler i ON a.kupe_no = i.kupe_no WHERE i.isim ILIKE '%lale%';",
+      "expected_value": "[(0,)]",
+      "observed_answer": "Süt veriminde düşüş yaşayan riskli inekler:\n- Serap (TR0001): 05.09.2026 akşam sağımında 12,80 L → 7,80 L (%39,06 düşüş)",
+      "gold_sql_ok": true,
+      "numerical_correct": false,
+      "execution_accuracy_proxy": false,
+      "entity_or_value_correct": false
+    },
+    {
+      "id": "F-SQL014",
+      "question": "Serap'ın küpe numarası TR0001 midir, doğrula.",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Serap (TR0001, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 7,80 L\n- 05.09.2026 sabah: 15,90 L\n- 04.09.2026 akşam: 13,10 L\n- 04.09.2026 sabah: 15,70 L\n- 03.09.2026 akşam: 12,60 L\n- 03.09.2026 sabah: 15,20 L\nSon süt düşüş alarmı: 05.09.2026 akşam sağımında 12,80 L → 7,80 L (%39,06).\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "latency_sec": 0.1133,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%serap%';",
+      "expected_value": "[('TR0001',)]",
+      "observed_answer": "Serap (TR0001, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 7,80 L\n- 05.09.2026 sabah: 15,90 L\n- 04.09.2026 akşam: 13,10 L\n- 04.09.2026 sabah: 15,70 L\n- 03.09.2026 akşam: 12,60 L\n- 03.09.2026 sabah: 15,20 L\nSon süt düşüş alarmı: 05.09.2026 akşam sağımında 12,80 L → 7,80 L (%39,06).\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL015",
+      "question": "1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Sorgu çalıştırılamadı: syntax error at or near \"=\"\nLINE 4: AND ciftlik_id = COALESCE(ciftlik_id, 1) = 1\n                                                 ^\n",
+      "latency_sec": 51.2329,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT COUNT(*) FROM sagim_kayitlari WHERE tarih BETWEEN DATE '2026-09-01' AND DATE '2026-09-05';",
+      "expected_value": "[(50,)]",
+      "observed_answer": "Sorgu çalıştırılamadı: syntax error at or near \"=\"\nLINE 4: AND ciftlik_id = COALESCE(ciftlik_id, 1) = 1\n                                                 ^\n",
+      "gold_sql_ok": true,
+      "numerical_correct": false,
+      "execution_accuracy_proxy": false,
+      "entity_or_value_correct": false
+    },
+    {
+      "id": "F-SQL016",
+      "question": "Bugünkü toplam süt üretimini getir.",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Takvimdeki bugün değil, kayıtlardaki son sağım günü (05.09.2026) için toplam süt 133,4 litredir.\nSon 7 günün günlük toplamları:\n- 30.08.2026: 133,5 L\n- 31.08.2026: 138,5 L\n- 01.09.2026: 138,5 L\n- 02.09.2026: 135,0 L\n- 03.09.2026: 133,5 L\n- 04.09.2026: 138,5 L\n- 05.09.2026: 133,4 L",
+      "latency_sec": 0.1544,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = (SELECT MAX(tarih) FROM sagim_kayitlari);",
+      "expected_value": "[(Decimal('133.40'),)]",
+      "observed_answer": "Takvimdeki bugün değil, kayıtlardaki son sağım günü (05.09.2026) için toplam süt 133,4 litredir.\nSon 7 günün günlük toplamları:\n- 30.08.2026: 133,5 L\n- 31.08.2026: 138,5 L\n- 01.09.2026: 138,5 L\n- 02.09.2026: 135,0 L\n- 03.09.2026: 133,5 L\n- 04.09.2026: 138,5 L\n- 05.09.2026: 133,4 L",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL017",
+      "question": "Boncuk'un küpe numarası nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Boncuk (TR0003, Simental) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 11,60 L\n- 05.09.2026 sabah: 14,10 L\n- 04.09.2026 akşam: 11,80 L\n- 04.09.2026 sabah: 13,90 L\n- 03.09.2026 akşam: 11,30 L\n- 03.09.2026 sabah: 13,40 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "latency_sec": 0.1447,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT kupe_no FROM inekler WHERE isim ILIKE '%boncuk%';",
+      "expected_value": "[('TR0003',)]",
+      "observed_answer": "Boncuk (TR0003, Simental) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 11,60 L\n- 05.09.2026 sabah: 14,10 L\n- 04.09.2026 akşam: 11,80 L\n- 04.09.2026 sabah: 13,90 L\n- 03.09.2026 akşam: 11,30 L\n- 03.09.2026 sabah: 13,40 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL018",
+      "question": "TR0004 numaralı ineğin son süt miktarı kaç litredir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Papatya (TR0004, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 13,50 L\n- 05.09.2026 sabah: 16,60 L\n- 04.09.2026 akşam: 13,70 L\n- 04.09.2026 sabah: 16,40 L\n- 03.09.2026 akşam: 13,20 L\n- 03.09.2026 sabah: 15,90 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "latency_sec": 0.1054,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0004' ORDER BY tarih DESC, id DESC LIMIT 1;",
+      "expected_value": "[(Decimal('13.50'),)]",
+      "observed_answer": "Papatya (TR0004, Holstein) için çiftlik kayıtları:\nSon sağımlar:\n- 05.09.2026 akşam: 13,50 L\n- 05.09.2026 sabah: 16,60 L\n- 04.09.2026 akşam: 13,70 L\n- 04.09.2026 sabah: 16,40 L\n- 03.09.2026 akşam: 13,20 L\n- 03.09.2026 sabah: 15,90 L\nBu kayıtlar tanı değildir. Hayvan sağlığı kararı veteriner hekimindir.",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL019",
+      "question": "Çiftliğin adını söyle.",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Bu çiftlik sorusunu güvenli bir okuma sorgusuna çeviremedim. Sürü ortalaması, inek sayısı, bugünkü toplam süt veya en verimli inekler olarak sorabilirsin.",
+      "latency_sec": 75.2879,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT ciftlik_adi FROM ciftlikler WHERE id = 1;",
+      "expected_value": "[('Tez Test Ciftligi',)]",
+      "observed_answer": "Bu çiftlik sorusunu güvenli bir okuma sorgusuna çeviremedim. Sürü ortalaması, inek sayısı, bugünkü toplam süt veya en verimli inekler olarak sorabilirsin.",
+      "gold_sql_ok": true,
+      "numerical_correct": null,
+      "execution_accuracy_proxy": null,
+      "entity_or_value_correct": false
+    },
+    {
+      "id": "F-SQL020",
+      "question": "Simental ırkı inek sayısı kaçtır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Çiftlikte kayıtlı inek sayısı 5 adettir.",
+      "latency_sec": 0.0763,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%simental%';",
+      "expected_value": "[(2,)]",
+      "observed_answer": "Çiftlikte kayıtlı inek sayısı 5 adettir.",
+      "gold_sql_ok": true,
+      "numerical_correct": false,
+      "execution_accuracy_proxy": false,
+      "entity_or_value_correct": false
+    },
+    {
+      "id": "F-SQL021",
+      "question": "Beyza'nın ortalama süt verimini getir.",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Çiftlik kayıtlarına göre sürü süt ortalaması 13,58 litredir (sağım başına ortalama; 5 inek, 70 sağım kaydı).",
+      "latency_sec": 0.0646,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%beyza%';",
+      "expected_value": "[(Decimal('13.56'),)]",
+      "observed_answer": "Çiftlik kayıtlarına göre sürü süt ortalaması 13,58 litredir (sağım başına ortalama; 5 inek, 70 sağım kaydı).",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL022",
+      "question": "Serap için son alarmdaki düşüş yüzdesi nedir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Süt veriminde düşüş yaşayan riskli inekler:\n- Serap (TR0001): 05.09.2026 akşam sağımında 12,80 L → 7,80 L (%39,06 düşüş)",
+      "latency_sec": 0.0513,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT dusus_yuzdesi FROM alarmlar WHERE kupe_no = 'TR0001' ORDER BY tarih DESC, id DESC LIMIT 1;",
+      "expected_value": "[(Decimal('39.06'),)]",
+      "observed_answer": "Süt veriminde düşüş yaşayan riskli inekler:\n- Serap (TR0001): 05.09.2026 akşam sağımında 12,80 L → 7,80 L (%39,06 düşüş)",
+      "gold_sql_ok": true,
+      "numerical_correct": true,
+      "execution_accuracy_proxy": true,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-SQL023",
+      "question": "Okunmamış alarm sayısı kaçtır?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Süt veriminde düşüş yaşayan riskli inekler:\n- Serap (TR0001): 05.09.2026 akşam sağımında 12,80 L → 7,80 L (%39,06 düşüş)",
+      "latency_sec": 0.1125,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT COUNT(*) FROM alarmlar WHERE okundu = FALSE;",
+      "expected_value": "[(0,)]",
+      "observed_answer": "Süt veriminde düşüş yaşayan riskli inekler:\n- Serap (TR0001): 05.09.2026 akşam sağımında 12,80 L → 7,80 L (%39,06 düşüş)",
+      "gold_sql_ok": true,
+      "numerical_correct": false,
+      "execution_accuracy_proxy": false,
+      "entity_or_value_correct": false
+    },
+    {
+      "id": "F-SQL024",
+      "question": "4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?",
+      "expected_route": "SQL",
+      "predicted_route": "SQL",
+      "route_correct": true,
+      "answer": "Süt verimi en yüksek 10 inek:\n- Papatya (TR0004): 14,9 L\n- Serap (TR0001): 13,8 L\n- Beyza (TR0002): 13,6 L\n- Lale (TR0005): 13,0 L\n- Boncuk (TR0003): 12,7 L",
+      "latency_sec": 0.1658,
+      "error": null,
+      "configuration_hash": "9bbc5fe3cb3e",
+      "executed_query": "SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE sk.tarih = DATE '2026-09-04' GROUP BY i.isim ORDER BY SUM(sk.sut_miktari) DESC LIMIT 1;",
+      "expected_value": "[('Papatya',)]",
+      "observed_answer": "Süt verimi en yüksek 10 inek:\n- Papatya (TR0004): 14,9 L\n- Serap (TR0001): 13,8 L\n- Beyza (TR0002): 13,6 L\n- Lale (TR0005): 13,0 L\n- Boncuk (TR0003): 12,7 L",
+      "gold_sql_ok": true,
+      "numerical_correct": null,
+      "execution_accuracy_proxy": null,
+      "entity_or_value_correct": true
+    },
+    {
+      "id": "F-HYB001",
+      "question": "Beyza'nın süt verimindeki değişimi bilimsel kaynaklara göre yorumla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Beyza\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.1117,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": false,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": false,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+          "page": 4
+        },
+        {
+          "id": "K2",
+          "title": "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+          "page": 6
+        },
+        {
+          "id": "K3",
+          "title": "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+          "page": 4
+        }
+      ],
+      "retrieved_titles": [
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+        "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB002",
+      "question": "Boncuk'un mevcut süt kaydı ile mastitis literatürünü birlikte değerlendir.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Boncuk\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.089,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+          "page": 6
+        },
+        {
+          "id": "K2",
+          "title": "FAO_Mastitis_Dairy_Manual.pdf",
+          "page": 165
+        },
+        {
+          "id": "K3",
+          "title": "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+          "page": 6
+        }
+      ],
+      "retrieved_titles": [
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+        "FAO_Mastitis_Dairy_Manual.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+        "FAO_Mastitis_Dairy_Manual.pdf",
+        "FAO_Mastitis_Dairy_Manual.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB003",
+      "question": "Papatya'nın süt verisini besleme bilgisiyle birlikte açıkla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Papatya\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0849,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "FAO_2012_Balanced_Feeding.pdf",
+          "page": 5
+        },
+        {
+          "id": "K2",
+          "title": "FAO_2012_Balanced_Feeding.pdf",
+          "page": 39
+        },
+        {
+          "id": "K3",
+          "title": "FAO_2012_Balanced_Feeding.pdf",
+          "page": 15
+        }
+      ],
+      "retrieved_titles": [
+        "FAO_2012_Balanced_Feeding.pdf",
+        "FAO_2012_Balanced_Feeding.pdf",
+        "FAO_2012_Balanced_Feeding.pdf",
+        "FAO_2012_Balanced_Feeding.pdf",
+        "FAO_2012_Balanced_Feeding.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB004",
+      "question": "Lale'nin sağım kaydını süt hijyeni açısından kaynaklarla değerlendir.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Lale\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0721,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "FAO_IDF_Good_Dairy_Farming.pdf",
+          "page": 27
+        },
+        {
+          "id": "K2",
+          "title": "FAO_IDF_Good_Dairy_Farming.pdf",
+          "page": 30
+        },
+        {
+          "id": "K3",
+          "title": "FAO_IDF_Good_Dairy_Farming.pdf",
+          "page": 16
+        }
+      ],
+      "retrieved_titles": [
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "FAO_IDF_Good_Dairy_Farming.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB005",
+      "question": "TR0001 küpe numaralı ineğin süt düşüşünü metabolik hastalık bilgisiyle yorumla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: TR0001\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0546,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Cornell_Transition_Cow_Metabolic.pdf",
+          "page": 5
+        },
+        {
+          "id": "K2",
+          "title": "Cornell_Transition_Cow_Metabolic.pdf",
+          "page": 2
+        },
+        {
+          "id": "K3",
+          "title": "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+          "page": 2
+        }
+      ],
+      "retrieved_titles": [
+        "Cornell_Transition_Cow_Metabolic.pdf",
+        "Cornell_Transition_Cow_Metabolic.pdf",
+        "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+        "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+        "Cornell_Transition_Cow_Metabolic.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB006",
+      "question": "Serap'ın alarm kaydını hayvan refahı literatürüyle birlikte ele al.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Serap\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0544,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": false,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": false,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+          "page": 1
+        },
+        {
+          "id": "K2",
+          "title": "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+          "page": 7
+        },
+        {
+          "id": "K3",
+          "title": "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved_titles": [
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB007",
+      "question": "Beyza'nın son süt miktarını süt kalitesi bilgisiyle birlikte değerlendir.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Beyza\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.055,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+          "page": 5
+        },
+        {
+          "id": "K2",
+          "title": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+          "page": 5
+        },
+        {
+          "id": "K3",
+          "title": "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+          "page": 5
+        }
+      ],
+      "retrieved_titles": [
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+        "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+        "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB008",
+      "question": "Çiftlikteki süt düşüş alarmını kesin tanı koymadan bilimsel kaynaklarla yorumla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: alarm\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0424,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+          "page": 1
+        },
+        {
+          "id": "K2",
+          "title": "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+          "page": 4
+        },
+        {
+          "id": "K3",
+          "title": "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+          "page": 4
+        }
+      ],
+      "retrieved_titles": [
+        "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+        "FAO_Mastitis_Dairy_Manual.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB009",
+      "question": "Boncuk'un verim kaydını geçiş dönemi metabolik riskleri açısından tartış.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Boncuk\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0533,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Cornell_Transition_Cow_Metabolic.pdf",
+          "page": 5
+        },
+        {
+          "id": "K2",
+          "title": "Cornell_Transition_Cow_Metabolic.pdf",
+          "page": 2
+        },
+        {
+          "id": "K3",
+          "title": "Cornell_Transition_Cow_Metabolic.pdf",
+          "page": 10
+        }
+      ],
+      "retrieved_titles": [
+        "Cornell_Transition_Cow_Metabolic.pdf",
+        "Cornell_Transition_Cow_Metabolic.pdf",
+        "Cornell_Transition_Cow_Metabolic.pdf",
+        "Cornell_Transition_Cow_Metabolic.pdf",
+        "Cornell_Transition_Cow_Metabolic.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB010",
+      "question": "Papatya'nın süt verisi ile kuru madde tüketimi literatürünü birlikte kullan.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Papatya\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0549,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+          "page": 3
+        },
+        {
+          "id": "K2",
+          "title": "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+          "page": 1
+        },
+        {
+          "id": "K3",
+          "title": "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+          "page": 2
+        }
+      ],
+      "retrieved_titles": [
+        "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+        "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+        "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+        "FAO_2012_Balanced_Feeding.pdf",
+        "Tennessee_Managing_Intake_Dairy_Cows.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB011",
+      "question": "Lale'nin çiftlik kaydını meme sağlığı kaynaklarıyla sentezle.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Lale\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0538,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": false,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": false,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+          "page": 3
+        },
+        {
+          "id": "K2",
+          "title": "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+          "page": 3
+        },
+        {
+          "id": "K3",
+          "title": "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+          "page": 3
+        }
+      ],
+      "retrieved_titles": [
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+        "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB012",
+      "question": "Serap'ın sayısal süt düşüşünü kaynaklara dayanarak ama tanı koymadan açıkla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Serap\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0542,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": false,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": false,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+          "page": 1
+        },
+        {
+          "id": "K2",
+          "title": "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+          "page": 4
+        },
+        {
+          "id": "K3",
+          "title": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+          "page": 4
+        }
+      ],
+      "retrieved_titles": [
+        "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+        "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+        "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB013",
+      "question": "Çiftlikteki günlük süt değişimini sağım hijyeni bilgisiyle birlikte yorumla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: süt\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.073,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "FAO_IDF_Good_Dairy_Farming.pdf",
+          "page": 27
+        },
+        {
+          "id": "K2",
+          "title": "FAO_IDF_Good_Dairy_Farming.pdf",
+          "page": 31
+        },
+        {
+          "id": "K3",
+          "title": "FAO_IDF_Good_Dairy_Farming.pdf",
+          "page": 16
+        }
+      ],
+      "retrieved_titles": [
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "FAO_IDF_Good_Dairy_Farming.pdf",
+        "Codex_Milk_Hygiene.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB014",
+      "question": "TR0003 küpe numaralı ineğin kaydını besleme literatürüyle değerlendir.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: TR0003\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0872,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+          "page": 1
+        },
+        {
+          "id": "K2",
+          "title": "FAO_2012_Balanced_Feeding.pdf",
+          "page": 43
+        },
+        {
+          "id": "K3",
+          "title": "FAO_2012_Balanced_Feeding.pdf",
+          "page": 20
+        }
+      ],
+      "retrieved_titles": [
+        "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+        "FAO_2012_Balanced_Feeding.pdf",
+        "FAO_2012_Balanced_Feeding.pdf",
+        "FAO_2012_Balanced_Feeding.pdf",
+        "FAO_2012_Balanced_Feeding.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB015",
+      "question": "Beyza için oluşan süt verisi değişimini üreme yönetimi bilgisiyle ilişkilendirme; yalnızca süt ve sağlık kaynaklarıyla yorumla.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: Beyza\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0643,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": false,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": false,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Wisconsin_High_Fertility_Cycle.pdf",
+          "page": 7
+        },
+        {
+          "id": "K2",
+          "title": "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+          "page": 18
+        },
+        {
+          "id": "K3",
+          "title": "Wisconsin_High_Fertility_Cycle.pdf",
+          "page": 1
+        }
+      ],
+      "retrieved_titles": [
+        "Wisconsin_High_Fertility_Cycle.pdf",
+        "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+        "Wisconsin_High_Fertility_Cycle.pdf",
+        "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+        "DCRC_Dairy_Cow_Reproductive_Management.pdf"
+      ]
+    },
+    {
+      "id": "F-HYB016",
+      "question": "Çiftlikteki ineklerin süt kayıtlarını hayvan refahı ilkeleriyle birlikte genel olarak değerlendir.",
+      "expected_route": "HYBRID",
+      "predicted_route": "HYBRID",
+      "route_correct": true,
+      "answer": "Çiftlik kaydı özeti: süt\nBilimsel bağlam, getirilen kaynaklara ([K1]…) dayanarak yorumlanır; veteriner hekim kararı yerine geçmez.\nKaynaklar: K1, K2, K3",
+      "latency_sec": 0.0547,
+      "path": "hybrid_entity_plus_retrieval_protocol",
+      "hybrid_farm_ok": true,
+      "hybrid_preferred_source_hit": true,
+      "hybrid_has_sources": true,
+      "hybrid_no_diagnosis_leak": true,
+      "hybrid_e2e_correct": true,
+      "sources": [
+        {
+          "id": "K1",
+          "title": "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+          "page": 1
+        },
+        {
+          "id": "K2",
+          "title": "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+          "page": 1
+        },
+        {
+          "id": "K3",
+          "title": "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+          "page": 6
+        }
+      ],
+      "retrieved_titles": [
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+        "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+        "WOAH_Dairy_Cattle_Welfare.pdf",
+        "WOAH_Dairy_Cattle_Welfare.pdf"
+      ]
+    }
+  ]
+}

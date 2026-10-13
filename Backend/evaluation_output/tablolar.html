@@ -1,167 +1,58 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <title>Tez Değerlendirme Tabloları</title>
-  <style>
-    body { font-family: Segoe UI, Arial, sans-serif; max-width: 900px; margin: 32px auto; padding: 0 16px; color: #222; }
-    h1 { font-size: 22px; }
-    h2 { font-size: 18px; margin-top: 36px; }
-    p.note { background: #f4f8f4; border-left: 4px solid #2e7d32; padding: 10px 12px; }
-    table { border-collapse: collapse; width: 100%; margin: 12px 0 8px; }
-    th, td { border: 1px solid #bbb; padding: 8px 10px; text-align: center; }
-    th { background: #e8f5e9; }
-    td.left, th.left { text-align: left; }
-    caption { caption-side: bottom; font-size: 13px; color: #555; padding-top: 6px; text-align: left; }
-    .path { font-size: 13px; color: #666; word-break: break-all; }
-  </style>
+<meta charset="utf-8">
+<title>Tez Değerlendirme Tabloları — 10 Ekim revizyonu</title>
+<style>
+body { font-family: Segoe UI, Arial, sans-serif; max-width: 980px; margin: 32px auto; padding: 0 16px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
+th, td { border: 1px solid #bbb; padding: 6px 8px; text-align: center; vertical-align: top; }
+th { background: #e8f5e9; }
+td.left, th.left { text-align: left; }
+code { font-size: 11px; }
+.note { background: #f4f8f4; border-left: 4px solid #2e7d32; padding: 10px 12px; }
+.warn { background: #fff8e1; border-left: 4px solid #f9a825; padding: 10px 12px; }
+h2 { margin-top: 36px; }
+</style>
 </head>
 <body>
-  <h1>Süt Sihirbazı — Akademik değerlendirme tabloları</h1>
-  <p class="path">Bu sayfa tarayıcıda açılır. JSON dosyasını çalıştırmana gerek yok.</p>
+<h1>Süt Sihirbazı — Akademik tablolar (revizyon paketi)</h1>
+<p class="note">Yönlendirme doğruluğu yanıt doğruluğu değildir. Referans SQL çalıştırılabilirliği, model Text-to-SQL execution accuracy değildir.</p>
 
-  <h2>Tablo 1. Sorgu yönlendirme performansı</h2>
-  <table>
-    <tr>
-      <th class="left">Sınıf</th>
-      <th>Soru sayısı</th>
-      <th>Doğru</th>
-      <th>Precision</th>
-      <th>Recall</th>
-      <th>F1</th>
-    </tr>
-    <tr><td class="left">RAG</td><td>33</td><td>33</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
-    <tr><td class="left">SQL</td><td>24</td><td>24</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
-    <tr><td class="left">HYBRID</td><td>16</td><td>16</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
-    <tr><td class="left">CHAT</td><td>16</td><td>16</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
-    <tr>
-      <td class="left"><b>Toplam</b></td>
-      <td><b>89</b></td>
-      <td><b>89</b></td>
-      <td colspan="3"><b>Accuracy 1.00 &nbsp; Macro-F1 1.00 &nbsp; %95 GA 0.96–1.00</b></td>
-    </tr>
-  </table>
-  <caption>Bu tablo yanıt doğruluğunu değil, sorunun doğru işleme kanalına yönlendirilmesini gösterir. Final held-out set, n = 89.</caption>
+<h2>Tablo 1. Held-out yönlendirme (n = 89)</h2>
+<p>Accuracy 1,00 · Macro-F1 1,00 ·
+Wilson %95 GA 0,96–1,00
+(Wilson score interval, z=1,96)</p>
 
-  <h2>Tablo 1b. Yönlendirme confusion matrix</h2>
-  <table>
-    <tr>
-      <th class="left">Gerçek \ Tahmin</th>
-      <th>RAG</th>
-      <th>SQL</th>
-      <th>HYBRID</th>
-      <th>CHAT</th>
-    </tr>
-    <tr><td class="left">RAG</td><td>33</td><td>0</td><td>0</td><td>0</td></tr>
-    <tr><td class="left">SQL</td><td>0</td><td>24</td><td>0</td><td>0</td></tr>
-    <tr><td class="left">HYBRID</td><td>0</td><td>0</td><td>16</td><td>0</td></tr>
-    <tr><td class="left">CHAT</td><td>0</td><td>0</td><td>0</td><td>16</td></tr>
-  </table>
+<h2>Tablo 2. SQL referans sorgular — izlenebilir ek (24 kayıt)</h2>
+<p class="warn">F-SQL019 altın SQL şemaya göre düzeltilmiştir: <code>ciftlik_adi</code>. Ana metindeki 23/24 ifadesi bu tabloya göre güncellenmelidir.</p>
+<table>
+<tr><th>ID</th><th class="left">Soru</th><th class="left">executed_query</th><th class="left">observed_value</th><th>run_status</th><th>comparison</th><th>error_type</th></tr>
+<tr><td>F-SQL001</td><td class='left'>Çiftlikte kayıtlı inek sayısı kaçtır?</td><td class='left'><code>SELECT COUNT(*) FROM inekler WHERE COALESCE(ciftlik_id, 1) = 1;</code></td><td class='left'>[(5,)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL002</td><td class='left'>TR0002 küpe numaralı ineğin adı nedir?</td><td class='left'><code>SELECT isim FROM inekler WHERE kupe_no = 'TR0002';</code></td><td class='left'>[('Beyza',)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL003</td><td class='left'>Beyza'nın küpe numarası nedir?</td><td class='left'><code>SELECT kupe_no FROM inekler WHERE isim ILIKE '%beyza%';</code></td><td class='left'>[('TR0002',)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL004</td><td class='left'>Papatya hangi ırktandır?</td><td class='left'><code>SELECT irk FROM inekler WHERE isim ILIKE '%papatya%';</code></td><td class='left'>[('Holstein',)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL005</td><td class='left'>Lale'nin son sağımında kaç litre süt alınmıştır?</td><td class='left'><code>SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0005' ORDER BY tarih DESC, id DESC LIMIT 1;</code></td><td class='left'>[(Decimal('11.90'),)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL006</td><td class='left'>Boncuk'un 5 Eylül 2026 tarihindeki toplam sütü kaç litredir?</td><td class='left'><code>SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE kupe_no = 'TR0003' AND tarih = DATE '2026-09-05';</code></td><td class='left'>[(Decimal('25.70'),)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL007</td><td class='left'>5 Eylül 2026 akşam sağımında Serap kaç litre süt vermiştir?</td><td class='left'><code>SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0001' AND tarih = DATE '2026-09-05' AND sagim_zamani = 'e';</code></td><td class='left'>[(Decimal('7.80'),)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL008</td><td class='left'>30 Ağustos 2026 tarihinde toplam süt üretimi kaç litredir?</td><td class='left'><code>SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = DATE '2026-08-30' AND COALESCE(ciftlik_id, 1) = 1;</code></td><td class='left'>[(Decimal('133.50'),)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL009</td><td class='left'>Süt verimi en yüksek dört ineği listele.</td><td class='left'><code>SELECT i.isim, ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) DESC LIMIT 4;</code></td><td class='left'>[('Papatya', Decimal('14.86')), ('Serap', Decimal('13.84')), ('Beyza', Decimal('13.56')), ('Lale', Decimal('13.01'))]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL010</td><td class='left'>Ortalama süt verimi en düşük inek hangisidir?</td><td class='left'><code>SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no GROUP BY i.isim ORDER BY AVG(sk.sut_miktari) ASC LIMIT 1;</code></td><td class='left'>[('Boncuk',)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL011</td><td class='left'>Holstein ırkındaki ineklerin sayısı nedir?</td><td class='left'><code>SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%holstein%';</code></td><td class='left'>[(3,)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL012</td><td class='left'>Papatya'nın ortalama süt verimi nedir?</td><td class='left'><code>SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%papatya%';</code></td><td class='left'>[(Decimal('14.86'),)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL013</td><td class='left'>Lale için süt düşüş alarmı var mıdır?</td><td class='left'><code>SELECT COUNT(*) FROM alarmlar a JOIN inekler i ON a.kupe_no = i.kupe_no WHERE i.isim ILIKE '%lale%';</code></td><td class='left'>[(0,)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL014</td><td class='left'>Serap'ın küpe numarası TR0001 midir, doğrula.</td><td class='left'><code>SELECT kupe_no FROM inekler WHERE isim ILIKE '%serap%';</code></td><td class='left'>[('TR0001',)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL015</td><td class='left'>1 Eylül 2026 ile 5 Eylül 2026 arasında kaç sağım kaydı vardır?</td><td class='left'><code>SELECT COUNT(*) FROM sagim_kayitlari WHERE tarih BETWEEN DATE '2026-09-01' AND DATE '2026-09-05';</code></td><td class='left'>[(50,)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL016</td><td class='left'>Bugünkü toplam süt üretimini getir.</td><td class='left'><code>SELECT SUM(sut_miktari) FROM sagim_kayitlari WHERE tarih = (SELECT MAX(tarih) FROM sagim_kayitlari);</code></td><td class='left'>[(Decimal('133.40'),)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL017</td><td class='left'>Boncuk'un küpe numarası nedir?</td><td class='left'><code>SELECT kupe_no FROM inekler WHERE isim ILIKE '%boncuk%';</code></td><td class='left'>[('TR0003',)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL018</td><td class='left'>TR0004 numaralı ineğin son süt miktarı kaç litredir?</td><td class='left'><code>SELECT sut_miktari FROM sagim_kayitlari WHERE kupe_no = 'TR0004' ORDER BY tarih DESC, id DESC LIMIT 1;</code></td><td class='left'>[(Decimal('13.50'),)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL019</td><td class='left'>Çiftliğin adını söyle.</td><td class='left'><code>SELECT ciftlik_adi FROM ciftlikler WHERE id = 1;</code></td><td class='left'>[('Tez Test Ciftligi',)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL020</td><td class='left'>Simental ırkı inek sayısı kaçtır?</td><td class='left'><code>SELECT COUNT(*) FROM inekler WHERE irk ILIKE '%simental%';</code></td><td class='left'>[(2,)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL021</td><td class='left'>Beyza'nın ortalama süt verimini getir.</td><td class='left'><code>SELECT ROUND(AVG(sk.sut_miktari)::numeric, 2) FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE i.isim ILIKE '%beyza%';</code></td><td class='left'>[(Decimal('13.56'),)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL022</td><td class='left'>Serap için son alarmdaki düşüş yüzdesi nedir?</td><td class='left'><code>SELECT dusus_yuzdesi FROM alarmlar WHERE kupe_no = 'TR0001' ORDER BY tarih DESC, id DESC LIMIT 1;</code></td><td class='left'>[(Decimal('39.06'),)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL023</td><td class='left'>Okunmamış alarm sayısı kaçtır?</td><td class='left'><code>SELECT COUNT(*) FROM alarmlar WHERE okundu = FALSE;</code></td><td class='left'>[(0,)]</td><td>ok</td><td>match</td><td>—</td></tr><tr><td>F-SQL024</td><td class='left'>4 Eylül 2026 tarihinde en çok süt veren inek hangisidir?</td><td class='left'><code>SELECT i.isim FROM sagim_kayitlari sk JOIN inekler i ON sk.kupe_no = i.kupe_no WHERE sk.tarih = DATE '2026-09-04' GROUP BY i.isim ORDER BY SUM(sk.sut_miktari) DESC LIMIT 1;</code></td><td class='left'>[('Papatya',)]</td><td>ok</td><td>match</td><td>—</td></tr>
+</table>
+<p>Çalışan: 24/24</p>
 
-  <h2>Tablo 2. Retrieval karşılaştırması (P@5, R@5, MRR, nDCG@5)</h2>
-  <table>
-    <tr>
-      <th class="left">Sistem</th>
-      <th>P@5</th>
-      <th>R@5</th>
-      <th>MRR</th>
-      <th>nDCG@5</th>
-    </tr>
-    <tr><td class="left">BM25-only</td><td>0.35</td><td>0.27</td><td>0.42</td><td>0.42</td></tr>
-    <tr><td class="left">BGE-M3 + FAISS (L2)</td><td>0.90</td><td>0.71</td><td>0.91</td><td>0.92</td></tr>
-    <tr><td class="left">FAISS + BM25 Hybrid (60/40 RRF)</td><td>0.89</td><td>0.71</td><td>0.88</td><td>0.90</td></tr>
-  </table>
-  <caption>Final held-out RAG soruları, n = 33, K = 5. Altın etiket belge düzeyindedir (preferred_sources).</caption>
+<h2>Tablo 3. RAG üretim kalitesi (n = 33)</h2>
+<table>
+<tr><th>Ölçüt</th><th>Değer</th></tr>
+<tr><td class="left">Atıf doğruluğu (citation correctness)</td><td>0,30</td></tr>
+<tr><td class="left">Atıf tamlığı</td><td>0,14</td></tr>
+<tr><td class="left">Desteksiz iddia oranı</td><td>0,86</td></tr>
+<tr><td class="left">Tercih edilen kaynağa isabet</td><td>0,68</td></tr>
+<tr><td class="left">Ortalama süre (sn)</td><td>44,61</td></tr>
+<tr><td class="left">Medyan / p95 (sn)</td><td>41,19 / 60,79</td></tr>
+</table>
+<p>Otomatik metriklerdir; iki bağımsız uzman 0–2 puanlaması ayrıca insan değerlendirme şablonunda planlanmıştır.</p>
 
-  <h2>Tablo 3. Hibrit ağırlık ablation (geliştirme / pilot set)</h2>
-  <table>
-    <tr>
-      <th class="left">FAISS / BM25</th>
-      <th>P@5</th>
-      <th>R@5</th>
-      <th>MRR</th>
-      <th>nDCG@5</th>
-    </tr>
-    <tr><td class="left">50/50</td><td>0.80</td><td>0.59</td><td>0.84</td><td>0.84</td></tr>
-    <tr><td class="left"><b>60/40 (seçilen)</b></td><td><b>0.81</b></td><td><b>0.59</b></td><td><b>0.84</b></td><td><b>0.84</b></td></tr>
-    <tr><td class="left">70/30</td><td>0.81</td><td>0.59</td><td>0.84</td><td>0.84</td></tr>
-  </table>
-  <caption>Pilot RAG soruları, n = 50. 60/40 geliştirme setinde seçilmiş ve final sette dondurulmuştur.</caption>
+<h2>Tablo 4. SQL / HYBRID uçtan uca (LocalThesisService)</h2>
+<table>
+<tr><th>Kanal</th><th>n</th><th>Route accuracy</th><th>Sayısal / E2E</th></tr>
+<tr><td>SQL</td><td>24</td><td>1,00</td><td>sayısal 0,63</td></tr>
+<tr><td>HYBRID</td><td>16</td><td>1,00</td><td>E2E 0,69</td></tr>
+</table>
+<p>SQL gecikme: {"n": 24, "mean": 11.0153, "median": 0.1146, "std": 26.0539, "min": 0.0382, "max": 96.96, "p95": 51.2329}<br>
+HYBRID gecikme: {"n": 16, "mean": 0.0662, "median": 0.055, "std": 0.0179, "min": 0.0424, "max": 0.1117, "p95": 0.089}</p>
 
-  <p class="note">Teze aktarmak için tabloyu sürükleyerek seç → Ctrl+C → Word’de Ctrl+V.</p>
-
-  <h2>Tablo 4. SQL altın sonuçlar (veritabanından doğrulanmış beklenen cevaplar)</h2>
-  <p>Bu tablo sistemin ürettiği SQL’in doğruluğu değildir. Jüriye “sayıları nereden biliyorsunuz?” dendiğinde gösterilecek <b>gold-standard</b> cevaplardır. 24 sorunun 23’ü çalıştı.</p>
-  <table>
-    <tr><th>ID</th><th class="left">Soru</th><th class="left">Beklenen sonuç</th></tr>
-    <tr><td>F-SQL001</td><td class="left">Çiftlikte kayıtlı inek sayısı</td><td class="left">5</td></tr>
-    <tr><td>F-SQL002</td><td class="left">TR0002’nin adı</td><td class="left">Beyza</td></tr>
-    <tr><td>F-SQL003</td><td class="left">Beyza’nın küpe no</td><td class="left">TR0002</td></tr>
-    <tr><td>F-SQL004</td><td class="left">Papatya’nın ırkı</td><td class="left">Holstein</td></tr>
-    <tr><td>F-SQL005</td><td class="left">Lale son sağım (L)</td><td class="left">11,90</td></tr>
-    <tr><td>F-SQL006</td><td class="left">Boncuk 5 Eylül toplam (L)</td><td class="left">25,70</td></tr>
-    <tr><td>F-SQL007</td><td class="left">Serap 5 Eylül akşam (L)</td><td class="left">7,80</td></tr>
-    <tr><td>F-SQL008</td><td class="left">30 Ağustos toplam (L)</td><td class="left">133,50</td></tr>
-    <tr><td>F-SQL009</td><td class="left">En yüksek 4 inek</td><td class="left">Papatya 14,86; Serap 13,84; Beyza 13,56; Lale 13,01</td></tr>
-    <tr><td>F-SQL010</td><td class="left">Ortalama en düşük</td><td class="left">Boncuk</td></tr>
-    <tr><td>F-SQL011</td><td class="left">Holstein sayısı</td><td class="left">3</td></tr>
-    <tr><td>F-SQL012</td><td class="left">Papatya ortalama (L)</td><td class="left">14,86</td></tr>
-    <tr><td>F-SQL013</td><td class="left">Lale alarm sayısı</td><td class="left">0</td></tr>
-    <tr><td>F-SQL014</td><td class="left">Serap küpe no</td><td class="left">TR0001</td></tr>
-    <tr><td>F-SQL015</td><td class="left">1–5 Eylül sağım kaydı</td><td class="left">50</td></tr>
-    <tr><td>F-SQL016</td><td class="left">Son gün toplam süt (L)</td><td class="left">133,40</td></tr>
-    <tr><td>F-SQL017</td><td class="left">Boncuk küpe no</td><td class="left">TR0003</td></tr>
-    <tr><td>F-SQL018</td><td class="left">TR0004 son süt (L)</td><td class="left">13,50</td></tr>
-    <tr><td>F-SQL020</td><td class="left">Simental sayısı</td><td class="left">2</td></tr>
-    <tr><td>F-SQL021</td><td class="left">Beyza ortalama (L)</td><td class="left">13,56</td></tr>
-    <tr><td>F-SQL022</td><td class="left">Serap alarm düşüş %</td><td class="left">39,06</td></tr>
-    <tr><td>F-SQL023</td><td class="left">Okunmamış alarm</td><td class="left">0</td></tr>
-    <tr><td>F-SQL024</td><td class="left">4 Eylül en çok süt</td><td class="left">Papatya</td></tr>
-  </table>
-  <caption>F-SQL019 (çiftlik adı) şema uyumsuzluğu nedeniyle çalışmadı. Veri sentetik prototiptir.</caption>
-
-  <h2>Tablo 5. Bilgi tabanı corpus manifestosu (16 PDF)</h2>
-  <table>
-    <tr><th>ID</th><th class="left">Belge</th><th>Yıl</th><th class="left">Tür</th><th class="left">Tema</th></tr>
-    <tr><td>D01</td><td class="left">FAO Mastitis Dairy Manual</td><td>2010</td><td class="left">uluslararası rehber</td><td class="left">Mastitis</td></tr>
-    <tr><td>D02</td><td class="left">Kurt 2019 Kuru/Geçiş Dönemi</td><td>2019</td><td class="left">hakemli makale</td><td class="left">Mastitis</td></tr>
-    <tr><td>D03</td><td class="left">Darbaz &amp; Ergene 2015 SHS</td><td>2015</td><td class="left">hakemli makale</td><td class="left">Süt kalitesi</td></tr>
-    <tr><td>D04</td><td class="left">Yalçın &amp; Çakmak 2022 SHS</td><td>2022</td><td class="left">hakemli makale</td><td class="left">Süt kalitesi</td></tr>
-    <tr><td>D05</td><td class="left">FAO 2012 Balanced Feeding</td><td>2012</td><td class="left">uluslararası rehber</td><td class="left">Besleme</td></tr>
-    <tr><td>D06</td><td class="left">Tennessee Managing Intake</td><td>—</td><td class="left">üniversite yayını</td><td class="left">Besleme</td></tr>
-    <tr><td>D07</td><td class="left">Wisconsin Fresh Cow Milk Fever</td><td>—</td><td class="left">üniversite yayını</td><td class="left">Metabolik hastalıklar</td></tr>
-    <tr><td>D08</td><td class="left">Cornell Transition Cow Metabolic</td><td>—</td><td class="left">üniversite yayını</td><td class="left">Metabolik hastalıklar</td></tr>
-    <tr><td>D09</td><td class="left">UF IFAS Dairy Calf Nutrition</td><td>—</td><td class="left">üniversite yayını</td><td class="left">Buzağı sağlığı</td></tr>
-    <tr><td>D10</td><td class="left">USU 2026 Colostrum</td><td>2026</td><td class="left">üniversite yayını</td><td class="left">Buzağı sağlığı</td></tr>
-    <tr><td>D11</td><td class="left">DCRC Reproductive Management</td><td>—</td><td class="left">mesleki rehber</td><td class="left">Üreme</td></tr>
-    <tr><td>D12</td><td class="left">Wisconsin High Fertility Cycle</td><td>—</td><td class="left">üniversite yayını</td><td class="left">Üreme</td></tr>
-    <tr><td>D13</td><td class="left">WOAH Dairy Cattle Welfare</td><td>—</td><td class="left">uluslararası standart</td><td class="left">Hayvan refahı</td></tr>
-    <tr><td>D14</td><td class="left">Öcal, Güven &amp; Cedden 2026</td><td>2026</td><td class="left">hakemli makale</td><td class="left">Hayvan refahı</td></tr>
-    <tr><td>D15</td><td class="left">FAO/IDF Good Dairy Farming</td><td>—</td><td class="left">uluslararası rehber</td><td class="left">Süt hijyeni</td></tr>
-    <tr><td>D16</td><td class="left">Codex Milk Hygiene</td><td>—</td><td class="left">uluslararası standart</td><td class="left">Süt hijyeni</td></tr>
-  </table>
-  <caption>16 belge, 748 sayfa birimi, 1833 metin parçası. Seçim: süt sığırcılığına ilgili, resmi/üniversite/hakemli, sekiz temadan biri, izlenebilir kaynak.</caption>
-
-  <h2>Tablo 6. Tekrarlanabilir deney yapılandırması</h2>
-  <table>
-    <tr><th class="left">Bileşen</th><th class="left">Değer</th></tr>
-    <tr><td class="left">LLM (üretim)</td><td class="left">mistral; temperature 0; seed 0; max 160 token; ctx 2048</td></tr>
-    <tr><td class="left">Yönlendirici LLM</td><td class="left">mistral (kural eşleşmezse); kural eşleşirse LLM çağrılmaz</td></tr>
-    <tr><td class="left">Gömme modeli</td><td class="left">bge-m3 (Ollama)</td></tr>
-    <tr><td class="left">Parçalama</td><td class="left">900 karakter, 150 örtüşme</td></tr>
-    <tr><td class="left">Top-K</td><td class="left">FAISS 8, BM25 8, nihai 5</td></tr>
-    <tr><td class="left">Birleştirme</td><td class="left">Weighted RRF; 0,60 / 0,40; k = 60</td></tr>
-    <tr><td class="left">BM25</td><td class="left">k1 = 1,5; b = 0,75</td></tr>
-    <tr><td class="left">FAISS</td><td class="left">IndexFlatL2 (L2 uzaklık)</td></tr>
-    <tr><td class="left">Veritabanı</td><td class="left">PostgreSQL, sentetik prototip kayıtlar</td></tr>
-    <tr><td class="left">Test ayrımı</td><td class="left">100 soru = pilot; 89 soru = held-out final</td></tr>
-  </table>
-
-  <h2>Teze yapıştırılacak kısa metinler</h2>
-  <p class="note"><b>Yöntem / veri:</b> Çiftlik kayıtları ticari işletme verisi değildir; prototip ve deney için üretilmiş sentetik örnek kayıtlardır. Bilgi tabanı 16 PDF belgeden oluşturulmuş, 1833 parçaya bölünmüştür.</p>
-  <p class="note"><b>RAG tanımı (ilk geçiş):</b> Bu çalışmada Geri Getirme Destekli Üretim (Retrieval-Augmented Generation, RAG) kullanılmıştır. Bundan sonra RAG kısaltması kullanılır. Büyük Dil Modeli (Large Language Model, LLM) ifadesi, Transformer tabanlı sohbet/üretim modellerini belirtir; öğrenme yönetim sistemi anlamına gelmez.</p>
-  <p class="note"><b>Bulgular / retrieval:</b> Final sette anlamsal erişim (BGE-M3 + L2) sözcüksel BM25’ten belirgin biçimde daha yüksek P@5, MRR ve nDCG@5 üretmiştir. Hibrit RRF, BM25’i iyileştirmekle birlikte bu sette salt anlamsal erişimin çok az gerisinde kalmıştır. Bu sonuç, hibrit birleştirmenin her veri kümesinde otomatik üstünlük sağlamadığını göstermektedir.</p>
-  <p class="note"><b>Bulgular / ağırlık:</b> %60/%40 oranı geliştirme (pilot) setinde 50/50 ve 70/30 ile karşılaştırılmış; 60/40 en az diğerleri kadar iyi bulunarak dondurulmuştur. Final sette bu oran tekrar optimize edilmemiştir.</p>
-  <p class="note"><b>Sınırlılık:</b> Uçtan uca SQL execution accuracy, HYBRID sentez doğruluğu ve LLM yanıt faithfulness/halüsinasyon oranlarının tam nicel ölçümü, mevcut ortamda Torch bağımlılığı nedeniyle henüz tamamlanmamıştır. Retrieval ve routing sonuçları held-out set üzerinden raporlanmıştır.</p>
-</body>
-</html>
+<h2>Tablo 5. 60/40 ağırlık seçim gerekçesi</h2>
+<p>Pilot sette 60/40 ile 70/30 nDCG@5 açısından bağlanmış (tie); önceden belirlenen tie-break kuralı olarak 60/40 dondurulmuştur. “Tek ve açık en iyi” iddiası yoktur. Held-out’ta FAISS P@5=0,90 ile hibrit 0,89 farkı (0,01) 33 soruda istatistiksel üstünlük kanıtı değildir.</p>
+</body></html>

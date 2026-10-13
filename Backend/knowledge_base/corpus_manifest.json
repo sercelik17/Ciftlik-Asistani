@@ -20,7 +20,12 @@
       "type": "uluslararası rehber",
       "theme": "Mastitis",
       "category": "01_mastitis",
-      "publisher": "FAO"
+      "publisher": "FAO",
+      "chunk_count": 326,
+      "page_unit_count": 278,
+      "full_title": "FAO Mastitis Dairy Manual",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D02",
@@ -29,7 +34,12 @@
       "type": "hakemli makale",
       "theme": "Mastitis",
       "category": "01_mastitis",
-      "publisher": "akademik dergi"
+      "publisher": "akademik dergi",
+      "chunk_count": 37,
+      "page_unit_count": 7,
+      "full_title": "Kurt 2019 Mastitis Kuru Gecis Donemi",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D03",
@@ -38,7 +48,12 @@
       "type": "hakemli makale",
       "theme": "Süt kalitesi",
       "category": "02_sut_kalitesi",
-      "publisher": "akademik dergi"
+      "publisher": "akademik dergi",
+      "chunk_count": 41,
+      "page_unit_count": 8,
+      "full_title": "Darbaz Ergene 2015 Somatik Hucre Sayisi",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D04",
@@ -47,7 +62,12 @@
       "type": "hakemli makale",
       "theme": "Süt kalitesi",
       "category": "02_sut_kalitesi",
-      "publisher": "akademik dergi"
+      "publisher": "akademik dergi",
+      "chunk_count": 47,
+      "page_unit_count": 7,
+      "full_title": "Yalcin Cakmak 2022 Somatik Hucre Sut Kalitesi",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D05",
@@ -56,7 +76,12 @@
       "type": "uluslararası rehber",
       "theme": "Besleme",
       "category": "03_besleme",
-      "publisher": "FAO"
+      "publisher": "FAO",
+      "chunk_count": 125,
+      "page_unit_count": 39,
+      "full_title": "FAO 2012 Balanced Feeding",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D06",
@@ -65,7 +90,12 @@
       "type": "üniversite yayını",
       "theme": "Besleme",
       "category": "03_besleme",
-      "publisher": "University of Tennessee Extension"
+      "publisher": "University of Tennessee Extension",
+      "chunk_count": 23,
+      "page_unit_count": 7,
+      "full_title": "Tennessee Managing Intake Dairy Cows",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D07",
@@ -74,7 +104,12 @@
       "type": "üniversite yayını",
       "theme": "Metabolik hastalıklar",
       "category": "04_metabolik_hastaliklar",
-      "publisher": "University of Wisconsin"
+      "publisher": "University of Wisconsin",
+      "chunk_count": 10,
+      "page_unit_count": 2,
+      "full_title": "Wisconsin Fresh Cow Milk Fever",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D08",
@@ -83,7 +118,12 @@
       "type": "üniversite yayını",
       "theme": "Metabolik hastalıklar",
       "category": "04_metabolik_hastaliklar",
-      "publisher": "Cornell University"
+      "publisher": "Cornell University",
+      "chunk_count": 25,
+      "page_unit_count": 25,
+      "full_title": "Cornell Transition Cow Metabolic",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D09",
@@ -92,7 +132,12 @@
       "type": "üniversite yayını",
       "theme": "Buzağı sağlığı",
       "category": "05_buzagi_sagligi",
-      "publisher": "University of Florida IFAS"
+      "publisher": "University of Florida IFAS",
+      "chunk_count": 30,
+      "page_unit_count": 6,
+      "full_title": "UF IFAS Dairy Calf Nutrition",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D10",
@@ -101,7 +146,12 @@
       "type": "üniversite yayını",
       "theme": "Buzağı sağlığı",
       "category": "05_buzagi_sagligi",
-      "publisher": "Utah State University"
+      "publisher": "Utah State University",
+      "chunk_count": 33,
+      "page_unit_count": 8,
+      "full_title": "USU 2026 Colostrum Dairy Calves",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D11",
@@ -110,7 +160,12 @@
       "type": "mesleki rehber",
       "theme": "Üreme",
       "category": "06_ureme",
-      "publisher": "Dairy Cattle Reproduction Council"
+      "publisher": "Dairy Cattle Reproduction Council",
+      "chunk_count": 93,
+      "page_unit_count": 19,
+      "full_title": "DCRC Dairy Cow Reproductive Management",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D12",
@@ -119,7 +174,12 @@
       "type": "üniversite yayını",
       "theme": "Üreme",
       "category": "06_ureme",
-      "publisher": "University of Wisconsin"
+      "publisher": "University of Wisconsin",
+      "chunk_count": 31,
+      "page_unit_count": 8,
+      "full_title": "Wisconsin High Fertility Cycle",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D13",
@@ -128,7 +188,12 @@
       "type": "uluslararası standart",
       "theme": "Hayvan refahı",
       "category": "07_hayvan_refahi",
-      "publisher": "WOAH"
+      "publisher": "WOAH",
+      "chunk_count": 72,
+      "page_unit_count": 14,
+      "full_title": "WOAH Dairy Cattle Welfare",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D14",
@@ -137,7 +202,12 @@
       "type": "hakemli makale",
       "theme": "Hayvan refahı",
       "category": "07_hayvan_refahi",
-      "publisher": "akademik dergi"
+      "publisher": "akademik dergi",
+      "chunk_count": 48,
+      "page_unit_count": 8,
+      "full_title": "Ocal Guven Cedden 2026 Dairy Cattle Welfare",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D15",
@@ -146,7 +216,12 @@
       "type": "uluslararası rehber",
       "theme": "Süt hijyeni",
       "category": "08_sut_hijyeni",
-      "publisher": "FAO/IDF"
+      "publisher": "FAO/IDF",
+      "chunk_count": 144,
+      "page_unit_count": 44,
+      "full_title": "FAO IDF Good Dairy Farming",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     },
     {
       "id": "D16",
@@ -155,7 +230,16 @@
       "type": "uluslararası standart",
       "theme": "Süt hijyeni",
       "category": "08_sut_hijyeni",
-      "publisher": "Codex Alimentarius"
+      "publisher": "Codex Alimentarius",
+      "chunk_count": 748,
+      "page_unit_count": 249,
+      "full_title": "Codex Milk Hygiene",
+      "url_or_doi": null,
+      "access_note": "Yerel knowledge_base kopyası; erişim tarihi tez döneminde."
     }
-  ]
+  ],
+  "index_manifest_present": true,
+  "index_document_count": 748,
+  "index_chunk_count": 1833,
+  "bibliographic_note": "Kısa dosya adları yayın kimliği yerine geçerli değildir; tam başlık/yıl/URL alanları belge bazında doldurulmalıdır."
 }

@@ -260,8 +260,45 @@ def _templated_sql_answer(question: str) -> str | None:
             )
         return "Süt veriminde düşüş yaşayan riskli inekler:\n" + "\n".join(lines)
 
+    if "ciftlig" in q and ("ad" in q or "ismi" in q or "ismini" in q):
+        rows = _run_select(
+            "SELECT ciftlik_adi FROM ciftlikler ORDER BY id LIMIT 1"
+        )
+        if rows:
+            return f"Kayıtlardaki çiftlik adı: {rows[0]['ciftlik_adi']}."
+
+    if "okunmamis alarm" in q or ("okunmamis" in q and "alarm" in q):
+        rows = _run_select(
+            f"SELECT COUNT(*) AS n FROM alarmlar a WHERE okundu = FALSE{farm_a}"
+        )
+        n = int(rows[0]["n"]) if rows else 0
+        return f"Okunmamış alarm sayısı {n} adettir."
+
+    if "holstein" in q and ("kac" in q or "sayi" in q or "sayisi" in q):
+        rows = _run_select(
+            f"SELECT COUNT(*) AS n FROM inekler i WHERE i.irk ILIKE '%holstein%'{farm_i}"
+        )
+        n = int(rows[0]["n"]) if rows else 0
+        return f"Holstein ırkındaki inek sayısı {n} adettir."
+
+    if "simental" in q and ("kac" in q or "sayi" in q or "sayisi" in q):
+        rows = _run_select(
+            f"SELECT COUNT(*) AS n FROM inekler i WHERE i.irk ILIKE '%simental%'{farm_i}"
+        )
+        n = int(rows[0]["n"]) if rows else 0
+        return f"Simental ırkı inek sayısı {n} adettir."
+
     cow_row = _find_cow(q)
     if cow_row:
+        # Küpe/isim soruları için kısa cevap
+        if "kupe" in q and ("nedir" in q or "numara" in q or "dogrula" in q or "midir" in q):
+            return f"{cow_row['isim']} adlı ineğin küpe numarası {cow_row['kupe_no']}."
+        if ("ad" in q or "ismi" in q) and "kupe" in q:
+            return f"{cow_row['kupe_no']} küpe numaralı ineğin adı {cow_row['isim']}."
+        if "irk" in q:
+            return (
+                f"{cow_row['isim']} {cow_row.get('irk') or 'bilinmeyen'} ırkındandır."
+            )
         return _cow_status_answer(cow_row, farm_i, farm_sk, farm_a)
 
     return None

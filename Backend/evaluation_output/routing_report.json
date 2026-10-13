@@ -74,7 +74,7 @@
       "median": 0.0,
       "std": 0.0,
       "min": 0.0,
-      "max": 0.0,
+      "max": 0.0001,
       "p95": 0.0
     },
     "by_expected_route": {
@@ -93,7 +93,7 @@
         "median": 0.0,
         "std": 0.0,
         "min": 0.0,
-        "max": 0.0,
+        "max": 0.0001,
         "p95": 0.0
       },
       "HYBRID": {
@@ -102,7 +102,7 @@
         "median": 0.0,
         "std": 0.0,
         "min": 0.0,
-        "max": 0.0,
+        "max": 0.0001,
         "p95": 0.0
       },
       "CHAT": {
@@ -493,7 +493,7 @@
       "predicted_route": "SQL",
       "route_correct": true,
       "router_backend": "rules",
-      "latency_sec": 0.0
+      "latency_sec": 0.0001
     },
     {
       "id": "F-SQL010",
@@ -763,7 +763,7 @@
       "predicted_route": "HYBRID",
       "route_correct": true,
       "router_backend": "rules",
-      "latency_sec": 0.0
+      "latency_sec": 0.0001
     },
     {
       "id": "F-HYB016",
@@ -918,5 +918,14 @@
       "router_backend": "rules",
       "latency_sec": 0.0
     }
-  ]
+  ],
+  "configuration_hash": "9bbc5fe3cb3e",
+  "captured_at_utc": "2026-10-13T16:26:27.331907+00:00",
+  "set_provenance": {
+    "split": "heldout_final",
+    "n": 89,
+    "pilot_set": "tez_test_seti_100.json (geliştirme; final değildir)",
+    "labeling": "Sınıf etiketleri soru yazımı sırasında atanmış; kural tabanlı yönlendirici dondurulduktan sonra held-out kümede bir kez ölçülmüştür.",
+    "wilson_ci_method": "Genel accuracy için Wilson score interval, z=1.96"
+  }
 }

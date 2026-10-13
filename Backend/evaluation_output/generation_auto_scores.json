@@ -1,0 +1,8 @@
+{
+  "n": 33,
+  "mean_accuracy_0_2_auto": 1.121,
+  "mean_faithfulness_0_2_auto": 0.606,
+  "mean_citation_correctness": 0.303,
+  "mean_unsupported_claim_rate": 0.8636,
+  "note": "0–2 skorları otomatik proxydir; uzman çift değerlendirme değildir."
+}

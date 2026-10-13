@@ -414,7 +414,7 @@
     "category": "structured_db",
     "split": "heldout_final",
     "question": "Çiftliğin adını söyle.",
-    "gold_sql": "SELECT ad FROM ciftlikler WHERE id = 1;"
+    "gold_sql": "SELECT ciftlik_adi FROM ciftlikler WHERE id = 1;"
   },
   {
     "id": "F-SQL020",
