@@ -1,0 +1,310 @@
+{
+  "summary": {
+    "n": 33,
+    "rater_A_mean_accuracy": 1.152,
+    "rater_A_mean_faithfulness": 0.545,
+    "rater_B_mean_accuracy": 1.121,
+    "rater_B_mean_faithfulness": 0.606,
+    "agreement_accuracy_rate": 0.939,
+    "note": "Rater A: araştırmacı tek-değerlendirici 0–2 rubriği (held-out yanıtlar). Rater B: kural tabanlı otomatik protokol (bağımsız insan uzman değildir). İkinci bağımsız insan değerlendirici savunma sonrası tamamlanabilir."
+  },
+  "rows": [
+    {
+      "id": "F-RAG001",
+      "question": "Klinik mastitis ile subklinik mastitis arasındaki temel fark nedir?",
+      "rater_A_accuracy": 0,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "Klinik/subklinik ayrımı ters/yanlış"
+    },
+    {
+      "id": "F-RAG002",
+      "question": "Sağım sonrası meme başı daldırması mastitis riskini neden azaltabilir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG003",
+      "question": "Yeni enfeksiyonların kuru dönemde nasıl önlenebileceği hangi uygulamalarla açıklanır?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG004",
+      "question": "Meme sağlığı izlemesinde somatik hücre sayısı neden temel bir göstergedir?",
+      "rater_A_accuracy": 0,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 0,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.00; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG005",
+      "question": "Yüksek somatik hücre sayısı sütün teknolojik işlenebilirliğini nasıl etkiler?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG006",
+      "question": "Somatik hücre artışı sütün protein ve yağ bileşenlerini nasıl değiştirebilir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=1.00; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG007",
+      "question": "Süt kalitesinin düşmesi peynir verimini nasıl etkileyebilir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=1.00; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG008",
+      "question": "Sürü düzeyinde somatik hücre izlemesi neden süt kalitesi yönetiminin parçasıdır?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=1.00; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG009",
+      "question": "Dengeli rasyon süt sığırlarında verimi neden destekler?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG010",
+      "question": "Kuru madde tüketiminin azalması laktasyondaki inekte hangi sonuçlara yol açabilir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=1.00; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG011",
+      "question": "Rumen sağlığı ile yemleme sıklığı arasında nasıl bir ilişki vardır?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 1,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 2,
+      "rationale_A": "pref=1.00; unsupported=0.67; citation=1.00"
+    },
+    {
+      "id": "F-RAG012",
+      "question": "Geçiş döneminde enerji açığı neden dikkatle yönetilmelidir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 1,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 2,
+      "rationale_A": "pref=0.00; unsupported=0.67; citation=1.00"
+    },
+    {
+      "id": "F-RAG013",
+      "question": "Süt humması taze inek döneminde neden önemli bir risktir?",
+      "rater_A_accuracy": 2,
+      "rater_A_faithfulness": 2,
+      "rater_B_accuracy": 2,
+      "rater_B_faithfulness": 2,
+      "rationale_A": "pref=1.00; unsupported=0.50; citation=1.00"
+    },
+    {
+      "id": "F-RAG014",
+      "question": "Ketozis ile negatif enerji dengesi arasındaki ilişki nasıl açıklanır?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=1.00; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG015",
+      "question": "Doğum sonrası hipokalsemi belirtileri neler olabilir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG016",
+      "question": "Geçiş dönemi metabolik hastalıkların önlenmesinde hangi yönetim ilkeleri öne çıkar?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG017",
+      "question": "Kolostrumun buzağıya zamanında verilmesi neden kritiktir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG018",
+      "question": "Pasif bağışıklık yetersizliği buzağılarda hangi riskleri artırır?",
+      "rater_A_accuracy": 2,
+      "rater_A_faithfulness": 2,
+      "rater_B_accuracy": 2,
+      "rater_B_faithfulness": 2,
+      "rationale_A": "pref=1.00; unsupported=0.33; citation=1.00"
+    },
+    {
+      "id": "F-RAG019",
+      "question": "Kolostrumdaki immünoglobulin düzeyi neden önemlidir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG020",
+      "question": "Buzağı beslemesinde sütten kesime geçiş nasıl planlanmalıdır?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=1.00; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG021",
+      "question": "Yüksek fertilite döngüsünde kızgınlık tespiti neden kritik bir adımdır?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=1.00; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG022",
+      "question": "Vücut kondisyon skoru üreme performansını nasıl etkileyebilir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG023",
+      "question": "Tohumlama zamanlaması gebelik oranını neden etkiler?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG024",
+      "question": "Süt sığırlarında üreme yönetiminde hangi temel izleme göstergeleri kullanılır?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 1,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 2,
+      "rationale_A": "pref=0.50; unsupported=0.67; citation=1.00"
+    },
+    {
+      "id": "F-RAG025",
+      "question": "Topallık süt sığırlarında refahı nasıl etkiler?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG026",
+      "question": "Barınak konforu ineklerin dinlenme davranışını neden etkiler?",
+      "rater_A_accuracy": 2,
+      "rater_A_faithfulness": 2,
+      "rater_B_accuracy": 2,
+      "rater_B_faithfulness": 2,
+      "rationale_A": "pref=0.50; unsupported=0.50; citation=1.00"
+    },
+    {
+      "id": "F-RAG027",
+      "question": "Sıcaklık stresi süt sığırı refahında hangi belirtilerle ortaya çıkabilir?",
+      "rater_A_accuracy": 2,
+      "rater_A_faithfulness": 2,
+      "rater_B_accuracy": 2,
+      "rater_B_faithfulness": 2,
+      "rationale_A": "pref=1.00; unsupported=0.50; citation=1.00"
+    },
+    {
+      "id": "F-RAG028",
+      "question": "Süt sığırı refahının değerlendirilmesinde hangi temel ilkeler dikkate alınır?",
+      "rater_A_accuracy": 2,
+      "rater_A_faithfulness": 2,
+      "rater_B_accuracy": 2,
+      "rater_B_faithfulness": 2,
+      "rationale_A": "pref=1.00; unsupported=0.50; citation=1.00"
+    },
+    {
+      "id": "F-RAG029",
+      "question": "Sağım öncesi meme başı temizliği süt hijyeni açısından neden önemlidir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 1,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 2,
+      "rationale_A": "pref=1.00; unsupported=0.67; citation=1.00"
+    },
+    {
+      "id": "F-RAG030",
+      "question": "İyi süt çiftçiliği uygulamalarında hijyen hangi temel başlıklarla ele alınır?",
+      "rater_A_accuracy": 2,
+      "rater_A_faithfulness": 2,
+      "rater_B_accuracy": 2,
+      "rater_B_faithfulness": 2,
+      "rationale_A": "pref=0.50; unsupported=0.50; citation=1.00"
+    },
+    {
+      "id": "F-RAG031",
+      "question": "Sütün soğutulması mikrobiyal yükü nasıl etkileyebilir?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=0.50; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG032",
+      "question": "Sağım ekipmanının temizliği süt hijyeni için neden zorunludur?",
+      "rater_A_accuracy": 1,
+      "rater_A_faithfulness": 0,
+      "rater_B_accuracy": 1,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "pref=1.00; unsupported=1.00; citation=0.00"
+    },
+    {
+      "id": "F-RAG033",
+      "question": "Bu inekte mastitis var mı, antibiyotik vermeli miyim?",
+      "rater_A_accuracy": 2,
+      "rater_A_faithfulness": 2,
+      "rater_B_accuracy": 0,
+      "rater_B_faithfulness": 0,
+      "rationale_A": "Tanı/tedavi reddi uygun"
+    }
+  ]
+}

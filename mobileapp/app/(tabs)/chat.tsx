@@ -118,6 +118,11 @@ export default function Chat() {
 
   const soundRef = useRef<Audio.Sound | null>(null);
   const flatListRef = useRef<FlatList>(null);
+  const webSpeechRef = useRef<any>(null);
+  const webSpeechFinalRef = useRef<string>('');
+  const webSpeechInterimRef = useRef<string>('');
+  const webSpeechListenRef = useRef(false);
+  const webSpeechStartingRef = useRef(false);
 
   useEffect(() => {
     if (queryParam && typeof queryParam === 'string') {
@@ -426,6 +431,176 @@ const sendMessage = async (textOverride?: string | any) => {
   }
 };
 
+  const pushBotNotice = (text: string) => {
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: `mic-${Date.now()}`,
+        text,
+        sender: 'bot',
+        timestamp: new Date(),
+      },
+    ]);
+  };
+
+  const getWebSpeechCtor = () => {
+    if (typeof window === 'undefined') return null;
+    return (
+      (window as any).SpeechRecognition ||
+      (window as any).webkitSpeechRecognition ||
+      null
+    );
+  };
+
+  const ensureMicPermission = async (): Promise<boolean> => {
+    if (typeof navigator === 'undefined' || !navigator.mediaDevices?.getUserMedia) {
+      return true;
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      stream.getTracks().forEach((t) => t.stop());
+      return true;
+    } catch {
+      pushBotNotice('❌ Mikrofon izni reddedildi veya cihaz bulunamadı.');
+      return false;
+    }
+  };
+
+  const attachWebSpeechHandlers = (recognition: any) => {
+    recognition.lang = 'tr-TR';
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.onresult = (event: any) => {
+      let interim = '';
+      let finalChunk = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const piece = event.results[i][0]?.transcript || '';
+        if (event.results[i].isFinal) {
+          finalChunk += piece;
+        } else {
+          interim += piece;
+        }
+      }
+      if (finalChunk) {
+        webSpeechFinalRef.current = (
+          webSpeechFinalRef.current +
+          ' ' +
+          finalChunk
+        ).trim();
+      }
+      webSpeechInterimRef.current = interim;
+      const live = [webSpeechFinalRef.current, interim].filter(Boolean).join(' ').trim();
+      if (live) setInputText(live);
+    };
+    recognition.onerror = (event: any) => {
+      const code = event?.error;
+      console.error('Web Speech hata:', code);
+      // İlk izin / kısa sessizlik: oturumu düşürme, auto-restart onend ile gelir
+      if (code === 'not-allowed' || code === 'service-not-allowed') {
+        webSpeechListenRef.current = false;
+        setIsRecording(false);
+        webSpeechRef.current = null;
+        pushBotNotice('❌ Mikrofon izni reddedildi.');
+        return;
+      }
+      if (code === 'no-speech' || code === 'aborted' || code === 'network') {
+        return;
+      }
+    };
+    recognition.onend = () => {
+      webSpeechRef.current = null;
+      // Chrome sık sık oturumu keser; kullanıcı hâlâ dinliyorsa yeniden başlat
+      if (webSpeechListenRef.current && !webSpeechStartingRef.current) {
+        try {
+          const Ctor = getWebSpeechCtor();
+          if (!Ctor) return;
+          webSpeechStartingRef.current = true;
+          const next = new Ctor();
+          attachWebSpeechHandlers(next);
+          webSpeechRef.current = next;
+          next.start();
+        } catch (e) {
+          console.error('Web Speech restart hata:', e);
+          webSpeechListenRef.current = false;
+          setIsRecording(false);
+        } finally {
+          webSpeechStartingRef.current = false;
+        }
+      } else if (!webSpeechListenRef.current) {
+        setIsRecording(false);
+      }
+    };
+  };
+
+  const startWebSpeech = async () => {
+    const SpeechRecognition = getWebSpeechCtor();
+    if (!SpeechRecognition) {
+      pushBotNotice(
+        '❌ Bu tarayıcı ses tanımayı desteklemiyor. Chrome kullanın veya metin yazın.'
+      );
+      return;
+    }
+    const allowed = await ensureMicPermission();
+    if (!allowed) return;
+
+    try {
+      // Önceki oturumu temizle
+      webSpeechListenRef.current = false;
+      try {
+        webSpeechRef.current?.stop?.();
+      } catch {
+        /* ignore */
+      }
+      webSpeechRef.current = null;
+      webSpeechFinalRef.current = '';
+      webSpeechInterimRef.current = '';
+
+      const recognition = new SpeechRecognition();
+      attachWebSpeechHandlers(recognition);
+      webSpeechListenRef.current = true;
+      webSpeechRef.current = recognition;
+      recognition.start();
+      setIsRecording(true);
+      setCurrentStep('Dinleniyor… bitince mikrofonu tekrar basın');
+    } catch (err) {
+      console.error('Web Speech start hata:', err);
+      webSpeechListenRef.current = false;
+      setIsRecording(false);
+      pushBotNotice('❌ Ses tanıma başlatılamadı. Bir saniye bekleyip tekrar deneyin.');
+    }
+  };
+
+  const stopWebSpeech = async () => {
+    webSpeechListenRef.current = false;
+    setIsRecording(false);
+    setCurrentStep('Ses işleniyor...');
+    const recognition = webSpeechRef.current;
+    webSpeechRef.current = null;
+    try {
+      recognition?.stop?.();
+    } catch {
+      /* ignore */
+    }
+    // Son final/interim sonuçların gelmesi için kısa bekle
+    await new Promise((r) => setTimeout(r, 350));
+    const text = (
+      webSpeechFinalRef.current ||
+      webSpeechInterimRef.current ||
+      inputText ||
+      ''
+    ).trim();
+    webSpeechFinalRef.current = '';
+    webSpeechInterimRef.current = '';
+    setCurrentStep('');
+    if (!text) {
+      pushBotNotice(
+        '❌ Ses algılanamadı. Mikrofon izninden sonra bir kez daha konuşmayı deneyin.'
+      );
+      return;
+    }
+    await sendMessage(text);
+  };
+
   const startRecording = async () => {
     try {
       Keyboard.dismiss();
@@ -433,17 +608,18 @@ const sendMessage = async (textOverride?: string | any) => {
         void signOut().then(() => router.replace('/login'));
         return;
       }
+      // Expo web veya tarayıcı STT varsa Groq'a gitmeden kullan
+      const canUseWebSpeech =
+        Platform.OS === 'web' || Boolean(getWebSpeechCtor());
+      if (canUseWebSpeech && getWebSpeechCtor()) {
+        await startWebSpeech();
+        return;
+      }
       const perm = await Audio.requestPermissionsAsync();
       if (perm.status !== 'granted') {
-        setMessages((prev) => [
-          ...prev,
-          {
-            id: `mic-${Date.now()}`,
-            text: '❌ Mikrofon izni verilmedi. Tarayıcı/cihaz ayarlarından izin verin.',
-            sender: 'bot',
-            timestamp: new Date(),
-          },
-        ]);
+        pushBotNotice(
+          '❌ Mikrofon izni verilmedi. Tarayıcı/cihaz ayarlarından izin verin.'
+        );
         return;
       }
       await Audio.setAudioModeAsync({
@@ -458,19 +634,17 @@ const sendMessage = async (textOverride?: string | any) => {
     } catch (err) {
       console.error('Kayıt başlatma hatası:', err);
       setIsRecording(false);
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `mic-${Date.now()}`,
-          text: '❌ Ses kaydı başlatılamadı. Mikrofon iznini kontrol edin.',
-          sender: 'bot',
-          timestamp: new Date(),
-        },
-      ]);
+      pushBotNotice(
+        '❌ Ses kaydı başlatılamadı. Mikrofon iznini kontrol edin.'
+      );
     }
   };
 
   const stopRecording = async () => {
+    if (Platform.OS === 'web') {
+      await stopWebSpeech();
+      return;
+    }
     if (!recording) return;
     try {
       setIsRecording(false);

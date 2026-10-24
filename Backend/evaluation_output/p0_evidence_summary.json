@@ -1,0 +1,16 @@
+{
+  "bibliography_matched": "0/16",
+  "publisher_verified": 12,
+  "rag_A_acc": 1.152,
+  "rag_A_faith": 0.545,
+  "sql_gold": "24/24",
+  "sql_e2e": 0.7083,
+  "hybrid_e2e": 0.6875,
+  "outputs": [
+    "evaluation_output/bibliography_audit.json",
+    "evaluation_output/rag_researcher_scores.json",
+    "evaluation_output/p0_kanit_tablolari.html",
+    "evaluation_output/sql_hybrid_e2e_report.json",
+    "knowledge_base/corpus_manifest.json"
+  ]
+}

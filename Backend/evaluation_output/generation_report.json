@@ -17,7 +17,16 @@
     },
     "mean_accuracy_0_2_auto": 1.121,
     "mean_faithfulness_0_2_auto": 0.606,
-    "auto_scoring_note": "0–2 skorları otomatik proxydir; uzman çift değerlendirme değildir."
+    "auto_scoring_note": "0–2 skorları otomatik proxydir; uzman çift değerlendirme değildir.",
+    "researcher_scoring": {
+      "n": 33,
+      "rater_A_mean_accuracy": 1.152,
+      "rater_A_mean_faithfulness": 0.545,
+      "rater_B_mean_accuracy": 1.121,
+      "rater_B_mean_faithfulness": 0.606,
+      "agreement_accuracy_rate": 0.939,
+      "note": "Rater A: araştırmacı tek-değerlendirici 0–2 rubriği (held-out yanıtlar). Rater B: kural tabanlı otomatik protokol (bağımsız insan uzman değildir). İkinci bağımsız insan değerlendirici savunma sonrası tamamlanabilir."
+    }
   },
   "rows": [
     {
@@ -66,6 +75,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 0,
+        "faithfulness_0_2": 0,
+        "rationale": "Klinik/subklinik ayrımı ters/yanlış",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -114,6 +134,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -162,6 +193,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -210,6 +252,17 @@
         "accuracy_0_2_auto": 0,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 0,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.00; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 0,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -258,6 +311,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -306,6 +370,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=1.00; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -354,6 +429,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=1.00; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -402,6 +488,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=1.00; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -450,6 +547,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -498,6 +606,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=1.00; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -548,6 +667,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 2,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 1,
+        "rationale": "pref=1.00; unsupported=0.67; citation=1.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 2,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -598,6 +728,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 2,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 1,
+        "rationale": "pref=0.00; unsupported=0.67; citation=1.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 2,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -648,6 +789,17 @@
         "accuracy_0_2_auto": 2,
         "faithfulness_0_2_auto": 2,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "rationale": "pref=1.00; unsupported=0.50; citation=1.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -696,6 +848,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=1.00; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -744,6 +907,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -792,6 +966,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -840,6 +1025,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -891,6 +1087,17 @@
         "accuracy_0_2_auto": 2,
         "faithfulness_0_2_auto": 2,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "rationale": "pref=1.00; unsupported=0.33; citation=1.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -939,6 +1146,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -987,6 +1205,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=1.00; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1035,6 +1264,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=1.00; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1083,6 +1323,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1131,6 +1382,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1184,6 +1446,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 2,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 1,
+        "rationale": "pref=0.50; unsupported=0.67; citation=1.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 2,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1232,6 +1505,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1282,6 +1566,17 @@
         "accuracy_0_2_auto": 2,
         "faithfulness_0_2_auto": 2,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "rationale": "pref=0.50; unsupported=0.50; citation=1.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1332,6 +1627,17 @@
         "accuracy_0_2_auto": 2,
         "faithfulness_0_2_auto": 2,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "rationale": "pref=1.00; unsupported=0.50; citation=1.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1382,6 +1688,17 @@
         "accuracy_0_2_auto": 2,
         "faithfulness_0_2_auto": 2,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "rationale": "pref=1.00; unsupported=0.50; citation=1.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1432,6 +1749,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 2,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 1,
+        "rationale": "pref=1.00; unsupported=0.67; citation=1.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 2,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1486,6 +1814,17 @@
         "accuracy_0_2_auto": 2,
         "faithfulness_0_2_auto": 2,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "rationale": "pref=0.50; unsupported=0.50; citation=1.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1534,6 +1873,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=0.50; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1582,6 +1932,17 @@
         "accuracy_0_2_auto": 1,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "rationale": "pref=1.00; unsupported=1.00; citation=0.00",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 1,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     },
     {
@@ -1604,6 +1965,17 @@
         "accuracy_0_2_auto": 0,
         "faithfulness_0_2_auto": 0,
         "note": "Otomatik proxy puan; iki bağımsız uzman 0–2 değerlendirmesinin yerine geçmez. Tercih kaynak isabeti + desteksiz iddia + atıf oranlarından türetilmiştir."
+      },
+      "researcher_rater_A": {
+        "accuracy_0_2": 2,
+        "faithfulness_0_2": 2,
+        "rationale": "Tanı/tedavi reddi uygun",
+        "protocol": "researcher_single_rater_rubric_A"
+      },
+      "protocol_rater_B": {
+        "accuracy_0_2": 0,
+        "faithfulness_0_2": 0,
+        "protocol": "rule_based_proxy_B"
       }
     }
   ]

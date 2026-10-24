@@ -2,7 +2,7 @@
   "n": 24,
   "executed_ok": 24,
   "failed": 0,
-  "note": "Bu tablo altin/referans SQL sonuclaridir (24/24). F-SQL019 ciftlik_adi ile duzeltilmistir. Model Text-to-SQL execution accuracy degildir.",
+  "note": "Bu tablo altın/referans SQL sonuçlarıdır. Sistemin ürettiği SQL'in execution accuracy'si sql_e2e_report.json içinde ayrı ölçülür.",
   "rows": [
     {
       "id": "F-SQL001",
@@ -211,7 +211,7 @@
       "run_status": "ok",
       "comparison_result": "match",
       "error_type": null,
-      "note": "Referans SQL calistirilabilirligi; model Text-to-SQL execution accuracy degildir. Sema duzeltmesi: ciftlik_adi."
+      "note": "Referans SQL çalıştırılabilirliği; model Text-to-SQL execution accuracy değildir."
     },
     {
       "id": "F-SQL020",

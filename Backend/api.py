@@ -51,7 +51,13 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24  # 1 Günlük token süresi
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
-client = Groq(api_key=os.environ.get("WHISPER_API_KEY"))
+_whisper_key = (os.environ.get("WHISPER_API_KEY") or "").strip()
+_whisper_key_usable = bool(
+    _whisper_key
+    and not _whisper_key.lower().startswith("dummy")
+    and len(_whisper_key) > 20
+)
+client = Groq(api_key=_whisper_key) if _whisper_key else None
 
 try:
     voice = PiperVoice.load("tr_TR-dfki-medium.onnx")
@@ -500,10 +506,14 @@ def process_csv_query(request: QueryRequest, current_user: dict = Depends(get_cu
 async def transcribe_audio(audio: UploadFile = File(...), current_user: dict = Depends(get_current_user)):
     temp_file_path = None
     try:
-        if not os.environ.get("WHISPER_API_KEY"):
+        if not _whisper_key_usable or client is None:
             raise HTTPException(
                 status_code=503,
-                detail="WHISPER_API_KEY tanımlı değil; sesli soru şu an kullanılamıyor.",
+                detail=(
+                    "Sunucuda geçerli WHISPER_API_KEY (Groq) yok. "
+                    "Web arayüzünde tarayıcı ses tanımayı kullanın veya "
+                    "Backend/.env içine gerçek Groq API anahtarı yazın."
+                ),
             )
 
         filename = (audio.filename or "recording.webm").lower()
@@ -543,7 +553,16 @@ async def transcribe_audio(audio: UploadFile = File(...), current_user: dict = D
         raise
     except Exception as e:
         print(f"Hata Detayı: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Transkripsiyon hatası: {str(e)}")
+        err = str(e)
+        if "Connection error" in err or "APIConnectionError" in type(e).__name__:
+            raise HTTPException(
+                status_code=503,
+                detail=(
+                    "Groq Whisper API'ye bağlanılamadı. İnternet/API anahtarını "
+                    "kontrol edin; web'de tarayıcı ses tanıma kullanılabilir."
+                ),
+            ) from e
+        raise HTTPException(status_code=500, detail=f"Transkripsiyon hatası: {err}")
     finally:
         if temp_file_path and os.path.exists(temp_file_path):
             os.remove(temp_file_path)

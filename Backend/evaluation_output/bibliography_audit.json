@@ -1,0 +1,899 @@
+{
+  "captured_at_utc": "2026-10-13T18:09:45.269418+00:00",
+  "thesis_source": "C:\\Users\\Serenay\\Desktop\\hayvancılık güncel son.docx",
+  "bibliography_entry_count": 112,
+  "corpus_document_count": 16,
+  "corpus_in_bibliography_count": 0,
+  "corpus_missing_from_bibliography": [
+    "FAO_Mastitis_Dairy_Manual.pdf",
+    "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+    "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+    "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+    "FAO_2012_Balanced_Feeding.pdf",
+    "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+    "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+    "Cornell_Transition_Cow_Metabolic.pdf",
+    "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+    "USU_2026_Colostrum_Dairy_Calves.pdf",
+    "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+    "Wisconsin_High_Fertility_Cycle.pdf",
+    "WOAH_Dairy_Cattle_Welfare.pdf",
+    "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+    "FAO_IDF_Good_Dairy_Farming.pdf",
+    "Codex_Milk_Hygiene.pdf"
+  ],
+  "finding": "Held-out RAG corpus’taki 16 bilimsel PDF’nin çoğu tez KAYNAKLAR bölümünde bibliyografik künye olarak bulunamadı. Literatür listesi ağırlıkla genel AI/RAG makalelerinden oluşuyor. Aşağıdaki recommended_bibliography_entries corpus kaynaklarını KAYNAKLAR’a eklemek için hazır APA-benzeri satırlardır.",
+  "publisher_or_org_verified_count": 12,
+  "local_metadata_only_count": 4,
+  "method_note": "Çift yönlü denetim: (1) 16 corpus belgesi → tez KAYNAKLAR eşleşmesi; (2) KAYNAKLAR maddeleri → corpus (zayıf eşleşmeler elendi). Yayıncı doğrulama: resmi kurum sayfası/org kök URL; DOI’siz akademik PDF’ler local_pdf_metadata_only.",
+  "corpus_to_bibliography": [
+    {
+      "doc_id": "D01",
+      "file": "FAO_Mastitis_Dairy_Manual.pdf",
+      "canonical_title": "Milking, milk production hygiene and udder health (FAO Animal Production and Health Paper 78) — mastitis control sections",
+      "url_or_doi": "https://www.fao.org/4/T0218E/T0218E00.htm",
+      "verification": "publisher_page_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": false,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "FAO (1989). Milking, milk production hygiene and udder health (FAO Animal Production and Health Paper 78) — mastitis control sections. Food and Agriculture Organization of the United Nations. https://www.fao.org/4/T0218E/T0218E00.htm"
+    },
+    {
+      "doc_id": "D02",
+      "file": "Kurt_2019_Mastitis_Kuru_Gecis_Donemi.pdf",
+      "canonical_title": "Mastitis ve kuru/geçiş dönemi yönetimi (Kurt, 2019)",
+      "url_or_doi": null,
+      "verification": "local_pdf_metadata_only",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": false,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "Kurt (2019). Mastitis ve kuru/geçiş dönemi yönetimi (Kurt, 2019). akademik dergi (yerel PDF)."
+    },
+    {
+      "doc_id": "D03",
+      "file": "Darbaz_Ergene_2015_Somatik_Hucre_Sayisi.pdf",
+      "canonical_title": "Somatik hücre sayısı ve süt kalitesi (Darbaz & Ergene, 2015)",
+      "url_or_doi": null,
+      "verification": "local_pdf_metadata_only",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": false,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "Darbaz; Ergene (2015). Somatik hücre sayısı ve süt kalitesi (Darbaz & Ergene, 2015). akademik dergi (yerel PDF)."
+    },
+    {
+      "doc_id": "D04",
+      "file": "Yalcin_Cakmak_2022_Somatik_Hucre_Sut_Kalitesi.pdf",
+      "canonical_title": "Somatik hücre ve süt kalitesi (Yalçın & Çakmak, 2022)",
+      "url_or_doi": null,
+      "verification": "local_pdf_metadata_only",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": false,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "Yalçın; Çakmak (2022). Somatik hücre ve süt kalitesi (Yalçın & Çakmak, 2022). akademik dergi (yerel PDF)."
+    },
+    {
+      "doc_id": "D05",
+      "file": "FAO_2012_Balanced_Feeding.pdf",
+      "canonical_title": "Balanced feeding for improving livestock productivity (FAO Animal Production and Health Paper 173)",
+      "url_or_doi": "https://www.fao.org/4/i3014e/i3014e00.htm",
+      "verification": "publisher_page_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": false,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "Garg, M.R.; FAO (2012). Balanced feeding for improving livestock productivity (FAO Animal Production and Health Paper 173). FAO. https://www.fao.org/4/i3014e/i3014e00.htm"
+    },
+    {
+      "doc_id": "D06",
+      "file": "Tennessee_Managing_Intake_Dairy_Cows.pdf",
+      "canonical_title": "Managing Intake of Dairy Cows (University of Tennessee Extension)",
+      "url_or_doi": "https://extension.tennessee.edu/",
+      "verification": "publisher_org_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": true,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "University of Tennessee Extension (t.y.). Managing Intake of Dairy Cows (University of Tennessee Extension). University of Tennessee. https://extension.tennessee.edu/"
+    },
+    {
+      "doc_id": "D07",
+      "file": "Wisconsin_Fresh_Cow_Milk_Fever.pdf",
+      "canonical_title": "Fresh cow / milk fever extension material (UW)",
+      "url_or_doi": "https://extension.wisc.edu/",
+      "verification": "publisher_org_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": true,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "University of Wisconsin (t.y.). Fresh cow / milk fever extension material (UW). University of Wisconsin. https://extension.wisc.edu/"
+    },
+    {
+      "doc_id": "D08",
+      "file": "Cornell_Transition_Cow_Metabolic.pdf",
+      "canonical_title": "Transition cow metabolic disorders (Cornell)",
+      "url_or_doi": "https://www.vet.cornell.edu/",
+      "verification": "publisher_org_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": true,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "Cornell University (t.y.). Transition cow metabolic disorders (Cornell). Cornell University. https://www.vet.cornell.edu/"
+    },
+    {
+      "doc_id": "D09",
+      "file": "UF_IFAS_Dairy_Calf_Nutrition.pdf",
+      "canonical_title": "Dairy calf nutrition (UF/IFAS)",
+      "url_or_doi": "https://edis.ifas.ufl.edu/",
+      "verification": "publisher_org_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": true,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "University of Florida IFAS (t.y.). Dairy calf nutrition (UF/IFAS). UF/IFAS Extension. https://edis.ifas.ufl.edu/"
+    },
+    {
+      "doc_id": "D10",
+      "file": "USU_2026_Colostrum_Dairy_Calves.pdf",
+      "canonical_title": "Colostrum management for dairy calves (Utah State University, 2026)",
+      "url_or_doi": "https://extension.usu.edu/",
+      "verification": "publisher_org_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": false,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "Utah State University Extension (2026). Colostrum management for dairy calves (Utah State University, 2026). Utah State University. https://extension.usu.edu/"
+    },
+    {
+      "doc_id": "D11",
+      "file": "DCRC_Dairy_Cow_Reproductive_Management.pdf",
+      "canonical_title": "Dairy cow reproductive management (DCRC)",
+      "url_or_doi": "https://www.dcrcouncil.org/",
+      "verification": "publisher_org_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": true,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "Dairy Cattle Reproduction Council (t.y.). Dairy cow reproductive management (DCRC). DCRC. https://www.dcrcouncil.org/"
+    },
+    {
+      "doc_id": "D12",
+      "file": "Wisconsin_High_Fertility_Cycle.pdf",
+      "canonical_title": "High fertility cycle in dairy cattle (UW)",
+      "url_or_doi": "https://extension.wisc.edu/",
+      "verification": "publisher_org_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": true,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "University of Wisconsin (t.y.). High fertility cycle in dairy cattle (UW). University of Wisconsin. https://extension.wisc.edu/"
+    },
+    {
+      "doc_id": "D13",
+      "file": "WOAH_Dairy_Cattle_Welfare.pdf",
+      "canonical_title": "Terrestrial Animal Health Code — dairy cattle welfare (WOAH)",
+      "url_or_doi": "https://www.woah.org/",
+      "verification": "publisher_org_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": false,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "WOAH (OIE) (t.y.). Terrestrial Animal Health Code — dairy cattle welfare (WOAH). World Organisation for Animal Health. https://www.woah.org/"
+    },
+    {
+      "doc_id": "D14",
+      "file": "Ocal_Guven_Cedden_2026_Dairy_Cattle_Welfare.pdf",
+      "canonical_title": "Dairy cattle welfare (Öcal, Güven, Cedden, 2026)",
+      "url_or_doi": null,
+      "verification": "local_pdf_metadata_only",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": true,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "Öcal; Güven; Cedden (2026). Dairy cattle welfare (Öcal, Güven, Cedden, 2026). akademik dergi (yerel PDF)."
+    },
+    {
+      "doc_id": "D15",
+      "file": "FAO_IDF_Good_Dairy_Farming.pdf",
+      "canonical_title": "Guide to good dairy farming practice (FAO & IDF)",
+      "url_or_doi": "https://www.fao.org/dairy-production-products/resources/en/",
+      "verification": "publisher_org_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": false,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "FAO; IDF (2011). Guide to good dairy farming practice (FAO & IDF). FAO/IDF. https://www.fao.org/dairy-production-products/resources/en/"
+    },
+    {
+      "doc_id": "D16",
+      "file": "Codex_Milk_Hygiene.pdf",
+      "canonical_title": "Code of Hygienic Practice for Milk and Milk Products (Codex)",
+      "url_or_doi": "https://www.fao.org/fao-who-codexalimentarius/",
+      "verification": "publisher_org_checked",
+      "in_thesis_bibliography": false,
+      "mentioned_in_thesis_body": false,
+      "matched_bibliography_excerpt": null,
+      "recommended_bibliography_apa": "Codex Alimentarius Commission (t.y.). Code of Hygienic Practice for Milk and Milk Products (Codex). FAO/WHO Codex Alimentarius. https://www.fao.org/fao-who-codexalimentarius/"
+    }
+  ],
+  "bibliography_to_corpus": [
+    {
+      "bibliography_excerpt": "Abdallah, A. K., Alkaabi, A. M., Mehiar, D. A. F., & Aradat, Z. A. J. (2024). Chatbots in classrooms (pp. 166–181). IGI Global. https://doi.org/10.4018/979-8-3693-0880-6.ch012",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Adenekan, O., Solomon, N., Simpa, P., & Obasi, S. (2024). Enhancing manufacturing productivity: A review of AI-driven supply chain management optimization and ERP systems integration. International Jo",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Ahmed, F., Ahmed, M. R., Kabir, M. A., & Islam, M. M. (2025). Revolutionizing business analytics: The impact of artificial intelligence and machine learning. American Journal of Advanced Technology an",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Akter, S., Uddin, M. R., Sajib, S., Lee, W. J. T., Michael, K., & Hossain, M. A. (2022). Reconceptualizing cybersecurity awareness capability in the data-driven digital economy. Annals of Operations R",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Alharbi, N., Ud Din, F., Paul, D., & Sadgrove, E. (2025). Driving AI chatbot adoption: A systematic review of factors, barriers, and future research directions. Journal of Open Innovation: Technology,",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Almanasra, S. (2024). Applications of integrating artificial intelligence and big data: A comprehensive analysis. Journal of Intelligent Systems, 33(1). https://doi.org/10.1515/jisys-2024-0237",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Altom, D. S., Awad Taha, A. I., Mahmoud Hussein, A. A. A., Ibrahim Elshiekh, M. A., Alata Abdelmajed, A. H., Abdalla Ibrahim, F. I., Abelgadir Mohammed, S. M., & Elamin Eltain Tifoor, M. M. (2025). Ar",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Ansari, M. F., Dash, B., Sharma, P., & Yathiraju, N. (2022). The impact and limitations of artificial intelligence in cybersecurity: A literature review. IJARCCE, 11(9). https://doi.org/10.17148/ijarc",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Arif, M., Rabby, H., Nadia, N., Tanvir, M., & Masum, A. (2025). AI-driven risk assessment in national security projects: Investigating machine learning models to predict and mitigate risks in defense ",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Arthana, I. K. R., Dewi, N. P. N. P., Saskara, G. A. J., Pradnyana, I. M. A., & Indrayani, L. (2026). Real-time intelligent virtual assistant based on retrieval augmented generation. IAES Internationa",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Asolo, E., Gil-Ozoudeh, I., & Ejimuda, C. (2024). AI-powered decision support systems for sustainable agriculture using AI-chatbot solution. Journal of Digital Food, Energy & Water Systems, 5(1). http",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "B, S., P, P. R., B, S. M., & S, K. (2024). The evolution of large language model: Models, applications and challenges (Vol. 32, pp. 1–8). https://doi.org/10.1109/icctac61556.2024.10581180",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Barrios-González, M., Aguiar-Pérez, J. M., Pérez-Juárez, M. Á., & Castañeda-De-Benito, E. (2026). Redefining cyber threat intelligence with artificial intelligence: From data processing to predictive ",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Borah, B., Pathak, D., Sarmah, P., Som, B., & Nandi, S. (2019). Survey of textbased chatbot in perspective of recent technologies (pp. 84–96). Springer Singapore. https://doi.org/10.1007/978-981-13-85",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Bretas, I. L., Dubeux, J. C. B., Cruz, P. J. R., Oduor, K. T., Queiroz, L. D., Valente, D. S. M., & Chizzotti, F. H. M. (2023). Precision livestock farming applied to grazingland monitoring and manage",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Rames",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Chen, G., Fan, J., & Azam, M. (2024). Exploring artificial intelligence (AI) chatbots adoption among research scholars using unified theory of acceptance and use of technology (UTAUT). Journal of Libr",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Chen, H., Rodríguez Méndez, S. J., & Omran, P. G. (2025). Open local knowledge graph construction from academic papers using generative large language models (pp. 2551–2559). https://doi.org/10.1145/3",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Chen, J., Xiao, S., Zhang, P., Luo, K., Lian, D., & Liu, Z. (2024). BGE M3-embedding: Multi-lingual, multi-functionality, multi-granularity text embeddings through self-knowledge distillation. arXiv p",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Cheng, M., Luo, Y., Ouyang, J., Liu, Q., Liu, H., Li, L., Yu, S., Zhang, B., Cao, J., Ma, J., Wang, D., & Chen, E. (2025). A survey on knowledge-oriented retrieval-augmented generation. arXiv. https:/",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Choi, W. C., Choi, I. C., & Chang, C. I. (2025). The impact of artificial intelligence on education: The applications, advantages, challenges and researchers’ perspective. Preprints. https://doi.org/1",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Clement David-Olawade, A., Ogunbona, M. A., Olawuyi, O. F., Makanjuola, B. D., Alabi, J. O., & Olawade, D. B. (2026). Artificial intelligence and machine learning applications in dialysis: Current app",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Condotta, I. C. F. S., & Tedeschi, L. O. (2026). ASAS-NANP symposium: Mathematical modeling in animal nutrition: Revolutionizing animal farming with artificial intelligence: Trends, challenges, and op",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Dara, R., Hazrati Fard, S. M., & Kaur, J. (2022). Recommendations for ethical and responsible use of artificial intelligence in digital agriculture. Frontiers in Artificial Intelligence, 5, 884192. ht",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Dergaa, I., Fekih-Romdhane, F., Glenn, J. M., Saifeddin Fessi, M., Chamari, K., Dhahbi, W., Zghibi, M., Bragazzi, N. L., Ben Aissa, M., Guelmami, N., El Omri, A., Swed, S., Weiss, K., Knechtle, B., & ",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Dolianiti, F., Tsoupouroglou, I., Antoniou, P., Konstantinidis, S., Anastasiades, S., & Bamidis, P. (2020). Chatbots in healthcare curricula: The case of a conversational virtual patient (pp. 137–147)",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Es, S., James, J., Espinosa-Anke, L., & Schockaert, S. (2024). RAGAS: Automated evaluation of retrieval augmented generation. In Proceedings of the 18th Conference of the European Chapter of the Assoc",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Feretzakis, G., Papaspyridis, K., Gkoulalas-Divanis, A., & Verykios, V. S. (2024). Privacy-preserving techniques in generative AI and large language models: A narrative review. Information, 15(11), 69",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Feretzakis, G., & Verykios, V. S. (2024). Trustworthy AI: Securing sensitive data in large language models. AI, 5(4), 2773–2800. https://doi.org/10.3390/ai5040134",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Gan, A., Yu, H., Zhang, K., Liu, Q., Yan, W., Huang, Z., Tong, S., & Hu, G. (2025). Retrieval augmented generation evaluation in the era of large language models: A comprehensive survey. arXiv. https:",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Gao, D., Wang, H., Li, Y., Sun, X., Qian, Y., Ding, B., & Zhou, J. (2024). Text-to-SQL empowered by large language models: A benchmark evaluation. Proceedings of the VLDB Endowment, 17(5), 1132–1145.",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Ghazo, A. T. A., & Salah, M. (2026). Artificial intelligence in modern mechatronic systems: Technologies, applications, and future research directions. Systems Science & Control Engineering, 14(1). ht",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Gu, J. (2025). A research of challenges and solutions in retrieval augmented generation (RAG) systems. Highlights in Science, Engineering and Technology, 124, 132–138. https://doi.org/10.54097/364hex1",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Gülmez, B. (2026). Artificial intelligence-driven smart grid optimization: A comprehensive review of machine learning, renewable integration, and cybersecurity applications. Energy Conversion and Mana",
+      "matched_corpus_file": "USU_2026_Colostrum_Dairy_Calves.pdf",
+      "match_score": 4,
+      "is_corpus_source": true
+    },
+    {
+      "bibliography_excerpt": "Guo, H., Zhu, J., Di, S., Shi, W., Chen, Z., & Xu, J. (2025). DioR: Adaptive cognitive detection and contextual retrieval optimization for dynamic retrieval-augmented generation (pp. 2953–2975). https",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Gupta, S. (2025). Retrieval-augmented generation and hallucination in large language models: A scholarly overview. Scholars Journal of Engineering and Technology, 13(5), 328–330. https://doi.org/10.36",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Gurrapu, P., Siddique, A., Batchu, P., Kota, R., Isai, G., Van Wyk, J., Morgan, E., & Terrill, T. H. (2025). PSIX-13 enhancing livestock health monitoring: AI driven approaches for anemia detection in",
+      "matched_corpus_file": "FAO_2012_Balanced_Feeding.pdf",
+      "match_score": 4,
+      "is_corpus_source": true
+    },
+    {
+      "bibliography_excerpt": "Iqbal, H. R., Sharjeel, M., Shafi, J., Mehmood, U., & Raza, A. A. (2025). Urdu sentential paraphrased plagiarism detection using large language models. ACM Transactions on Asian and Low-Resource Langu",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Ji, X., Xu, L., Gu, L., Ma, J., Zhang, Z., & Jiang, W. (2025). RAP-RAG: A retrieval-augmented generation framework with adaptive retrieval task planning. Electronics, 14(21), 4269. https://doi.org/10.",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Jiang, A. Q., Sablayrolles, A., Mensch, A., Bamford, C., Chaplot, D. S., de las Casas, D., Bressand, F., Lengyel, G., Lample, G., Saulnier, L., Lavaud, L. R., Lachaux, M.-A., Stock, P., Scao, T. L., L",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Johnson, J., Douze, M., & Jégou, H. (2019). Billion-scale similarity search with GPUs. IEEE Transactions on Big Data, 7(3), 535–547. https://doi.org/10.1109/TBDATA.2019.2921572",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Jokar, M., Abdous, A., & Rahmanian, V. (2024). AI chatbots in pet health care: Opportunities and challenges for owners. Veterinary Medicine and Science, 10(3), e1464. https://doi.org/10.1002/vms3.1464",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Kate, M., & Neethirajan, S. (2025). Decoding bovine communication with AI and multimodal systems: Advancing sustainable livestock management and precision agriculture. bioRxiv. https://doi.org/10.1101",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Khaldy, M. A., & Gheraibia, Y. (2025). Ethical considerations in the development and deployment of large language models (pp. 1–6). https://doi.org/10.1109/icciaa65327.2025.11013722",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Kim, S., Zhou, Y., Guo, Y., Xiao, C., & Zheng, K. (2026). Applying natural language processing and large language models to clinical notes for phenotyping and diagnosing rare diseases: A systematic re",
+      "matched_corpus_file": "USU_2026_Colostrum_Dairy_Calves.pdf",
+      "match_score": 4,
+      "is_corpus_source": true
+    },
+    {
+      "bibliography_excerpt": "Kiran, S. (2025). Hybrid retrieval-augmented generation (RAG) systems with embedding vector databases. International Journal of Scientific Research in Computer Science, Engineering and Information Tec",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Kleebayoon, A., & Wiwanitkit, V. (2024). AI chatbots in pet health care: Comment. Veterinary Medicine and Science, 10(4), e1512. https://doi.org/10.1002/vms3.1512",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Kleen, J. L., & Guatteo, R. (2023). Precision livestock farming: What does it contain and what are the perspectives? Animals, 13(5), 779. https://doi.org/10.3390/ani13050779",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Kneese, T., Vecchione, B., & Marwick, A. (2025).",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "A chatbot for the soul: Mental health care, privacy, and intimacy in AI-based conversational agents. Communication and Change, 1(1). https://doi.org/10.1007/s44382-025-00015-y",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Kontche Steve, M. (2024). Ethical considerations for companies implementing LLMs in education software. International Journal of Innovative Science and Research Technology (IJISRT), 1856–1861. https:/",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Kuli, B., Debnath, J., Sheikh, A., Das, S., & Balai, P. (2025). Smart farming revolution: AI, IoT, and robotics in precision agriculture and soil conservation. International Journal of Scientific Rese",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Large language models: Advances, challenges, and future directions. (2025). International Journal of Advanced Trends in Computer Science and Engineering, 14(2), 55–57. https://doi.org/10.30534/ijatcse",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Lawal, S., Zhao, X., Rios, A., Krishnan, R., & Ferraiolo, D. (2024). Translating natural language specifications into access control policies by leveraging large language models (pp. 361–370). https:/",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Le, X. C. (2023). Inducing AI-powered chatbot use for customer purchase: The role of information value and innovative technology. Journal of Systems and Information Technology, 25(2), 219–241. https:/",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Lee, H., Handler, R., Mungle, T., & Hernandez-Boussard, T. (2026). Building safer artificial intelligence mental health chatbots: A framework for transparency, evaluation, and shared accountability. J",
+      "matched_corpus_file": "USU_2026_Colostrum_Dairy_Calves.pdf",
+      "match_score": 4,
+      "is_corpus_source": true
+    },
+    {
+      "bibliography_excerpt": "Lee, Y. (2024). Development of open large language models for artificial intelligence digital textbooks. TEM Journal, 2773–2783. https://doi.org/10.18421/tem134-14",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S., & Kiela, D. (2020). Retrieval-augmented generation for knowledge-",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Li, S., Stenzel, L., Eickhoff, C., & Bahrainian, S. (2025). Enhancing retrieval-augmented generation: A study of best practices. arXiv. https://doi.org/10.48550/arxiv.2501.07391",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Lin, Y., & Yu, Z. (2023). A bibliometric analysis of artificial intelligence chatbots in educational contexts. Interactive Technology and Smart Education, 21(2), 189–213. https://doi.org/10.1108/itse-",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Linkon, A., Shaima, M., Sarker, M., Badruddowza, B., Nabi, N., Rana, M., Ghosh, S., Esa, H., & Chowdhury, F. (2024). Advancements and applications of generative artificial intelligence and large langu",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Liu, C.-L., Ho, C.-T., & Wu, T.-C. (2026). Toward tailored implementation of an artificial intelligence-based healthy dietary chatbot: Differences in technology acceptance pathways by health conscious",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Liu, N., Qi, J., An, X., & Wang, Y. (2023). A review on information technologies applicable to precision dairy farming: Focus on behavior, health monitoring, and the precise feeding of dairy cows. Agr",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Mankari, S., & Sanghavi, A. (2024). Enhancing vector based retrieval augmented generation with contextual knowledge graph construction (pp. 1–6). https://doi.org/10.1109/idicaiei61867.2024.10842699",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Manning, C. D., Raghavan, P., & Schütze, H. (2008). Introduction to information retrieval. Cambridge University Press.",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Melak, A., Aseged, T., & Shitaw, T. (2024). The influence of artificial intelligence technology on the management of livestock farms. International Journal of Distributed Sensor Networks, 2024, 1–12. ",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Meshram, S., Naik, N., Vr, M., More, T., & Kharche, S. (2021). Conversational AI: Chatbots (pp. 1–6). https://doi.org/10.1109/conit51480.2021.9498508",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Modiba, M., & Shekgola, M. (2025). Utilising artificial intelligence chatbots for conducting research in the fifth industrial revolution. Journal of Infrastructure, Policy and Development, 9(3), 11334",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Natsir, M. H., Mahmudy, W. F., Tono, M., & Nuningtyas, Y. F. (2025). Advancements in artificial intelligence and machine learning for poultry farming: Applications, challenges, and future prospects. S",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Neethirajan, S. (2025). Safeguarding digital livestock farming—A comprehensive cybersecurity roadmap for dairy and poultry industries. Frontiers in Big Data, 8, 1556157. https://doi.org/10.3389/fdata.",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Nugroho, S. A., Sumaryanto, S., & Hadi, A. P. (2024). Enhancing cybersecurity with AI algorithms and big data analytics: Challenges and solutions. Journal of Technology Informatics and Engineering, 3(",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Oche, A., Folashade, A., Ghosal, T., & Biswas, A. (2025). A systematic review of key retrieval-augmented generation (RAG) systems: Progress, gaps, and future directions. arXiv. https://doi.org/10.4855",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Olisaeloka, L., Nunez, J.-J., Vigo, D. V., & Ng, R. (2026). Artificial intelligence (AI) psychosis: Mechanisms, clinical risks and safety considerations in generative AI chatbots. BJPsych Open, 12(4),",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Ong, W., Zhu, L., Zhang, W., Kuah, T., Lim, D. S. W., Low, X. Z., Thian, Y. L., Teo, E. C., Tan, J. H., Kumar, N., Vellayappan, B. A., Ooi, B. C., Quek, S. T., Makmur, A., & Hallinan, J. T. P. D. (202",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Ozella, L., Magliola, A., Vernengo, S., Ghigo, M., Bartoli, F., Grangetto, M., Forte, C., Montrucchio, G., & Giacobini, M. (2024). A computer vision approach for the automatic detection of social inte",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Pan, T., & Su, Y. (2026). A generative AI-enhanced intelligent service system with contextual retrieval and adaptive interaction for hospital use. Scientific Reports, 16(1). https://doi.org/10.1038/s4",
+      "matched_corpus_file": "USU_2026_Colostrum_Dairy_Calves.pdf",
+      "match_score": 4,
+      "is_corpus_source": true
+    },
+    {
+      "bibliography_excerpt": "Pletsch, A. L. B., Stenger, E. A. F., & Sehnem, S. (2024). The potential of Industry 4.0 technologies in transforming agricultural and livestock practices: A systematic review. International Journal o",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "R, K., & C, M. (2024). IoT-based robotic systems integrating artificial intelligence for sustainable crop protection in agriculture. PatternIQ Mining. https://doi.org/10.70023/piqm24301",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Ramana, P., Mohanty, D., Ngullie, D., Rajeswari, D., Abinaya, D., Sharma, S., & Sunalini, K. (2024). Exploring AI-powered chatbots in English language learning: A study on effectiveness, user experien",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Ramdurai, B. (2025). A review of large language models (LLMs), retrieval-augmented generation (RAG) systems, and convolutional neural networks (CNNs) in application systems (pp. 135–154). BP. https://",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Rathod, V., Nabavirazavi, S., Zad, S., & Iyengar, S. S. (2025). Privacy and security challenges in large language models (pp. 746–752). https://doi.org/10.1109/ccwc62904.2025.10903912",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Rebez, E. B., Sejian, V., Silpa, M. V., Kalaignazhal, G., Thirunavukkarasu, D., Devaraj, C., Nikhil, K. T., Ninan, J., Sahoo, A., Lacetera, N., & Dunshea, F. R. (2024). Applications of artificial inte",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Robertson, S., & Zaragoza, H. (2009). The probabilistic relevance framework: BM25 and beyond. Foundations and Trends in Information Retrieval, 3(4), 333–389. https://doi.org/10.1561/1500000019",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Rosati, A. (2026). Rethinking livestock farming for artificial intelligence integration. Animal Frontiers, 16(2), 7–13. https://doi.org/10.1093/af/vfag006",
+      "matched_corpus_file": "USU_2026_Colostrum_Dairy_Calves.pdf",
+      "match_score": 4,
+      "is_corpus_source": true
+    },
+    {
+      "bibliography_excerpt": "Saha, S., Ali, M. S., Tengli, A. K., Prasad, S. R., Mallikarjunaswamy, P., Pillappan, R., & Javarappa, K. K. (2026). Navigating AI and machine learning in cancer research: An end-to-end translational ",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Saoud, L. S., & Romman, A. A. (2024). AI-powered chatbots in the telecommunications industry in the UAE: Studying the factors impacting consumer adoption (pp. 1549–1553). https://doi.org/10.1109/ictc6",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Shahade, A. K., & Deshmukh, P. V. (2024). Enhancing natural language processing: A comprehensive review of retrieval augmented generation (pp. 609–611). https://doi.org/10.1109/icses63445.2024.1076322",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Singh, A. (2024). AI-driven innovations for enabling a circular economy (pp. 47–64). IGI Global. https://doi.org/10.4018/979-8-3373-0578-3.ch003",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Siva Kiran, R. R., & Dhamodhar, P. (2025). The role of artificial intelligence and machine learning in advancing animal biotechnology: A review. Archives of Razi Institute, 80(4), 819–832. https://doi",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Smart solutions for livestock management and health monitoring. (2026). Pakistan Veterinary Journal. https://doi.org/10.29261/pakvetj/2026.020",
+      "matched_corpus_file": "USU_2026_Colostrum_Dairy_Calves.pdf",
+      "match_score": 5,
+      "is_corpus_source": true
+    },
+    {
+      "bibliography_excerpt": "Song, Y., Li, J., Chi, D., Xu, Z., Liu, J., Chen, M., & Wang, Z. (2025). AI-driven advances in metal-organic frameworks: From data to design and applications. Chemical Communications, 61(82), 15972–16",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Stonebraker, M., & Rowe, L. A. (1986). The design of POSTGRES. In Proceedings of the 1986 ACM SIGMOD International Conference on Management of Data (pp. 340–355). Association for Computing Machinery. ",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Su, W., Ai, Q., Zhan, J., Dong, Q., & Liu, Y. (2025). Dynamic and parametric retrieval-augmented generation (pp. 4118–4121). https://doi.org/10.1145/3726302.3731692",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Subaveerapandiyan, A., Radhakrishnan, S., Tiwary, N., & Guangul, S. M. (2024). Student satisfaction with artificial intelligence chatbots in Ethiopian academia. IFLA Journal, 51(3), 600–614. https://d",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Sztandarski, P., Marchewka, J., Jaszczyk, A., Solka, M., Michnowska, H., Pogorzelski, G., Gotxi, J. R., Damaziak, K., Wójcik, W., Siwiec, D., Seidavi, A., & Horbańczuk, J. O. (2025). Scientific litera",
+      "matched_corpus_file": "FAO_2012_Balanced_Feeding.pdf",
+      "match_score": 4,
+      "is_corpus_source": true
+    },
+    {
+      "bibliography_excerpt": "Tanyildiz, D., Ayvaz, S., & Amasyali, M. F. (2024). Enhancing retrieval-augmented generation accuracy with dynamic chunking and optimized vector search. Orclever Proceedings of Research and Developmen",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Tedeschi, L. O., Guarnido-Lopez, P., Menendez, H. M., III, & Seo, S. (2025). Advancing precision livestock farming: Integrating artificial intelligence and emerging technologies for sustainable livest",
+      "matched_corpus_file": "FAO_2012_Balanced_Feeding.pdf",
+      "match_score": 4,
+      "is_corpus_source": true
+    },
+    {
+      "bibliography_excerpt": "Thaker, H. B. M. T., Lacheheb, Z., Lelchumanan, B., Duasa, J., & Taghizadeh-Hesary, F. (2025). Examining factors influencing chatbot adoption in Takaful industry: Malaysian evidence. International Jou",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Usuyama, N., Wong, C., Zhang, S., Naumann, T., & Poon, H. (2025). Biomedical natural language processing in the era of large language models. Annual Review of Biomedical Data Science, 8(1), 471–490. h",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Vashishth, T. K., Sharma, V., Sharma, K. K., Kumar, B., Kumar, A., & Panwar, R. (2024). Artificial intelligence (AI)–powered chatbots (pp. 211–236). Routledge. https://doi.org/10.4324/9781003488248-15",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Vebrianti, R., Aras, M., Putri, M. S. S., & Swandewi, I. A. (2025). AI chatbots in e-commerce: Enhancing customer engagement, satisfaction and loyalty. PaperASIA, 41(2b), 248–260. https://doi.org/10.5",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Vitale, J., Tedeschi, L., Strong, R., Rodriguez Lopez, C. M., Peterson, M., Murray, S., Mcreynolds, E., Gentimis, T., Ferreyra, A., Bhandari, M., Ampatzidis, Y., & Ye, X. (2025). AI in agriculture: Op",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Wang, S., Jiang, H., Qiao, Y., Jiang, S., Lin, H., & Sun, Q. (2022). The research progress of vision-based artificial intelligence in smart pig farming. Sensors, 22(17), 6541. https://doi.org/10.3390/",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Warbhe, M. K., Verma, P., & Rewatkar, R. (2024). A review on the use of AI and robotics in agricultural practices (Vol. 6, pp. 1444–1450). https://doi.org/10.1109/icoici62503.2024.10696164",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Watanuki, K., Oba, R., Nozawa, N., Ishihara, T., Oga, K., Iwayama, T., Shiganami, T., Kobayashi, S., Kuga, H., Yoshimasu, H., & Kuramochi, I. (2025). Natural language processing-based emotion and usag",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Weng, Y., Wu, J., Kelly, T., & Johnson, W. (2024). Comprehensive overview of artificial intelligence applications in modern industries. Preprints. https://doi.org/10.20944/preprints202409.1638.v1",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Yadav, A. B. (2024). Generative AI in the era of transformers: Revolutionizing natural language processing with LLMs. Journal of Image Processing and Intelligent Remote Sensing, 42, 54–61. https://doi",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Yi, Z., Xiao, T., & Albert, M. V. (2025). A survey on multimodal large language models in radiology for report generation and visual question answering. Information, 16(2), 136. https://doi.org/10.339",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Yousef, L. A., Yousef, H., & Rocha-Meneses, L. (2023). Artificial intelligence for management of variable renewable energy systems: A review of current status and future directions. Energies, 16(24), ",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Yu, H., Gan, A., Zhang, K., Tong, S., Liu, Q., & Liu, Z. (2024). Evaluation of retrieval-augmented generation: A survey. arXiv. https://doi.org/10.48550/arxiv.2405.07437",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    },
+    {
+      "bibliography_excerpt": "Zin, T. T., & Tin, P. (2026). Computer vision in precision livestock farming: Artificial intelligence-driven technologies and applications for sustainable animal production. Animal Bioscience, 39(4), ",
+      "matched_corpus_file": "FAO_2012_Balanced_Feeding.pdf",
+      "match_score": 5,
+      "is_corpus_source": true
+    },
+    {
+      "bibliography_excerpt": "Zubaedah, P. A., Harliyanto, R., Situmeang, S. M. T., Siagian, D. S., & Septaria, E. (2024). The legal implications of data privacy laws, cybersecurity regulations, and AI ethics in a digital society.",
+      "matched_corpus_file": null,
+      "match_score": null,
+      "is_corpus_source": false
+    }
+  ],
+  "recommended_bibliography_entries": [
+    "FAO (1989). Milking, milk production hygiene and udder health (FAO Animal Production and Health Paper 78) — mastitis control sections. Food and Agriculture Organization of the United Nations. https://www.fao.org/4/T0218E/T0218E00.htm",
+    "Kurt (2019). Mastitis ve kuru/geçiş dönemi yönetimi (Kurt, 2019). akademik dergi (yerel PDF).",
+    "Darbaz; Ergene (2015). Somatik hücre sayısı ve süt kalitesi (Darbaz & Ergene, 2015). akademik dergi (yerel PDF).",
+    "Yalçın; Çakmak (2022). Somatik hücre ve süt kalitesi (Yalçın & Çakmak, 2022). akademik dergi (yerel PDF).",
+    "Garg, M.R.; FAO (2012). Balanced feeding for improving livestock productivity (FAO Animal Production and Health Paper 173). FAO. https://www.fao.org/4/i3014e/i3014e00.htm",
+    "University of Tennessee Extension (t.y.). Managing Intake of Dairy Cows (University of Tennessee Extension). University of Tennessee. https://extension.tennessee.edu/",
+    "University of Wisconsin (t.y.). Fresh cow / milk fever extension material (UW). University of Wisconsin. https://extension.wisc.edu/",
+    "Cornell University (t.y.). Transition cow metabolic disorders (Cornell). Cornell University. https://www.vet.cornell.edu/",
+    "University of Florida IFAS (t.y.). Dairy calf nutrition (UF/IFAS). UF/IFAS Extension. https://edis.ifas.ufl.edu/",
+    "Utah State University Extension (2026). Colostrum management for dairy calves (Utah State University, 2026). Utah State University. https://extension.usu.edu/",
+    "Dairy Cattle Reproduction Council (t.y.). Dairy cow reproductive management (DCRC). DCRC. https://www.dcrcouncil.org/",
+    "University of Wisconsin (t.y.). High fertility cycle in dairy cattle (UW). University of Wisconsin. https://extension.wisc.edu/",
+    "WOAH (OIE) (t.y.). Terrestrial Animal Health Code — dairy cattle welfare (WOAH). World Organisation for Animal Health. https://www.woah.org/",
+    "Öcal; Güven; Cedden (2026). Dairy cattle welfare (Öcal, Güven, Cedden, 2026). akademik dergi (yerel PDF).",
+    "FAO; IDF (2011). Guide to good dairy farming practice (FAO & IDF). FAO/IDF. https://www.fao.org/dairy-production-products/resources/en/",
+    "Codex Alimentarius Commission (t.y.). Code of Hygienic Practice for Milk and Milk Products (Codex). FAO/WHO Codex Alimentarius. https://www.fao.org/fao-who-codexalimentarius/"
+  ]
+}
