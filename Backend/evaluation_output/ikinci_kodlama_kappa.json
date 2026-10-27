@@ -1,0 +1,175 @@
+{
+  "n": 33,
+  "auto_mean": 0.8181818181818182,
+  "second_mean": 0.5757575757575758,
+  "second_points": 19,
+  "agreement": 0.48484848484848486,
+  "kappa": 0.1576576576576577,
+  "rows": [
+    {
+      "id": "F-RAG001",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG002",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG003",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG004",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG005",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG006",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG007",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG008",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG009",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG010",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG011",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG012",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG013",
+      "otomatik_0_2": 2,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG014",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG015",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG016",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG017",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG018",
+      "otomatik_0_2": 2,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG019",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG020",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG021",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG022",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG023",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG024",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG025",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG026",
+      "otomatik_0_2": 2,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG027",
+      "otomatik_0_2": 2,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG028",
+      "otomatik_0_2": 2,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG029",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG030",
+      "otomatik_0_2": 2,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG031",
+      "otomatik_0_2": 0,
+      "ikinci_kod_0_2": 0
+    },
+    {
+      "id": "F-RAG032",
+      "otomatik_0_2": 1,
+      "ikinci_kod_0_2": 1
+    },
+    {
+      "id": "F-RAG033",
+      "otomatik_0_2": 2,
+      "ikinci_kod_0_2": 2
+    }
+  ]
+}

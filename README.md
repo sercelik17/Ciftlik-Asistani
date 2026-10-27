@@ -165,7 +165,7 @@ python -m thesis_eval.run_academic_evaluation --task fusion-ablation --pilot-set
 
 Raporlar `Backend/evaluation_output/` altındadır (`routing_report.json`, `retrieval_report.json`, `generation_report.json`, `sql_gold_results.json`, `tablolar.html`).
 
-Özet (held-out): yönlendirme 89/89; retrieval’de BGE-M3 P@5 = 0,90, hibrit P@5 = 0,89, BM25 P@5 = 0,35. SQL referans sorgularının 24’ünden 23’ü beklenen değeri üretir (F-SQL019 şema hatası). RAG üretim kalitesi otomatik ölçütlerle düşüktür (atıf doğruluğu 0,30; desteksiz iddia 0,86); modelin SQL execution accuracy’si ve HYBRID uçtan uca doğruluk henüz ölçülmemiştir. Bu sınırlılıklar tezde açıkça raporlanır.
+Özet (ayrık final küme): yönlendirme 89/89; retrieval’de BGE-M3 P@5 = 0,90, hibrit P@5 = 0,89, BM25 P@5 = 0,35. SQL referans sorguları 24/24 çalışır (F-SQL019 altın sorgusu şema uyumu için düzeltilmiştir). Doğal dildeki sayısal tutarlılık 17/24 (0,708); HYBRID uçtan uca oran 11/16 (0,688) olup kaynak seçimidir. RAG atıf doğruluğu 0,303, desteksiz iddia oranı 0,864’tür. Ayrıntı ve Word teslimi: `tez/README.md`.
 
 ### Tez belgesi revizyonu
 

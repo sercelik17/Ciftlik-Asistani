@@ -18,6 +18,16 @@ Kaynak, 24 Ekim 2026 PDF tezinin `pdf2docx` dönüşümüdür. Sayılar, RAG ter
 | HYBRID uçtan uca (kaynak seçimi) | **11/16 (0,688)** |
 | SQL çalıştırılabilirliği | 24/24 (model Text-to-SQL EA değil) |
 
-## Belge dışı kalanlar
+## Belgede kapatılanlar
 
-Bağımsız ikinci insan değerlendirici (κ), modelin yazdığı SQL execution accuracy ve benzerlik raporundaki literatür tekrarları bu dosyada kapanmış sayılmaz; raporda sınırlılık olarak durur.
+- SQL 17/24 (0,708) ve HYBRID 11/16 (0,688) bütün metinde aynı sayıdır.
+- PDF dönüşümünün gövdeye karıştırdığı sayfa numaraları silindi; bölünen cümleler birleştirildi.
+- İçindekiler, tablo ve şekil listesi başlıklardan yeniden yazıldı.
+- §5.1’deki tekrar paragrafı çıkarıldı; literatür sonunda boşluk paragrafı eklendi.
+- §3.2’ye prototip ölçeği (1 çiftlik, 5 inek, 70 sağım, 1 alarm) yazıldı.
+- Şekil 3.3 ve Şekil 4.3’teki Windows etkinleştirme filigranı görüntüden temizlendi.
+- 33 RAG yanıtı için ikinci kodlama ile otomatik 0–2 kuralının Cohen κ değeri 0,158’dir (`Backend/evaluation_output/ikinci_kodlama_kappa.json`).
+
+## Bilinçli olarak açık kalanlar
+
+İkinci kodlayıcı veteriner hekim değildir ve kaynak parçası metnini görmemiştir. κ, atıf vekili ile içerik uygunluğunun zayıf uyumudur; uzman geçerliliği değildir. Araştırmacının tek geçiş puanlarının madde kâğıdı arşivde yoktur. LLM-only koşulunun içerik puanı bu κ’ya girmez; o koşulun atıf metrikleri bağlam olmadığı için yapısal olarak sıfırdır. Modelin serbest Text-to-SQL execution accuracy’si, şablon SQL’den ayrı bir tam deney olarak durmaz: 22 soru şablon, iki soru yedek yoldur ve F-SQL015 sözdizimi hatasıdır.

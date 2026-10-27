@@ -59,4 +59,12 @@ python -m thesis_eval.finalize_thesis_docx --src /tmp/tezwork/tez_from_pdf.docx
 #    -> ../../tez/Celikkaya_YL_Tez_Savunma_2026-10-27.docx
 ```
 
-SQL sayısal yanıt tutarlılığı 17/24 (0,708); HYBRID uçtan uca 11/16 (0,688). İçindekiler Word’de Ctrl+A → F9 ile yenilenir.
+SQL sayısal yanıt tutarlılığı 17/24 (0,708); HYBRID uçtan uca 11/16 (0,688).
+
+Kalan belgesel kapanış (sayfa numarası, içindekiler, cümle birleştirme, filigran, Cohen κ):
+
+```bash
+python -m thesis_eval.close_remaining_gaps
+```
+
+κ çıktısı `evaluation_output/ikinci_kodlama_kappa.json` dosyasındadır (0,158). İkinci kodlayıcı veteriner değildir.
