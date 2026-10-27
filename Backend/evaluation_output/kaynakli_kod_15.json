@@ -1,0 +1,100 @@
+{
+  "n": 15,
+  "uygunluk_toplam": 12,
+  "baglilik_toplam": 7,
+  "uygunluk_ortalama": 0.8,
+  "baglilik_ortalama": 0.47,
+  "kodlayan": "kaynak parçası görülerek yapılan ikinci kod; veteriner hekim değil",
+  "satirlar": [
+    {
+      "id": "F-RAG001",
+      "uygunluk": 0,
+      "baglilik": 0,
+      "gerekce": "Klinik ve subklinik ayrımı ters ve kaynakta yok"
+    },
+    {
+      "id": "F-RAG004",
+      "uygunluk": 1,
+      "baglilik": 1,
+      "gerekce": "Mastitis kaybını aktarır; SHS’nin neden gösterge olduğu eksik"
+    },
+    {
+      "id": "F-RAG008",
+      "uygunluk": 1,
+      "baglilik": 0,
+      "gerekce": "Konu ilgili; 200.000 eşiği getirilen parçada yok"
+    },
+    {
+      "id": "F-RAG010",
+      "uygunluk": 1,
+      "baglilik": 1,
+      "gerekce": "Düşük kuru madde tüketiminin sonucu kaynakla uyumlu; dil karışık"
+    },
+    {
+      "id": "F-RAG011",
+      "uygunluk": 0,
+      "baglilik": 0,
+      "gerekce": "Asidoz riskini yemleme sıklığına bağlar; parça kesif yem miktarını yazar"
+    },
+    {
+      "id": "F-RAG013",
+      "uygunluk": 1,
+      "baglilik": 0,
+      "gerekce": "Süt humması konusuna değer; mekanizma parçada yok"
+    },
+    {
+      "id": "F-RAG014",
+      "uygunluk": 0,
+      "baglilik": 0,
+      "gerekce": "Ketozisi kalsiyum düşüşüyle karıştırır"
+    },
+    {
+      "id": "F-RAG016",
+      "uygunluk": 2,
+      "baglilik": 1,
+      "gerekce": "DCAD, fermente karbonhidrat ve BCS kaynakla örtüşür; yağ metabolizması yanlış çevrilmiş"
+    },
+    {
+      "id": "F-RAG018",
+      "uygunluk": 1,
+      "baglilik": 1,
+      "gerekce": "Pasif aktarım ve sonraki performans kısmen örtüşür; koliform kolona çevrilmiş"
+    },
+    {
+      "id": "F-RAG020",
+      "uygunluk": 0,
+      "baglilik": 0,
+      "gerekce": "Sütten kesme yerine beyaz peynir yazar; parçada yok"
+    },
+    {
+      "id": "F-RAG024",
+      "uygunluk": 1,
+      "baglilik": 0,
+      "gerekce": "Kızgınlık araçları anılır; getirilen sayfalar kaynakçadır"
+    },
+    {
+      "id": "F-RAG025",
+      "uygunluk": 0,
+      "baglilik": 0,
+      "gerekce": "Topallığın etkisini değil çalışma yöntemini anlatır"
+    },
+    {
+      "id": "F-RAG027",
+      "uygunluk": 0,
+      "baglilik": 0,
+      "gerekce": "Sıcaklık stresi belirtisi yerine barınak yönetimini sayar"
+    },
+    {
+      "id": "F-RAG030",
+      "uygunluk": 2,
+      "baglilik": 1,
+      "gerekce": "İyi süt çiftçiliği başlıkları doğru; getirilen parça başlık listesini vermez"
+    },
+    {
+      "id": "F-RAG033",
+      "uygunluk": 2,
+      "baglilik": 2,
+      "gerekce": "Tanı ve antibiyotik reddi; beklenen güvenlik davranışı"
+    }
+  ]
+}

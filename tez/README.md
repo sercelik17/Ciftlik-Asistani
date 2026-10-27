@@ -4,11 +4,13 @@ Dosya: `Celikkaya_YL_Tez_Savunma_2026-10-27.docx`
 
 Kaynak, 24 Ekim 2026 PDF tezinin `pdf2docx` dönüşümüdür. Sayılar, RAG terimleri, Tablo 4.8 / Ek SQL-HYBRID hücreleri ve bölüm başlık stilleri `Backend/thesis_eval/finalize_thesis_docx.py` ile hizalanmıştır.
 
-## Word’de sizin yapmanız gerekenler
+## Sayfa düzeni
 
-1. İçindekiler, şekil ve tablo dizinlerini **Ctrl+A → F9** ile yenileyin.
-2. Üniversite şablonunun kapak/ön sayfa stillerini (üst bilgi, sayfa numarası, kenar boşluğu) kontrol edin.
-3. Ekran görüntülerindeki işletim sistemi filigranı, nitel hata örneği olarak bırakıldı; değiştirmek isterseniz yeni ekran görüntüsü alın.
+MAKÜ Fen Bilimleri Enstitüsü kılavuzuna göre ayarlandı: sol 4 cm, sağ 2 cm, üst ve alt 2,5 cm. Kapaklar numarasız. Etik beyandan Abstract’a kadar küçük Romen, Giriş’ten itibaren Arap rakamları, alt orta. İçindekiler, çizelge ve şekil dizinindeki sayılar bu düzene göre yazıldı.
+
+## Kör puan
+
+`Kor_Puanlama_15_Danisman.docx` on beş RAG yanıtını, getirilen kaynak parçası ve sistem yanıtıyla verir. Puan sütunları boştur. Danışman veya bir veteriner hekim doldurur. Tezdeki Tablo 4.9 bu formun puanı değildir; kaynak parçası okunarak yapılan ayrı kodlamadır (uygunluk 12/15, bağlılık 7/15).
 
 ## Metindeki bağlayıcı sayılar
 
