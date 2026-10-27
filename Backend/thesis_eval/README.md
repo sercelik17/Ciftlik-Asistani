@@ -48,3 +48,15 @@ Tablo 3.4 sürüm/donanım, Ek 2–5 (89 soruluk yönlendirme logu, sorgu bazlı
 
 Betik **ölçülmemiş** bir şeyi ölçülmüş gibi yazmaz: SQL execution accuracy, HYBRID E2E ve uzman 0–2 puanı
 `e2e` görevi ve insan değerlendirmesi (`evaluation_sets/human_eval_template.json`) tamamlanmadan "ölçülmedi" kalır.
+
+## 27 Ekim 2026 Word teslim hizalaması
+
+24 Ekim PDF'sinden `pdf2docx` ile alınan belgede sayı çelişkileri, RAG terimleri ve başlık stilleri düzeltilir:
+
+```bash
+cd Backend
+python -m thesis_eval.finalize_thesis_docx --src /tmp/tezwork/tez_from_pdf.docx
+#    -> ../../tez/Celikkaya_YL_Tez_Savunma_2026-10-27.docx
+```
+
+SQL sayısal yanıt tutarlılığı 17/24 (0,708); HYBRID uçtan uca 11/16 (0,688). İçindekiler Word’de Ctrl+A → F9 ile yenilenir.

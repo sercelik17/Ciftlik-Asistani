@@ -179,6 +179,8 @@ python -m thesis_eval.revise_thesis --src "<tez>.docx" --retitle
 
 Ayrıntı: `Backend/thesis_eval/README.md`; paste edilebilir paket: `Backend/evaluation_output/revizyon_2026_10_10/tez_revizyon_paketi.html`.
 
+27 Ekim 2026 Word teslimi: `tez/Celikkaya_YL_Tez_Savunma_2026-10-27.docx` (SQL 17/24 = 0,708; HYBRID 11/16 = 0,688; Word’de Ctrl+A → F9).
+
 ---
 
 ## Proje yapısı
@@ -194,6 +196,7 @@ Ciftlik-Asistani/
 │   ├── knowledge_base/      # 16 belgelik derleme
 │   └── rag_index/
 ├── mobileapp/               # Expo arayüz (giriş, asistan, sürü, istatistik)
+├── tez/                     # Word teslim (savunma hizalı .docx)
 └── README.md
 ```
 
