@@ -31,3 +31,7 @@ mobileapp/android/
 # IDE / Editor folders
 .vscode/
 .idea/
+
+# Tez Word/PDF teslim dosyaları (yalnızca yerel; repoya girmez)
+tez/*.docx
+tez/*.pdf

@@ -1,6 +1,6 @@
 # Tez Word teslimi
 
-Danışmana gidecek son kopya: `Celikkaya_YL_Tez_Danisman_2026-10-28.docx` (PDF aynı adda). Çalışma kopyası: `Celikkaya_YL_Tez_Savunma_2026-10-27.docx`. Gönderim listesi `DANISMAN_TESLIM.md` dosyasındadır.
+Word ve PDF tez dosyaları git’te yoktur; yalnızca yerelde `tez/` klasöründe durur. Bu depoda kod ve değerlendirme çıktıları vardır.
 
 Kaynak, 24 Ekim 2026 PDF tezinin `pdf2docx` dönüşümüdür. Sayılar, RAG terimleri, Tablo 4.8 / Ek SQL-HYBRID hücreleri ve bölüm başlık stilleri `Backend/thesis_eval/finalize_thesis_docx.py` ile hizalanmıştır.
 
