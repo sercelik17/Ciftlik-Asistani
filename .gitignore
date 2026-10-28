@@ -35,3 +35,4 @@ mobileapp/android/
 # Tez Word/PDF teslim dosyaları (yalnızca yerel; repoya girmez)
 tez/*.docx
 tez/*.pdf
+tez/DANISMAN_TESLIM.md
