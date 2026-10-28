@@ -28,8 +28,8 @@ class RAGSettings:
     bm25_k1: float = float(os.getenv("RAG_BM25_K1", "1.5"))
     bm25_b: float = float(os.getenv("RAG_BM25_B", "0.75"))
     llm_temperature: float = float(os.getenv("RAG_LLM_TEMPERATURE", "0.0"))
-    llm_num_predict: int = int(os.getenv("RAG_LLM_NUM_PREDICT", "160"))
-    llm_num_ctx: int = int(os.getenv("RAG_LLM_NUM_CTX", "2048"))
+    llm_num_predict: int = int(os.getenv("RAG_LLM_NUM_PREDICT", "400"))
+    llm_num_ctx: int = int(os.getenv("RAG_LLM_NUM_CTX", "4096"))
     llm_seed: int = int(os.getenv("RAG_LLM_SEED", "0"))
     faiss_metric: str = os.getenv("RAG_FAISS_METRIC", "l2")
 

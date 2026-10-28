@@ -9,6 +9,8 @@ from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 
+from .answer_cleanup import finish_answer
+from .chunk_filter import is_low_value_chunk
 from .hybrid_retriever import HybridRetriever
 from .settings import settings
 
@@ -341,6 +343,9 @@ Yalnızca yukarıdaki kaynak bağlamına dayanarak Türkçe cevap ver."""
             current_count = source_counts.get(source_name, 0)
 
             if current_count >= 2:
+                continue
+
+            if is_low_value_chunk(doc.page_content or ""):
                 continue
 
             selected.append(doc)
@@ -771,6 +776,7 @@ Yalnızca yukarıdaki kaynak bağlamına dayanarak Türkçe cevap ver."""
                 raw_text=str(response.content),
                 valid_source_ids=valid_source_ids,
             )
+            answer_text = finish_answer(answer_text)
 
             return {
                 "answer": answer_text,

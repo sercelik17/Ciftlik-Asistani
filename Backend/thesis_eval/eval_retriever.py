@@ -9,6 +9,7 @@ from pathlib import Path
 
 import numpy as np
 
+from thesis_rag.chunk_filter import is_low_value_chunk
 from thesis_rag.settings import settings
 
 _TOKEN_RE = re.compile(r"[\w-]+", re.UNICODE)
@@ -327,10 +328,14 @@ class TorchFreeRetriever:
         mode: str = "hybrid",
     ) -> list[dict]:
         indices = self._ranked_indices(
-            question, final_top_k=final_top_k, mode=mode
+            question, final_top_k=max(final_top_k * 3, final_top_k), mode=mode
         )
         hits = []
         for i in indices:
+            if is_low_value_chunk(self.texts[i]):
+                continue
+            if len(hits) >= final_top_k:
+                break
             hits.append({
                 "title": self.titles[i],
                 "text": self.texts[i],

@@ -15,11 +15,23 @@ from thesis_eval.eval_retriever import TorchFreeRetriever, _post_json
 from thesis_rag.farm_adapter import FarmDataService
 from thesis_rag.farm_context import current_farm_id, farm_sql_clause
 from thesis_rag.route_rules import deterministic_route, _normalize
+from thesis_rag.answer_cleanup import finish_answer
+from thesis_rag.chunk_filter import is_low_value_chunk
 from thesis_rag.safety import (
     VETERINARY_DISCLAIMER,
     ensure_veterinary_disclaimer,
     is_diagnosis_or_treatment_request,
     refuse_diagnosis_answer,
+)
+
+RAG_SYSTEM = (
+    "Sen süt sığırcılığı alanında kaynak-temelli bir danışmansın. "
+    "Yalnızca verilen kaynak bağlamını kullan. Her zaman Türkçe yaz. "
+    "3 veya 4 tam cümle kur; cümleyi yarıda kesme. "
+    "Soruyu doğrudan yanıtla. Kaynakta yoksa 'Bu sorunun yanıtı verilen "
+    "kaynaklarda yok.' yaz, uydurma. İngilizce sözcük bırakma. "
+    "Tanı koyma, antibiyotik veya doz önerme. "
+    "Her bilimsel cümlenin sonunda [K1] veya [K2] yaz."
 )
 from thesis_rag.settings import settings
 from thesis_rag.sql_guard import reject_unsafe_sql
@@ -406,9 +418,13 @@ class LocalThesisService:
         return "RAG"
 
     def _rag(self, question: str) -> dict[str, Any]:
-        hits = self.retriever.retrieve_hits(
-            question, final_top_k=settings.final_top_k, mode="hybrid"
-        )
+        hits = [
+            hit
+            for hit in self.retriever.retrieve_hits(
+                question, final_top_k=settings.final_top_k * 2, mode="hybrid"
+            )
+            if not is_low_value_chunk(hit.get("text") or "")
+        ][: settings.final_top_k]
         blocks = []
         sources = []
         for i, hit in enumerate(hits, start=1):
@@ -423,12 +439,12 @@ class LocalThesisService:
                 "page": hit.get("page"),
             })
         context = "\n\n---\n\n".join(blocks) or "Kaynak bulunamadı."
-        answer = _chat(
-            "Sen süt sığırcılığı alanında kaynak-temelli bir danışmansın. "
-            "SADECE verilen kaynak bağlamını kullan. HER ZAMAN TÜRKÇE cevap ver. "
-            "En fazla 3 kısa cümle yaz. Tanı koyma, antibiyotik veya doz önerme. "
-            "Her bilimsel cümlenin sonunda [K1] veya [K2] yaz. Kaynakta yoksa uydurma.",
-            f"SORU:\n{question}\n\nKAYNAK BAĞLAMI:\n{context}",
+        answer = finish_answer(
+            _chat(
+                RAG_SYSTEM,
+                f"SORU:\n{question}\n\nKAYNAK BAĞLAMI:\n{context}",
+                num_predict=settings.llm_num_predict,
+            )
         )
         return {
             "answer": ensure_veterinary_disclaimer(answer),

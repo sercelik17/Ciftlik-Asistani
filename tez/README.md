@@ -14,6 +14,10 @@ MAKÜ Fen Bilimleri Enstitüsü kılavuzuna göre ayarlandı: sol 4 cm, sağ 2 c
 
 Tablo 4.9 kaynak parçası okunarak yapılan kodlamadır (uygunluk 12/15, bağlılık 7/15) ve veteriner formu değildir. İki tablo arasında uygunluk κ = 1,00, bağlılık κ = 0,55.
 
+## Sohbet yanıtı
+
+Held-out üretim sayıları 160 token / 2048 bağlam koşusuna aittir. Sohbet yolunda varsayılan üretim 400 token, bağlam 4096’dır; kesilmiş İngilizce kuyruk ve kaynakça parçası yanıta bırakılmaz. Bu ortamda Ollama olmadığı için 15 soru yeniden üretilmedi. Yerelde `ollama pull mistral` ve `bge-m3` sonrası backend’i yeniden başlatın.
+
 ## Metindeki bağlayıcı sayılar
 
 | Ölçüt | Değer |
