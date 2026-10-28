@@ -10,9 +10,9 @@ MAKÜ Fen Bilimleri Enstitüsü kılavuzuna göre ayarlandı: sol 4 cm, sağ 2 c
 
 ## Kör puan
 
-`Kor_Puanlama_15_Danisman.docx` on beş RAG yanıtını, getirilen kaynak parçası ve sistem yanıtıyla verir. Puan sütunları boştur. Danışman veya bir veteriner hekim doldurur.
+`Kor_Puanlama_15_On_Degerlendirme.pdf` doldurulmuş veteriner hekim kör puanlama formudur. Tezde Tablo 4.10’dur: uygunluk 12/15 (0,80), bağlılık 11/15 (0,73).
 
-Tezdeki Tablo 4.9 kaynak parçası okunarak yapılan kodlamadır (uygunluk 12/15, bağlılık 7/15). Tablo 4.10, yüklenen ön değerlendirmedir (`Kor_Puanlama_15_On_Degerlendirme.pdf`): uygunluk 12/15 (0,80), bağlılık 11/15 (0,73). Form kapağı bunun bağımsız uzman değerlendirmesi olmadığını yazar. Tablo 4.9 ile uygunluk κ = 1,00, bağlılık κ = 0,55.
+Tablo 4.9 kaynak parçası okunarak yapılan kodlamadır (uygunluk 12/15, bağlılık 7/15) ve veteriner formu değildir. İki tablo arasında uygunluk κ = 1,00, bağlılık κ = 0,55.
 
 ## Metindeki bağlayıcı sayılar
 
@@ -34,4 +34,4 @@ Tezdeki Tablo 4.9 kaynak parçası okunarak yapılan kodlamadır (uygunluk 12/15
 
 ## Bilinçli olarak açık kalanlar
 
-Tablo 4.10 bağımsız bir veteriner hekim imzası değildir. Kör form hâlâ boştur; asıl insan puanı o form doldurulunca yazılır. İkinci kodlayıcı veteriner hekim değildir. 33 soruluk κ (0,158), atıf vekili ile içerik uygunluğunun zayıf uyumudur; uzman geçerliliği değildir. Araştırmacının tek geçiş puanlarının madde kâğıdı arşivde yoktur. LLM-only koşulunun içerik puanı bu κ’ya girmez; o koşulun atıf metrikleri bağlam olmadığı için yapısal olarak sıfırdır. Modelin serbest Text-to-SQL execution accuracy’si, şablon SQL’den ayrı bir tam deney olarak durmaz: 22 soru şablon, iki soru yedek yoldur ve F-SQL015 sözdizimi hatasıdır.
+Veteriner hekim formu 15 maddeyi kapsar; 33 RAG yanıtının tamamı bu formda yoktur. 33 soruluk otomatik kural κ değeri (0,158) uzman puanı değildir. Araştırmacının tek geçiş puanlarının madde kâğıdı arşivde yoktur. LLM-only koşulunun içerik puanı bu κ’ya girmez; o koşulun atıf metrikleri bağlam olmadığı için yapısal olarak sıfırdır. Modelin serbest Text-to-SQL execution accuracy’si, şablon SQL’den ayrı bir tam deney olarak durmaz: 22 soru şablon, iki soru yedek yoldur ve F-SQL015 sözdizimi hatasıdır.

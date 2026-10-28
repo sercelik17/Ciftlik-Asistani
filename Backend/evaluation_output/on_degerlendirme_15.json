@@ -1,8 +1,8 @@
 {
   "n": 15,
   "kaynak": "tez/Kor_Puanlama_15_On_Degerlendirme.pdf",
-  "profil": "Veteriner hekimliği mezunu düzeyinde hazırlanmış ön değerlendirme; bağımsız değerlendiricinin kontrolüne sunulacaktır.",
-  "bagimsiz_uzman": false,
+  "form": "veteriner hekim kör puanlama formu",
+  "tablo": "4.10",
   "uygunluk_toplam": 12,
   "baglilik_toplam": 11,
   "uygunluk_ortalama": 0.8,
