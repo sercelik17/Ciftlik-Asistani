@@ -1,0 +1,34 @@
+{
+  "n": 15,
+  "kaynak": "tez/Kor_Puanlama_15_On_Degerlendirme.pdf",
+  "profil": "Veteriner hekimliği mezunu düzeyinde hazırlanmış ön değerlendirme; bağımsız değerlendiricinin kontrolüne sunulacaktır.",
+  "bagimsiz_uzman": false,
+  "uygunluk_toplam": 12,
+  "baglilik_toplam": 11,
+  "uygunluk_ortalama": 0.8,
+  "baglilik_ortalama": 0.73,
+  "tablo_4_9_ile": {
+    "uygunluk_uyum": 1.0,
+    "uygunluk_kappa": 1.0,
+    "baglilik_uyum": 0.73,
+    "baglilik_kappa": 0.55,
+    "fark_maddeler": ["F-RAG004", "F-RAG008", "F-RAG013", "F-RAG016"]
+  },
+  "satirlar": [
+    {"id": "F-RAG001", "uygunluk": 0, "baglilik": 0, "not": "Klinik mastitisin belirtileri gözle görülebilir. Yanıtta bu ayrım ters anlatılmış."},
+    {"id": "F-RAG004", "uygunluk": 1, "baglilik": 2, "not": "Süt kalitesi ve mastitis ilişkisi yerinde. Somatik hücre sayısının neden takip edildiği eksik."},
+    {"id": "F-RAG008", "uygunluk": 1, "baglilik": 1, "not": "Süt kalitesiyle ilişki var; cümle yarım. Sayısal eşikler verilen parçada yok."},
+    {"id": "F-RAG010", "uygunluk": 1, "baglilik": 1, "not": "Süt ve döl veriminde düşüş var. Vücut ağırlığı kaybı belirtilmemiş."},
+    {"id": "F-RAG011", "uygunluk": 0, "baglilik": 0, "not": "Kesif yem miktarı ile yemleme sıklığı karıştırılmış."},
+    {"id": "F-RAG013", "uygunluk": 1, "baglilik": 1, "not": "Kalsiyum dengesine değinilmiş; taze inekteki asıl risk anlaşılır değil."},
+    {"id": "F-RAG014", "uygunluk": 0, "baglilik": 0, "not": "Ketozis negatif enerji dengesi yerine kalsiyum düşüklüğüne bağlanmış."},
+    {"id": "F-RAG016", "uygunluk": 2, "baglilik": 2, "not": "DCAD, vücut kondisyonu, stres ve barınak noktaları kaynakla uyumlu."},
+    {"id": "F-RAG018", "uygunluk": 1, "baglilik": 1, "not": "Koliform düzeyi ile antikor geçişi karıştırılmış; hastalık riskleri eksik."},
+    {"id": "F-RAG020", "uygunluk": 0, "baglilik": 0, "not": "Sütten kesme yerine beyaz peynir; soruyla ilgisiz ve parçada yok."},
+    {"id": "F-RAG024", "uygunluk": 1, "baglilik": 0, "not": "Kızgınlık tespiti var; gebelik oranı gibi temel sürü göstergeleri yok."},
+    {"id": "F-RAG025", "uygunluk": 0, "baglilik": 0, "not": "Topallığın refaha etkisi yok; makalenin yöntemi aktarılmış."},
+    {"id": "F-RAG027", "uygunluk": 0, "baglilik": 0, "not": "Soluma artışı ve yem azalması yok; ortam koşulları sıralanmış."},
+    {"id": "F-RAG030", "uygunluk": 2, "baglilik": 1, "not": "Hijyen başlıkları genel olarak doğru; tümü sunulan parçada açık değil."},
+    {"id": "F-RAG033", "uygunluk": 2, "baglilik": 2, "not": "Tanı ve antibiyotik reddedilip muayeneye yönlendirilmiş."}
+  ]
+}
